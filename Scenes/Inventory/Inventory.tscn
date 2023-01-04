@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Inventory/Desc_Panel.tscn" type="PackedScene" id=3]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource( 2 )
+allItens = [ {
+"Disruptor de sinal": [ "Ataques possuem 50% de causarem \"Lagado\".", "res://Sprites/UI/Icons/Upgrades/Signal icon.png" ],
+"Raio Imobilizador": [ "Aplica \"Imobilizado\" em 1 inimigo", "res://Sprites/UI/Icons/Upgrades/Ray icon.png" ]
+}, {
+"Orbe de Conexão": [ "Recupera 5 de vida.", "res://Sprites/UI/Icons/Consumiveis/Connect icon.png" ],
+"Orbe de Limpeza": [ "Remove status negativos.", "res://Sprites/UI/Icons/Consumiveis/Orb icon.png" ]
+} ]
+
+[node name="BG_Inventory" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.929412 )
+anchor_left = 0.485352
+anchor_right = 1.0
+anchor_bottom = 1.01
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Navigation_Buttons" type="HBoxContainer" parent="BG_Inventory"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -239.5
+margin_top = 10.0
+margin_right = 253.5
+margin_bottom = 57.0
+rect_min_size = Vector2( 450, 0 )
+mouse_filter = 0
+custom_constants/separation = 15
+
+[node name="BT_Upgrade" type="Button" parent="BG_Inventory/Navigation_Buttons"]
+margin_right = 150.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 150, 0 )
+text = "Upgrades"
+
+[node name="BT_Consumiveis" type="Button" parent="BG_Inventory/Navigation_Buttons"]
+margin_left = 165.0
+margin_right = 315.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 150, 0 )
+text = "Consumíveis"
+
+[node name="BT_Chaves" type="Button" parent="BG_Inventory/Navigation_Buttons"]
+margin_left = 330.0
+margin_right = 480.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 150, 0 )
+text = "Chaves"
+
+[node name="GridContainer" type="GridContainer" parent="BG_Inventory"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -261.5
+margin_top = -186.0
+margin_right = 262.5
+margin_bottom = 206.0
+mouse_filter = 0
+columns = 4
+
+[node name="BT_Close" type="Button" parent="BG_Inventory"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.5
+margin_top = -52.0
+margin_right = 63.5
+margin_bottom = -15.0
+text = "Fechar"
+
+[node name="BT_Inventario" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -149.0
+margin_top = 11.0
+margin_right = -8.0
+margin_bottom = 50.0
+text = "Inventário"
+
+[node name="Desc_Panel" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Upgrade" to="." method="_on_bt_item_down" binds= [ "Upgrades" ]]
+[connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Consumiveis" to="." method="_on_bt_item_down" binds= [ "Consumiveis" ]]
+[connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
+[connection signal="pressed" from="BT_Inventario" to="." method="_on_BT_Inventario_pressed"]

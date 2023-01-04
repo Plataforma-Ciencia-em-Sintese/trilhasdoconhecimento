@@ -1,0 +1,19 @@
+{
+	"glossary": [
+
+	],
+	"variables": [
+		{
+			"id": "1666657964-787",
+			"name": "CameraType",
+			"type": 0,
+			"value": "original"
+		},
+		{
+			"id": "1669121331-648",
+			"name": "Ajude Galileu",
+			"type": 0,
+			"value": "disabled"
+		}
+	]
+}

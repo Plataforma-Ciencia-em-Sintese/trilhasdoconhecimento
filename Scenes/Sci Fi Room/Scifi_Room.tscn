@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://3D/Sci fi Room/Interiors.fbx" type="PackedScene" id=1]
+[ext_resource path="res://3D/Sci fi Room/Floor Test.material" type="Material" id=2]
+
+[node name="Interiors" instance=ExtResource( 1 )]
+
+[node name="SM_Bld_HangarPlatform_01" parent="RootNode/Interiors/Buildings/SM_Bld_Hanger_01" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_HangerFloor_01" parent="RootNode/Interiors/Buildings/SM_Bld_Hanger_01" index="4"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Door_03" parent="RootNode/Interiors/Buildings/SM_Bld_Hanger_01" index="7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 6.44238, -15.057 )
+
+[node name="SM_Bld_Floor_011__27_" parent="RootNode/Interiors/Buildings" index="195"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__26_" parent="RootNode/Interiors/Buildings" index="196"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__25_" parent="RootNode/Interiors/Buildings" index="197"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__24_" parent="RootNode/Interiors/Buildings" index="198"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__23_" parent="RootNode/Interiors/Buildings" index="199"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__22_" parent="RootNode/Interiors/Buildings" index="200"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__21_" parent="RootNode/Interiors/Buildings" index="201"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__20_" parent="RootNode/Interiors/Buildings" index="202"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_011__19_" parent="RootNode/Interiors/Buildings" index="203"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_07__9_" parent="RootNode/Interiors/Buildings" index="278"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_07__10_" parent="RootNode/Interiors/Buildings" index="279"]
+material/0 = ExtResource( 2 )
+
+[node name="SM_Bld_Floor_07__12_" parent="RootNode/Interiors/Buildings" index="319"]
+material/0 = ExtResource( 2 )

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Inventory/Item_BT.gd" type="Script" id=1]
+
+[node name="Item_BT" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 128 )
+expand_icon = true
+script = ExtResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_Item_BT_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Item_BT_mouse_exited"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+albedo_color = Color( 1, 0.423529, 0, 1 )
+uv1_triplanar = true
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.422375
+height = 0.428203
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.20711, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1.08408, 0, 0 ) ]
+}
+
+[node name="MovableObstacle" type="KinematicBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.386985, 0, 0, 0, -1.69157e-08, -0.386985, 0, 0.386985, -1.69157e-08, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="NavigationObstacle" type="NavigationObstacle" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Walk"
+playback_speed = 2.0
+anims/RESET = SubResource( 3 )
+anims/Walk = SubResource( 4 )

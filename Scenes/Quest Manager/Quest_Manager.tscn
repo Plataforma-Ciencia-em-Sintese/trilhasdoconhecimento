@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Quest Manager/Quest_Manager.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Quest Manager/Reward_Icon.tscn" type="PackedScene" id=3]
+
+[node name="Quest_Manager" type="Spatial" groups=["QuestManager"]]
+script = ExtResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BG" type="Panel" parent="UI"]
+modulate = Color( 1, 1, 1, 0.694118 )
+margin_right = 306.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="UI"]
+margin_top = 5.0
+margin_right = 154.0
+margin_bottom = 30.0
+rect_scale = Vector2( 2, 2 )
+text = "Diário de missões"
+align = 1
+valign = 1
+
+[node name="BG_Mission_Title" type="ColorRect" parent="UI"]
+margin_top = 55.0
+margin_right = 307.0
+margin_bottom = 97.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+
+[node name="Title_Mission" type="Label" parent="UI/BG_Mission_Title"]
+margin_top = 2.0
+margin_right = 306.0
+margin_bottom = 40.0
+align = 1
+valign = 1
+
+[node name="Mission_Desc" type="Label" parent="UI"]
+margin_top = 99.0
+margin_right = 306.0
+margin_bottom = 218.0
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Scroll_Steps" type="ScrollContainer" parent="UI"]
+margin_left = 3.0
+margin_top = 225.0
+margin_right = 303.0
+margin_bottom = 416.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="Checklist_Box" type="VBoxContainer" parent="UI/Scroll_Steps"]
+rect_clip_content = true
+custom_constants/separation = 10
+
+[node name="Scroll_Rewards" type="ScrollContainer" parent="UI"]
+margin_left = 55.0
+margin_top = 384.0
+margin_right = 255.0
+margin_bottom = 584.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="Rewards_Box" type="VBoxContainer" parent="UI/Scroll_Rewards"]
+alignment = 1
+
+[node name="Reward" parent="UI/Scroll_Rewards/Rewards_Box" instance=ExtResource( 3 )]
+visible = false
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="Reward3" parent="UI/Scroll_Rewards/Rewards_Box" instance=ExtResource( 3 )]
+visible = false
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+
+[node name="Reward2" parent="UI/Scroll_Rewards/Rewards_Box" instance=ExtResource( 3 )]
+visible = false
+margin_top = 136.0
+margin_right = 64.0
+margin_bottom = 200.0
+
+[node name="Reward4" parent="UI/Scroll_Rewards/Rewards_Box" instance=ExtResource( 3 )]
+visible = false
+margin_top = 204.0
+margin_right = 64.0
+margin_bottom = 268.0
+
+[node name="Reward5" parent="UI/Scroll_Rewards/Rewards_Box" instance=ExtResource( 3 )]
+visible = false
+margin_top = 272.0
+margin_right = 64.0
+margin_bottom = 336.0
+
+[node name="Reward" type="Label" parent="UI"]
+visible = false
+margin_top = 335.0
+margin_right = 153.0
+margin_bottom = 360.0
+rect_scale = Vector2( 2, 2 )
+text = "Recompensa"
+align = 1
+valign = 1
+
+[node name="Block_Mouse" type="Panel" parent="UI"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1015.0
+margin_bottom = 607.0
+
+[node name="Buttons_Diary" type="CanvasLayer" parent="."]
+
+[node name="BT_Open" type="Button" parent="Buttons_Diary"]
+margin_right = 126.0
+margin_bottom = 49.0
+text = "Ver missão"
+
+[node name="BT_Close" type="Button" parent="Buttons_Diary"]
+margin_left = 306.0
+margin_top = 4.0
+margin_right = 335.0
+margin_bottom = 30.0
+text = "X"
+
+[connection signal="pressed" from="Buttons_Diary/BT_Open" to="." method="_on_BT_Open_pressed"]
+[connection signal="pressed" from="Buttons_Diary/BT_Close" to="." method="_on_BT_Close_pressed"]

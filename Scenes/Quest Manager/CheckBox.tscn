@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="CheckBox" type="CheckBox"]
+margin_right = 24.0
+margin_bottom = 24.0
+mouse_filter = 2
+text = "item name"

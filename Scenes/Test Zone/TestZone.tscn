@@ -1,0 +1,194 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Textures/Prototype/texture_13.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Test Zone/Floor_Material.tres" type="Material" id=2]
+[ext_resource path="res://Textures/Prototype/texture_12.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Prototype/texture_11.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Post Processing/TestZone.tres" type="Environment" id=6]
+[ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Movable Obstacle/MovableObstacle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/NPCs/NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Character/Character_Official.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="ConcavePolygonShape" id=12]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[sub_resource type="ConcavePolygonShape" id=14]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 3, 2, 3 )
+
+[sub_resource type="ConcavePolygonShape" id=15]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 3, 2, 3 )
+
+[sub_resource type="ConcavePolygonShape" id=16]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=8]
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="NavigationMesh" id=11]
+vertices = PoolVector3Array( 8.11, 1.02, -3.81, 9.39, 1.02, -3.81, 9.39, 1.02, -9.33, 5.87, 1.02, -3.81, 8.11, 1.02, -3.81, 9.39, 1.02, -9.33, 5.87, 1.02, -3.81, 9.39, 1.02, -9.33, -9.33, 1.02, -9.33, -9.33, 1.02, -3.81, 3.15, 1.02, -1.09, 5.39, 1.02, -1.09, 5.39, 1.02, -3.33, -9.33, 1.02, -3.81, -9.33, 1.02, -1.09, -5.09, 1.02, -1.09, 5.39, 1.02, -3.33, 5.87, 1.02, -3.81, -5.09, 1.02, -1.09, 3.15, 1.02, -1.09, 5.39, 1.02, -3.33, 8.59, 1.02, 0.91, 8.19, 1.02, 1.31, 9.39, 1.02, 1.31, 9.39, 1.02, -3.81, 8.11, 1.02, -3.81, 8.59, 1.02, -3.33, 9.39, 1.02, 1.31, 9.39, 1.02, -3.81, 8.59, 1.02, -3.33, 8.59, 1.02, 0.91, 6.11, 1.02, 1.31, 7.87, 1.02, 1.31, 7.47, 1.09, 0.91, 6.51, 1.09, 0.91, 6.31, 1.02, 1.11, 7.67, 1.02, 1.11, 7.47, 1.09, 0.91, 7.47, 1.99, -2.45, 6.51, 1.99, -2.45, 6.51, 1.09, 0.91, 7.47, 1.19, 0.49, 6.51, 1.19, 0.49, -9.33, 1.02, 1.07, -5.09, 1.02, 1.07, -5.57, 1.02, 0.589999, -5.57, 1.02, -0.610001, -5.09, 1.02, -1.09, -9.33, 1.02, -1.09, -9.33, 1.02, 1.07, -5.57, 1.02, 0.589999, -5.57, 1.02, -0.610001, -9.33, 1.02, -1.09, 5.39, 1.02, -1.09, 3.15, 1.02, -1.09, 3.63, 1.02, -0.610001, 3.63, 1.02, 0.589999, 3.15, 1.02, 1.07, 5.47, 1.02, 1.07, 5.39, 1.02, -1.09, 3.63, 1.02, -0.610001, 3.63, 1.02, 0.589999, 5.47, 1.02, 1.07, 5.79, 1.02, 1.31, 5.47, 1.02, 1.07, 3.15, 1.02, 1.07, -5.09, 1.02, 1.07, -9.33, 1.02, 1.07, -9.33, 1.02, 1.31, 5.79, 1.02, 1.31, 3.15, 1.02, 1.07, -5.09, 1.02, 1.07, -9.33, 1.02, 1.31, 9.39, 1.02, 9.31, 9.39, 1.02, 1.31, 8.19, 1.02, 1.31, 9.39, 1.02, 9.31, 8.19, 1.02, 1.31, 7.87, 1.02, 1.31, 9.39, 1.02, 9.31, 7.87, 1.02, 1.31, 6.11, 1.02, 1.31, 9.39, 1.02, 9.31, 6.11, 1.02, 1.31, 5.79, 1.02, 1.31, 5.79, 1.02, 1.31, -9.33, 1.02, 1.31, -9.33, 1.02, 9.39, 9.39, 1.02, 9.31 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 9, 8, 6 ), PoolIntArray( 6, 8, 7 ), PoolIntArray( 10, 12, 11 ), PoolIntArray( 14, 13, 15 ), PoolIntArray( 15, 13, 16 ), PoolIntArray( 16, 13, 17 ), PoolIntArray( 20, 19, 18 ), PoolIntArray( 23, 22, 21 ), PoolIntArray( 26, 25, 24 ), PoolIntArray( 30, 29, 27 ), PoolIntArray( 27, 29, 28 ), PoolIntArray( 34, 33, 35 ), PoolIntArray( 35, 33, 36 ), PoolIntArray( 35, 36, 32 ), PoolIntArray( 35, 32, 31 ), PoolIntArray( 40, 42, 37 ), PoolIntArray( 37, 42, 41 ), PoolIntArray( 41, 42, 39 ), PoolIntArray( 41, 39, 38 ), PoolIntArray( 45, 44, 43 ), PoolIntArray( 48, 47, 46 ), PoolIntArray( 50, 49, 51 ), PoolIntArray( 51, 49, 52 ), PoolIntArray( 55, 54, 53 ), PoolIntArray( 58, 57, 56 ), PoolIntArray( 60, 59, 61 ), PoolIntArray( 61, 59, 62 ), PoolIntArray( 65, 64, 63 ), PoolIntArray( 68, 67, 66 ), PoolIntArray( 70, 69, 71 ), PoolIntArray( 71, 69, 72 ), PoolIntArray( 73, 75, 74 ), PoolIntArray( 78, 77, 76 ), PoolIntArray( 81, 80, 79 ), PoolIntArray( 82, 84, 83 ), PoolIntArray( 86, 85, 87 ), PoolIntArray( 87, 85, 88 ) ]
+sample_partition_type = 1
+geometry_source_geometry_mode = 1
+geometry_source_group_name = "NaviOBJ"
+cell_size = 0.08
+cell_height = 0.01
+agent_height = 2.0
+agent_max_climb = 0.07
+agent_max_slope = 90.0
+region_min_size = 0.0
+region_merge_size = 0.0
+edge_max_length = 0.0
+edge_max_error = 3.0
+filter_low_hanging_obstacles = true
+
+[node name="TestZone" type="Spatial"]
+
+[node name="Stage_Solids" type="Spatial" parent="." groups=["NaviOBJ"]]
+
+[node name="Floor" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage_Solids/Floor" groups=["Walkable"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage_Solids/Floor/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="Wall6" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 1.9584, 0, 0, 0, 1, 0, 0, 0, 0.5, -1, 2, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage_Solids/Wall6"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage_Solids/Wall6/StaticBody"]
+shape = SubResource( 14 )
+
+[node name="Wall2" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 9.936, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 2, -10 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="Wall3" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 9.936, 0, 1.30385e-08, 0, 1, 0, -2.38419e-06, 0, 0.05, 0, 2, 10 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="Wall4" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( -2.8185e-06, 0, 0.05, 0, 1, 0, -9.936, 0, -1.52241e-08, 10, 2, 5.96046e-08 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="Wall5" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( -2.8185e-06, 0, 0.05, 0, 1, 0, -9.936, 0, -1.52241e-08, -10, 2, 5.96046e-08 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="Door" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, -4, 2, 0 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage_Solids/Door"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage_Solids/Door/StaticBody"]
+shape = SubResource( 15 )
+
+[node name="Door2" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.5, 2, 2, 0 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage_Solids/Door2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage_Solids/Door2/StaticBody"]
+shape = SubResource( 16 )
+
+[node name="Ramp" type="MeshInstance" parent="Stage_Solids"]
+transform = Transform( 1, 0, 0, 0, 0.773513, -0.569402, 0, 0.207262, 2.12504, 7, 0.741181, -1.03407 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage_Solids/Ramp" groups=["Walkable"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage_Solids/Ramp/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="Stage_Elements" type="Spatial" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Stage_Elements"]
+transform = Transform( 0.991481, 0.123521, 0.0413189, -0.0147546, -0.208675, 0.977874, 0.12941, -0.970153, -0.205075, 0, 5, 0 )
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.357
+directional_shadow_split_2 = 0.108
+directional_shadow_split_3 = 0.445
+directional_shadow_normal_bias = 0.225
+directional_shadow_bias_split_scale = 0.266
+directional_shadow_depth_range = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Stage_Elements"]
+environment = ExtResource( 6 )
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Stage_Elements"]
+navmesh = SubResource( 11 )
+
+[node name="Moving_Obstacle" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79289, 2, 1 )
+
+[node name="MovableObstacle" parent="Moving_Obstacle" instance=ExtResource( 8 )]
+
+[node name="Character" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900761, 1, 1.3953 )
+
+[node name="Camera" type="Camera" parent="Character" groups=["Camera"]]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 12, 6 )
+current = true
+
+[node name="Pointer" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3 )
+camera = NodePath("../Character/Camera")
+
+[node name="Non Playable Chars" type="Spatial" parent="."]
+
+[node name="NPC2" parent="Non Playable Chars" instance=ExtResource( 9 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2, 1, 1 )
+timeline = "timeline-1669120340.json"
+
+[editable path="Character"]

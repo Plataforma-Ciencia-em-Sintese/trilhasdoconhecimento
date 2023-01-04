@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Item/Item.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[node name="Item" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BG" type="ColorRect" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -128.0
+color = Color( 0.14902, 0.14902, 0.14902, 1 )
+
+[node name="Desc" type="Label" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -127.0
+margin_right = -513.0
+margin_bottom = -65.0
+rect_scale = Vector2( 2, 2 )
+text = "VOCE RECEBEU O ITEM X!
+Use ele para conseguir fazer isso e isso"
+align = 1
+valign = 1
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 1021.0
+margin_bottom = 469.0
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1000, 450 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Body" type="MeshInstance" parent="ViewportContainer/Viewport"]
+transform = Transform( 0.619121, 0, 0, 0, 0.619121, 0, 0, 0, 0.619121, 0, 0, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
+transform = Transform( 0.999945, 0.000805818, -0.0104776, 0, 0.997056, 0.0766822, 0.0105085, -0.076678, 0.997001, -0.0488578, 0.357575, 4.64909 )
+current = true
