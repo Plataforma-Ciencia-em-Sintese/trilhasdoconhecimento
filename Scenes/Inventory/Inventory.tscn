@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Inventory/Desc_Panel.tscn" type="PackedScene" id=3]
 
-[node name="Inventory" type="CanvasLayer"]
+[node name="Inventory" type="CanvasLayer" groups=["Inventory"]]
 script = ExtResource( 2 )
 allItens = [ {
 "Disruptor de sinal": [ "Ataques possuem 50% de causarem \"Lagado\".", "res://Sprites/UI/Icons/Upgrades/Signal icon.png" ],
