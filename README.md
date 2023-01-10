@@ -1,4 +1,4 @@
-# trilhasdoconhecimento
+# Trilhas do Conhecimento
 Projeto Trilha Cientifica - IBICT
 
 ## Versão
