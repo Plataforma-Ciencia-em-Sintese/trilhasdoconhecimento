@@ -9,6 +9,7 @@ var actualStep = 0
 var totalSteps = 0
 var show = false
 
+
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
