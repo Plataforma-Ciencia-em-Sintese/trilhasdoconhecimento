@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://3D/Character/Animations/Idle.tres" type="Animation" id=1]
-[ext_resource path="res://3D/Character/Animations/Walking2.tres" type="Animation" id=2]
-[ext_resource path="res://3D/Character/Base/skin.material" type="Material" id=3]
+[ext_resource path="res://3D/NPCs/Animations/Idle.tres" type="Animation" id=1]
+[ext_resource path="res://3D/NPCs/Animations/Walking2.tres" type="Animation" id=2]
+[ext_resource path="res://3D/NPCs/Base/skin.material" type="Material" id=3]
 [ext_resource path="res://Scenes/Character/Movement.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Character/Talking.gd" type="Script" id=5]
 
