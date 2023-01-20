@@ -34,7 +34,7 @@ margin_bottom = 39.0
 custom_fonts/font = ExtResource( 2 )
 text = "Desenvolvido por "
 
-[node name="Who" type="Button" parent="development" groups=["button"]]
+[node name="Who" type="Button" parent="development"]
 modulate = Color( 0.00392157, 0.0117647, 0.227451, 1 )
 margin_left = 191.0
 margin_right = 259.0
@@ -65,7 +65,7 @@ margin_bottom = 425.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Play" type="Button" parent="Buttons" groups=["button"]]
+[node name="Play" type="Button" parent="Buttons"]
 margin_right = 204.0
 margin_bottom = 43.0
 focus_mode = 0
@@ -75,21 +75,10 @@ text = "Play"
 flat = true
 icon_align = 1
 
-[node name="Quit" type="Button" parent="Buttons" groups=["button"]]
+[node name="Configure" type="Button" parent="Buttons"]
 margin_top = 63.0
 margin_right = 204.0
 margin_bottom = 106.0
-focus_mode = 0
-custom_fonts/font = ExtResource( 1 )
-enabled_focus_mode = 0
-text = "Sair"
-flat = true
-icon_align = 1
-
-[node name="Configure" type="Button" parent="Buttons" groups=["button"]]
-margin_top = 126.0
-margin_right = 204.0
-margin_bottom = 169.0
 rect_min_size = Vector2( 0.051, 0 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
@@ -97,3 +86,19 @@ enabled_focus_mode = 0
 text = "Configurações"
 flat = true
 icon_align = 1
+
+[node name="Quit" type="Button" parent="Buttons"]
+margin_top = 126.0
+margin_right = 204.0
+margin_bottom = 169.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Sair"
+flat = true
+icon_align = 1
+
+[connection signal="pressed" from="development/Who" to="." method="_on_Who_pressed"]
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]

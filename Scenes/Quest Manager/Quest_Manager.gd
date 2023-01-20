@@ -8,14 +8,17 @@ var missionName = ""
 var actualStep = 0
 var totalSteps = 0
 var show = false
+var active = false
 
-
-onready var player = get_tree().get_nodes_in_group("Player")[0]
+var player 
 
 func _ready():
 	$UI.hide()
 	$Buttons_Diary/BT_Close.hide()
 	$Buttons_Diary.hide()
+	
+	if active == true:
+		player = get_tree().get_nodes_in_group("Player")[0]
 
 #func _physics_process(delta):
 #	print(actualStep)
