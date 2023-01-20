@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=3]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/NameFont.tres" type="DynamicFont" id=4]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.294118, 0.00392157, 1 )
+
+[node name="development" type="HBoxContainer" parent="."]
+anchor_left = 0.381
+anchor_top = 0.892
+anchor_right = 0.62
+anchor_bottom = 0.97
+margin_left = -0.144012
+margin_top = -5.20001
+margin_right = 14.12
+margin_bottom = -5.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Dev" type="Label" parent="development"]
+margin_top = 7.0
+margin_right = 191.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 2 )
+text = "Desenvolvido por "
+
+[node name="Who" type="Button" parent="development"]
+modulate = Color( 0.00392157, 0.0117647, 0.227451, 1 )
+margin_left = 191.0
+margin_right = 259.0
+margin_bottom = 47.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "IBICT"
+flat = true
+
+[node name="NameGame" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = -172.0
+margin_right = 227.0
+margin_bottom = -112.0
+custom_fonts/font = ExtResource( 4 )
+text = "Trilha Cientifica IBICT"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 416.0
+margin_top = 256.0
+margin_right = 620.0
+margin_bottom = 425.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Play" type="Button" parent="Buttons"]
+margin_right = 204.0
+margin_bottom = 43.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Play"
+flat = true
+icon_align = 1
+
+[node name="Configure" type="Button" parent="Buttons"]
+margin_top = 63.0
+margin_right = 204.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 0.051, 0 )
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Configurações"
+flat = true
+icon_align = 1
+
+[node name="Quit" type="Button" parent="Buttons"]
+margin_top = 126.0
+margin_right = 204.0
+margin_bottom = 169.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Sair"
+flat = true
+icon_align = 1
+
+[connection signal="pressed" from="development/Who" to="." method="_on_Who_pressed"]
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]

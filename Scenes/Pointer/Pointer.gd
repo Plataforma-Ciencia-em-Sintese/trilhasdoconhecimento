@@ -56,3 +56,4 @@ func _on_Pointer_body_exited(body):
 
 func change_position():
 	global_transform.origin = get_tree().get_nodes_in_group("Player")[0].global_transform.origin
+

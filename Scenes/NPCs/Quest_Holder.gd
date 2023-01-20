@@ -9,3 +9,4 @@ var questScene #Cena global
 func set_quest():
 	QuestManager.start_quest(missionName,missionDesc,steps)
 	QuestManager.isInQuest = true
+

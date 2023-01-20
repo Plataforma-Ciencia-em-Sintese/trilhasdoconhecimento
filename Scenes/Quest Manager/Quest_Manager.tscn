@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Quest Manager/Quest_Manager.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/aviao-de-papel.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Quest Manager/Reward_Icon.tscn" type="PackedScene" id=3]
 
 [node name="Quest_Manager" type="Spatial" groups=["QuestManager"]]
@@ -116,9 +117,12 @@ margin_bottom = 607.0
 [node name="Buttons_Diary" type="CanvasLayer" parent="."]
 
 [node name="BT_Open" type="Button" parent="Buttons_Diary"]
-margin_right = 126.0
-margin_bottom = 49.0
-text = "Ver missão"
+margin_left = 911.0
+margin_top = 51.0
+margin_right = 1021.0
+margin_bottom = 89.0
+text = "Missão"
+icon = ExtResource( 2 )
 
 [node name="BT_Close" type="Button" parent="Buttons_Diary"]
 margin_left = 306.0

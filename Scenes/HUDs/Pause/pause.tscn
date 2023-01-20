@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/HUDs/Pause/pause.gd" type="Script" id=3]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=4]
+
+[node name="Pause" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Panel_Pause" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 0.0627451, 0.376471, 0.0627451, 1 )
+margin_left = 112.0
+margin_top = 50.0
+margin_right = 912.0
+margin_bottom = 550.0
+
+[node name="PauseText" type="Label" parent="Panel_Pause"]
+anchor_left = 0.367
+anchor_top = 0.08
+anchor_right = 0.632
+anchor_bottom = 0.218
+margin_left = 0.399994
+margin_right = 0.399963
+custom_fonts/font = ExtResource( 1 )
+text = "Pausado"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = 100.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Exit" type="Button" parent="Panel_Pause/VBoxContainer"]
+modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
+margin_top = 29.0
+margin_right = 200.0
+margin_bottom = 63.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Retomar"
+
+[node name="Home" type="Button" parent="Panel_Pause/VBoxContainer"]
+modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
+margin_top = 83.0
+margin_right = 200.0
+margin_bottom = 117.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Inicio"
+
+[node name="Options" type="Button" parent="Panel_Pause/VBoxContainer"]
+modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
+margin_top = 137.0
+margin_right = 200.0
+margin_bottom = 171.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Opções"
+
+[node name="BT_Pause" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -112.0
+margin_top = 10.0
+margin_right = -72.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 4 )
+text = "||"
+
+[connection signal="pressed" from="Panel_Pause/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Panel_Pause/VBoxContainer/Home" to="." method="_on_Home_pressed"]
+[connection signal="pressed" from="Panel_Pause/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="BT_Pause" to="." method="_on_Pause_pressed"]
