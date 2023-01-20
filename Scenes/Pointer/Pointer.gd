@@ -11,7 +11,7 @@ var isStopped: bool = false
 func _ready():
 	# Identifica quem é a camera do cenario
 	camera = get_node(camera)
-	change_position()
+#	change_position()
 
 func _physics_process(delta):
 	# Rotaciona o objeto Arrow
