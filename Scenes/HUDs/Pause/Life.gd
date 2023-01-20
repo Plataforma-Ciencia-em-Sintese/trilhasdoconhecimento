@@ -26,13 +26,13 @@ func _process(delta: float) -> void:
 		emit_signal("player_stats_changed", self)
 		
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("Power"):
-		if energia >= 10:
-			energia = energia - 10
-			emit_signal("player_stats_changed", self)
+	#if Input.is_action_just_pressed("Power"):
+		#if energia >= 10:
+			#energia = energia - 10
+			#emit_signal("player_stats_changed", self)
 			# teste, essa parte é pra ser colocada quando o player for atacado
-	if Input.is_action_just_pressed("Perdevida"):
-		if health >= 10:
-			health = health - 10
-			emit_signal("player_stats_changed", self)
-
+	#if Input.is_action_just_pressed("Perdevida"):
+	#	if health >= 10:
+	#		health = health - 10
+	#		emit_signal("player_stats_changed", self)
+	pass
