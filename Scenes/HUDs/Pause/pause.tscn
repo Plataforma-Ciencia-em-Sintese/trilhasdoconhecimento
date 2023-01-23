@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/HUDs/Pause/pause.gd" type="Script" id=3]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=5]
 
 [node name="Pause" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -11,20 +12,28 @@ script = ExtResource( 3 )
 [node name="Panel_Pause" type="Panel" parent="."]
 visible = false
 self_modulate = Color( 0.0627451, 0.376471, 0.0627451, 1 )
-margin_left = 112.0
-margin_top = 50.0
-margin_right = 912.0
-margin_bottom = 550.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -250.0
+margin_right = 400.0
+margin_bottom = 250.0
 
 [node name="PauseText" type="Label" parent="Panel_Pause"]
 anchor_left = 0.367
 anchor_top = 0.08
 anchor_right = 0.632
 anchor_bottom = 0.218
-margin_left = 0.399994
-margin_right = 0.399963
+margin_left = 12.4
+margin_top = 5.0
+margin_right = 12.4
+margin_bottom = 5.0
 custom_fonts/font = ExtResource( 1 )
 text = "Pausado"
+align = 1
+valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Pause"]
 anchor_left = 0.5
@@ -64,7 +73,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Inicio"
 
-[node name="Options" type="Button" parent="Panel_Pause/VBoxContainer"]
+[node name="BT_Options" type="Button" parent="Panel_Pause/VBoxContainer"]
 modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
 margin_top = 137.0
 margin_right = 200.0
@@ -87,7 +96,93 @@ margin_bottom = 55.0
 custom_fonts/font = ExtResource( 4 )
 text = "||"
 
+[node name="Panel_Options" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 0.588235 )
+show_behind_parent = true
+anchor_left = 0.109
+anchor_top = 0.083
+anchor_right = 0.891
+anchor_bottom = 0.917
+margin_left = 0.383995
+margin_top = 0.199997
+margin_right = -0.384033
+margin_bottom = -0.200012
+
+[node name="Label" type="Label" parent="Panel_Options"]
+anchor_left = 0.312
+anchor_top = 0.04
+anchor_right = 0.687
+anchor_bottom = 0.192
+margin_left = 0.399994
+margin_right = 0.399963
+custom_fonts/font = ExtResource( 5 )
+text = "Opções"
+align = 1
+valign = 1
+
+[node name="BT_Exit" type="Button" parent="Panel_Options"]
+anchor_left = 0.925
+anchor_top = 0.02
+anchor_right = 0.975
+anchor_bottom = 0.1
+margin_left = -6.10352e-05
+custom_constants/hseparation = 0
+custom_fonts/font = ExtResource( 2 )
+text = "X"
+icon_align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Options"]
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.8
+margin_right = -6.10352e-05
+margin_bottom = 50.0
+
+[node name="Window" type="Button" parent="Panel_Options/VBoxContainer"]
+margin_right = 399.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "Janela"
+
+[node name="Full" type="Button" parent="Panel_Options/VBoxContainer"]
+margin_top = 52.0
+margin_right = 399.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "FullScreen"
+
+[node name="800x600" type="Button" parent="Panel_Options/VBoxContainer"]
+margin_top = 104.0
+margin_right = 399.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 1 )
+text = "800x600"
+
+[node name="1280x720" type="Button" parent="Panel_Options/VBoxContainer"]
+margin_top = 156.0
+margin_right = 399.0
+margin_bottom = 204.0
+custom_fonts/font = ExtResource( 1 )
+text = "1280x720"
+
+[node name="1920x1080" type="Button" parent="Panel_Options/VBoxContainer"]
+margin_top = 208.0
+margin_right = 399.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 1 )
+text = "1920x1080"
+
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Home" to="." method="_on_Home_pressed"]
-[connection signal="pressed" from="Panel_Pause/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Panel_Pause/VBoxContainer/BT_Options" to="." method="_on_BT_Options_pressed"]
 [connection signal="pressed" from="BT_Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="Panel_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
+[connection signal="toggled" from="Panel_Options/VBoxContainer/Window" to="." method="_on_Window_toggled"]
+[connection signal="toggled" from="Panel_Options/VBoxContainer/Full" to="." method="_on_Full_toggled"]
+[connection signal="pressed" from="Panel_Options/VBoxContainer/800x600" to="." method="_on_800x600_pressed"]
+[connection signal="pressed" from="Panel_Options/VBoxContainer/1280x720" to="." method="_on_1280x720_pressed"]
+[connection signal="pressed" from="Panel_Options/VBoxContainer/1920x1080" to="." method="_on_1920x1080_pressed"]

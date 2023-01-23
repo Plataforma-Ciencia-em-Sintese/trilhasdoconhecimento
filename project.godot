@@ -88,6 +88,11 @@ config/icon="res://icon.png"
 
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=3]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/NameFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=5]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=6]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=7]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -13,6 +16,8 @@ script = ExtResource( 3 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -16.0
+margin_right = -16.0
 color = Color( 0, 0.294118, 0.00392157, 1 )
 
 [node name="development" type="HBoxContainer" parent="."]
@@ -71,7 +76,7 @@ margin_bottom = 43.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-text = "Play"
+text = "Jogar"
 flat = true
 icon_align = 1
 
@@ -83,7 +88,7 @@ rect_min_size = Vector2( 0.051, 0 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-text = "Configurações"
+text = "Opções"
 flat = true
 icon_align = 1
 
@@ -98,7 +103,95 @@ text = "Sair"
 flat = true
 icon_align = 1
 
+[node name="Options_Layer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel_Options" type="Panel" parent="Options_Layer"]
+self_modulate = Color( 0, 0, 0, 0.588235 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -250.0
+margin_right = 400.0
+margin_bottom = 250.0
+
+[node name="Label" type="Label" parent="Options_Layer/Panel_Options"]
+anchor_left = 0.312
+anchor_top = 0.04
+anchor_right = 0.687
+anchor_bottom = 0.192
+margin_left = 0.399994
+margin_right = 0.399963
+custom_fonts/font = ExtResource( 7 )
+text = "Opções"
+align = 1
+valign = 1
+
+[node name="Exit" type="Button" parent="Options_Layer/Panel_Options"]
+anchor_left = 0.925
+anchor_top = 0.02
+anchor_right = 0.975
+anchor_bottom = 0.1
+margin_left = -6.10352e-05
+custom_constants/hseparation = 0
+custom_fonts/font = ExtResource( 6 )
+text = "X"
+icon_align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options_Layer/Panel_Options"]
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.8
+margin_right = -6.10352e-05
+margin_bottom = 50.0
+
+[node name="Window" type="Button" parent="Options_Layer/Panel_Options/VBoxContainer"]
+margin_right = 399.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = true
+text = "Janela"
+
+[node name="Full" type="Button" parent="Options_Layer/Panel_Options/VBoxContainer"]
+margin_top = 52.0
+margin_right = 399.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = true
+text = "FullScreen"
+
+[node name="800x600" type="Button" parent="Options_Layer/Panel_Options/VBoxContainer"]
+margin_top = 104.0
+margin_right = 399.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 5 )
+text = "800x600"
+
+[node name="1280x720" type="Button" parent="Options_Layer/Panel_Options/VBoxContainer"]
+margin_top = 156.0
+margin_right = 399.0
+margin_bottom = 204.0
+custom_fonts/font = ExtResource( 5 )
+text = "1280x720"
+
+[node name="1920x1080" type="Button" parent="Options_Layer/Panel_Options/VBoxContainer"]
+margin_top = 208.0
+margin_right = 399.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 5 )
+text = "1920x1080"
+
 [connection signal="pressed" from="development/Who" to="." method="_on_Who_pressed"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Options_Layer/Panel_Options/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="toggled" from="Options_Layer/Panel_Options/VBoxContainer/Window" to="." method="_on_Window_toggled"]
+[connection signal="toggled" from="Options_Layer/Panel_Options/VBoxContainer/Full" to="." method="_on_Full_toggled"]
+[connection signal="pressed" from="Options_Layer/Panel_Options/VBoxContainer/800x600" to="." method="_on_800x600_pressed"]
+[connection signal="pressed" from="Options_Layer/Panel_Options/VBoxContainer/1280x720" to="." method="_on_1280x720_pressed"]
+[connection signal="pressed" from="Options_Layer/Panel_Options/VBoxContainer/1920x1080" to="." method="_on_1920x1080_pressed"]
