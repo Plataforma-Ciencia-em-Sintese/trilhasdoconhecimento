@@ -8,7 +8,7 @@ var missionName = ""
 var actualStep = 0
 var totalSteps = 0
 var show = false
-var active = false
+var active = true
 
 var player 
 
@@ -24,6 +24,7 @@ func _ready():
 #	print(actualStep)
 
 func start_quest(missionID,missionDesc,steps):
+	print("aqui questtt")
 	$UI/BG_Mission_Title/Title_Mission.text = missionID
 	$UI/Mission_Desc.text = missionDesc
 	$Buttons_Diary.show()
