@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/HUDs/Pause/pause.gd" type="Script" id=3]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Sounds/sound_teste.mp3" type="AudioStream" id=6]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=7]
 
 [node name="Pause" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -140,41 +142,71 @@ anchor_bottom = 0.8
 margin_right = -6.10352e-05
 margin_bottom = 50.0
 
-[node name="Window" type="Button" parent="Panel_Options/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="Panel_Options/VBoxContainer"]
 margin_right = 399.0
-margin_bottom = 48.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel_Options/VBoxContainer/TextureButton"]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Window" type="Button" parent="Panel_Options/VBoxContainer"]
+margin_top = 4.0
+margin_right = 399.0
+margin_bottom = 45.0
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
 text = "Janela"
 
 [node name="Full" type="Button" parent="Panel_Options/VBoxContainer"]
-margin_top = 52.0
+margin_top = 49.0
 margin_right = 399.0
-margin_bottom = 100.0
+margin_bottom = 90.0
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
 text = "FullScreen"
 
 [node name="800x600" type="Button" parent="Panel_Options/VBoxContainer"]
-margin_top = 104.0
+margin_top = 94.0
 margin_right = 399.0
-margin_bottom = 152.0
+margin_bottom = 135.0
 custom_fonts/font = ExtResource( 1 )
 text = "800x600"
 
 [node name="1280x720" type="Button" parent="Panel_Options/VBoxContainer"]
-margin_top = 156.0
+margin_top = 139.0
 margin_right = 399.0
-margin_bottom = 204.0
+margin_bottom = 180.0
 custom_fonts/font = ExtResource( 1 )
 text = "1280x720"
 
 [node name="1920x1080" type="Button" parent="Panel_Options/VBoxContainer"]
-margin_top = 208.0
+margin_top = 184.0
 margin_right = 399.0
-margin_bottom = 256.0
+margin_bottom = 225.0
 custom_fonts/font = ExtResource( 1 )
 text = "1920x1080"
+
+[node name="HSlider" type="HSlider" parent="Panel_Options"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -66.0
+margin_top = -66.0
+margin_right = 66.0
+margin_bottom = -30.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="sound" type="Label" parent="Panel_Options"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 269.0
+margin_top = -75.0
+margin_right = 374.0
+margin_bottom = -6.0
+custom_fonts/font = ExtResource( 7 )
+text = "som"
 
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Home" to="." method="_on_Home_pressed"]
@@ -186,3 +218,4 @@ text = "1920x1080"
 [connection signal="pressed" from="Panel_Options/VBoxContainer/800x600" to="." method="_on_800x600_pressed"]
 [connection signal="pressed" from="Panel_Options/VBoxContainer/1280x720" to="." method="_on_1280x720_pressed"]
 [connection signal="pressed" from="Panel_Options/VBoxContainer/1920x1080" to="." method="_on_1920x1080_pressed"]
+[connection signal="value_changed" from="Panel_Options/HSlider" to="." method="_on_HSlider_value_changed"]

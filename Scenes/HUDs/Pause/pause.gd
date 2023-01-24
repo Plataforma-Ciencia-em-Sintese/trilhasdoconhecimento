@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+
+var master_bus = AudioServer.get_bus_index("Master")
 export (NodePath) var camera
 
 func _ready():
@@ -56,3 +58,10 @@ func _on_1920x1080_pressed():
 	get_tree().get_root()
 
 
+func _on_HSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(master_bus, value)
+	
+	if value == -30:
+		AudioServer.set_bus_mute(master_bus,true)
+	else:
+		AudioServer.set_bus_mute(master_bus,false)
