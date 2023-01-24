@@ -27,7 +27,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Click"):
 		if canTalk:
 			clickedOnMe = true
-			pointer.isStopped = true
+#			pointer.isStopped = true
 			
 	$Arrow.rotate_y(0.1)
 
@@ -47,7 +47,8 @@ func start_dialogue():
 	player.get_node("States/Talking").visible = true
 	# Gira o NPC pra posiçao do player
 	$Base.look_at(global_transform.origin + player.global_transform.origin.direction_to(global_transform.origin),Vector3.UP)
-#	$Base.look_at(transform.origin + player.global_transform.origin.direction_to(transform.origin),Vector3.UP)
+	# Offset de rotação no eixo x para NPC ficar em pé
+	$Base.rotation_degrees.x += 10
 	yield(get_tree().create_timer(0.1),"timeout")
 	# Gira o player pra posicao do NPC
 	player.get_node("Base").look_at(player.global_transform.origin + global_transform.origin.direction_to(player.transform.origin),Vector3.UP)
@@ -73,9 +74,9 @@ func dialogic_signal(arg):
 		# Habilita o state Move do player novamente
 		player.get_node("States/Talking").visible = false
 		player.get_node("States/Move").visible = true
-		$States/Normal.show()
-		$States/Talking.hide()
-		$States/Normal/Timer.start(rand_range(1,2))
+		#Reativa o npc para o estado que estava e reseta a rotação
+		$States/Normal.state_npc($States/Normal.states)
+		$Base.rotation_degrees = Vector3.ZERO
 		yield(get_tree().create_timer(0.1),"timeout")
 		pointer.isStopped = false
 
@@ -87,8 +88,6 @@ func _on_Area_body_entered(body):
 		# Se o jogador colidir pela primeira vez no NPC o dialogo dispara sozinho
 		if clickedOnMe:
 			start_dialogue()
-			$States/Normal.hide()
-			$States/Talking.show()
 			$States/Talking.idle()
 			$States/Normal/Timer.stop()
 

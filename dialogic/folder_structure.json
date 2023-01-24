@@ -63,7 +63,7 @@
 							},
 							"metadata": {
 								"color": null,
-								"folded": true
+								"folded": false
 							}
 						}
 					},
@@ -77,7 +77,7 @@
 
 					],
 					"folders": {
-						"01 - Ajude o Ancião": {
+						"01 - Ajude Galileu": {
 							"files": [
 								"timeline-1669120340.json"
 							],

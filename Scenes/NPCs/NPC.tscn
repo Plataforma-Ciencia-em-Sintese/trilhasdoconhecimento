@@ -5329,7 +5329,6 @@ states = "walk"
 wait_time = 3.0
 
 [node name="Talking" type="Spatial" parent="NPC/States"]
-visible = false
 script = ExtResource( 3 )
 animationTree = NodePath("../../AnimationTree")
 

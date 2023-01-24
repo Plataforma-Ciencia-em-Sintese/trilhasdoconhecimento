@@ -41,7 +41,8 @@ func _input(event):
 				print(intersection)
 				global_transform.origin = intersection.position
 			else:
-				print("nothing")
+#				print("nothing")
+				pass
 
 # Quando estiver dentro de algum objeto com dialogo,esconde
 func _on_Pointer_body_entered(body):

@@ -44,7 +44,7 @@
 
 				],
 				"method_name": "set_quest",
-				"target_node_path": "Scifi_Stage/Path_NPC/NPC_Root/NPC/Quest_Holder"
+				"target_node_path": "Scifi_Stage/NPC_Root/Path_Quest_NPC_1/NPC/NPC/Quest_Holder"
 			},
 			"event_id": "dialogic_042"
 		},
@@ -166,6 +166,6 @@
 	"metadata": {
 		"dialogic-version": "1.4.5",
 		"file": "timeline-1669120340.json",
-		"name": "Etapa 1"
+		"name": "Missao Galileu"
 	}
 }

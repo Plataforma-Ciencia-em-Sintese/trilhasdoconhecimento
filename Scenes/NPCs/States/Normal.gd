@@ -28,10 +28,10 @@ func state_npc(value):
 		speed = 1
 		$Timer.wait_time = rand_range(1,2)
 		$Timer.start()
-
+		
 func _on_Timer_timeout():
 	randomize()
-	$Timer.wait_time = rand_range(1,2)	
+	$Timer.wait_time = rand_range(1,2)
 	changeAnimMvgAround = randi()% 2
 	
 	if changeAnimMvgAround == 0:
