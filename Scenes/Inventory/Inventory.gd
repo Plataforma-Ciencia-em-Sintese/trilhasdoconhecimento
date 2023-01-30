@@ -21,6 +21,7 @@ func _on_BT_Inventario_pressed():
 	get_parent().get_node("States/Move").hide()
 	get_parent().get_node("States/Talking").show()
 	camera.current = true
+	get_tree().get_nodes_in_group("Camera")[0].current = false
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
@@ -33,6 +34,7 @@ func _on_BT_Close_pressed():
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()
 	camera.current = false
+	get_tree().get_nodes_in_group("Camera")[0].current = true
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false

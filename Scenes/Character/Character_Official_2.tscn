@@ -1,9 +1,11 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/HUDs/Pause/pause.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Character/Movement.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Character/Talking.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -263,7 +265,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Idle State", "move", 2, "Run" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Idle State", "move", 2, "Run", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7560,5 +7562,9 @@ next/Idle_01 = "Idle_Break"
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/Armature/Skeleton/Inspector_Cam")
+
+[node name="Life" parent="." instance=ExtResource( 6 )]
+
+[node name="Pause" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
