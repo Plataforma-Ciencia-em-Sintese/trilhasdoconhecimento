@@ -1,96 +1,272 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/HUDs/Pause/pause.gd" type="Script" id=3]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Sounds/sound_teste.mp3" type="AudioStream" id=6]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=7]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Pause.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Inicio.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Opcoes.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Jogar.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Sair.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 8 )
 
 [node name="Pause" type="CanvasLayer"]
 script = ExtResource( 3 )
 
 [node name="Panel_Pause" type="Panel" parent="."]
-self_modulate = Color( 0.0627451, 0.376471, 0.0627451, 1 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -250.0
-margin_right = 400.0
-margin_bottom = 250.0
+visible = false
+self_modulate = Color( 0, 0, 0, 0.415686 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="PauseText" type="Label" parent="Panel_Pause"]
+visible = false
 anchor_left = 0.367
 anchor_top = 0.08
 anchor_right = 0.632
 anchor_bottom = 0.218
-margin_left = 0.399994
-margin_right = 0.399963
+margin_left = 12.4
+margin_top = 5.0
+margin_right = 12.4
+margin_bottom = 5.0
 custom_fonts/font = ExtResource( 1 )
 text = "Pausado"
+align = 1
+valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Pause"]
-anchor_left = 0.5
-anchor_top = 0.5
+anchor_left = 0.354
+anchor_top = 0.214
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 100.0
-margin_bottom = 100.0
+margin_left = 85.504
+margin_top = 95.6
+margin_right = 236.0
+margin_bottom = 267.0
+rect_scale = Vector2( 0.5, 0.5 )
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Exit" type="Button" parent="Panel_Pause/VBoxContainer"]
 modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
-margin_top = 29.0
-margin_right = 200.0
-margin_bottom = 63.0
+margin_right = 300.0
+margin_bottom = 101.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Retomar"
+icon = ExtResource( 13 )
+flat = true
 
 [node name="Home" type="Button" parent="Panel_Pause/VBoxContainer"]
 modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
-margin_top = 83.0
-margin_right = 200.0
-margin_bottom = 117.0
+margin_top = 121.0
+margin_right = 300.0
+margin_bottom = 222.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Inicio"
+icon = ExtResource( 11 )
+flat = true
 
-[node name="Options" type="Button" parent="Panel_Pause/VBoxContainer"]
+[node name="BT_Options" type="Button" parent="Panel_Pause/VBoxContainer"]
 modulate = Color( 0.952941, 0.952941, 0.952941, 1 )
-margin_top = 137.0
-margin_right = 200.0
-margin_bottom = 171.0
+margin_top = 242.0
+margin_right = 300.0
+margin_bottom = 343.0
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Opções"
+icon = ExtResource( 12 )
+flat = true
 
 [node name="BT_Pause" type="Button" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -112.0
-margin_top = 10.0
-margin_right = -72.0
-margin_bottom = 55.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -54.0
+margin_top = 60.0
+margin_right = -4.0
+margin_bottom = 110.0
 custom_fonts/font = ExtResource( 4 )
-text = "||"
+icon = ExtResource( 10 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Panel_Options" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 0.415686 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="sound" type="Label" parent="Panel_Options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -134.0
+margin_top = 50.0
+margin_right = 166.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 7 )
+text = "som"
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="Panel_Options/sound"]
+margin_left = 66.0
+margin_top = 1.0
+margin_right = 216.0
+margin_bottom = 51.0
+rect_scale = Vector2( 1, 0.99323 )
+min_value = -30.0
+max_value = 0.0
+
+[node name="Button_resolution" type="Button" parent="Panel_Options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -25.0
+margin_right = 75.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "Resolução"
+icon_align = 1
+
+[node name="Label" type="Label" parent="Panel_Options"]
+anchor_left = 0.312
+anchor_top = 0.04
+anchor_right = 0.687
+anchor_bottom = 0.192
+margin_left = 0.399994
+margin_right = 0.399963
+custom_fonts/font = ExtResource( 5 )
+text = "Opções"
+align = 1
+valign = 1
+
+[node name="BT_Exit" type="Button" parent="Panel_Options"]
+anchor_left = 0.925
+anchor_top = 0.02
+anchor_right = 0.975
+anchor_bottom = 0.1
+margin_left = 2.79999
+margin_top = 28.0
+margin_right = 1.59998
+margin_bottom = 30.0
+custom_constants/hseparation = 0
+custom_fonts/font = ExtResource( 2 )
+icon = ExtResource( 14 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Panel_resolution" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 0.415686 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_resolution"]
+anchor_left = 0.174
+anchor_top = 0.045
+anchor_right = 0.826
+anchor_bottom = 0.955
+margin_left = -0.199997
+margin_right = 0.199951
+margin_bottom = -3.05176e-05
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Panel_resolution/VBoxContainer"]
+margin_top = 160.0
+margin_right = 668.0
+margin_bottom = 160.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel_resolution/VBoxContainer/TextureButton"]
+stream = ExtResource( 6 )
+
+[node name="Window" type="Button" parent="Panel_resolution/VBoxContainer"]
+margin_top = 164.0
+margin_right = 668.0
+margin_bottom = 205.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "Janela"
+
+[node name="Full" type="Button" parent="Panel_resolution/VBoxContainer"]
+margin_top = 209.0
+margin_right = 668.0
+margin_bottom = 250.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "FullScreen"
+
+[node name="800x600" type="Button" parent="Panel_resolution/VBoxContainer"]
+margin_top = 254.0
+margin_right = 668.0
+margin_bottom = 295.0
+custom_fonts/font = ExtResource( 1 )
+text = "800x600"
+
+[node name="1280x720" type="Button" parent="Panel_resolution/VBoxContainer"]
+margin_top = 299.0
+margin_right = 668.0
+margin_bottom = 340.0
+custom_fonts/font = ExtResource( 1 )
+text = "1280x720"
+
+[node name="1920x1080" type="Button" parent="Panel_resolution/VBoxContainer"]
+margin_top = 344.0
+margin_right = 668.0
+margin_bottom = 385.0
+custom_fonts/font = ExtResource( 1 )
+text = "1920x1080"
+
+[node name="Exit_resolution" type="Button" parent="Panel_resolution"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -74.0
+margin_top = 40.0
+margin_right = -24.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 2 )
+icon = ExtResource( 14 )
+flat = true
+expand_icon = true
 
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Home" to="." method="_on_Home_pressed"]
-[connection signal="pressed" from="Panel_Pause/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Panel_Pause/VBoxContainer/BT_Options" to="." method="_on_BT_Options_pressed"]
 [connection signal="pressed" from="BT_Pause" to="." method="_on_Pause_pressed"]
+[connection signal="value_changed" from="Panel_Options/sound/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Panel_Options/Button_resolution" to="." method="_on_Button_resolution_pressed"]
+[connection signal="pressed" from="Panel_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
+[connection signal="toggled" from="Panel_resolution/VBoxContainer/Window" to="." method="_on_Window_toggled"]
+[connection signal="toggled" from="Panel_resolution/VBoxContainer/Full" to="." method="_on_Full_toggled"]
+[connection signal="pressed" from="Panel_resolution/VBoxContainer/800x600" to="." method="_on_800x600_pressed"]
+[connection signal="pressed" from="Panel_resolution/VBoxContainer/1280x720" to="." method="_on_1280x720_pressed"]
+[connection signal="pressed" from="Panel_resolution/VBoxContainer/1920x1080" to="." method="_on_1920x1080_pressed"]
+[connection signal="pressed" from="Panel_resolution/Exit_resolution" to="." method="_on_Exit_resolution_pressed"]
