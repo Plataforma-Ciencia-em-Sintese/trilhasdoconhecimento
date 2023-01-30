@@ -2,11 +2,18 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path.s3tc="res://.import/Elevator Texture.png-986d928987d520720075496acd765820.s3tc.stex"
+path.etc2="res://.import/Elevator Texture.png-986d928987d520720075496acd765820.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 
 source_file="res://3D/Level Design/Elevator Texture.png"
+dest_files=[ "res://.import/Elevator Texture.png-986d928987d520720075496acd765820.s3tc.stex", "res://.import/Elevator Texture.png-986d928987d520720075496acd765820.etc2.stex" ]
+
 [params]
 
 compress/mode=2

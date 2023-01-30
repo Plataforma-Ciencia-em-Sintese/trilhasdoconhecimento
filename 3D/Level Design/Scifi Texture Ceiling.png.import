@@ -2,11 +2,18 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path.s3tc="res://.import/Scifi Texture Ceiling.png-4c98257af4ec94e3d99530bd6c09bf0d.s3tc.stex"
+path.etc2="res://.import/Scifi Texture Ceiling.png-4c98257af4ec94e3d99530bd6c09bf0d.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 
 source_file="res://3D/Level Design/Scifi Texture Ceiling.png"
+dest_files=[ "res://.import/Scifi Texture Ceiling.png-4c98257af4ec94e3d99530bd6c09bf0d.s3tc.stex", "res://.import/Scifi Texture Ceiling.png-4c98257af4ec94e3d99530bd6c09bf0d.etc2.stex" ]
+
 [params]
 
 compress/mode=2
