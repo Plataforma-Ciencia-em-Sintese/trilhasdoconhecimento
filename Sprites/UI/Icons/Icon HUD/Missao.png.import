@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/raio.png-fd7cac506aadf0e6d1844c85d6411264.stex"
+path="res://.import/Missao.png-8fd19184c4462320f0c97bab9abfc6d3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icon HUD/raio.png"
-dest_files=[ "res://.import/raio.png-fd7cac506aadf0e6d1844c85d6411264.stex" ]
+source_file="res://Sprites/UI/Icons/Icon HUD/Missao.png"
+dest_files=[ "res://.import/Missao.png-8fd19184c4462320f0c97bab9abfc6d3.stex" ]
 
 [params]
 

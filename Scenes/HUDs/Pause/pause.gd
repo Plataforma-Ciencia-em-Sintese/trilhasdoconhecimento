@@ -65,3 +65,15 @@ func _on_HSlider_value_changed(value):
 		AudioServer.set_bus_mute(master_bus,true)
 	else:
 		AudioServer.set_bus_mute(master_bus,false)
+
+func _on_Button_resolution_pressed():
+	$Panel_resolution.show()
+	$Panel_Options.hide()
+	$BT_Pause.hide()
+	$Panel_Pause.hide()
+
+func _on_Exit_resolution_pressed():
+	$Panel_Options.show()
+	$BT_Pause.hide()
+	$Panel_Pause.hide()
+	$Panel_resolution.hide()

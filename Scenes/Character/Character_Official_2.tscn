@@ -7563,8 +7563,8 @@ next/Idle_01 = "Idle_Break"
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/Armature/Skeleton/Inspector_Cam")
 
-[node name="Pause" parent="." instance=ExtResource( 3 )]
-
 [node name="Life" parent="." instance=ExtResource( 6 )]
+
+[node name="Pause" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]

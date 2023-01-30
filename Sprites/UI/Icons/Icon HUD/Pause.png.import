@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/raio.png-fd7cac506aadf0e6d1844c85d6411264.stex"
+path="res://.import/Pause.png-298332abc327efb256af8fc07e83bf1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icon HUD/raio.png"
-dest_files=[ "res://.import/raio.png-fd7cac506aadf0e6d1844c85d6411264.stex" ]
+source_file="res://Sprites/UI/Icons/Icon HUD/Pause.png"
+dest_files=[ "res://.import/Pause.png-298332abc327efb256af8fc07e83bf1f.stex" ]
 
 [params]
 
