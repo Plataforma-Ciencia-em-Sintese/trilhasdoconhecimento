@@ -9,12 +9,15 @@
 script = ExtResource( 3 )
 
 [node name="Panel_Pause" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 0.0627451, 0.376471, 0.0627451, 1 )
-margin_left = 112.0
-margin_top = 50.0
-margin_right = 912.0
-margin_bottom = 550.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -250.0
+margin_right = 400.0
+margin_bottom = 250.0
 
 [node name="PauseText" type="Label" parent="Panel_Pause"]
 anchor_left = 0.367

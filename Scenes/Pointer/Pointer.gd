@@ -20,7 +20,7 @@ func _physics_process(delta):
 func _input(event):
 	# Caso o jogador clique com o mouse as acoes abaixo sao executadas
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.is_action_pressed("Click"):
 			# Acessa os objetos fisicos 3D do cenario atual
 			var space_state = get_world().direct_space_state
 			# Coleta a posicao do mouse de acordo com o tamanho da viewport
