@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=2]
@@ -13,10 +13,8 @@
 [ext_resource path="res://Sounds/sound_teste.mp3" type="AudioStream" id=11]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=13]
-
-[sub_resource type="DynamicFont" id=3]
-size = 30
-font_data = ExtResource( 12 )
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Global.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -24,6 +22,14 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 14 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -122,24 +128,186 @@ text = "Sair"
 flat = true
 icon_align = 1
 
+[node name="Label_Escolha" type="Label" parent="."]
+margin_left = 260.5
+margin_top = 150.0
+margin_right = 763.5
+margin_bottom = 205.0
+custom_fonts/font = SubResource( 1 )
+text = "Escolha seu personagem:"
+
+[node name="Choice_Player" type="HBoxContainer" parent="."]
+margin_left = 256.0
+margin_top = 232.0
+margin_right = 776.0
+margin_bottom = 412.0
+
+[node name="Player_Ariel" type="Button" parent="Choice_Player" groups=["Buttons"]]
+margin_right = 100.0
+margin_bottom = 180.0
+text = "                      "
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Ariel"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="Choice_Player/Player_Ariel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -24.0
+margin_right = 22.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+text = "Ariel"
+
+[node name="Player_Bento" type="Button" parent="Choice_Player" groups=["Buttons"]]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 180.0
+text = "                      "
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Bento"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="Choice_Player/Player_Bento"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -24.0
+margin_right = 22.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+text = "Bento"
+align = 1
+valign = 1
+
+[node name="Player_Caio" type="Button" parent="Choice_Player" groups=["Buttons"]]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 180.0
+text = "                      "
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Caio"]
+modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="Choice_Player/Player_Caio"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -24.0
+margin_right = 22.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+text = "Caio"
+
+[node name="Player_Clara" type="Button" parent="Choice_Player" groups=["Buttons"]]
+margin_left = 312.0
+margin_right = 412.0
+margin_bottom = 180.0
+text = "                      "
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Clara"]
+modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="Choice_Player/Player_Clara"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -24.0
+margin_right = 22.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+text = "Clara"
+
+[node name="Player_Yara" type="Button" parent="Choice_Player" groups=["Buttons"]]
+margin_left = 416.0
+margin_right = 516.0
+margin_bottom = 180.0
+text = "                      "
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Yara"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="Choice_Player/Player_Yara"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -24.0
+margin_right = 22.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 2 )
+text = "Yara"
+
 [node name="Options_Layer" type="CanvasLayer" parent="."]
 
 [node name="Panel_Options" type="Panel" parent="Options_Layer"]
 visible = false
-self_modulate = Color( 0, 0, 0, 0.415686 )
+self_modulate = Color( 0, 0, 0, 0.870588 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Label_Options" type="Label" parent="Options_Layer/Panel_Options"]
+anchor_left = 0.312
+anchor_top = 0.04
+anchor_right = 0.687
+anchor_bottom = 0.192
+margin_left = 0.399994
+margin_right = 0.399963
+custom_fonts/font = ExtResource( 7 )
+text = "Opções"
+align = 1
+valign = 1
 
 [node name="sound" type="Label" parent="Options_Layer/Panel_Options"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -134.0
-margin_top = 50.0
-margin_right = 166.0
-margin_bottom = 92.0
+margin_left = -136.0
+margin_top = -65.0
+margin_right = 164.0
+margin_bottom = -23.0
 custom_fonts/font = ExtResource( 13 )
 text = "som"
 valign = 1
@@ -153,30 +321,27 @@ rect_scale = Vector2( 1, 0.99323 )
 min_value = -30.0
 max_value = 0.0
 
+[node name="TextureButton" type="TextureButton" parent="Options_Layer/Panel_Options/sound"]
+margin_left = -200.0
+margin_top = -163.0
+margin_right = -200.0
+margin_bottom = -163.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Options_Layer/Panel_Options/sound/TextureButton"]
+stream = ExtResource( 11 )
+
 [node name="Button_resolution" type="Button" parent="Options_Layer/Panel_Options"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -25.0
-margin_right = 75.0
-margin_bottom = 25.0
+margin_left = -77.0
+margin_top = -140.0
+margin_right = 73.0
+margin_bottom = -90.0
 custom_fonts/font = SubResource( 3 )
 text = "Resolução"
 icon_align = 1
-
-[node name="Label" type="Label" parent="Options_Layer/Panel_Options"]
-anchor_left = 0.312
-anchor_top = 0.04
-anchor_right = 0.687
-anchor_bottom = 0.192
-margin_left = 0.399994
-margin_right = 0.399963
-custom_fonts/font = ExtResource( 7 )
-text = "Opções"
-align = 1
-valign = 1
 
 [node name="BT_Exit" type="Button" parent="Options_Layer/Panel_Options"]
 anchor_left = 0.93
@@ -194,18 +359,41 @@ flat = true
 icon_align = 1
 expand_icon = true
 
-[node name="TextureButton" type="TextureButton" parent="Options_Layer/Panel_Options"]
-margin_left = 177.976
-margin_top = 187.0
-margin_right = 845.976
-margin_bottom = 187.0
+[node name="idiomas" type="VBoxContainer" parent="Options_Layer/Panel_Options"]
+anchor_left = 0.187
+anchor_top = 0.56
+anchor_right = 0.805
+anchor_bottom = 0.853
+margin_left = 0.511993
+margin_top = -8.0
+margin_right = -0.320068
+margin_bottom = 0.199982
+script = ExtResource( 15 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Options_Layer/Panel_Options/TextureButton"]
-stream = ExtResource( 11 )
+[node name="pt_BR" type="CheckBox" parent="Options_Layer/Panel_Options/idiomas" groups=["language_btn"]]
+margin_right = 632.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 4 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "Português"
+flat = true
+expand_icon = true
+
+[node name="en_US" type="CheckBox" parent="Options_Layer/Panel_Options/idiomas" groups=["language_btn"]]
+margin_top = 49.0
+margin_right = 632.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 4 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "English"
+flat = true
+expand_icon = true
 
 [node name="Panel_Resolution" type="Panel" parent="Options_Layer"]
 visible = false
-self_modulate = Color( 0, 0, 0, 0.588235 )
+self_modulate = Color( 0, 0, 0, 0.870588 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -269,187 +457,15 @@ margin_bottom = 221.0
 custom_fonts/font = ExtResource( 5 )
 text = "1920x1080"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.258
-anchor_top = 0.253
-anchor_right = 0.734
-anchor_bottom = 0.333
-margin_left = -3.69202
-margin_top = -1.80002
-margin_right = 11.884
-margin_bottom = 5.2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 503.0
-margin_bottom = 55.0
-custom_fonts/font = SubResource( 1 )
-text = "Escolha seu personagem:"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Label"]
-anchor_left = -0.009
-anchor_top = 1.2
-anchor_right = 1.0
-anchor_bottom = 1.782
-margin_left = 0.527
-margin_top = -6.0
-margin_right = 6.0
-margin_bottom = 1.99
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Label/HBoxContainer"]
-margin_bottom = 39.0
-
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Label/HBoxContainer/MarginContainer"]
-margin_bottom = 39.0
-
-[node name="Choice_Player" type="HBoxContainer" parent="."]
-anchor_left = 0.25
-anchor_top = 0.387
-anchor_right = 0.75
-anchor_bottom = 0.667
-margin_top = -0.200012
-margin_right = -6.10352e-05
-margin_bottom = -0.200043
-
-[node name="Player_Ariel" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_right = 100.0
-margin_bottom = 167.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Ariel"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Ariel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Ariel"
-
-[node name="Player_Bento" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 167.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Bento"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Bento"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Bento"
-align = 1
-valign = 1
-
-[node name="Player_Caio" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 167.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Caio"]
-modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Caio"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Caio"
-
-[node name="Player_Clara" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 312.0
-margin_right = 412.0
-margin_bottom = 167.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Clara"]
-modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Clara"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Clara"
-
-[node name="Player_Yara" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 416.0
-margin_right = 516.0
-margin_bottom = 167.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Yara"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Yara"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Yara"
-
 [connection signal="pressed" from="development/Who" to="." method="_on_Who_pressed"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Choice_Player/Player_Ariel" to="." method="_on_Player_Ariel_pressed"]
+[connection signal="pressed" from="Choice_Player/Player_Bento" to="." method="_on_Player_Bento_pressed"]
+[connection signal="pressed" from="Choice_Player/Player_Caio" to="." method="_on_Player_Caio_pressed"]
+[connection signal="pressed" from="Choice_Player/Player_Clara" to="." method="_on_Player_Clara_pressed"]
+[connection signal="pressed" from="Choice_Player/Player_Yara" to="." method="_on_Player_Yara_pressed"]
 [connection signal="value_changed" from="Options_Layer/Panel_Options/sound/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="Options_Layer/Panel_Options/Button_resolution" to="." method="_on_Button_resolution_pressed"]
 [connection signal="pressed" from="Options_Layer/Panel_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
@@ -459,8 +475,3 @@ text = "Yara"
 [connection signal="pressed" from="Options_Layer/Panel_Resolution/VBoxContainer/800x600" to="." method="_on_800x600_pressed"]
 [connection signal="pressed" from="Options_Layer/Panel_Resolution/VBoxContainer/1280x720" to="." method="_on_1280x720_pressed"]
 [connection signal="pressed" from="Options_Layer/Panel_Resolution/VBoxContainer/1920x1080" to="." method="_on_1920x1080_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Ariel" to="." method="_on_Player_Ariel_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Bento" to="." method="_on_Player_Bento_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Caio" to="." method="_on_Player_Caio_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Clara" to="." method="_on_Player_Clara_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Yara" to="." method="_on_Player_Yara_pressed"]
