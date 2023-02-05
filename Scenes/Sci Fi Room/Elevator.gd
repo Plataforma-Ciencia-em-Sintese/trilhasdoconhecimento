@@ -87,6 +87,11 @@ func start_level():
 	yield(get_tree().create_timer(2),"timeout")
 	
 	$AnimationPlayer_Door.play("Close")
+	
+	player.get_node("Inventory").show()
+	player.get_node("Pause").show()
+	player.get_node("Life").show()
+	
 	pointer.isStopped = false
 	goToElevator = false
 	startStage = false
