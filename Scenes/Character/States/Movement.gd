@@ -69,9 +69,6 @@ func move():
 	elif clickCount == 2:
 		navAgent.max_speed = speedRun
 		animator.set("parameters/move/blend_amount",1)
-
-	# Usa o valor de distancia para mesclar as animacoes, dando um aspecto mais natural de movimentacao
-	
 	
 	# Se o agente encontra seu destino, para de buscar o alvo
 	# Isso evita que ele fique "tremendo" quando estiver em cima do alvo
