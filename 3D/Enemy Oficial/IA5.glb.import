@@ -2,13 +2,20 @@
 
 importer="scene"
 type="PackedScene"
+<<<<<<< HEAD
 path="res://.import/IA5.glb-afd3c3e57396d4feb7cd89b248fe98d7.scn"
+=======
+valid=false
+>>>>>>> Sprint2-NajuOliveira
 
 [deps]
 
 source_file="res://3D/Enemy Oficial/IA5.glb"
+<<<<<<< HEAD
 dest_files=[ "res://.import/IA5.glb-afd3c3e57396d4feb7cd89b248fe98d7.scn" ]
 
+=======
+>>>>>>> Sprint2-NajuOliveira
 [params]
 
 nodes/root_type="Spatial"
