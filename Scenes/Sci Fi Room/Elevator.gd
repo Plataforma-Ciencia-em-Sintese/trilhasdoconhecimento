@@ -27,7 +27,6 @@ func _ready():
 func _physics_process(delta):
 	if goToElevator and selectedThis:
 		var dist = player.global_transform.origin.distance_to(pointerPosInside.global_transform.origin)
-		print("changestage = " , changeStage , " / startstage = " , startStage)
 		if dist < 0.5 and !changeStage and !startStage:
 			$AnimationPlayer_Door.play("Close")
 			changeStage = true
@@ -95,6 +94,4 @@ func start_level():
 	pointer.isStopped = false
 	goToElevator = false
 	startStage = false
-	print(self.name)
-	print(startStage)
 
