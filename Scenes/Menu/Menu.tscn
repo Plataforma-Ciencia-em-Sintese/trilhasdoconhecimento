@@ -129,6 +129,7 @@ flat = true
 icon_align = 1
 
 [node name="Label_Escolha" type="Label" parent="."]
+visible = false
 margin_left = 260.5
 margin_top = 150.0
 margin_right = 763.5
@@ -137,6 +138,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Escolha seu personagem:"
 
 [node name="Choice_Player" type="HBoxContainer" parent="."]
+visible = false
 margin_left = 256.0
 margin_top = 232.0
 margin_right = 776.0
@@ -461,11 +463,6 @@ text = "1920x1080"
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Ariel" to="." method="_on_Player_Ariel_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Bento" to="." method="_on_Player_Bento_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Caio" to="." method="_on_Player_Caio_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Clara" to="." method="_on_Player_Clara_pressed"]
-[connection signal="pressed" from="Choice_Player/Player_Yara" to="." method="_on_Player_Yara_pressed"]
 [connection signal="value_changed" from="Options_Layer/Panel_Options/sound/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="Options_Layer/Panel_Options/Button_resolution" to="." method="_on_Button_resolution_pressed"]
 [connection signal="pressed" from="Options_Layer/Panel_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
