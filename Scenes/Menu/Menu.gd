@@ -1,8 +1,5 @@
 extends Control
 
-var ariel_Player = "res://Scenes/Character/Character_Official.tscn"
-var bento_Player = "res://Scenes/Character/Character_Official_2.tscn"
-
 var master_bus = AudioServer.get_bus_index("Master")
 export (NodePath) var camera
 
@@ -13,7 +10,7 @@ func _on_Who_pressed():
 	pass
 
 func _on_Play_pressed():
-	var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+	var _play: bool = get_tree().change_scene("res://Scenes/Menu/Select_Player2D.tscn")
 
 func _on_Configure_pressed():
 	$Options_Layer/Panel_Options.show()

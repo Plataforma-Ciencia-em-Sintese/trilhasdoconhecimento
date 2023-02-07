@@ -87,6 +87,7 @@ config/icon="res://icon.png"
 [autoload]
 
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
+StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
 Global="*res://Global.tscn"
 
 [display]
@@ -97,6 +98,11 @@ window/stretch/aspect="keep_width"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
+
+[global]
+
+loca=false
+locale=false
 
 [input]
 
@@ -119,6 +125,12 @@ R_Click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[locale]
+
+fallback="pt_BR"
+translations=PoolStringArray( "res://language/language - language.en_US.translation", "res://language/language - language.pt_BR.translation" )
+locale_filter=[ 1, [ "en_US", "pt_BR" ] ]
 
 [physics]
 

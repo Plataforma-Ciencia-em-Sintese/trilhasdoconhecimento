@@ -20,8 +20,8 @@ func _ready():
 	if active == true:
 		player = get_tree().get_nodes_in_group("Player")[0]
 
-#func _physics_process(delta):
-#	print(actualStep)
+func _physics_process(delta):
+	print(actualStep)
 
 func start_quest(missionID,missionDesc,steps):
 	print("aqui questtt")
