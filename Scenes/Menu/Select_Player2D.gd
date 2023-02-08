@@ -11,11 +11,11 @@ func goToScene():
 	get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 
 func _on_Player_Ariel_pressed():
-	Global.playerDir = Player_Ariel
+	#Global.playerDir = Player_Ariel
 	goToScene()
 
 func _on_Player_Bento_pressed():
-	Global.playerDir = Player_Bento
+	#Global.playerDir = Player_Bento
 	goToScene()
 
 func _on_Player_Caio_pressed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=2]
@@ -7,21 +7,12 @@
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=5]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=6]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=7]
-[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Sair.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/sound_teste.mp3" type="AudioStream" id=11]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=13]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Global.gd" type="Script" id=15]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -56,16 +47,17 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="Dev" type="Label" parent="development"]
+margin_left = 2.0
 margin_top = 7.0
-margin_right = 191.0
+margin_right = 188.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 2 )
-text = "Desenvolvido por "
+text = "Desenvolvido por"
 
 [node name="Who" type="Button" parent="development"]
 modulate = Color( 0.0156863, 0.670588, 0.0745098, 1 )
-margin_left = 191.0
-margin_right = 259.0
+margin_left = 188.0
+margin_right = 256.0
 margin_bottom = 47.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 2 )
@@ -127,158 +119,6 @@ enabled_focus_mode = 0
 text = "Sair"
 flat = true
 icon_align = 1
-
-[node name="Label_Escolha" type="Label" parent="."]
-visible = false
-margin_left = 260.5
-margin_top = 150.0
-margin_right = 763.5
-margin_bottom = 205.0
-custom_fonts/font = SubResource( 1 )
-text = "Escolha seu personagem:"
-
-[node name="Choice_Player" type="HBoxContainer" parent="."]
-visible = false
-margin_left = 256.0
-margin_top = 232.0
-margin_right = 776.0
-margin_bottom = 412.0
-
-[node name="Player_Ariel" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_right = 100.0
-margin_bottom = 180.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Ariel"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Ariel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Ariel"
-
-[node name="Player_Bento" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 180.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Bento"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Bento"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Bento"
-align = 1
-valign = 1
-
-[node name="Player_Caio" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 180.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Caio"]
-modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Caio"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Caio"
-
-[node name="Player_Clara" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 312.0
-margin_right = 412.0
-margin_bottom = 180.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Clara"]
-modulate = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Clara"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Clara"
-
-[node name="Player_Yara" type="Button" parent="Choice_Player" groups=["Buttons"]]
-margin_left = 416.0
-margin_right = 516.0
-margin_bottom = 180.0
-text = "                      "
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="Choice_Player/Player_Yara"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Choice_Player/Player_Yara"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -18.0
-margin_top = -24.0
-margin_right = 22.0
-margin_bottom = -1.0
-custom_fonts/font = SubResource( 2 )
-text = "Yara"
 
 [node name="Options_Layer" type="CanvasLayer" parent="."]
 
@@ -373,7 +213,7 @@ margin_bottom = 0.199982
 script = ExtResource( 15 )
 
 [node name="pt_BR" type="CheckBox" parent="Options_Layer/Panel_Options/idiomas" groups=["language_btn"]]
-margin_right = 632.0
+margin_right = 631.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 4 )
 shortcut_in_tooltip = false
@@ -384,7 +224,7 @@ expand_icon = true
 
 [node name="en_US" type="CheckBox" parent="Options_Layer/Panel_Options/idiomas" groups=["language_btn"]]
 margin_top = 49.0
-margin_right = 632.0
+margin_right = 631.0
 margin_bottom = 94.0
 custom_fonts/font = SubResource( 4 )
 shortcut_in_tooltip = false

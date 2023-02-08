@@ -2,17 +2,17 @@ extends Control
 
 onready var current_language = (TranslationServer.get_locale())
 
-var playerDir
-var player : Spatial
+var playerDir = 0
+var player : KinematicBody
 
 func _ready():
 	
 	#$Button_resolution.text = "Button_resolution"
 	
-	#conecta os botões dos idiomas 
+	# conecta os botões dos idiomas 
 	for btn in get_tree().get_nodes_in_group("language_btn"):
 		btn.connect("toggled", self, "_on_language_toggled", [btn.name])
-		#marca o botão com o idioma atual
+		# marca o botão com o idioma atual
 		btn.pressed = true if btn.name == current_language else false
 
 func _on_language_toggled(button_pressed, language):
