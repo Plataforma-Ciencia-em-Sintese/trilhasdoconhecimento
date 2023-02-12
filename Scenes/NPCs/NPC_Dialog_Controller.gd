@@ -8,6 +8,10 @@ export(bool) var add_canvas = true
 export(bool) var zoom_camera = false
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
+# Customizacao NPC
+export (String, "Moreno", "Loiro", "Amarelo") var corpo
+export (String, "Feminino", "Masculino") var cabelo
+export (String, "Longa", "Curta") var mangas
 var clickedOnMe: bool = false
 var touchingNPC: bool = false
 var player
@@ -18,10 +22,14 @@ var mat
 func _ready():
 	mainCam = get_tree().get_nodes_in_group("Camera")[0]
 	pointer = get_tree().get_nodes_in_group("Pointer")[0]
-	mat = $Base/Cientistas/Skeleton/NPC_Corpo_White1_BlondeHair001.get_surface_material(0).next_pass
+	mat = $Base/Cientistas/Skeleton/NPC_Body.get_surface_material(0).next_pass
 	mat.set_shader_param("enable", false)
 	$Arrow.hide()
-
+	
+	get_node("Base/Cientistas/Skeleton/Cabeca").get_node(corpo).show()
+	get_node("Base/Cientistas/Skeleton/Cabelo").get_node(cabelo).get_node(corpo).show()
+	get_node("Base/Cientistas/Skeleton/Manga").get_node(mangas).get_node(corpo).show()
+	
 func _physics_process(delta):
 	# Quando clicar compara se pode conversar
 	if Input.is_action_just_pressed("Click"):
