@@ -92,7 +92,6 @@ Global="*res://Global.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
 [editor_plugins]
