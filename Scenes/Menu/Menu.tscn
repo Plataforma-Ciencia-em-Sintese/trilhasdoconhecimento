@@ -12,11 +12,41 @@
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=13]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://Global.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 12 )
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Control
+
+onready var current_language = (TranslationServer.get_locale())
+
+var playerDir = 0
+var player : Spatial
+
+func _ready():
+	
+	#$Button_resolution.text = \"Button_resolution\"
+	
+	# conecta os botões dos idiomas 
+	for btn in get_tree().get_nodes_in_group(\"language_btn\"):
+		btn.connect(\"toggled\", self, \"_on_language_toggled\", [btn.name])
+		# marca o botão com o idioma atual
+		btn.pressed = true if btn.name == current_language else false
+
+func _on_language_toggled(button_pressed, language):
+	if button_pressed:
+		TranslationServer.set_locale(language)
+		current_language = language
+
+   # Seleção de Personagem
+func instance_node(node, location, pararent):
+	var node_instance = node.instance()
+	pararent.add_child(node_instance)
+	node_instance.global_position = location
+	return node_instance
+"
 
 [sub_resource type="DynamicFont" id=4]
 size = 30
@@ -210,7 +240,7 @@ margin_left = 0.511993
 margin_top = -8.0
 margin_right = -0.320068
 margin_bottom = 0.199982
-script = ExtResource( 15 )
+script = SubResource( 5 )
 
 [node name="pt_BR" type="CheckBox" parent="Options_Layer/Panel_Options/idiomas" groups=["language_btn"]]
 margin_right = 631.0
