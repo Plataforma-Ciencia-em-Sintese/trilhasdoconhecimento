@@ -88,11 +88,10 @@ config/icon="res://icon.png"
 
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
-Global="*res://Global.tscn"
+Global="*res://Global.gd"
 
 [display]
 
-window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
 [editor_plugins]

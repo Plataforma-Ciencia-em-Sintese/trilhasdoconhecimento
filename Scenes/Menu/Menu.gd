@@ -9,9 +9,9 @@ func _ready() -> void:
 func _on_Who_pressed():
 	pass
 
-func _on_Play_pressed():
-	var _play: bool = get_tree().change_scene("res://Scenes/Menu/Select_Player2D.tscn")
-
+func _on_Play_pressed()-> void:
+	var _play: bool = get_tree().change_scene("res://Scenes/Menu/Select_Player.tscn")
+	
 func _on_Configure_pressed():
 	$Options_Layer/Panel_Options.show()
 	$Buttons/Play.hide()
