@@ -15,7 +15,6 @@ geometry_source_geometry_mode = 1
 geometry_source_group_name = "Navmesh"
 cell_size = 0.1
 cell_height = 0.1
-agent_max_slope = 30.0
 
 [sub_resource type="Curve3D" id=938]
 _data = {
@@ -5411,7 +5410,7 @@ albedo_texture = SubResource( 975 )
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0 )
 
-[node name="Scifi_Stage" type="Spatial"]
+[node name="Scifi_Stage" type="Spatial" groups=["nivel"]]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.17772, 0.984081, 0, -0.984081, -0.17772, 0, 14.3384, 0 )

@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/HUDs/Pause/pause.gd" type="Script" id=3]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Sounds/sound_teste.mp3" type="AudioStream" id=6]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=7]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=9]
@@ -18,6 +18,41 @@
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 9 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Control
+
+onready var current_language = (TranslationServer.get_locale())
+
+var playerDir = 0
+var player : Spatial
+
+func _ready():
+	
+	#$Button_resolution.text = \"Button_resolution\"
+	
+	# conecta os botões dos idiomas 
+	for btn in get_tree().get_nodes_in_group(\"language_btn\"):
+		btn.connect(\"toggled\", self, \"_on_language_toggled\", [btn.name])
+		# marca o botão com o idioma atual
+		btn.pressed = true if btn.name == current_language else false
+
+func _on_language_toggled(button_pressed, language):
+	if button_pressed:
+		TranslationServer.set_locale(language)
+		current_language = language
+
+   # Seleção de Personagem
+func instance_node(node, location, pararent):
+	var node_instance = node.instance()
+	pararent.add_child(node_instance)
+	node_instance.global_position = location
+	return node_instance
+"
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 8 )
@@ -120,15 +155,27 @@ show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="Label" type="Label" parent="Panel_Options"]
+anchor_left = 0.312
+anchor_top = 0.04
+anchor_right = 0.687
+anchor_bottom = 0.192
+margin_left = 0.399994
+margin_right = 0.399963
+custom_fonts/font = ExtResource( 5 )
+text = "Opções"
+align = 1
+valign = 1
+
 [node name="sound" type="Label" parent="Panel_Options"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -134.0
-margin_top = 50.0
-margin_right = 166.0
-margin_bottom = 92.0
+margin_left = -136.0
+margin_top = -89.0
+margin_right = 164.0
+margin_bottom = -47.0
 custom_fonts/font = ExtResource( 7 )
 text = "som"
 valign = 1
@@ -147,15 +194,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -25.0
-margin_right = 75.0
-margin_bottom = 25.0
+margin_left = -77.0
+margin_top = -164.0
+margin_right = 73.0
+margin_bottom = -114.0
 custom_fonts/font = SubResource( 1 )
 text = "Resolução"
 icon_align = 1
 
-[node name="Label" type="Label" parent="Panel_Options"]
+[node name="BT_Exit" type="Button" parent="Panel_Options"]
+anchor_left = 0.925
+anchor_top = 0.067
+anchor_right = 0.977
+anchor_bottom = 0.147
+margin_left = 2.79999
+margin_top = -0.200001
+margin_right = -0.448059
+margin_bottom = 1.8
+custom_constants/hseparation = 0
+custom_fonts/font = ExtResource( 2 )
+icon = ExtResource( 14 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Label_Options" type="Label" parent="Panel_Options"]
 anchor_left = 0.312
 anchor_top = 0.04
 anchor_right = 0.687
@@ -167,20 +230,36 @@ text = "Opções"
 align = 1
 valign = 1
 
-[node name="BT_Exit" type="Button" parent="Panel_Options"]
-anchor_left = 0.925
-anchor_top = 0.02
-anchor_right = 0.975
-anchor_bottom = 0.1
-margin_left = 2.79999
-margin_top = 28.0
-margin_right = 1.59998
-margin_bottom = 30.0
-custom_constants/hseparation = 0
-custom_fonts/font = ExtResource( 2 )
-icon = ExtResource( 14 )
+[node name="idiomas" type="VBoxContainer" parent="Panel_Options"]
+anchor_left = 0.187
+anchor_top = 0.56
+anchor_right = 0.805
+anchor_bottom = 0.853
+margin_left = 0.511993
+margin_top = -8.0
+margin_right = -0.320068
+margin_bottom = 0.199982
+script = SubResource( 3 )
+
+[node name="pt_BR" type="CheckBox" parent="Panel_Options/idiomas" groups=["language_btn"]]
+margin_right = 631.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 4 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "Português"
 flat = true
-icon_align = 1
+expand_icon = true
+
+[node name="en_US" type="CheckBox" parent="Panel_Options/idiomas" groups=["language_btn"]]
+margin_top = 49.0
+margin_right = 631.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 4 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "English"
+flat = true
 expand_icon = true
 
 [node name="Panel_resolution" type="Panel" parent="."]
@@ -200,48 +279,40 @@ margin_right = 0.199951
 margin_bottom = -3.05176e-05
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="Panel_resolution/VBoxContainer"]
-margin_top = 160.0
-margin_right = 668.0
-margin_bottom = 160.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel_resolution/VBoxContainer/TextureButton"]
-stream = ExtResource( 6 )
-
 [node name="Window" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 164.0
+margin_top = 162.0
 margin_right = 668.0
-margin_bottom = 205.0
+margin_bottom = 203.0
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
 text = "Janela"
 
 [node name="Full" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 209.0
+margin_top = 207.0
 margin_right = 668.0
-margin_bottom = 250.0
+margin_bottom = 248.0
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
 text = "FullScreen"
 
 [node name="800x600" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 254.0
+margin_top = 252.0
 margin_right = 668.0
-margin_bottom = 295.0
+margin_bottom = 293.0
 custom_fonts/font = ExtResource( 1 )
 text = "800x600"
 
 [node name="1280x720" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 299.0
+margin_top = 297.0
 margin_right = 668.0
-margin_bottom = 340.0
+margin_bottom = 338.0
 custom_fonts/font = ExtResource( 1 )
 text = "1280x720"
 
 [node name="1920x1080" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 344.0
+margin_top = 342.0
 margin_right = 668.0
-margin_bottom = 385.0
+margin_bottom = 383.0
 custom_fonts/font = ExtResource( 1 )
 text = "1920x1080"
 
