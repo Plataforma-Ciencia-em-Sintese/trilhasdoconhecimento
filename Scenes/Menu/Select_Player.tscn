@@ -4,7 +4,7 @@
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scenes/Menu/Select_Player.gd" type="Script" id=4]
-[ext_resource path="res://3D/Character Oficial/Char_Caio.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Character/Character_Official.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

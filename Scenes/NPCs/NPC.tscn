@@ -5664,7 +5664,7 @@ bones/64/rest = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, -0.15809, 0.137705, 0.004
 bones/64/enabled = true
 bones/64/bound_children = [  ]
 
-[node name="NPC_Corpo_White1_BlondeHair001" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton"]
+[node name="NPC_Body" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton"]
 mesh = SubResource( 892 )
 skin = SubResource( 893 )
 material/0 = ExtResource( 9 )
