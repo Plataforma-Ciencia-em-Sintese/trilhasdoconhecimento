@@ -15,7 +15,6 @@ geometry_source_geometry_mode = 1
 geometry_source_group_name = "Navmesh"
 cell_size = 0.1
 cell_height = 0.1
-agent_max_slope = 30.0
 
 [sub_resource type="Curve3D" id=938]
 _data = {
@@ -5961,7 +5960,7 @@ transform = Transform( 0, 1, 0, -1, 0, 0, 0, 0, 1, 206.845, -757.902, 95.4963 )
 mesh = SubResource( 927 )
 
 [node name="SM_Bld_Wall_Corner_Pillar_01" type="MeshInstance" parent="Reception/Reception/WallWest"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 227.045, -1237.7, 91.3498 )
+transform = Transform( 1, 0, 0, 0, 1, -8.52651e-14, 0, -1.7053e-13, 1, 227.045, -1237.7, 91.3497 )
 mesh = SubResource( 928 )
 
 [node name="SM_Bld_Wall_Doorframe_06" type="MeshInstance" parent="Reception/Reception/WallWest"]
