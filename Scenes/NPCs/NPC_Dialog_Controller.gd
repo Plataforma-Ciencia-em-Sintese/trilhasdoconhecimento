@@ -36,6 +36,9 @@ func _physics_process(delta):
 		if canTalk:
 			clickedOnMe = true
 #			pointer.isStopped = true
+		else:
+			$Arrow.hide()
+			mat.set_shader_param("enable", false)
 			
 	$Arrow.rotate_y(0.1)
 
@@ -114,7 +117,7 @@ func _on_Area_mouse_entered():
 
 func _on_Area_mouse_exited():
 	# Quando o mouse sair do NPC e ele nao estiver em dialogo, desativa a interação
+	$Arrow.hide()
 	if !clickedOnMe:
 		canTalk = false
-		$Arrow.hide()
 		mat.set_shader_param("enable", false)
