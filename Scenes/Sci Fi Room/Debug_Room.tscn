@@ -5960,7 +5960,7 @@ transform = Transform( 0, 1, 0, -1, 0, 0, 0, 0, 1, 206.845, -757.902, 95.4963 )
 mesh = SubResource( 927 )
 
 [node name="SM_Bld_Wall_Corner_Pillar_01" type="MeshInstance" parent="Reception/Reception/WallWest"]
-transform = Transform( 1, 0, 0, 0, 1, -8.52651e-14, 0, -1.7053e-13, 1, 227.045, -1237.7, 91.3497 )
+transform = Transform( 1, 0, 0, 0, 1, -8.52651e-14, 0, -1.98952e-13, 1, 227.045, -1237.7, 91.3497 )
 mesh = SubResource( 928 )
 
 [node name="SM_Bld_Wall_Doorframe_06" type="MeshInstance" parent="Reception/Reception/WallWest"]

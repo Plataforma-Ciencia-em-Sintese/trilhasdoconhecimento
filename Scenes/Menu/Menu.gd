@@ -10,7 +10,7 @@ func _on_Who_pressed():
 	pass
 
 func _on_Play_pressed()-> void:
-	var _play: bool = get_tree().change_scene("res://Scenes/Menu/Select_Player.tscn")
+	var _play: bool = get_tree().change_scene("res://Scenes/Menu/Selection_Zone_3D.tscn")
 	
 func _on_Configure_pressed():
 	$Options_Layer/Panel_Options.show()
