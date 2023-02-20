@@ -6,14 +6,6 @@ var id = 0
 var canChange = true
 
 func _physics_process(delta):
-	if canChange:
-		if Input.is_action_just_pressed("ui_left"):
-			if id > 0:
-				id -= 1
-		if Input.is_action_just_pressed("ui_right"):
-			if id < target.size() - 1:
-				id += 1
-	
 #	$Cam_Pivot.look_at(get_node(target[id]).global_transform.origin,Vector3.UP)
 	$Cam_Pivot.rotation.y = (lerp_angle($Cam_Pivot.rotation.y, get_node(target[id]).rotation.y + offsetLook,0.2))
 	
@@ -39,3 +31,17 @@ func _on_Area_mouse_exited(charName,selectedId):
 		canChange = true
 		get_node("Floor").get_node(charName).get_node("Padrao").show()
 		get_node("Floor").get_node(charName).get_node("Virtual").hide()
+
+
+func _on_Button_Left_pressed():
+	if canChange:
+		if id > 0:
+			id -= 1
+
+func _on_Button_Right_pressed():
+	if canChange:
+		if id < target.size() - 1:
+			id += 1
+
+func _on_ButtonPlay_pressed():
+	var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")

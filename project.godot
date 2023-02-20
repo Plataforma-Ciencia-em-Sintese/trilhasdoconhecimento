@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Trilha Cientifica IBICT"
-run/main_scene="res://Scenes/Sci Fi Room/Debug_Room.tscn"
+run/main_scene="res://Scenes/Menu/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -92,6 +92,7 @@ Global="*res://Global.gd"
 
 [display]
 
+window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
 [editor_plugins]
@@ -128,8 +129,8 @@ R_Click={
 [locale]
 
 fallback="pt_BR"
-translations=PoolStringArray( "res://language/language - language.en_US.translation", "res://language/language - language.pt_BR.translation" )
-locale_filter=[ 1, [ "en_US", "pt_BR" ] ]
+translations=PoolStringArray( "res://language/language - language.en_US.translation", "res://language/language - language.pt_BR.translation", "res://language/language - language.es_ES.translation" )
+locale_filter=[ 1, [ "en_US", "es_ES", "pt_BR" ] ]
 
 [physics]
 
