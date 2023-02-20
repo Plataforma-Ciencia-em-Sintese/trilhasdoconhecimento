@@ -1,11 +1,13 @@
 extends CanvasLayer
 
+export (NodePath) var bigDesc
 export (NodePath) var camera
 export (Array,Dictionary) var allItens
 var itemScene = load("res://Scenes/Inventory/Item_BT.tscn")
 
 func _ready():
 	camera = get_node(camera)
+	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	call_itens("Upgrades")
 	
 func _physics_process(delta):
@@ -16,12 +18,19 @@ func _physics_process(delta):
 		get_itens("Orbe de Conexão", "item adicionado", "res://icon.png", "Upgrades")
 		
 func _on_BT_Inventario_pressed():
+	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_STOP
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
+	get_parent().get_node("Pause").hide()
+	get_parent().get_node("Life").hide()
 	get_parent().get_node("States/Move").hide()
 	get_parent().get_node("States/Talking").show()
-	camera.current = true
-	get_tree().get_nodes_in_group("Camera")[0].current = false
+	var cam = get_tree().get_nodes_in_group("Camera")[0]
+	cam.anchorGeral = camera
+	cam.geralLerp = true
+	cam.projection = 0
+#	camera.current = true
+#	get_tree().get_nodes_in_group("Camera")[0].current = false
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
@@ -29,12 +38,19 @@ func _on_BT_Inventario_pressed():
 	pointer.hide()
 	
 func _on_BT_Close_pressed():
+	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$BT_Inventario.show()
 	$BG_Inventory.hide()
+	get_parent().get_node("Pause").show()
+	get_parent().get_node("Life").show()
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()
-	camera.current = false
-	get_tree().get_nodes_in_group("Camera")[0].current = true
+	var cam = get_tree().get_nodes_in_group("Camera")[0]
+	cam.anchorGeral = ""
+	cam.geralLerp = false
+	cam.projection = 1
+#	camera.current = false
+#	get_tree().get_nodes_in_group("Camera")[0].current = true
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false

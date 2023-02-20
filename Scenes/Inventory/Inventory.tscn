@@ -13,16 +13,19 @@ allItens = [ {
 "Orbe de Limpeza": [ "Remove status negativos.", "res://Sprites/UI/Icons/Consumiveis/Orb icon.png" ]
 } ]
 
+[node name="Mouse_Block" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [node name="BG_Inventory" type="Panel" parent="."]
 visible = false
-self_modulate = Color( 1, 1, 1, 0.929412 )
-anchor_left = 0.485352
+self_modulate = Color( 1, 0, 0, 0.219608 )
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.01
+anchor_bottom = 1.0
+margin_top = -207.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Navigation_Buttons" type="HBoxContainer" parent="BG_Inventory"]
 anchor_left = 0.5
@@ -60,23 +63,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -261.5
-margin_top = -186.0
-margin_right = 262.5
-margin_bottom = 206.0
+margin_left = -506.0
+margin_top = -31.0
+margin_right = 506.0
+margin_bottom = 70.0
 mouse_filter = 0
 columns = 4
 
 [node name="BT_Close" type="Button" parent="BG_Inventory"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -63.5
-margin_top = -52.0
-margin_right = 63.5
-margin_bottom = -15.0
-text = "Fechar"
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_top = -27.0
+margin_right = -14.0
+text = "X"
 
 [node name="BT_Inventario" type="Button" parent="."]
 anchor_left = 1.0
@@ -89,6 +89,42 @@ text = "Inventário"
 
 [node name="Desc_Panel" parent="." instance=ExtResource( 3 )]
 visible = false
+
+[node name="BG_Desc_Big" type="Panel" parent="." groups=["BigDescription"]]
+visible = false
+self_modulate = Color( 1, 0, 0, 0.392157 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -240.0
+margin_right = 257.0
+margin_bottom = 37.0
+
+[node name="Title" type="Label" parent="BG_Desc_Big"]
+margin_right = 255.0
+margin_bottom = 53.0
+text = "Item Name"
+align = 1
+valign = 1
+
+[node name="Desc" type="Label" parent="BG_Desc_Big"]
+margin_left = 11.0
+margin_top = 63.0
+margin_right = 248.0
+margin_bottom = 174.0
+text = "Descricao do item vem aqui contendo sua funcionalidade"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Quant" type="Label" parent="BG_Desc_Big"]
+margin_left = 11.0
+margin_top = 200.0
+margin_right = 248.0
+margin_bottom = 265.0
+text = "Restam 3"
+align = 1
+valign = 1
+autowrap = true
 
 [connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Upgrade" to="." method="_on_bt_item_down" binds= [ "Upgrades" ]]
 [connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Consumiveis" to="." method="_on_bt_item_down" binds= [ "Consumiveis" ]]

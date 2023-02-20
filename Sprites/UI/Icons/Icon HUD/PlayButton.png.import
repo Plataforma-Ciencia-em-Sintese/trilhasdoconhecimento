@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayButton.png-4072627b37d89b5c1def4c763897e814.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Sprites/UI/Icons/Icon HUD/PlayButton.png"
-dest_files=[ "res://.import/PlayButton.png-4072627b37d89b5c1def4c763897e814.stex" ]
-
 [params]
 
 compress/mode=0

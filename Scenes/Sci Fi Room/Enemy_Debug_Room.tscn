@@ -409,14 +409,15 @@ current = true
 size = 10.0
 near = 0.01
 script = ExtResource( 5 )
+anchorCam1 = NodePath("../AnchorCam1")
+anchorCam2 = NodePath("../AnchorCam2")
 cam1 = NodePath(".")
-cam2 = NodePath("../Camera2")
 
-[node name="Camera2" type="Camera" parent="Player" groups=["Camera"]]
+[node name="AnchorCam1" type="Position3D" parent="Player"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.242, 38.228, 26.757 )
+
+[node name="AnchorCam2" type="Position3D" parent="Player"]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
-projection = 1
-size = 10.0
-near = 0.01
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 917 )
@@ -1086,7 +1087,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64166, 2.79129, 0 )
 curve = SubResource( 1003 )
 
 [node name="Path_Enemy" parent="Enemies/Way4" instance=ExtResource( 3 )]
-transform = Transform( -0.305254, 0, 0.264213, 0, 0.403718, 0, -0.264213, 0, -0.305253, -9.08009, 0, 6.4141 )
+transform = Transform( -0.305254, 0, 0.264212, 0, 0.403718, 0, -0.264213, 0, -0.305254, -9.08009, 0, 6.4141 )
 rotation_mode = 4
 enemyType = "Bala"
 speed = 5.0

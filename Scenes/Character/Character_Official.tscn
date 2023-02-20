@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Caio/Caio Normal.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -236,22 +236,26 @@ start_node = "Idle_01"
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Run_Cycle"
 
+[sub_resource type="AnimationNodeTimeSeek" id=30]
+
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Walk_Cycle"
 
 [sub_resource type="AnimationNodeBlend3" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -454.239, -31.941 )
+graph_offset = Vector2( -391.427, -86.3022 )
 "nodes/Idle State/node" = SubResource( 28 )
-"nodes/Idle State/position" = Vector2( -200, 100 )
+"nodes/Idle State/position" = Vector2( -400, 60 )
 nodes/Run/node = SubResource( 10 )
 nodes/Run/position = Vector2( -140, 240 )
+nodes/Seek/node = SubResource( 30 )
+nodes/Seek/position = Vector2( -180, 100 )
 nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Idle State", "move", 2, "Run" ]
+node_connections = [ "Seek", 0, "Idle State", "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7520,7 +7524,7 @@ mesh = ExtResource( 1 )
 skin = SubResource( 2 )
 
 [node name="Inspector_Cam" type="Camera" parent="Base/Armature/Skeleton" groups=["InventCam"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.9, 1.9 )
+transform = Transform( 1.21594, 0, 0, 0, 1.21594, 0, 0, 0, 1.21594, 0, 3, 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 12 )
@@ -7528,6 +7532,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
 "parameters/Idle State/playback" = SubResource( 29 )
+parameters/Seek/seek_position = -1.0
 parameters/move/blend_amount = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Trilha Cientifica IBICT"
-run/main_scene="res://Scenes/Sci Fi Room/Debug_Room.tscn"
+run/main_scene="res://Scenes/Menu/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
