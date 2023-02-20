@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/Select.png-1e8241743e3e02832618e7f3c0989a02.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/UI/Icons/Icon HUD/Select.png"
+dest_files=[ "res://.import/Select.png-1e8241743e3e02832618e7f3c0989a02.stex" ]
+
 [params]
 
 compress/mode=0
