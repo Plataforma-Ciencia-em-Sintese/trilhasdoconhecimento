@@ -33,15 +33,15 @@ func _on_Area_mouse_exited(charName,selectedId):
 		get_node("Floor").get_node(charName).get_node("Virtual").hide()
 
 
-func _on_Button_Left_pressed():
+func _on_ButtonPlay_pressed():
+	var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+
+func _on_ButtonLeft_pressed():
 	if canChange:
 		if id > 0:
 			id -= 1
 
-func _on_Button_Right_pressed():
+func _on_ButtonRight_pressed():
 	if canChange:
 		if id < target.size() - 1:
 			id += 1
-
-func _on_ButtonPlay_pressed():
-	var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
