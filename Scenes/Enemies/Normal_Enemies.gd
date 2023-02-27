@@ -2,6 +2,7 @@ extends PathFollow
 
 export (String, "Parafuso", "Serra", "Golem", "Flexivel", "Bala") var enemyType
 export var speed = 1.0
+var transition = load("res://Scenes/Transitions/Transtiton.tscn")
 
 func _ready():
 	get_enemy(enemyType)
@@ -13,3 +14,9 @@ func get_enemy(type):
 	for i in $Enemy.get_children():
 		if i.name != type:
 			i.queue_free()
+
+func _on_Enemy_body_entered(body):
+	if body.is_in_group("Player"):
+		var spawnTr = transition.instantiate()
+		spawnTr.get_node("AnimationPlayer").play("In")
+		get_tree().paused = true
