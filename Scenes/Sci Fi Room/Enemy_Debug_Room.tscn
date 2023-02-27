@@ -1065,6 +1065,7 @@ speed = 2.5
 
 [node name="Way2" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69265, 0 )
+visible = false
 curve = SubResource( 1001 )
 
 [node name="Path_Enemy" parent="Enemies/Way2" instance=ExtResource( 3 )]
@@ -1075,6 +1076,7 @@ speed = 3.0
 
 [node name="Way3" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70902, 0 )
+visible = false
 curve = SubResource( 1002 )
 
 [node name="Path_Enemy" parent="Enemies/Way3" instance=ExtResource( 3 )]
@@ -1084,6 +1086,7 @@ enemyType = "Golem"
 
 [node name="Way4" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64166, 2.79129, 0 )
+visible = false
 curve = SubResource( 1003 )
 
 [node name="Path_Enemy" parent="Enemies/Way4" instance=ExtResource( 3 )]

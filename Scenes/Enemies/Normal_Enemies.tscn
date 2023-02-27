@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
@@ -1335,6 +1335,10 @@ surfaces/1 = {
 "vertex_count": 26
 }
 
+[sub_resource type="CapsuleShape" id=19]
+radius = 1.93659
+height = 2.00982
+
 [node name="Path_Enemy" type="PathFollow"]
 script = ExtResource( 3 )
 
@@ -1744,3 +1748,9 @@ anims/IA_04_Idle = SubResource( 17 )
 
 [node name="IA_05" type="MeshInstance" parent="Enemy/Bala"]
 mesh = SubResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemy"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.51541, 0 )
+shape = SubResource( 19 )
+
+[connection signal="body_entered" from="Enemy" to="." method="_on_Enemy_body_entered"]
