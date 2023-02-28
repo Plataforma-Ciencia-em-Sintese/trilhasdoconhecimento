@@ -11,12 +11,13 @@ func _physics_process(delta):
 	offset += speed * delta
 
 func get_enemy(type):
-	for i in $Enemy.get_children():
+	for i in $Root_Enemies.get_children():
 		if i.name != type:
 			i.queue_free()
 
 func _on_Enemy_body_entered(body):
 	if body.is_in_group("Player"):
-		var spawnTr = transition.instantiate()
+		var spawnTr = transition.instance()
+		add_child(spawnTr)
 		spawnTr.get_node("AnimationPlayer").play("In")
 		get_tree().paused = true
