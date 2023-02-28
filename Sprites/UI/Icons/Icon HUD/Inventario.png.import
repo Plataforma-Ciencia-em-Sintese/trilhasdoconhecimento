@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/raio.png-fd7cac506aadf0e6d1844c85d6411264.stex"
+path="res://.import/Inventario.png-be13a8d17c43a35f158d4a39e67d129b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icon HUD/raio.png"
-dest_files=[ "res://.import/raio.png-fd7cac506aadf0e6d1844c85d6411264.stex" ]
+source_file="res://Sprites/UI/Icons/Icon HUD/Inventario.png"
+dest_files=[ "res://.import/Inventario.png-be13a8d17c43a35f158d4a39e67d129b.stex" ]
 
 [params]
 

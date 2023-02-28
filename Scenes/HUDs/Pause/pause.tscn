@@ -142,10 +142,10 @@ flat = true
 [node name="BT_Pause" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -54.0
-margin_top = 60.0
-margin_right = -4.0
-margin_bottom = 110.0
+margin_left = -104.0
+margin_top = 20.0
+margin_right = -54.0
+margin_bottom = 70.0
 custom_fonts/font = ExtResource( 4 )
 icon = ExtResource( 10 )
 flat = true
