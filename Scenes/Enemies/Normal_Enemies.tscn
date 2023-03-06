@@ -4,6 +4,10 @@
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
 [ext_resource path="res://Scenes/Enemies/Normal_Enemies.gd" type="Script" id=3]
 
+[sub_resource type="CapsuleShape" id=19]
+radius = 1.23084
+height = 4.29013
+
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "IA01_Cube001"
 surfaces/0 = {
@@ -1335,21 +1339,23 @@ surfaces/1 = {
 "vertex_count": 26
 }
 
-[sub_resource type="CapsuleShape" id=19]
-radius = 1.93659
-height = 2.00982
-
 [node name="Path_Enemy" type="PathFollow"]
 script = ExtResource( 3 )
 
 [node name="Enemy" type="Area" parent="."]
 
-[node name="Parafuso" type="Spatial" parent="Enemy"]
+[node name="CollisionShape" type="CollisionShape" parent="Enemy"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.51541, 0 )
+shape = SubResource( 19 )
+
+[node name="Root_Enemies" type="Spatial" parent="."]
+
+[node name="Parafuso" type="Spatial" parent="Root_Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.750712, 0 )
 
-[node name="IA_01" type="Spatial" parent="Enemy/Parafuso"]
+[node name="IA_01" type="Spatial" parent="Root_Enemies/Parafuso"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Parafuso/IA_01"]
+[node name="Skeleton" type="Skeleton" parent="Root_Enemies/Parafuso/IA_01"]
 bones/0/name = "Corpo"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29685, 0 )
@@ -1361,22 +1367,22 @@ bones/1/rest = Transform( 1, 0, 2.38419e-07, 0, -1, 0, 2.38419e-07, 0, -1, 0, 2.
 bones/1/enabled = true
 bones/1/bound_children = [  ]
 
-[node name="IA 1" type="MeshInstance" parent="Enemy/Parafuso/IA_01/Skeleton"]
+[node name="IA 1" type="MeshInstance" parent="Root_Enemies/Parafuso/IA_01/Skeleton"]
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Parafuso"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Root_Enemies/Parafuso"]
 autoplay = "IA_01_Idle"
 playback_speed = 3.0
 anims/IA_01_Atack01 = SubResource( 3 )
 anims/IA_01_Atack02 = SubResource( 4 )
 anims/IA_01_Idle = SubResource( 5 )
 
-[node name="Serra" type="Spatial" parent="Enemy"]
+[node name="Serra" type="Spatial" parent="Root_Enemies"]
 
-[node name="IA_02" type="Spatial" parent="Enemy/Serra"]
+[node name="IA_02" type="Spatial" parent="Root_Enemies/Serra"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Serra/IA_02"]
+[node name="Skeleton" type="Skeleton" parent="Root_Enemies/Serra/IA_02"]
 bones/0/name = "Corpo"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, -5.32907e-15, 2.38418e-07, 1.91145e-08, 0.996781, -0.080172, -2.37651e-07, 0.080172, 0.996781, -6.64422e-17, 1.72354, -0.188514 )
@@ -1413,21 +1419,21 @@ bones/6/rest = Transform( -0.00503004, -2.77162e-06, 0.999988, -0.999986, -0.001
 bones/6/enabled = true
 bones/6/bound_children = [  ]
 
-[node name="IA 2" type="MeshInstance" parent="Enemy/Serra/IA_02/Skeleton"]
+[node name="IA 2" type="MeshInstance" parent="Root_Enemies/Serra/IA_02/Skeleton"]
 mesh = SubResource( 6 )
 skin = SubResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Serra"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Root_Enemies/Serra"]
 autoplay = "IA_02_Idle001"
 playback_speed = 2.0
 anims/IA_02_Attack01 = SubResource( 8 )
 anims/IA_02_Idle001 = SubResource( 9 )
 
-[node name="Golem" type="Spatial" parent="Enemy"]
+[node name="Golem" type="Spatial" parent="Root_Enemies"]
 
-[node name="IA_03" type="Spatial" parent="Enemy/Golem"]
+[node name="IA_03" type="Spatial" parent="Root_Enemies/Golem"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Golem/IA_03"]
+[node name="Skeleton" type="Skeleton" parent="Root_Enemies/Golem/IA_03"]
 bones/0/name = "Base"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 0.725279, 0 )
@@ -1509,20 +1515,20 @@ bones/15/rest = Transform( 1, -4.82838e-08, -3.10493e-06, 4.82842e-08, 1, 1.2852
 bones/15/enabled = true
 bones/15/bound_children = [  ]
 
-[node name="IA 3" type="MeshInstance" parent="Enemy/Golem/IA_03/Skeleton"]
+[node name="IA 3" type="MeshInstance" parent="Root_Enemies/Golem/IA_03/Skeleton"]
 mesh = SubResource( 10 )
 skin = SubResource( 11 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Golem"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Root_Enemies/Golem"]
 autoplay = "IA_03_Idle"
 anims/IA_03_Attack01 = SubResource( 12 )
 anims/IA_03_Idle = SubResource( 13 )
 
-[node name="Flexivel" type="Spatial" parent="Enemy"]
+[node name="Flexivel" type="Spatial" parent="Root_Enemies"]
 
-[node name="IA_04" type="Spatial" parent="Enemy/Flexivel"]
+[node name="IA_04" type="Spatial" parent="Root_Enemies/Flexivel"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Flexivel/IA_04"]
+[node name="Skeleton" type="Skeleton" parent="Root_Enemies/Flexivel/IA_04"]
 bones/0/name = "Base"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.197772, 0 )
@@ -1734,23 +1740,19 @@ bones/41/rest = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
 bones/41/enabled = true
 bones/41/bound_children = [  ]
 
-[node name="IA 4" type="MeshInstance" parent="Enemy/Flexivel/IA_04/Skeleton"]
+[node name="IA 4" type="MeshInstance" parent="Root_Enemies/Flexivel/IA_04/Skeleton"]
 mesh = SubResource( 14 )
 skin = SubResource( 15 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Flexivel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Root_Enemies/Flexivel"]
 autoplay = "IA_04_Idle"
 playback_speed = 2.0
 anims/IA_04_Attack01 = SubResource( 16 )
 anims/IA_04_Idle = SubResource( 17 )
 
-[node name="Bala" type="Spatial" parent="Enemy"]
+[node name="Bala" type="Spatial" parent="Root_Enemies"]
 
-[node name="IA_05" type="MeshInstance" parent="Enemy/Bala"]
+[node name="IA_05" type="MeshInstance" parent="Root_Enemies/Bala"]
 mesh = SubResource( 18 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Enemy"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.51541, 0 )
-shape = SubResource( 19 )
 
 [connection signal="body_entered" from="Enemy" to="." method="_on_Enemy_body_entered"]

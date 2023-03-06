@@ -1,0 +1,11 @@
+Model Information:
+* title:	Space Room
+* source:	https://sketchfab.com/3d-models/space-room-27d6d9fd41e649c883ed3abbe38f7269
+* author:	Teraclon (https://sketchfab.com/Teraclon)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Space Room" (https://sketchfab.com/3d-models/space-room-27d6d9fd41e649c883ed3abbe38f7269) by Teraclon (https://sketchfab.com/Teraclon) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

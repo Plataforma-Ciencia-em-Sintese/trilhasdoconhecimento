@@ -255,7 +255,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "Idle State", "output", 0, "move" ]
+node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "Idle State" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7523,8 +7523,8 @@ bones/64/bound_children = [  ]
 mesh = ExtResource( 1 )
 skin = SubResource( 2 )
 
-[node name="Inspector_Cam" type="Camera" parent="Base/Armature/Skeleton" groups=["InventCam"]]
-transform = Transform( 1.21594, 0, 0, 0, 1.21594, 0, 0, 0, 1.21594, 0, 3, 3 )
+[node name="Anchor_Cam_Invent" type="Position3D" parent="Base/Armature/Skeleton"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 12 )
@@ -7555,7 +7555,7 @@ anims/Win = SubResource( 17 )
 next/Idle_01 = "Idle_Break"
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
-camera = NodePath("../Base/Armature/Skeleton/Inspector_Cam")
+camera = NodePath("../Base/Armature/Skeleton/Anchor_Cam_Invent")
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 
