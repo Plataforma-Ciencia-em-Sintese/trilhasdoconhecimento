@@ -89,7 +89,7 @@ config/icon="res://icon.png"
 Global="*res://Global.gd"
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
-Globall="*res://globall.gd"
+GlobalValues="*res://Global_Values.gd"
 
 [display]
 

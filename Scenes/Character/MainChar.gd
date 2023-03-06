@@ -12,6 +12,8 @@ var suits = {
 }
 
 func _ready():
+	mainChar = GlobalValues.nameChar
+	activeCloths = GlobalValues.skinChar
 	if activeCloths == "Normal":
 		$Base/Armature/Skeleton/Body.mesh = load(suits[mainChar][0])
 	else:

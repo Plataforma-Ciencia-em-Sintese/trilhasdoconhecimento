@@ -34,7 +34,12 @@ func _on_Area_mouse_exited(charName,selectedId):
 
 
 func _on_ButtonPlay_pressed():
-	var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+	if id == 0:
+		GlobalValues.nameChar = "Bento"
+		GlobalValues.skinChar = "Normal"
+		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+	if id == 1:
+			var _play: bool = get_tree().change_scene("res://Scenes/Menu/Selection_Zone_3D.tscn")
 
 func _on_ButtonLeft_pressed():
 	if canChange:
