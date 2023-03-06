@@ -2,7 +2,7 @@ extends Node
 
 onready var current_language = (TranslationServer.get_locale())
 
-func _ready():
+func _ready() -> void:
 	# conecta os botões dos idiomas 
 	for btn in get_tree().get_nodes_in_group("language_btn"):
 		btn.connect("toggled", self, "_on_language_toggled", [btn.name])
@@ -13,6 +13,3 @@ func _on_language_toggled(button_pressed, language):
 	if button_pressed:
 		TranslationServer.set_locale(language)
 		current_language = language
-
-   # Seleção de Personagem
-

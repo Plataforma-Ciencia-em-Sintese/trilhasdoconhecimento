@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Inventario.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Inventory/Desc_Panel.tscn" type="PackedScene" id=3]
 
 [node name="Inventory" type="CanvasLayer" groups=["Inventory"]]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -23.0 ]
+}
 allItens = [ {
 "Disruptor de sinal": [ "Ataques possuem 50% de causarem \"Lagado\".", "res://Sprites/UI/Icons/Upgrades/Signal icon.png" ],
 "Raio Imobilizador": [ "Aplica \"Imobilizado\" em 1 inimigo", "res://Sprites/UI/Icons/Upgrades/Ray icon.png" ]
@@ -79,13 +83,17 @@ margin_right = -14.0
 text = "X"
 
 [node name="BT_Inventario" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -113.0
-margin_top = 11.0
-margin_right = -3.0
-margin_bottom = 49.0
-text = "Inventário"
+anchor_left = 0.903
+anchor_top = 0.025
+anchor_right = 0.952
+anchor_bottom = 0.108
+margin_left = -4.67206
+margin_right = -4.84802
+margin_bottom = 0.199997
+icon = ExtResource( 1 )
+flat = true
+icon_align = 1
+expand_icon = true
 
 [node name="Desc_Panel" parent="." instance=ExtResource( 3 )]
 visible = false

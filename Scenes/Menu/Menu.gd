@@ -17,7 +17,6 @@ func _on_Configure_pressed():
 	$Buttons/Play.hide()
 	$Buttons/Configure.hide()
 	$Buttons/Quit.hide()
-	$development.hide()
 	$NameGame.hide()
 
 func _on_Quit_pressed():
@@ -31,7 +30,6 @@ func _on_Exit_pressed():
 	$Buttons/Play.hide()
 	$Buttons/Configure.hide()
 	$Buttons/Quit.hide()
-	$development.hide()
 	$NameGame.hide()
 
 
@@ -74,7 +72,6 @@ func _on_Button_resolution_pressed():
 	$Buttons/Play.hide()
 	$Buttons/Configure.hide()
 	$Buttons/Quit.hide()
-	$development.hide()
 	$NameGame.hide()
 
 
@@ -83,5 +80,4 @@ func _on_BT_Exit_pressed():
 	$Buttons/Play.show()
 	$Buttons/Configure.show()
 	$Buttons/Quit.show()
-	$development.show()
 	$NameGame.show()

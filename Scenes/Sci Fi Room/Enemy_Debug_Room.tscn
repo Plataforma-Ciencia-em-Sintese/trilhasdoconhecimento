@@ -17,11 +17,11 @@ cell_size = 0.1
 cell_height = 0.1
 agent_max_slope = 30.0
 
-[sub_resource type="ProceduralSky" id=918]
+[sub_resource type="ProceduralSky" id=1004]
 
 [sub_resource type="Environment" id=917]
 background_mode = 2
-background_sky = SubResource( 918 )
+background_sky = SubResource( 1004 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.5
 
@@ -337,12 +337,12 @@ uv1_triplanar = true
 offsets = PoolRealArray( 0, 0.692946 )
 colors = PoolColorArray( 1, 1, 1, 0.305882, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=975]
+[sub_resource type="GradientTexture" id=1005]
 gradient = SubResource( 974 )
 
 [sub_resource type="SpatialMaterial" id=972]
 flags_transparent = true
-albedo_texture = SubResource( 975 )
+albedo_texture = SubResource( 1005 )
 
 [sub_resource type="CubeMesh" id=998]
 
