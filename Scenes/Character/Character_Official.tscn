@@ -255,7 +255,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "Idle State" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "Idle State", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7157,7 +7157,7 @@ tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 0
 [node name="Character" type="KinematicBody" groups=["Player"]]
 collision_layer = 2
 script = ExtResource( 7 )
-mainChar = "Yara"
+mainChar = "Caio"
 activeCloths = "Normal"
 
 [node name="States" type="Spatial" parent="."]
