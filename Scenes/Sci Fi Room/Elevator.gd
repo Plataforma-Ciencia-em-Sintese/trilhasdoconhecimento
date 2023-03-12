@@ -34,7 +34,7 @@ func _physics_process(delta):
 			get_tree().change_scene(sceneToGo)
 
 func _on_Area_Elevator_mouse_entered():
-	if !goToElevator:
+	if !goToElevator: 
 		$AnimationPlayer_Door.play("Open")
 		
 func _on_Area_Elevator_mouse_exited():
@@ -43,7 +43,7 @@ func _on_Area_Elevator_mouse_exited():
 		
 func _on_Area_Elevator_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("Click") and !goToElevator:
+		if event.is_action_pressed("Click") and !goToElevator and !player.get_node("States/Battling").goFight:
 			$AnimationPlayer_Door.play("Open")
 			
 			player.get_node("Inventory").hide()

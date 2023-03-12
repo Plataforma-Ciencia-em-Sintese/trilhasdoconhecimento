@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Caio/Caio Normal.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Character/States/Talking.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Character/MainChar.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Character/Battling.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -211,6 +212,24 @@ bind/64/name = "LEG_ROT.R"
 bind/64/bone = -1
 bind/64/pose = Transform( -1, 8.74228e-08, 0, 0, 0, 1, 8.74228e-08, 1, 0, -0.124506, -0.585307, -0.547408 )
 
+[sub_resource type="CapsuleMesh" id=31]
+
+[sub_resource type="SpatialMaterial" id=32]
+flags_unshaded = true
+albedo_color = Color( 0.964706, 0, 0, 1 )
+
+[sub_resource type="CapsuleShape" id=44]
+radius = 1.98227
+height = 0.002
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "Attack03"
+
+[sub_resource type="AnimationNodeStateMachine" id=34]
+states/Attack03/node = SubResource( 33 )
+states/Attack03/position = Vector2( 81, 63 )
+start_node = "Attack03"
+
 [sub_resource type="AnimationNodeAnimation" id=24]
 animation = "Idle_01"
 
@@ -233,10 +252,36 @@ states/Idle_Break/position = Vector2( 432, 212 )
 transitions = [ "Idle_01", "Idle_Break", SubResource( 26 ), "Idle_Break", "Idle_01", SubResource( 27 ) ]
 start_node = "Idle_01"
 
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "Attack01"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "Attack04"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=39]
+states/Attack01/node = SubResource( 35 )
+states/Attack01/position = Vector2( 384, 63 )
+states/Attack04/node = SubResource( 36 )
+states/Attack04/position = Vector2( 384, 153 )
+transitions = [ "Attack04", "Attack01", SubResource( 37 ), "Attack01", "Attack04", SubResource( 38 ) ]
+start_node = "Attack01"
+
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Run_Cycle"
 
 [sub_resource type="AnimationNodeTimeSeek" id=30]
+
+[sub_resource type="AnimationNodeBlend3" id=40]
+
+[sub_resource type="AnimationNodeTimeScale" id=42]
 
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Walk_Cycle"
@@ -244,18 +289,28 @@ animation = "Walk_Cycle"
 [sub_resource type="AnimationNodeBlend3" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -391.427, -86.3022 )
+graph_offset = Vector2( -872.857, 109.233 )
+"nodes/Gun Attack State/node" = SubResource( 34 )
+"nodes/Gun Attack State/position" = Vector2( -640, 260 )
 "nodes/Idle State/node" = SubResource( 28 )
-"nodes/Idle State/position" = Vector2( -400, 60 )
+"nodes/Idle State/position" = Vector2( -640, 100 )
+"nodes/Melee Attack State/node" = SubResource( 39 )
+"nodes/Melee Attack State/position" = Vector2( -820, -60 )
 nodes/Run/node = SubResource( 10 )
 nodes/Run/position = Vector2( -140, 240 )
 nodes/Seek/node = SubResource( 30 )
 nodes/Seek/position = Vector2( -180, 100 )
+"nodes/States General/node" = SubResource( 40 )
+"nodes/States General/position" = Vector2( -400, 60 )
+nodes/TimeScale/node = SubResource( 42 )
+nodes/TimeScale/position = Vector2( -580, -20 )
 nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "Idle State" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move", "Seek", 0, "States General", "TimeScale", 0, "Melee Attack State", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7154,6 +7209,9 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0, 0.0160047, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0.0604184, 0, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0, 0.34252, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0.385839, 0, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, 0, 0.405781, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0.412877, 0, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0, 0.404159, 0, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, 0, 0.345754, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0.23827, 0, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, 0, 0.086878, 0, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="CapsuleShape" id=43]
+radius = 0.491932
+
 [node name="Character" type="KinematicBody" groups=["Player"]]
 collision_layer = 2
 script = ExtResource( 7 )
@@ -7163,6 +7221,7 @@ activeCloths = "Normal"
 [node name="States" type="Spatial" parent="."]
 
 [node name="Move" type="Spatial" parent="States"]
+visible = false
 script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": "
@@ -7174,6 +7233,10 @@ speedRun = 5.0
 visible = false
 script = ExtResource( 5 )
 
+[node name="Battling" type="Spatial" parent="States"]
+script = ExtResource( 8 )
+attackType = "Melee"
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, 0 )
 shape = SubResource( 7 )
@@ -7182,10 +7245,6 @@ shape = SubResource( 7 )
 process_mode = 0
 wait_time = 0.1
 autostart = true
-
-[node name="NavigationAgent" type="NavigationAgent" parent="."]
-path_desired_distance = 0.1
-avoidance_enabled = true
 
 [node name="Base" type="Spatial" parent="."]
 transform = Transform( 0.822408, 0, 0, 0, 0.822408, 0, 0, 0, 0.822408, 0, 0, 0 )
@@ -7526,13 +7585,33 @@ skin = SubResource( 2 )
 [node name="Anchor_Cam_Invent" type="Position3D" parent="Base/Armature/Skeleton"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
 
+[node name="BoneAttachment" type="BoneAttachment" parent="Base/Armature/Skeleton"]
+transform = Transform( -0.177217, -0.0390876, -0.983394, -0.0847338, -0.994895, 0.0548159, -0.980517, 0.093042, 0.173, -0.277959, 0.628902, 0.0659091 )
+bone_name = "Mao.R"
+
+[node name="Sword" type="MeshInstance" parent="Base/Armature/Skeleton/BoneAttachment"]
+transform = Transform( -0.00251091, 1.67983e-05, 0.351415, 0.0195641, 0.0220174, 0.0198303, -0.0219366, 0.0196343, -0.0225381, -0.398601, 0.0700219, -0.00304177 )
+mesh = SubResource( 31 )
+skeleton = NodePath("../../../../..")
+material/0 = SubResource( 32 )
+
+[node name="Area_Sword" type="Area" parent="Base/Armature/Skeleton/BoneAttachment/Sword" groups=["Sword"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Armature/Skeleton/BoneAttachment/Sword/Area_Sword"]
+transform = Transform( 1, -1.02445e-08, 3.57628e-07, -2.8871e-08, 0.999999, -6.55651e-07, -2.79397e-09, -4.19095e-09, 1, -7.62939e-06, -1.95503e-05, -0.777518 )
+shape = SubResource( 44 )
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
+"parameters/Gun Attack State/playback" = SubResource( 41 )
 "parameters/Idle State/playback" = SubResource( 29 )
+"parameters/Melee Attack State/playback" = SubResource( 41 )
 parameters/Seek/seek_position = -1.0
+"parameters/States General/blend_amount" = 0.0
+parameters/TimeScale/scale = 2.0
 parameters/move/blend_amount = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -7561,4 +7640,17 @@ camera = NodePath("../Base/Armature/Skeleton/Anchor_Cam_Invent")
 
 [node name="Life" parent="." instance=ExtResource( 6 )]
 
+[node name="NavigationAgent" type="NavigationAgent" parent="."]
+path_desired_distance = 0.1
+avoidance_enabled = true
+neighbor_dist = 1.0
+
+[node name="Damage_Zone" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Damage_Zone"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.683507, 2.9877e-08 )
+shape = SubResource( 43 )
+
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
+[connection signal="area_entered" from="Damage_Zone" to="States/Battling" method="_on_Damage_Zone_area_entered"]
+[connection signal="area_exited" from="Damage_Zone" to="States/Battling" method="_on_Damage_Zone_area_exited"]

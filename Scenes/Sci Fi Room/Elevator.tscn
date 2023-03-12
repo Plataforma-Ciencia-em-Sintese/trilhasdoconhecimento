@@ -134,7 +134,7 @@ spot_angle = 29.0785
 [node name="Camera_Elevator" type="Camera" parent="."]
 transform = Transform( -0.560165, -0.00051383, 0.0588785, 0, 0.420242, 0.00366743, -0.0493205, 0.00409465, -0.469195, 0.390782, -0.482581, -0.877648 )
 
-[node name="Area_Elevator" type="Area" parent="."]
+[node name="Area_Elevator" type="Area" parent="." groups=["Elevator"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_Elevator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.994147 )

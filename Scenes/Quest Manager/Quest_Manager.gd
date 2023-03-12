@@ -16,7 +16,7 @@ func _ready():
 	$Buttons_Diary/BT_Close.hide()
 	$Buttons_Diary.hide()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_tree().get_current_scene().get_name() == "Scifi_Stage" and !getPlayer:
 		player = get_tree().get_nodes_in_group("Player")[0]
 		getPlayer = true

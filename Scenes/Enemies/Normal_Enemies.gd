@@ -1,33 +1,48 @@
 extends PathFollow
 
 export (String, "Parafuso", "Serra", "Golem", "Flexivel", "Bala") var enemyType
-export var speed = 1.0
-var transition = load("res://Scenes/Transitions/Transtiton.tscn")
-var isOnBattle = false
-onready var player
+var player
+var clicked = false
 
 func _ready():
 	get_enemy(enemyType)
-
-func _physics_process(delta):
-	offset += speed * delta
-
+	player = get_tree().get_nodes_in_group("Player")[0]
+	
 func get_enemy(type):
-	for i in $Root_Enemies.get_children():
+	for i in $Enemy/Root_Enemies.get_children():
 		if i.name != type:
 			i.queue_free()
+			
+func _on_Looking_Zone_body_entered(body):
+	if body.is_in_group("Player"):
+		$Wait_to_Back.stop()
+		$States/Battling.backToPatrol = false
+		$States/Battling.show()
+		$States/Patrol.hide()
+		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 
-func battle_initial():
-	isOnBattle = true
-	player = get_tree().get_nodes_in_group("Player")[0]
-	$Root_Enemies.look_at(-player.transform.origin,Vector3.UP)
-	
-func _on_Enemy_body_entered(body):
-	if body.is_in_group("Player") and !isOnBattle:
-		var spawnTr = transition.instance()
-		add_child(spawnTr)
-		spawnTr.get_node("AnimationPlayer").play("In")
-		get_tree().paused = true
-		yield(get_tree().create_timer(2),"timeout")
-		get_tree().change_scene("res://Scenes/Battle Zone/Battle_Zone.tscn")
-		get_tree().paused = false
+func _on_Looking_Zone_body_exited(body):
+	if body.is_in_group("Player"):
+		$Wait_to_Back.start(3)
+		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color( 0.956863, 0.643137, 0.376471, 0.05)
+
+func disable_looking_collision():
+	$Enemy/Looking_Zone/CollisionShape.set_deferred("disabled",true)
+	yield(get_tree().create_timer(2),"timeout")
+	$Enemy/Looking_Zone/CollisionShape.set_deferred("disabled",false)
+
+func _on_Looking_Zone_input_event(camera, event, position, normal, shape_idx):
+	if Input.is_action_just_pressed("Click"):
+		var playerBattle = player.get_node("States/Battling")
+		playerBattle.scriptEnemy = self
+		playerBattle.actualEnemy = $Enemy/Looking_Zone
+		playerBattle.goFight = true
+		playerBattle.releasePointer = true
+		clicked = true
+
+func _on_Looking_Zone_mouse_exited():
+	clicked = false
+
+func _on_Wait_to_Back_timeout():
+	$States/Battling.backToPatrol = true
+	$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(0, 1, 0, 0.01)
