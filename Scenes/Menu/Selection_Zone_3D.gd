@@ -4,6 +4,10 @@ export var offsetLook = 1.0
 var target = ["Floor/Ariel","Floor/Bento","Floor/Clara","Floor/Caio","Floor/Yara"]
 var id = 0
 var canChange = true
+var atributos
+
+func _ready():
+	pass
 
 func _physics_process(delta):
 #	$Cam_Pivot.look_at(get_node(target[id]).global_transform.origin,Vector3.UP)
@@ -19,7 +23,9 @@ func _physics_process(delta):
 		offsetLook = 1.9
 	elif id == 4:
 		offsetLook = 2.02
-		
+	
+	_area_attributes()
+
 func _on_Area_mouse_entered(charName,selectedId):
 	if selectedId == id:
 		canChange = false
@@ -32,6 +38,37 @@ func _on_Area_mouse_exited(charName,selectedId):
 		get_node("Floor").get_node(charName).get_node("Padrao").show()
 		get_node("Floor").get_node(charName).get_node("Virtual").hide()
 
+func _area_attributes():
+	if id == 0:
+		$ControlButtons/Panel_Bento.show()
+		$ControlButtons/Panel_Clara.hide()
+		$ControlButtons/Panel_Caio.hide()
+		$ControlButtons/Panel_Yara.hide()
+		$ControlButtons/Panel_Ariel.hide()
+	elif id == 1:
+		$ControlButtons/Panel_Bento.hide()
+		$ControlButtons/Panel_Clara.show()
+		$ControlButtons/Panel_Caio.hide()
+		$ControlButtons/Panel_Yara.hide()
+		$ControlButtons/Panel_Ariel.hide()
+	elif id == 2:
+		$ControlButtons/Panel_Bento.hide()
+		$ControlButtons/Panel_Clara.hide()
+		$ControlButtons/Panel_Caio.show()
+		$ControlButtons/Panel_Yara.hide()
+		$ControlButtons/Panel_Ariel.hide()
+	elif id == 3:
+		$ControlButtons/Panel_Bento.hide()
+		$ControlButtons/Panel_Clara.hide()
+		$ControlButtons/Panel_Caio.hide()
+		$ControlButtons/Panel_Yara.show()
+		$ControlButtons/Panel_Ariel.hide()
+	elif id == 4:
+		$ControlButtons/Panel_Bento.hide()
+		$ControlButtons/Panel_Clara.hide()
+		$ControlButtons/Panel_Caio.hide()
+		$ControlButtons/Panel_Yara.hide()
+		$ControlButtons/Panel_Ariel.show()
 
 func _on_ButtonPlay_pressed():
 	if id == 0:
@@ -39,7 +76,21 @@ func _on_ButtonPlay_pressed():
 		GlobalValues.skinChar = "Normal"
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 	if id == 1:
-			var _play: bool = get_tree().change_scene("res://Scenes/Menu/Selection_Zone_3D.tscn")
+		GlobalValues.nameChar = "Clara"
+		GlobalValues.skinChar = "Normal"
+		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+	if id == 2:
+		GlobalValues.nameChar = "Caio"
+		GlobalValues.skinChar = "Normal"
+		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+	if id == 3:
+		GlobalValues.nameChar = "Yara"
+		GlobalValues.skinChar = "Normal"
+		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
+	if id == 4:
+		GlobalValues.nameChar = "Ariel"
+		GlobalValues.skinChar = "Normal"
+		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 
 func _on_ButtonLeft_pressed():
 	if canChange:
