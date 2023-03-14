@@ -2,5 +2,5 @@ extends Node
 
 # Seleção de personagens
 
-var nameChar
-var skinChar
+var nameChar = "Clara"
+var skinChar = "Armadura"

@@ -1,8 +1,8 @@
 extends Spatial
 
 # Velocidade do agente
-export (float) var speedWalk = 1
-export (float) var speedRun = 1
+export (float) var speedWalk = 1.0
+export (float) var speedRun = 1.0
 
 # Declara quem e o node de navegacao
 var navAgent: NavigationAgent
@@ -47,14 +47,11 @@ func _ready():
 	elif clickCount == 2:
 		navAgent.max_speed = speedRun
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_visible_in_tree():
 		move()
 	
 func move():
-	# Mede a distancia entre o personagem e o pointer no cenario
-	var distanceToTarget = global_transform.origin.distance_to(target.global_transform.origin) - 0.1
-
 	# Muda de velocidade de acordo com os cliques do mouse
 	if Input.is_action_just_pressed("Click") and clickCount < 2:
 		animator.set("parameters/Seek/seek_position",0)

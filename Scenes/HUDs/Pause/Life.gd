@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		health = new_health
 		emit_signal("player_stats_changed", self)
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("Power"):
 		#if energia >= 10:
 			#energia = energia - 10

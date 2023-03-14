@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/heart.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/UI/Icons/Icon HUD/raio.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/HUDs/Pause/Energia.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/HUDs/Pause/Vida.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/HUDs/Pause/Life.gd" type="Script" id=5]
@@ -63,4 +62,3 @@ color = Color( 0.788235, 0.933333, 1, 1 )
 [node name="Sprite" type="Sprite" parent="Energia/EnergiaSprite"]
 position = Vector2( 14.45, 13.4 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 2 )

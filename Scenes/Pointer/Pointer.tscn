@@ -21,6 +21,7 @@ shader_param/thickness = 0.02
 radius = 0.360748
 
 [node name="Pointer" type="Area" groups=["Pointer"]]
+input_ray_pickable = false
 script = ExtResource( 1 )
 
 [node name="Arrow" type="MeshInstance" parent="."]
