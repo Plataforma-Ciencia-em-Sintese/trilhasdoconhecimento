@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Inventario.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Inventory/Desc_Panel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://teste.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Sair.png" type="Texture" id=5]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=6]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Sprites/sprite_Inventário/Rectangle 22.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/sprite_Inventário/Rectangle 26.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/sprite_Inventário/Rectangle 27.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/sprite_Inventário/Rectangle 19.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/sprite_Inventário/Rectangle 28.png" type="Texture" id=12]
+[ext_resource path="res://addons/dialogic/Editor/Events/styles/ResourceMenuHover.tres" type="StyleBox" id=13]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="Inventory" type="CanvasLayer" groups=["Inventory"]]
 script = ExtResource( 2 )
@@ -74,15 +89,8 @@ margin_bottom = 70.0
 mouse_filter = 0
 columns = 4
 
-[node name="BT_Close" type="Button" parent="BG_Inventory"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -64.0
-margin_top = -27.0
-margin_right = -14.0
-text = "X"
-
 [node name="BT_Inventario" type="Button" parent="."]
+visible = false
 anchor_left = 0.903
 anchor_top = 0.025
 anchor_right = 0.952
@@ -134,7 +142,486 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.411765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Panel_Item" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -593.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="BT_Personagens" type="Button" parent="Panel_Item"]
+modulate = Color( 0.995117, 0.995117, 0.995117, 1 )
+anchor_right = 0.028
+anchor_bottom = 0.033
+margin_left = 217.0
+margin_top = 56.0
+margin_right = 395.904
+margin_bottom = 119.2
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel_Item/BT_Personagens"]
+anchor_left = 0.372
+anchor_top = 0.301
+anchor_right = 0.864
+anchor_bottom = 0.687
+margin_left = -0.052002
+margin_top = 0.0169983
+margin_right = -0.0240021
+margin_bottom = -0.0210037
+custom_fonts/font = ExtResource( 14 )
+text = "Personagens"
+align = 1
+valign = 1
+
+[node name="BT_Upgrades" type="Button" parent="Panel_Item"]
+anchor_right = 0.028
+anchor_bottom = 0.033
+margin_left = 92.0
+margin_top = 54.0
+margin_right = 286.904
+margin_bottom = 121.2
+icon = ExtResource( 10 )
+flat = true
+expand_icon = true
+
+[node name="Label2" type="Label" parent="Panel_Item/BT_Upgrades"]
+anchor_left = 0.343
+anchor_top = 0.333
+anchor_right = 0.831
+anchor_bottom = 0.667
+margin_left = -0.00100708
+margin_top = 0.0289993
+margin_right = -0.0170135
+margin_bottom = -0.0290031
+custom_fonts/font = ExtResource( 14 )
+text = "Upgrades"
+align = 1
+valign = 1
+
+[node name="BT_Consumiveis" type="Button" parent="Panel_Item"]
+anchor_right = 0.028
+anchor_bottom = 0.033
+margin_left = 28.0
+margin_top = 66.0
+margin_right = 155.932
+margin_bottom = 110.2
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
+
+[node name="Label3" type="Label" parent="Panel_Item/BT_Consumiveis"]
+anchor_left = 0.053
+anchor_top = 0.14
+anchor_right = 0.886
+anchor_bottom = 0.86
+margin_left = 0.00399971
+margin_top = 0.02
+margin_right = 0.0479965
+margin_bottom = -0.0200005
+custom_fonts/font = ExtResource( 14 )
+text = "Consumiveis"
+align = 1
+valign = 1
+
+[node name="Painel_Consumiveis" type="Panel" parent="Panel_Item"]
+margin_left = 41.0
+margin_top = 155.0
+margin_right = 385.0
+margin_bottom = 528.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Button" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 115.0
+margin_bottom = 121.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 118.0
+margin_top = 9.0
+margin_right = 225.0
+margin_bottom = 124.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button3" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 232.0
+margin_top = 8.0
+margin_right = 339.0
+margin_bottom = 123.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button4" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 8.0
+margin_top = 130.0
+margin_right = 115.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button5" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 119.0
+margin_top = 130.0
+margin_right = 226.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button6" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 230.0
+margin_top = 130.0
+margin_right = 337.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button7" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 7.0
+margin_top = 251.0
+margin_right = 114.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button8" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 119.0
+margin_top = 251.0
+margin_right = 226.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button9" type="Button" parent="Panel_Item/Painel_Consumiveis"]
+margin_left = 230.0
+margin_top = 251.0
+margin_right = 337.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Painel_Upgrades" type="Panel" parent="Panel_Item"]
+visible = false
+margin_left = 42.0
+margin_top = 155.0
+margin_right = 386.0
+margin_bottom = 528.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Button" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 115.0
+margin_bottom = 121.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 118.0
+margin_top = 9.0
+margin_right = 225.0
+margin_bottom = 124.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button3" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 232.0
+margin_top = 8.0
+margin_right = 339.0
+margin_bottom = 123.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button4" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 8.0
+margin_top = 130.0
+margin_right = 115.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button5" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 119.0
+margin_top = 130.0
+margin_right = 226.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button6" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 230.0
+margin_top = 130.0
+margin_right = 337.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button7" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 7.0
+margin_top = 251.0
+margin_right = 114.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button8" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 119.0
+margin_top = 251.0
+margin_right = 226.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button9" type="Button" parent="Panel_Item/Painel_Upgrades"]
+margin_left = 230.0
+margin_top = 251.0
+margin_right = 337.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Painel_Personagens" type="Panel" parent="Panel_Item"]
+visible = false
+margin_left = 42.0
+margin_top = 155.0
+margin_right = 386.0
+margin_bottom = 528.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 8.0
+margin_top = 6.0
+margin_right = 115.0
+margin_bottom = 121.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 118.0
+margin_top = 9.0
+margin_right = 225.0
+margin_bottom = 124.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button3" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 232.0
+margin_top = 8.0
+margin_right = 339.0
+margin_bottom = 123.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button4" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 8.0
+margin_top = 130.0
+margin_right = 115.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button5" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 119.0
+margin_top = 130.0
+margin_right = 226.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button6" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 230.0
+margin_top = 130.0
+margin_right = 337.0
+margin_bottom = 245.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button7" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 7.0
+margin_top = 251.0
+margin_right = 114.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button8" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 119.0
+margin_top = 251.0
+margin_right = 226.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Button9" type="Button" parent="Panel_Item/Painel_Personagens"]
+margin_left = 230.0
+margin_top = 251.0
+margin_right = 337.0
+margin_bottom = 366.0
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="Panel_Descri" type="Panel" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.513726 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -311.0
+margin_top = -500.0
+
+[node name="Panel_Martelo" type="TextureRect" parent="Panel_Descri"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 33.0
+margin_top = -147.0
+margin_right = 133.0
+margin_bottom = -40.0
+
+[node name="Nome_Item" type="Label" parent="Panel_Descri/Panel_Martelo"]
+margin_left = 107.0
+margin_top = -3.0
+margin_right = 219.0
+margin_bottom = 19.0
+
+[node name="Nome_Desc" type="Label" parent="Panel_Descri/Panel_Martelo/Nome_Item"]
+margin_left = -2.0
+margin_top = 28.0
+margin_right = 110.0
+margin_bottom = 42.0
+
+[node name="Nome_Desc2" type="Label" parent="Panel_Descri/Panel_Martelo/Nome_Item"]
+margin_left = -2.0
+margin_top = 40.0
+margin_right = 110.0
+margin_bottom = 54.0
+
+[node name="Nome_Desc3" type="Label" parent="Panel_Descri/Panel_Martelo/Nome_Item"]
+margin_left = -2.0
+margin_top = 52.0
+margin_right = 110.0
+margin_bottom = 66.0
+
+[node name="Efeitos" type="Label" parent="Panel_Descri/Panel_Martelo"]
+margin_left = -1.0
+margin_top = 141.0
+margin_right = 76.0
+margin_bottom = 165.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = " Efeitos"
+valign = 1
+
+[node name="Label" type="Label" parent="Panel_Descri/Panel_Martelo/Efeitos"]
+margin_left = 3.0
+margin_top = 19.0
+margin_right = 55.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "Guerreiro"
+
+[node name="Efeito1" type="TextureRect" parent="Panel_Descri/Panel_Martelo"]
+margin_left = 2.0
+margin_top = 178.0
+margin_right = 18.0
+margin_bottom = 194.0
+
+[node name="Efeito_desc" type="TextureRect" parent="Panel_Descri/Panel_Martelo/Efeito1"]
+margin_left = 19.0
+margin_top = 1.0
+margin_right = 158.0
+margin_bottom = 14.0
+
+[node name="Efeito2" type="TextureRect" parent="Panel_Descri/Panel_Martelo"]
+margin_left = 3.0
+margin_top = 199.0
+margin_right = 19.0
+margin_bottom = 215.0
+
+[node name="Efeito_desc2" type="TextureRect" parent="Panel_Descri/Panel_Martelo/Efeito2"]
+margin_left = 18.0
+margin_right = 197.0
+margin_bottom = 14.0
+
+[node name="Efeito3" type="TextureRect" parent="Panel_Descri/Panel_Martelo"]
+margin_left = 3.0
+margin_top = 217.0
+margin_right = 19.0
+margin_bottom = 233.0
+
+[node name="Efeito_desc2" type="TextureRect" parent="Panel_Descri/Panel_Martelo/Efeito3"]
+margin_left = 19.0
+margin_top = 2.0
+margin_right = 175.0
+margin_bottom = 15.0
+
+[node name="BT_Equipar" type="Button" parent="Panel_Descri"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -107.5
+margin_top = -95.0
+margin_right = 132.5
+margin_bottom = -44.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Descri/BT_Equipar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -187.0
+
+[node name="BT_Close" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -77.0
+margin_top = 17.0
+margin_right = -13.0
+margin_bottom = 81.0
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+
 [connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Upgrade" to="." method="_on_bt_item_down" binds= [ "Upgrades" ]]
 [connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Consumiveis" to="." method="_on_bt_item_down" binds= [ "Consumiveis" ]]
-[connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
 [connection signal="pressed" from="BT_Inventario" to="." method="_on_BT_Inventario_pressed"]
+[connection signal="pressed" from="BT_Close" to="." method="_on_BT_Close_pressed"]
