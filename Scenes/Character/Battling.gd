@@ -17,7 +17,9 @@ func _physics_process(delta):
 		start_fight()
 
 func start_fight():
+	owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = true
 	var dist = owner.global_transform.origin.distance_to(actualEnemy.global_transform.origin)
+	
 	if releasePointer:
 		pointer.global_transform.origin = actualEnemy.global_transform.origin
 		pointer.hide()
@@ -59,3 +61,4 @@ func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
 		area = null
 		goFight = false
+		owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = false

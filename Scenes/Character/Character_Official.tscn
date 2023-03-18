@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Caio/Caio Normal.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Character/MainChar.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Character/Battling.gd" type="Script" id=8]
+[ext_resource path="res://addons/proton_trail-master/proton_trail.gd" type="Script" id=9]
+[ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -222,6 +224,13 @@ albedo_color = Color( 0.964706, 0, 0, 1 )
 radius = 1.98227
 height = 0.002
 
+[sub_resource type="SpatialMaterial" id=45]
+flags_unshaded = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_color = Color( 1, 0, 0, 1 )
+albedo_texture = ExtResource( 10 )
+
 [sub_resource type="AnimationNodeAnimation" id=33]
 animation = "Attack03"
 
@@ -308,7 +317,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move", "Seek", 0, "States General", "TimeScale", 0, "Melee Attack State", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State" ]
+node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "TimeScale", 0, "Melee Attack State" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
@@ -7586,7 +7595,7 @@ skin = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Base/Armature/Skeleton"]
-transform = Transform( -0.177217, -0.0390876, -0.983394, -0.0847338, -0.994895, 0.0548159, -0.980517, 0.093042, 0.173, -0.277959, 0.628902, 0.0659091 )
+transform = Transform( 0.00129133, -0.0141103, -0.999898, -0.232668, -0.972464, 0.0134237, -0.972555, 0.232628, -0.00453818, -0.293459, 0.593808, 0.0650505 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Armature/Skeleton/BoneAttachment"]
@@ -7600,6 +7609,21 @@ material/0 = SubResource( 32 )
 [node name="CollisionShape" type="CollisionShape" parent="Base/Armature/Skeleton/BoneAttachment/Sword/Area_Sword"]
 transform = Transform( 1, -1.02445e-08, 3.57628e-07, -2.8871e-08, 0.999999, -6.55651e-07, -2.79397e-09, -4.19095e-09, 1, -7.62939e-06, -1.95503e-05, -0.777518 )
 shape = SubResource( 44 )
+
+[node name="ProtonTrail" type="Spatial" parent="Base/Armature/Skeleton/BoneAttachment"]
+transform = Transform( -0.0608918, 0.996684, -0.0539959, 0.998145, 0.0608026, -0.00329402, 2.98023e-08, -0.0540963, -0.998536, -0.441561, 0.0737144, 0 )
+visible = false
+script = ExtResource( 9 )
+material = SubResource( 45 )
+life_time = 0.5
+cast_shadow = false
+emit = false
+
+[node name="Top" type="Position3D" parent="Base/Armature/Skeleton/BoneAttachment/ProtonTrail"]
+transform = Transform( 1, 0, 0, -5.96046e-08, 1, 1.11759e-08, 0, 3.72529e-09, 1, 4.17233e-07, 0.484391, -5.96046e-08 )
+
+[node name="Bottom" type="Position3D" parent="Base/Armature/Skeleton/BoneAttachment/ProtonTrail"]
+transform = Transform( 1, 0, 0, -5.96046e-08, 1, 1.11759e-08, 0, 3.72529e-09, 1, -1.78814e-07, -0.562604, 0 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 12 )
