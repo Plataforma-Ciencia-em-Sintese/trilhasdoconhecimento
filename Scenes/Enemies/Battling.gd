@@ -1,21 +1,19 @@
 extends Spatial
 
-export var life = 7
+export var damage = 20
 export var distanceToStop = 2
 var stop = false
 var backToPatrol = false
-var startPos = Vector3()
 var player
 var pathPoint
 var navAgent
 var getOwner
+var explosion = load("res://Effects/Toon Explosion/Explosion.tscn")
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	
 	getOwner = owner
-	
-	startPos = getOwner.get_node("Enemy").global_transform.origin
 	
 	# Identifica quem é o node de navegacao dentro da cena
 	navAgent = getOwner.get_node("Enemy/NavigationAgentEnemy")
@@ -37,10 +35,8 @@ func start_battle():
 			stop = false
 			getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayer").play("Idle")
 	else:
-		var distanceToPatrol = getOwner.get_node("Enemy").global_transform.origin.distance_to(startPos) - 0.1
-		if distanceToPatrol <= 1:
-			getOwner.offset = 0
-			getOwner.unit_offset = 0
+		var distanceToPatrol = getOwner.get_node("Enemy").global_transform.origin.distance_to(getOwner.get_node("LastPos").global_transform.origin) - 0.1
+		if distanceToPatrol <= 0.1:
 			getOwner.disable_looking_collision()
 			getOwner.get_node("States/Patrol").show()
 			self.hide()
@@ -60,7 +56,7 @@ func start_battle():
 		direction = player.global_transform.origin.direction_to(target_pos)
 		velocity = direction * navAgent.max_speed
 	else:
-		direction = startPos.direction_to(target_pos)
+		direction = getOwner.get_node("LastPos").global_transform.origin.direction_to(target_pos)
 		velocity = direction * navAgent.max_speed
 
 	# Ajusta a todo momento a velocidade de desvio de obstaculos moveis
@@ -71,7 +67,7 @@ func start_battle():
 		# Faz o personagem olhar para o caminho do navmesh
 		getOwner.get_node("Enemy/Root_Enemies").look_at(player.transform.origin - direction,Vector3.UP)
 	else:
-		getOwner.get_node("Enemy/Root_Enemies").look_at(startPos - direction,Vector3.UP)
+		getOwner.get_node("Enemy/Root_Enemies").look_at(getOwner.get_node("LastPos").global_transform.origin - direction,Vector3.UP)
 
 func _on_velocity_computed(new_velocity):
 	if !stop:
@@ -87,8 +83,11 @@ func _on_NavTimerEnemy_timeout():
 
 func _on_Damage_Area_area_entered(area):
 	if area.is_in_group("Sword"):
-		life -= 1
+		getOwner.get_node("Viewport/BarLife").value -= damage
 		getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
-		if life <= 0:
+		if getOwner.get_node("Viewport/BarLife").value <= 0:
 			player.get_node("States/Battling").end_fight()
+			var spawnExplosion = explosion.instance()
+			owner.owner.add_child(spawnExplosion)
+			spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)
 			owner.queue_free()

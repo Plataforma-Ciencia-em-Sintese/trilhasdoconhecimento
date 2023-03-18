@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
 [ext_resource path="res://Scenes/Enemies/Normal_Enemies.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Enemies/Patrol.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Enemies/Battling.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape" id=19]
 radius = 2.49825
@@ -1496,6 +1497,40 @@ albedo_color = Color( 0.396078, 1, 0, 0.0196078 )
 radius = 1.08734
 height = 2.76983
 
+[sub_resource type="ViewportTexture" id=41]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=42]
+resource_local_to_scene = true
+params_billboard_mode = 1
+params_billboard_keep_scale = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = SubResource( 41 )
+
+[sub_resource type="StyleBoxFlat" id=39]
+bg_color = Color( 0.521569, 1, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id=40]
+bg_color = Color( 0.00392157, 0.027451, 0, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.243137, 1, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="CubeMesh" id=43]
+
 [node name="Path_Enemy" type="PathFollow"]
 script = ExtResource( 3 )
 
@@ -1964,6 +1999,12 @@ avoidance_enabled = true
 neighbor_dist = 1.0
 max_speed = 1.0
 
+[node name="Life3D" type="Sprite3D" parent="Enemy"]
+transform = Transform( 5.33471, 0, 0, 0, 1.17768, 0, 0, 0, 1, 0.00203347, 7.14063, 0 )
+material_override = SubResource( 42 )
+billboard = 1
+texture = ExtResource( 6 )
+
 [node name="States" type="Spatial" parent="."]
 
 [node name="Patrol" type="Spatial" parent="States"]
@@ -1972,6 +2013,7 @@ script = ExtResource( 4 )
 [node name="Battling" type="Spatial" parent="States"]
 visible = false
 script = ExtResource( 5 )
+damage = 15
 
 [node name="NavTimerEnemy" type="Timer" parent="."]
 process_mode = 0
@@ -1980,6 +2022,23 @@ autostart = true
 
 [node name="Wait_to_Back" type="Timer" parent="."]
 one_shot = true
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 500, 500 )
+transparent_bg = true
+
+[node name="BarLife" type="ProgressBar" parent="Viewport"]
+margin_top = 50.0
+margin_right = 500.0
+margin_bottom = 450.0
+custom_styles/fg = SubResource( 39 )
+custom_styles/bg = SubResource( 40 )
+value = 100.0
+percent_visible = false
+
+[node name="LastPos" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 43 )
 
 [connection signal="area_entered" from="Enemy/Damage_Area" to="States/Battling" method="_on_Damage_Area_area_entered"]
 [connection signal="body_entered" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_entered"]

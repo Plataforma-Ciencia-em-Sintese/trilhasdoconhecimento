@@ -317,7 +317,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "TimeScale", 0, "Melee Attack State" ]
+node_connections = [ "Seek", 0, "States General", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "TimeScale", 0, "Melee Attack State", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
@@ -782,6 +782,23 @@ tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.58333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/65/type = "method"
+tracks/65/path = NodePath("../States/Battling")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_melee_hitbox"
+}, {
+"args": [ true ],
+"method": "set_melee_hitbox"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Attack03"
@@ -1702,6 +1719,23 @@ tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/65/type = "method"
+tracks/65/path = NodePath("../States/Battling")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_melee_hitbox"
+}, {
+"args": [ true ],
+"method": "set_melee_hitbox"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Disconect"
@@ -7595,7 +7629,7 @@ skin = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Base/Armature/Skeleton"]
-transform = Transform( 0.00129133, -0.0141103, -0.999898, -0.232668, -0.972464, 0.0134237, -0.972555, 0.232628, -0.00453818, -0.293459, 0.593808, 0.0650505 )
+transform = Transform( -0.0131069, 0.991466, 0.129701, 0.443905, -0.11046, 0.889238, 0.895977, 0.0692313, -0.438671, -0.114619, 1.00161, 0.323352 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Armature/Skeleton/BoneAttachment"]
@@ -7609,6 +7643,7 @@ material/0 = SubResource( 32 )
 [node name="CollisionShape" type="CollisionShape" parent="Base/Armature/Skeleton/BoneAttachment/Sword/Area_Sword"]
 transform = Transform( 1, -1.02445e-08, 3.57628e-07, -2.8871e-08, 0.999999, -6.55651e-07, -2.79397e-09, -4.19095e-09, 1, -7.62939e-06, -1.95503e-05, -0.777518 )
 shape = SubResource( 44 )
+disabled = true
 
 [node name="ProtonTrail" type="Spatial" parent="Base/Armature/Skeleton/BoneAttachment"]
 transform = Transform( -0.0608918, 0.996684, -0.0539959, 0.998145, 0.0608026, -0.00329402, 2.98023e-08, -0.0540963, -0.998536, -0.441561, 0.0737144, 0 )
