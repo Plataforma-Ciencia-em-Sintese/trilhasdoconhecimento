@@ -9,6 +9,7 @@ var pathPoint
 var navAgent
 var getOwner
 var explosion = load("res://Effects/Toon Explosion/Explosion.tscn")
+var hit = load("res://Scenes/Attacks/Hit/Hit.tscn")
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -85,6 +86,10 @@ func _on_Damage_Area_area_entered(area):
 	if area.is_in_group("Sword"):
 		getOwner.get_node("Viewport/BarLife").value -= damage
 		getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
+		var spawnHit = hit.instance()
+		owner.owner.add_child(spawnHit)
+		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
+		
 		if getOwner.get_node("Viewport/BarLife").value <= 0:
 			player.get_node("States/Battling").end_fight()
 			var spawnExplosion = explosion.instance()

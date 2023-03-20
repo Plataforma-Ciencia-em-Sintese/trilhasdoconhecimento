@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Barrior01.efkefc-d5749f53ab3569b6b61c32edd87361a5.res"
+
+[deps]
+
+source_file="res://Effects/Barrier/Barrior01.efkefc"
+dest_files=[ "res://.import/Barrior01.efkefc-d5749f53ab3569b6b61c32edd87361a5.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true

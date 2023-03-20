@@ -1581,6 +1581,9 @@ playback_speed = 2.0
 anims/Hit = SubResource( 25 )
 anims/RESET = SubResource( 26 )
 
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Parafuso"]
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
+
 [node name="Serra" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
@@ -1637,6 +1640,9 @@ anims/Idle = SubResource( 9 )
 [node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Serra"]
 anims/Hit = SubResource( 28 )
 anims/RESET = SubResource( 29 )
+
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Serra"]
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
 
 [node name="Golem" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -1739,6 +1745,9 @@ anims/Idle = SubResource( 13 )
 root_node = NodePath("../IA_03")
 anims/Hit = SubResource( 31 )
 anims/RESET = SubResource( 32 )
+
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Golem"]
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
 
 [node name="Flexivel" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -1972,11 +1981,17 @@ anims/Idle = SubResource( 17 )
 anims/Hit = SubResource( 34 )
 anims/RESET = SubResource( 35 )
 
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Flexivel"]
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
+
 [node name="Bala" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="IA_05" type="MeshInstance" parent="Enemy/Root_Enemies/Bala"]
 mesh = SubResource( 18 )
+
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Bala"]
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
 
 [node name="Looking_Zone" type="Area" parent="Enemy" groups=["Enemy_Area"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1677, 0 )

@@ -17,7 +17,7 @@
 
 			],
 			"portrait": "",
-			"question": "Preciso que você me ajude em uma missão!"
+			"question": "Olá como vai? Sou Galileu Galilei, um cientista famoso. Poderia me ajudar em uma coisa?"
 		},
 		{
 			"choice": "Aceito!",
@@ -30,21 +30,33 @@
 			"character": "character-1669120399.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Muito bem! Colete para mim o objeto perdido pelo cenário. Ele é extremamente valioso para mim."
+			"text": "Obrigado! Por favor encontre as partes perdidas da minha luneta."
 		},
 		{
 			"character": "character-1669120399.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Volte aqui quando encontrá-lo e lhe darei algo muito bom em troca."
+			"text": "Sabia que com ela descobri muitos planetas no século 18? É incrível o que podemos descobrir fora da nossa atmosfera."
+		},
+		{
+			"character": "character-1669120399.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Volte aqui quando encontrá-las e lhe darei algo muito bom em troca. Vou iniciar a sequência de teleporte ao mundo virtual."
+		},
+		{
+			"character": "character-1669120399.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Boa sorte bravo estudante!"
 		},
 		{
 			"call_node": {
 				"arguments": [
 
 				],
-				"method_name": "set_quest",
-				"target_node_path": "Scifi_Stage/NPC_Root/Path_Quest_NPC_1/NPC/NPC/Quest_Holder"
+				"method_name": "accept_quest",
+				"target_node_path": "Scifi_Stage/Hologram"
 			},
 			"event_id": "dialogic_042"
 		},
@@ -67,7 +79,7 @@
 			"character": "character-1669120399.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ok, não preciso de sua ajuda mesmo!"
+			"text": "Oh não...Tudo bem, volte quando mudar de idéia."
 		},
 		{
 			"event_id": "dialogic_013"
@@ -126,6 +138,16 @@
 				],
 				"method_name": "finish_quest",
 				"target_node_path": "QuestManager"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "end_quest",
+				"target_node_path": "Scifi_Stage/Hologram"
 			},
 			"event_id": "dialogic_042"
 		},

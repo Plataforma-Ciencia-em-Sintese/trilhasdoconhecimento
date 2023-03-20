@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Caio/Caio Normal.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://Scenes/Character/Battling.gd" type="Script" id=8]
 [ext_resource path="res://addons/proton_trail-master/proton_trail.gd" type="Script" id=9]
 [ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Laser.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Ray Explosion.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Speed.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Force Field.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -221,7 +226,7 @@ flags_unshaded = true
 albedo_color = Color( 0.964706, 0, 0, 1 )
 
 [sub_resource type="CapsuleShape" id=44]
-radius = 1.98227
+radius = 2.0
 height = 0.002
 
 [sub_resource type="SpatialMaterial" id=45]
@@ -317,7 +322,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "Seek", 0, "States General", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "TimeScale", 0, "Melee Attack State", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
+node_connections = [ "output", 0, "move", "TimeScale", 0, "Melee Attack State", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "Seek", 0, "States General", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
@@ -7629,7 +7634,7 @@ skin = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Base/Armature/Skeleton"]
-transform = Transform( -0.0131069, 0.991466, 0.129701, 0.443905, -0.11046, 0.889238, 0.895977, 0.0692313, -0.438671, -0.114619, 1.00161, 0.323352 )
+transform = Transform( 0.000623733, -0.01325, -0.99991, -0.235378, -0.971821, 0.0127319, -0.971903, 0.235351, -0.00372413, -0.29331, 0.593222, 0.0654241 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Armature/Skeleton/BoneAttachment"]
@@ -7641,7 +7646,7 @@ material/0 = SubResource( 32 )
 [node name="Area_Sword" type="Area" parent="Base/Armature/Skeleton/BoneAttachment/Sword" groups=["Sword"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Base/Armature/Skeleton/BoneAttachment/Sword/Area_Sword"]
-transform = Transform( 1, -1.02445e-08, 3.57628e-07, -2.8871e-08, 0.999999, -6.55651e-07, -2.79397e-09, -4.19095e-09, 1, -7.62939e-06, -1.95503e-05, -0.777518 )
+transform = Transform( 1, 0, 2.38419e-06, 5.21541e-08, 0.999999, -1.43051e-06, -1.86265e-09, -5.58794e-09, 1, -1.71661e-05, -2.76566e-05, -0.805626 )
 shape = SubResource( 44 )
 disabled = true
 
@@ -7699,6 +7704,106 @@ camera = NodePath("../Base/Armature/Skeleton/Anchor_Cam_Invent")
 
 [node name="Life" parent="." instance=ExtResource( 6 )]
 
+[node name="Battle_UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -399.0
+margin_top = -108.0
+margin_bottom = -8.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Attack_Container" type="HBoxContainer" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -397.0
+margin_top = -103.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/separation = 20
+alignment = 1
+
+[node name="ATK" type="Button" parent="Battle_UI/Attack_Container"]
+margin_left = 8.0
+margin_right = 88.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 14 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+cooldownValue = 10.0
+attackSource = "res://Scenes/Attacks/Energy Barrier/EnergyBarrier.tscn"
+followPlayer = true
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
+[node name="ATK2" type="Button" parent="Battle_UI/Attack_Container"]
+margin_left = 108.0
+margin_right = 188.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+cooldownValue = 50.0
+attackSource = "res://Scenes/Attacks/Laser/Laser.tscn"
+followPlayer = true
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK2"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
+[node name="ATK3" type="Button" parent="Battle_UI/Attack_Container"]
+margin_left = 208.0
+margin_right = 288.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 13 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+cooldownValue = 20.0
+attackSource = "res://Scenes/Attacks/Speed Up/SpeedUp.tscn"
+followPlayer = true
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK3"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
+[node name="ATK4" type="Button" parent="Battle_UI/Attack_Container"]
+margin_left = 308.0
+margin_right = 388.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+cooldownValue = 15.0
+attackSource = "res://Scenes/Attacks/Meteor Attack/Meteor Attack.tscn"
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK4"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 path_desired_distance = 0.1
 avoidance_enabled = true
@@ -7711,5 +7816,17 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.68
 shape = SubResource( 43 )
 
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
+[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK" to="Battle_UI/Attack_Container/ATK" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK" to="Battle_UI/Attack_Container/ATK" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Attack_Container/ATK" to="Battle_UI/Attack_Container/ATK" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK2" to="Battle_UI/Attack_Container/ATK2" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK2" to="Battle_UI/Attack_Container/ATK2" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Attack_Container/ATK2" to="Battle_UI/Attack_Container/ATK2" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK3" to="Battle_UI/Attack_Container/ATK3" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK3" to="Battle_UI/Attack_Container/ATK3" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Attack_Container/ATK3" to="Battle_UI/Attack_Container/ATK3" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK4" to="Battle_UI/Attack_Container/ATK4" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK4" to="Battle_UI/Attack_Container/ATK4" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Attack_Container/ATK4" to="Battle_UI/Attack_Container/ATK4" method="_on_ATK_pressed"]
 [connection signal="area_entered" from="Damage_Zone" to="States/Battling" method="_on_Damage_Zone_area_entered"]
 [connection signal="area_exited" from="Damage_Zone" to="States/Battling" method="_on_Damage_Zone_area_exited"]

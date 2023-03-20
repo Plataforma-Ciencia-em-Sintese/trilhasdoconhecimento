@@ -36,7 +36,7 @@ func start_fight():
 			owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = true
 			releasePointer = false
 	
-	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked:
+	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked and pointer.outInterface:
 		end_fight()
 		yield(get_tree().create_timer(2),"timeout")
 		if goFight:
