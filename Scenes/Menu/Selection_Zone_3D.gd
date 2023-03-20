@@ -73,23 +73,23 @@ func _area_attributes():
 func _on_ButtonPlay_pressed():
 	if id == 0:
 		GlobalValues.nameChar = "Bento"
-		GlobalValues.skinChar = "Armadura"
+		GlobalValues.skinChar = "Normal"
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 	if id == 1:
 		GlobalValues.nameChar = "Clara"
-		GlobalValues.skinChar = "Armadura"
+		GlobalValues.skinChar = "Normal"
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 	if id == 2:
 		GlobalValues.nameChar = "Caio"
-		GlobalValues.skinChar = "Armadura"
+		GlobalValues.skinChar = "Normal"
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 	if id == 3:
 		GlobalValues.nameChar = "Yara"
-		GlobalValues.skinChar = "Armadura"
+		GlobalValues.skinChar = "Normal"
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 	if id == 4:
 		GlobalValues.nameChar = "Ariel"
-		GlobalValues.skinChar = "Armadura"
+		GlobalValues.skinChar = "Normal"
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Room.tscn")
 
 func _on_ButtonLeft_pressed():
