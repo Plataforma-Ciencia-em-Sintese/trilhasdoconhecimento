@@ -1,0 +1,14 @@
+[remap]
+
+importer="effekseer.resource"
+type="Resource"
+path="res://.import/ToonBase.efkmat-ea797f243bd28b754baec12ff19b311a.res"
+
+[deps]
+
+source_file="res://Effects/Toon Explosion/Parts/ToonBase.efkmat"
+dest_files=[ "res://.import/ToonBase.efkmat-ea797f243bd28b754baec12ff19b311a.res" ]
+
+[params]
+
+compress=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Simple_SpawnMethod1.efkefc-2ff2d9165d29e60887cbfbd5345fb026.res"
+
+[deps]
+
+source_file="res://Effects/Hit/Simple_SpawnMethod1.efkefc"
+dest_files=[ "res://.import/Simple_SpawnMethod1.efkefc-2ff2d9165d29e60887cbfbd5345fb026.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true

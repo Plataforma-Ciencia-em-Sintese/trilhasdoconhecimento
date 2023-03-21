@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=1]
+[ext_resource path="res://Effects/Meteor/Meteor Attack.efkefc" type="Resource" id=2]
+
+[node name="Meteor Attack" type="Spatial"]
+
+[node name="EffekseerEmitter" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+script = ExtResource( 1 )
+effect = ExtResource( 2 )

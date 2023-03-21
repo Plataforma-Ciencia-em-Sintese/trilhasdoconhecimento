@@ -68,6 +68,8 @@ func start_level():
 	player.get_node("Inventory").hide()
 	player.get_node("Pause").hide()
 	player.get_node("Life").hide()
+	owner.get_node("WhiteTransition/Back").hide()
+	QuestManager.get_node("Buttons_Diary").hide()
 	
 	pointer.camera.current = false
 	camElevator.current = true
@@ -91,6 +93,10 @@ func start_level():
 	player.get_node("Pause").show()
 	player.get_node("Life").show()
 	
+	if QuestManager.isInQuest:
+		owner.get_node("WhiteTransition/Back").show()
+		QuestManager.get_node("Buttons_Diary").show()
+		
 	pointer.isStopped = false
 	goToElevator = false
 	startStage = false

@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Speed Plus.efkefc-55f5d91ae39f1ddfcec6deb9a9af524f.res"
+
+[deps]
+
+source_file="res://Effects/Speed Up/Speed Plus.efkefc"
+dest_files=[ "res://.import/Speed Plus.efkefc-55f5d91ae39f1ddfcec6deb9a9af524f.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true

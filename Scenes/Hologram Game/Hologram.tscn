@@ -1,0 +1,275 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://3D/Hologram/Model/DiscPlayer.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://3D/Hologram/Model/Base.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://3D/Hologram/Model/Projector.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Scenes/Hologram Game/Hologram.gd" type="Script" id=4]
+[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=5]
+[ext_resource path="res://Effects/Hologram/Simple_Distortion.efkefc" type="Resource" id=6]
+[ext_resource path="res://3D/Hologram/Material/Atlas.material" type="Material" id=7]
+[ext_resource path="res://3D/Hologram/Hologram Material.tres" type="Material" id=8]
+[ext_resource path="res://3D/Hologram/Model/Circular Frame.tres" type="ArrayMesh" id=9]
+[ext_resource path="res://Scenes/NPCs/Quest_Holder.gd" type="Script" id=10]
+
+[sub_resource type="PlaneMesh" id=976]
+
+[sub_resource type="Gradient" id=977]
+offsets = PoolRealArray( 0, 0.692946 )
+colors = PoolColorArray( 1, 1, 1, 0.305882, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=975]
+gradient = SubResource( 977 )
+
+[sub_resource type="SpatialMaterial" id=978]
+flags_transparent = true
+albedo_texture = SubResource( 975 )
+
+[sub_resource type="SpatialMaterial" id=984]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="PrismMesh" id=988]
+
+[sub_resource type="SpatialMaterial" id=989]
+flags_unshaded = true
+albedo_color = Color( 0.980392, 0.85098, 0, 1 )
+
+[sub_resource type="BoxShape" id=985]
+extents = Vector3( 1.80785, 1, 1 )
+
+[sub_resource type="Animation" id=990]
+resource_name = "End"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Face:material/0:next_pass:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0117647, 0.905882, 1, 0.54902 ), Color( 0.0117647, 0.905882, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Face:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.932089, 0.932089, 0.932089 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=986]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Face:material/0:next_pass:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.0117647, 0.905882, 1, 0.54902 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Face:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.932089, 0.932089, 0.932089 ) ]
+}
+
+[sub_resource type="Animation" id=987]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Face:material/0:next_pass:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0117647, 0.905882, 1, 0 ), Color( 0.0117647, 0.905882, 1, 0.54902 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Face:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.932089, 0.932089, 0.932089 ) ]
+}
+
+[sub_resource type="Animation" id=991]
+resource_name = "FadeIn"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/BG:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=992]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/BG:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Hologram" type="Spatial"]
+script = ExtResource( 4 )
+cam = NodePath("Camera")
+timeline = "timeline-1669120340.json"
+
+[node name="Base" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 7 )
+
+[node name="DiscPlayer" type="MeshInstance" parent="Base"]
+transform = Transform( 0.60775, 0, 0, 0, 0.60775, 0, 0, 0, 0.60775, 0, 0.583256, 2.15385 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+
+[node name="Projector" type="MeshInstance" parent="Base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0703659, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+
+[node name="Light Volume 2" type="MeshInstance" parent="Base/Projector"]
+transform = Transform( 0.100524, 0.086832, 0, -0.0736505, 0.118515, 0, 0, 0, 0.251854, -1.45729, 1.5359, 0.00930384 )
+mesh = SubResource( 976 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 978 )
+
+[node name="Light Volume Suport" type="MeshInstance" parent="Base/Projector/Light Volume 2"]
+transform = Transform( 0.688963, -4.17233e-07, 0, 8.9407e-08, 1, 0, 0, 0, 1, -0.776661, 0.300362, 0 )
+mesh = SubResource( 976 )
+skeleton = NodePath("../../../../..")
+material/0 = SubResource( 978 )
+
+[node name="Light Volume 3" type="MeshInstance" parent="Base/Projector"]
+transform = Transform( -0.100524, -0.086832, -2.20178e-08, -0.0736505, 0.118515, 0, 8.78808e-09, 7.5911e-09, -0.251854, 1.45386, 1.5359, -0.0105125 )
+mesh = SubResource( 976 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 978 )
+
+[node name="Light Volume Suport" type="MeshInstance" parent="Base/Projector/Light Volume 3"]
+transform = Transform( 0.688963, -4.17233e-07, 0, 8.9407e-08, 1, 0, 0, 0, 1, -0.776661, 0.300362, 0 )
+mesh = SubResource( 976 )
+skeleton = NodePath("../../../../..")
+material/0 = SubResource( 978 )
+
+[node name="Face" type="MeshInstance" parent="."]
+transform = Transform( 0.932089, 0, 0, 0, -4.07429e-08, -0.932089, 0, 0.932089, -4.07429e-08, 0, 2.653, 0.375 )
+visible = false
+mesh = ExtResource( 9 )
+material/0 = ExtResource( 8 )
+
+[node name="BGFace" type="MeshInstance" parent="Face"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0214572, 0 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 984 )
+
+[node name="Arrow" type="MeshInstance" parent="."]
+transform = Transform( 0.578984, -5.72557e-09, -0.0654925, 0, -0.679226, 5.93799e-08, -0.295999, -1.11994e-08, -0.128106, 0, 5.32037, 0 )
+visible = false
+mesh = SubResource( 988 )
+material/0 = SubResource( 989 )
+
+[node name="AreaHologram" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="AreaHologram"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.97791 )
+shape = SubResource( 985 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.999914, -0.000399737, 0.0130835, 0, 0.999534, 0.0305385, -0.0130896, -0.0305359, 0.999448, 0.159825, 2.27002, 5.23116 )
+current = true
+
+[node name="Hologram_Effect" type="Spatial" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.46951, 0 )
+script = ExtResource( 5 )
+effect = ExtResource( 6 )
+
+[node name="Light Volume 1" type="MeshInstance" parent="Hologram_Effect"]
+transform = Transform( -5.1271e-08, -1.01353e-07, -2.9291, -1.17255, 0.824473, 0, 0.699313, 1.38241, -7.6335e-08, -0.0264579, 2.1888, -5.76863 )
+mesh = SubResource( 976 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 978 )
+
+[node name="Light Volume Suport" type="MeshInstance" parent="Hologram_Effect/Light Volume 1"]
+transform = Transform( 0.688963, -4.17233e-07, 0, 8.9407e-08, 1, 0, 0, 0, 1, -0.776661, 0.300362, 0 )
+mesh = SubResource( 976 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 978 )
+
+[node name="OmniLight" type="OmniLight" parent="Hologram_Effect"]
+transform = Transform( 3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 2.41233, 0 )
+light_color = Color( 0.396078, 0.992157, 0.823529, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/End = SubResource( 990 )
+anims/RESET = SubResource( 986 )
+anims/Start = SubResource( 987 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[node name="AnimationPlayerUI" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 991 )
+anims/RESET = SubResource( 992 )
+
+[node name="Quest_Holder" type="Spatial" parent="."]
+script = ExtResource( 10 )
+steps = {
+"Ache a luneta": false,
+"Leve de volta a Galileu": false
+}
+rewards = {
+"Speed Booster": "res://icon.png"
+}
+
+[connection signal="body_entered" from="AreaHologram" to="." method="_on_AreaHologram_body_entered"]
+[connection signal="body_exited" from="AreaHologram" to="." method="_on_AreaHologram_body_exited"]
+[connection signal="mouse_entered" from="AreaHologram" to="." method="_on_AreaHologram_mouse_entered"]
+[connection signal="mouse_exited" from="AreaHologram" to="." method="_on_AreaHologram_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayerUI" to="." method="_on_AnimationPlayerUI_animation_finished"]

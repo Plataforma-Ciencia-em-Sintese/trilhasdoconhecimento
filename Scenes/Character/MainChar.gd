@@ -16,5 +16,15 @@ func _ready():
 	activeCloths = GlobalValues.skinChar
 	if activeCloths == "Normal":
 		$Base/Armature/Skeleton/Body.mesh = load(suits[mainChar][0])
+		$Battle_UI.hide()
+		$Base/Armature/Skeleton/BoneAttachment/Sword.hide()
 	else:
 		$Base/Armature/Skeleton/Body.mesh = load(suits[mainChar][1])
+		$Battle_UI.show()
+		$Base/Armature/Skeleton/BoneAttachment/Sword.show()
+
+	if GlobalValues.whiteScreen:
+		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
+	
+	if QuestManager.isInQuest:
+		QuestManager.player = self
