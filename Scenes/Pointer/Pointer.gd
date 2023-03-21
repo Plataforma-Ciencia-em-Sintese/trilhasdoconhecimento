@@ -7,6 +7,7 @@ var rayOrigin: Vector3
 var rayEnd: Vector3
 var insideAHider: bool = false
 var isStopped: bool = false
+var outInterface: bool = true
 
 func _ready():
 	# Identifica quem é a camera do cenario
@@ -20,7 +21,7 @@ func _physics_process(delta):
 func _input(event):
 	# Caso o jogador clique com o mouse as acoes abaixo sao executadas
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("Click"):
+		if event.is_action_pressed("Click") and outInterface:
 			# Acessa os objetos fisicos 3D do cenario atual
 			var space_state = get_world().direct_space_state
 			# Coleta a posicao do mouse de acordo com o tamanho da viewport
@@ -40,9 +41,6 @@ func _input(event):
 			if not intersection.empty() and intersection.collider.is_in_group("Walkable") and !isStopped:
 				print(intersection)
 				global_transform.origin = intersection.position
-			else:
-#				print("nothing")
-				pass
 
 # Quando estiver dentro de algum objeto com dialogo,esconde
 func _on_Pointer_body_entered(body):
@@ -57,4 +55,3 @@ func _on_Pointer_body_exited(body):
 
 func change_position():
 	global_transform.origin = get_tree().get_nodes_in_group("Player")[0].global_transform.origin
-

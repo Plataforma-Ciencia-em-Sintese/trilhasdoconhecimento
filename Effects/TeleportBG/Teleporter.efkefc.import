@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Teleporter.efkefc-a75653ae1e0f314137c230abf3104c10.res"
+
+[deps]
+
+source_file="res://Effects/TeleportBG/Teleporter.efkefc"
+dest_files=[ "res://.import/Teleporter.efkefc-a75653ae1e0f314137c230abf3104c10.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=1]
+[ext_resource path="res://Effects/Laser/Laser01.efkefc" type="Resource" id=2]
+
+[node name="Laser" type="Spatial"]
+
+[node name="EffekseerEmitter" type="Spatial" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.736, 0.566198 )
+script = ExtResource( 1 )
+effect = ExtResource( 2 )

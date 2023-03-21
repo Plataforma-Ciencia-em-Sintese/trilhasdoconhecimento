@@ -53,7 +53,7 @@ func _physics_process(_delta):
 	
 func move():
 	# Muda de velocidade de acordo com os cliques do mouse
-	if Input.is_action_just_pressed("Click") and clickCount < 2:
+	if Input.is_action_just_pressed("Click") and clickCount < 2 and target.outInterface:
 		animator.set("parameters/Seek/seek_position",0)
 		clickCount += 1
 		if clickCount == 1:

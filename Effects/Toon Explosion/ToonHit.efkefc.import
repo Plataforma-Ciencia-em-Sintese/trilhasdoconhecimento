@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/ToonHit.efkefc-edd7c47d5e1d9432019dd7b6c1bf35ce.res"
+
+[deps]
+
+source_file="res://Effects/Toon Explosion/ToonHit.efkefc"
+dest_files=[ "res://.import/ToonHit.efkefc-edd7c47d5e1d9432019dd7b6c1bf35ce.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true

@@ -16,24 +16,18 @@ func _ready():
 	$Buttons_Diary/BT_Close.hide()
 	$Buttons_Diary.hide()
 
-func _physics_process(_delta):
-	if get_tree().get_current_scene().get_name() == "Scifi_Stage" and !getPlayer:
-		player = get_tree().get_nodes_in_group("Player")[0]
-		getPlayer = true
+#func _physics_process(_delta):
+#	print(GlobalValues.sceneNameToQuestMNG)
+#	if get_tree().get_current_scene().get_name() == GlobalValues.sceneNameToQuestMNG and !getPlayer:
+#		player = get_tree().get_nodes_in_group("Player")[0]
+#		getPlayer = true
 
 func start_quest(missionID,missionDesc,steps):
-	print("aqui questtt")
+	isInQuest = true
 	$UI/BG_Mission_Title/Title_Mission.text = missionID
 	$UI/Mission_Desc.text = missionDesc
-	$Buttons_Diary.show()
 	missionName = missionID
-	
-	var newObjective = objective.instance()
-	get_node("/root/Scifi_Stage/Quest_Objectives").add_child(newObjective)
-	newObjective.translation= get_node("/root/Scifi_Stage/Quest_Objectives").get_node(missionName).get_child(actualStep).translation
-	print(missionName)
-	print(get_node("/root/Scifi_Stage/Quest_Objectives").get_node(missionName))
-	
+
 	for i in steps.size():
 		var chk = checkbox.instance()
 		$UI/Scroll_Steps/Checklist_Box.add_child(chk)
@@ -45,14 +39,11 @@ func change_checkbox():
 	
 	if actualStep < totalSteps - 1:
 		actualStep += 1
-		yield(get_tree().create_timer(0.1), "timeout")
-		var newObjective = objective.instance()
-		get_node("/root/Scifi_Stage/Quest_Objectives").add_child(newObjective)
-		newObjective.translation = get_node("/root/Scifi_Stage/Quest_Objectives").get_node(missionName).get_child(actualStep).translation	
 	else:
 		Dialogic.set_variable(missionName,"completed")
 		
 func finish_quest():
+	isInQuest = false
 	for i in $UI/Scroll_Steps/Checklist_Box.get_children():
 		i.queue_free()
 		
@@ -66,6 +57,10 @@ func _on_BT_Open_pressed():
 	$Buttons_Diary/BT_Close.show()
 	player.get_node("States/Move").hide()
 	player.get_node("States/Talking").show()
+	player.get_node("Life").hide()
+	player.get_node("Inventory").hide()
+	player.get_node("Pause").hide()
+	get_tree().get_nodes_in_group("WhiteTransition")[0].hide()
 
 func _on_BT_Close_pressed():
 	$UI.hide()
@@ -73,3 +68,7 @@ func _on_BT_Close_pressed():
 	$Buttons_Diary/BT_Close.hide()
 	player.get_node("States/Move").show()
 	player.get_node("States/Talking").hide()
+	player.get_node("Life").show()
+	player.get_node("Inventory").show()
+	player.get_node("Pause").show()
+	get_tree().get_nodes_in_group("WhiteTransition")[0].show()

@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Simple_Distortion.efkefc-3a1bb0ea84dccf00d19d9be77cfc58df.res"
+
+[deps]
+
+source_file="res://Effects/Hologram/Simple_Distortion.efkefc"
+dest_files=[ "res://.import/Simple_Distortion.efkefc-3a1bb0ea84dccf00d19d9be77cfc58df.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true
