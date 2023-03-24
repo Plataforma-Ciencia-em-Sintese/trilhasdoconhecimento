@@ -15,13 +15,13 @@ func _ready():
 	mainChar = GlobalValues.nameChar
 	activeCloths = GlobalValues.skinChar
 	if activeCloths == "Normal":
-		$Base/Armature/Skeleton/Body.mesh = load(suits[mainChar][0])
+		$Base/Skeleton/Body.mesh = load(suits[mainChar][0])
 		$Battle_UI.hide()
-		$Base/Armature/Skeleton/BoneAttachment/Sword.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.hide()
 	else:
-		$Base/Armature/Skeleton/Body.mesh = load(suits[mainChar][1])
+		$Base/Skeleton/Body.mesh = load(suits[mainChar][1])
 		$Battle_UI.show()
-		$Base/Armature/Skeleton/BoneAttachment/Sword.show()
+		$Base/Skeleton/BoneAttachmentR/Sword.show()
 
 	if GlobalValues.whiteScreen:
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")

@@ -29,11 +29,11 @@ func start_fight():
 			animator.set("parameters/States General/blend_amount",1)
 		
 		if dist <= 1.5:
-			owner.get_node("Base/Armature").rotation_degrees.y = 180
+			owner.get_node("Base/Skeleton").rotation_degrees.y = 180
 			owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
 			animator.set("parameters/move/blend_amount",0)
 			owner.get_node("States/Move").hide()
-			owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = true
+			owner.get_node("Base/Skeleton/BoneAttachmentR/ProtonTrail").emit = true
 			releasePointer = false
 	
 	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked and pointer.outInterface:
@@ -46,12 +46,12 @@ func end_fight():
 	pointer.show()
 	animator.set("parameters/States General/blend_amount",0)
 	animator.set("parameters/Seek/seek_position",0)
-	owner.get_node("Base/Armature").rotation_degrees.y = 0
+	owner.get_node("Base/Skeleton").rotation_degrees.y = 0
 	owner.get_node("States/Move").show()
 	releasePointer = false
 
 func set_melee_hitbox(stats):
-	owner.get_node("Base/Armature/Skeleton/BoneAttachment/Sword/Area_Sword/CollisionShape").set_deferred("disabled",stats)
+	owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/Area_Sword/CollisionShape").set_deferred("disabled",stats)
 
 func _on_Damage_Zone_area_entered(area):
 	if area.is_in_group("Enemy_Area") and !goFight:
@@ -64,4 +64,4 @@ func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
 		area = null
 		goFight = false
-		owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = false
+		owner.get_node("Base/Skeleton/BoneAttachmentR/ProtonTrail").emit = false

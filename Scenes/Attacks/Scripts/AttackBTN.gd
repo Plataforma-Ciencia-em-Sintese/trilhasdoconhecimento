@@ -27,10 +27,10 @@ func _on_ATK_pressed():
 		if !followPlayer:
 			owner.owner.add_child(spwn)
 			spwn.global_transform.origin = owner.global_transform.origin
-			spwn.global_transform.basis = owner.get_node("Base/Armature").global_transform.basis
+			spwn.global_transform.basis = owner.get_node("Base/Skeleton").global_transform.basis
 			
 		else:
-			owner.get_node("Base/Armature").add_child(spwn)
+			owner.get_node("Base/Skeleton").add_child(spwn)
 		disabled = true
 		startCooldown = true
 
