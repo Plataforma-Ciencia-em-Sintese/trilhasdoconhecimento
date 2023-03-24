@@ -61,7 +61,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.7, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.932089, 0.932089, 0.932089 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 1.354, 1.354, 1.354 ), Vector3( 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=986]
@@ -115,7 +115,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0.932089, 0.932089, 0.932089 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1.354, 1.354, 1.354 ) ]
 }
 
 [sub_resource type="Animation" id=991]
@@ -193,7 +193,7 @@ skeleton = NodePath("../../../../..")
 material/0 = SubResource( 978 )
 
 [node name="Face" type="MeshInstance" parent="."]
-transform = Transform( 0.932089, 0, 0, 0, -4.07429e-08, -0.932089, 0, 0.932089, -4.07429e-08, 0, 2.653, 0.375 )
+transform = Transform( 0.932089, 0, 0, 0, -4.07429e-08, -0.932089, 0, 0.932089, -4.07429e-08, 0, 2.7577, 0.375 )
 visible = false
 mesh = ExtResource( 9 )
 material/0 = ExtResource( 8 )
@@ -221,7 +221,8 @@ transform = Transform( 0.999914, -0.000399737, 0.0130835, 0, 0.999534, 0.0305385
 current = true
 
 [node name="Hologram_Effect" type="Spatial" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.46951, 0 )
+transform = Transform( 0.374663, 0, 0, 0, 0.374663, 0, 0, 0, 0.374663, 0, 1.21816, 0 )
+visible = false
 script = ExtResource( 5 )
 effect = ExtResource( 6 )
 

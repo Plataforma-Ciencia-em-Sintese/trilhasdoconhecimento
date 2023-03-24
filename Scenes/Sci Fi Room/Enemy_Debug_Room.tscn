@@ -1089,7 +1089,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87336, 1.83654, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0429, 1.83654, 0 )
 
 [node name="WhiteTransition" parent="." instance=ExtResource( 7 )]
-backTo = "res://Scenes/Sci Fi Room/Debug_Room.tscn"
+backTo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 skinType = "Normal"
 
 [editable path="Reception/Elevator2"]

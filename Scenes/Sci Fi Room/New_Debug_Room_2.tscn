@@ -6092,12 +6092,14 @@ material/0 = SubResource( 999 )
 [node name="Elevator" parent="Reception" instance=ExtResource( 10 )]
 pointer = NodePath("../../Pointer")
 player = NodePath("../../Player")
+sceneToGo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 side = "1"
 
 [node name="Elevator2" parent="Reception" instance=ExtResource( 10 )]
 transform = Transform( 1.41571, 0, 0, 0, 2.09937, 0, 0, 0, 1.73913, -5.19038, -1.77984, -14.5827 )
 pointer = NodePath("../../Pointer")
 player = NodePath("../../Player")
+sceneToGo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 side = "2"
 
 [node name="Arrow" parent="Reception/Elevator2/Door" index="0"]
