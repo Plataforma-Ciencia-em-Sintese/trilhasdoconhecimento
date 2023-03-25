@@ -2001,18 +2001,13 @@ shape = SubResource( 20 )
 
 [node name="Zone" type="MeshInstance" parent="Enemy/Looking_Zone"]
 transform = Transform( 6.71827, 0, 0, 0, 0.0527642, 0, 0, 0, 6.71827, 0, -0.432528, 0 )
+visible = false
 mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Enemy"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.52101, 0 )
 shape = SubResource( 23 )
-
-[node name="NavigationAgentEnemy" type="NavigationAgent" parent="Enemy"]
-path_desired_distance = 0.1
-avoidance_enabled = true
-neighbor_dist = 1.0
-max_speed = 1.0
 
 [node name="Life3D" type="Sprite3D" parent="Enemy"]
 transform = Transform( 5.33471, 0, 0, 0, 1.17768, 0, 0, 0, 1, 0.00203347, 7.14063, 0 )
@@ -2033,7 +2028,6 @@ damage = 15
 [node name="NavTimerEnemy" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.1
-autostart = true
 
 [node name="Wait_to_Back" type="Timer" parent="."]
 one_shot = true

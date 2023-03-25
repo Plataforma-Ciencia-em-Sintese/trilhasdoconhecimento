@@ -79,7 +79,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "TimeScale", 0, "Melee Attack State", "Seek", 0, "States General", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move", "TimeScale", 0, "Melee Attack State", "Seek", 0, "States General", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
@@ -8160,7 +8160,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000106424, -0.0119812, -0.999929, -0.0789554, -0.996807, 0.0119525, -0.996878, 0.0789515, -0.000839382, -0.293107, 0.593184, 0.0491328 )
+transform = Transform( 9.23872e-07, -0.0119843, -0.999928, -0.420754, -0.90711, 0.0108717, -0.907173, 0.420724, -0.00504126, -0.293115, 0.593744, 0.0857987 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8206,7 +8206,7 @@ visible = false
 mesh = SubResource( 69 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000106335, 0.0119814, 0.999928, 0.0789554, -0.996807, 0.0119528, 0.996878, 0.0789515, -0.000839546, 0.293107, 0.593184, 0.0491328 )
+transform = Transform( 4.17233e-07, 0.0119836, 0.999929, 0.420753, -0.907111, 0.0108714, 0.907173, 0.420723, -0.00504053, 0.293114, 0.593744, 0.0857985 )
 bone_name = "Mao.L"
 
 [node name="Escudo Clara" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
