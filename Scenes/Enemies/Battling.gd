@@ -1,7 +1,9 @@
 extends Spatial
 
 export var speed = 1
-export var damage = 20
+export var damageSword = 20
+export var damageHammer = 20
+export var damageEnergyBall = 20
 export var distanceToStop = 2
 var stop = false
 var backToPatrol = false
@@ -9,10 +11,10 @@ var player
 var getOwner
 var explosion = load("res://Effects/Toon Explosion/Explosion.tscn")
 var hit = load("res://Scenes/Attacks/Hit/Hit.tscn")
+var bigHit = load("res://Scenes/Attacks/Big Hit/Big Hit.tscn")
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
-	
 	getOwner = owner
 
 func _physics_process(_delta):
@@ -51,7 +53,7 @@ func start_battle():
 
 func _on_Damage_Area_area_entered(area):
 	if area.is_in_group("Sword"):
-		getOwner.get_node("Viewport/BarLife").value -= damage
+		getOwner.get_node("Viewport/BarLife").value -= damageSword
 		getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
 		var spawnHit = hit.instance()
 		owner.owner.add_child(spawnHit)
@@ -59,6 +61,43 @@ func _on_Damage_Area_area_entered(area):
 		
 		if getOwner.get_node("Viewport/BarLife").value <= 0:
 			player.get_node("States/Battling").end_fight()
+			var spawnExplosion = explosion.instance()
+			owner.owner.add_child(spawnExplosion)
+			spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)
+			owner.queue_free()
+	
+	if area.is_in_group("Hammer"):
+		getOwner.get_node("Viewport/BarLife").value -= damageHammer
+		getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
+		var spawnHit = bigHit.instance()
+		owner.owner.add_child(spawnHit)
+		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
+		
+		if getOwner.get_node("Viewport/BarLife").value <= 0:
+			player.get_node("States/Battling").end_fight()
+			var spawnExplosion = explosion.instance()
+			owner.owner.add_child(spawnExplosion)
+			spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)
+			owner.queue_free()
+	
+	if area.is_in_group("EnergyBall"):
+		getOwner.get_node("Viewport/BarLife").value -= damageEnergyBall
+		getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
+		
+		var spawnHit = bigHit.instance()
+		owner.owner.add_child(spawnHit)
+		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
+		
+		getOwner.get_node("Wait_to_Back").stop()
+		getOwner.get_node("States/Battling").backToPatrol = false
+		getOwner.get_node("States/Battling").show()
+		getOwner.get_node("States/Patrol").hide()
+		getOwner.get_node("Enemy/Looking_Zone/Zone").get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
+		area.queue_free()
+		
+		if getOwner.get_node("Viewport/BarLife").value <= 0:
+			player.get_node("States/Battling").end_fight()
+#			player.get_node("States/Battling").goFight = false
 			var spawnExplosion = explosion.instance()
 			owner.owner.add_child(spawnExplosion)
 			spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -73,7 +73,7 @@ animation = "Attack02"
 [sub_resource type="AnimationNodeBlend3" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -1011.5, 80.2336 )
+graph_offset = Vector2( -861.733, 79.2146 )
 nodes/All_Attacks/node = SubResource( 73 )
 nodes/All_Attacks/position = Vector2( -820, 180 )
 nodes/Bow/node = SubResource( 74 )
@@ -100,7 +100,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "output", 0, "move" ]
+node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -573,10 +573,10 @@ tracks/65/keys = {
 "times": PoolRealArray( 0.4, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ false ],
+"args": [ false, "Base/Skeleton/BoneAttachmentR/Sword/Area_Sword/CollisionShape" ],
 "method": "set_melee_hitbox"
 }, {
-"args": [ true ],
+"args": [ true, "Base/Skeleton/BoneAttachmentR/Sword/Area_Sword/CollisionShape" ],
 "method": "set_melee_hitbox"
 } ]
 }
@@ -1040,6 +1040,20 @@ tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.54167, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/65/type = "method"
+tracks/65/path = NodePath("States/Battling")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Energy Ball" ],
+"method": "spawn_bullet"
+} ]
+}
 
 [sub_resource type="Animation" id=48]
 resource_name = "Attack03"
@@ -1500,6 +1514,20 @@ tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/65/type = "method"
+tracks/65/path = NodePath("States/Battling")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Arrow" ],
+"method": "spawn_bullet"
+} ]
+}
 
 [sub_resource type="Animation" id=49]
 resource_name = "Attack04"
@@ -1960,6 +1988,23 @@ tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.125, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/65/type = "method"
+tracks/65/path = NodePath("States/Battling")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false, "Base/Skeleton/BoneAttachmentR/Hammer/Area_Hammer/CollisionShape" ],
+"method": "set_melee_hitbox"
+}, {
+"args": [ true, "Base/Skeleton/BoneAttachmentR/Hammer/Area_Hammer/CollisionShape" ],
+"method": "set_melee_hitbox"
+} ]
+}
 
 [sub_resource type="Animation" id=50]
 resource_name = "Attack05"
@@ -2420,6 +2465,20 @@ tracks/64/loop_wrap = true
 tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 3.75, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/65/type = "method"
+tracks/65/path = NodePath("States/Battling")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Boom" ],
+"method": "spawn_bullet"
+} ]
+}
 
 [sub_resource type="Animation" id=51]
 resource_name = "Disconect"
@@ -7761,6 +7820,10 @@ surfaces/0 = {
 "vertex_count": 328
 }
 
+[sub_resource type="CapsuleShape" id=79]
+radius = 0.172519
+height = 0.678293
+
 [sub_resource type="ArrayMesh" id=70]
 resource_name = "Escudo_Clara_Plane"
 surfaces/0 = {
@@ -8178,7 +8241,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -4.85182e-05, -0.0120024, -0.999928, -0.289982, -0.956964, 0.0115009, -0.95703, 0.289962, -0.00343204, -0.293118, 0.59378, 0.0713038 )
+transform = Transform( 0.000624001, -0.0132506, -0.999912, -0.235389, -0.971818, 0.0127315, -0.971899, 0.235361, -0.00372346, -0.29331, 0.593222, 0.0654254 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8190,7 +8253,7 @@ mesh = SubResource( 66 )
 transform = Transform( -0.000877981, 0.00170361, 0.334282, 0.0187181, 0.0208474, -0.00815928, -0.0208402, 0.0186529, -0.0214116, -0.378943, 0.0120301, -0.00288972 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Base/Skeleton/BoneAttachmentR/Sword/Area_Sword"]
-transform = Transform( 1, 0, 2.38419e-06, 5.21541e-08, 0.999999, -1.43051e-06, -1.86265e-09, -5.58794e-09, 1, -1.71661e-05, -2.76566e-05, -0.805626 )
+transform = Transform( 1, -2.98023e-08, 2.14577e-06, 0, 0.999999, -1.66893e-06, -1.86265e-09, -1.30385e-08, 1, -1.71661e-05, -3.00407e-05, -0.805626 )
 shape = SubResource( 64 )
 disabled = true
 
@@ -8214,27 +8277,47 @@ transform = Transform( 0.971396, 0.0781054, -0.224254, -0.0801468, 0.996783, -1.
 visible = false
 mesh = SubResource( 67 )
 
-[node name="Arco Yara" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Wand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384653, -0.00227267, 0.0664852 )
+
+[node name="Bow" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
 transform = Transform( 1.76951e-08, 2.06055e-08, 1, 0.997386, -0.0722634, -2.04891e-08, 0.0722633, 0.997386, -8.23638e-08, -5.96046e-08, -0.0177222, -0.0305532 )
 visible = false
 mesh = SubResource( 68 )
 
-[node name="Martelo Clara" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Bow"]
+transform = Transform( 0.99817, 2.31532e-08, 0.0604737, -2.23517e-08, 1, -1.393e-08, -0.0604737, 1.25528e-08, 0.99817, 0.220296, -3.72529e-09, 0 )
+
+[node name="Hammer" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
 transform = Transform( 0.268579, -0.00772736, -1.01732, 1.01428, -0.0796253, 0.268382, -0.0789567, -1.04916, -0.0128758, -0.207533, 0.0827174, -0.0444711 )
 visible = false
 mesh = SubResource( 69 )
 
+[node name="Area_Hammer" type="Area" parent="Base/Skeleton/BoneAttachmentR/Hammer" groups=["Hammer"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Skeleton/BoneAttachmentR/Hammer/Area_Hammer"]
+transform = Transform( 1, 3.28873e-09, -7.45058e-09, 3.28e-08, 1, -5.58794e-09, -7.45058e-09, 0, 1, -5.36442e-07, 4.32134e-07, 0.225531 )
+shape = SubResource( 79 )
+disabled = true
+
+[node name="Boom_Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR"]
+transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
+
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -4.8846e-05, 0.0120021, 0.999928, 0.289982, -0.956964, 0.0115008, 0.95703, 0.289962, -0.00343163, 0.293118, 0.59378, 0.0713039 )
+transform = Transform( 0.000623941, 0.0132506, 0.999912, 0.235389, -0.971818, 0.0127316, 0.971899, 0.235361, -0.00372346, 0.29331, 0.593222, 0.0654255 )
 bone_name = "Mao.L"
 
-[node name="Escudo Clara" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
+[node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
 transform = Transform( 0.990986, -0.0729771, -0.112306, -0.105975, 0.0854918, -0.990686, 0.0818985, 0.993661, 0.0769874, -0.0442927, 0.0211028, 0.0397019 )
 visible = false
 mesh = SubResource( 70 )
 skeleton = NodePath("")
 
+[node name="CamAnchor" type="Position3D" parent="Base"]
+transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3, 3 )
+
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
+camera = NodePath("../Base/CamAnchor")
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 

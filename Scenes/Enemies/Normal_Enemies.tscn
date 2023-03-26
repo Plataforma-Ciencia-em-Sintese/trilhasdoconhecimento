@@ -1484,7 +1484,7 @@ surfaces/1 = {
 }
 
 [sub_resource type="CylinderShape" id=20]
-radius = 5.58105
+radius = 4.1975
 
 [sub_resource type="CylinderMesh" id=21]
 
@@ -1531,7 +1531,7 @@ corner_radius_bottom_left = 25
 
 [sub_resource type="CubeMesh" id=43]
 
-[node name="Path_Enemy" type="PathFollow"]
+[node name="Path_Enemy" type="PathFollow" groups=["RootEnemy"]]
 script = ExtResource( 3 )
 
 [node name="Enemy" type="KinematicBody" parent="."]
@@ -1582,7 +1582,7 @@ anims/Hit = SubResource( 25 )
 anims/RESET = SubResource( 26 )
 
 [node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Parafuso"]
-transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83384e-08, 2.05775, 0.667304 )
 
 [node name="Serra" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -1747,7 +1747,7 @@ anims/Hit = SubResource( 31 )
 anims/RESET = SubResource( 32 )
 
 [node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Golem"]
-transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
+transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83949e-08, 2.85376, 0.66795 )
 
 [node name="Flexivel" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -2000,8 +2000,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1677, 0 )
 shape = SubResource( 20 )
 
 [node name="Zone" type="MeshInstance" parent="Enemy/Looking_Zone"]
-transform = Transform( 6.71827, 0, 0, 0, 0.0527642, 0, 0, 0, 6.71827, 0, -0.432528, 0 )
-visible = false
+transform = Transform( 4.27899, 0, 0, 0, 0.0336065, 0, 0, 0, 4.27899, 0, -0.432528, 0 )
 mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
@@ -2023,7 +2022,6 @@ script = ExtResource( 4 )
 [node name="Battling" type="Spatial" parent="States"]
 visible = false
 script = ExtResource( 5 )
-damage = 15
 
 [node name="NavTimerEnemy" type="Timer" parent="."]
 process_mode = 0

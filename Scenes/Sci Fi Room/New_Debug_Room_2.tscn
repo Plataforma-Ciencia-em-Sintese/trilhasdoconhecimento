@@ -5424,7 +5424,7 @@ navmesh = SubResource( 898 )
 
 [node name="Pointer" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.433654, 0, 0, 0, 0.433654, 0, 0, 0, 0.433654, 0.0573189, 1.50035, -12.1212 )
-camera = NodePath("../Character/Camera")
+camera = NodePath("../Player/Camera")
 
 [node name="Quest_Objectives" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.11858, 2.50035, -8 )
@@ -6070,14 +6070,14 @@ material/0 = SubResource( 999 )
 
 [node name="Elevator" parent="Reception" instance=ExtResource( 10 )]
 pointer = NodePath("../../Pointer")
-player = NodePath("../../Character")
+player = NodePath("../../Player")
 sceneToGo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 side = "1"
 
 [node name="Elevator2" parent="Reception" instance=ExtResource( 10 )]
 transform = Transform( 1.41571, 0, 0, 0, 2.09937, 0, 0, 0, 1.73913, -5.19038, -1.77984, -14.5827 )
 pointer = NodePath("../../Pointer")
-player = NodePath("../../Character")
+player = NodePath("../../Player")
 sceneToGo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 side = "2"
 
@@ -6125,10 +6125,10 @@ sceneNameOnly = "Enemy_Debug_Room"
 backTo = "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
 skinType = "Armadura"
 
-[node name="Character" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148256, 1.56348, -13.4223 )
 
-[node name="Camera" type="Camera" parent="Character" groups=["Camera"]]
+[node name="Camera" type="Camera" parent="Player" groups=["Camera"]]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.2423, 38.2278, 26.757 )
 projection = 1
 current = true
@@ -6139,10 +6139,10 @@ anchorCam1 = NodePath("../AnchorCam1")
 anchorCam2 = NodePath("../AnchorCam2")
 cam1 = NodePath(".")
 
-[node name="AnchorCam1" type="Position3D" parent="Character"]
+[node name="AnchorCam1" type="Position3D" parent="Player"]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.242, 38.228, 26.757 )
 
-[node name="AnchorCam2" type="Position3D" parent="Character"]
+[node name="AnchorCam2" type="Position3D" parent="Player"]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
 
 [editable path="NPC_Root/Path_Quest_NPC_1/Path_NPC"]

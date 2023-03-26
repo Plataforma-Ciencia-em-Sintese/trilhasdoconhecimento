@@ -7,6 +7,10 @@ var releasePointer = true
 var actualEnemy
 var scriptEnemy
 var pointer
+var energyBall = load("res://Scenes/Attacks/Projectiles/Energy_Ball.tscn")
+var arrowDrill = load("res://Scenes/Attacks/Projectiles/Arrow_Drill.tscn")
+var impactBoom = load("res://Scenes/Attacks/Projectiles/ImpactBoom.tscn")
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	animator = owner.get_node("AnimationTree")
@@ -41,26 +45,27 @@ func start_fight():
 			attackType = 0
 	
 		if attackType == 1:
+			print(dist)
 			if dist <= 1.5:
 				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
 				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
 				animator.set("parameters/move/blend_amount",0)
 				owner.get_node("States/Move").hide()
+				releasePointer = false
 		else:
 			if dist <= 5:
 				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
 				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
 				animator.set("parameters/move/blend_amount",0)
 				owner.get_node("States/Move").hide()
+				releasePointer = false
 			
 			if owner.mainChar == "Caio":
 				owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = true
-				
-		releasePointer = false
-	
+
 	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked and pointer.outInterface:
 		end_fight()
-		yield(get_tree().create_timer(2),"timeout")
+		yield(get_tree().create_timer(1),"timeout")
 		if goFight:
 			releasePointer = true
 
@@ -71,9 +76,27 @@ func end_fight():
 	owner.get_node("Base/Skeleton").rotation_degrees.y = 0
 	owner.get_node("States/Move").show()
 	releasePointer = false
+	goFight = false
 
-func set_melee_hitbox(stats):
-	owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/Area_Sword/CollisionShape").set_deferred("disabled",stats)
+func set_melee_hitbox(disabled,path):
+	owner.get_node(path).set_deferred("disabled",disabled)
+
+func spawn_bullet(type):
+	if type == "Energy Ball":
+		var bullet = energyBall.instance()
+		owner.owner.add_child(bullet)
+		bullet.global_transform = player.get_node("Base/Skeleton/BoneAttachmentR/Wand/Spawner").global_transform
+		bullet.dir = bullet.global_transform.basis.x
+	elif type == "Arrow":
+		var bullet = arrowDrill.instance()
+		owner.owner.add_child(bullet)
+		bullet.global_transform = player.get_node("Base/Skeleton/BoneAttachmentR/Bow/Spawner").global_transform
+		bullet.dir = bullet.global_transform.basis.x
+	elif type == "Boom":
+		var bullet = impactBoom.instance()
+		owner.owner.add_child(bullet)
+		bullet.global_transform = player.get_node("Base/Skeleton/BoneAttachmentR/Boom_Spawner").global_transform
+		bullet.dir = bullet.global_transform.basis.x
 
 func _on_Damage_Zone_area_entered(area):
 	if area.is_in_group("Enemy_Area") and !goFight:

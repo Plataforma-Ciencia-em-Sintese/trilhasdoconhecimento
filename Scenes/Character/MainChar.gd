@@ -23,14 +23,14 @@ func _ready():
 		$Battle_UI.show()
 		
 		if mainChar == "Clara":
-			$"Base/Skeleton/BoneAttachmentR/Martelo Clara".show()
-			$"Base/Skeleton/BoneAttachmentL/Escudo Clara".show()
+			$Base/Skeleton/BoneAttachmentR/Hammer.show()
+			$Base/Skeleton/BoneAttachmentL/Shield.show()
 		elif mainChar == "Caio":
 			$Base/Skeleton/BoneAttachmentR/Sword.show()
 		elif mainChar == "Bento":
 			$Base/Skeleton/BoneAttachmentR/Wand.show()
 		elif mainChar == "Yara":
-			$"Base/Skeleton/BoneAttachmentR/Arco Yara".show()
+			$Base/Skeleton/BoneAttachmentR/Bow.show()
 
 	if GlobalValues.whiteScreen:
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
