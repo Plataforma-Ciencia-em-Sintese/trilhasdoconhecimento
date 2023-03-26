@@ -1484,7 +1484,7 @@ surfaces/1 = {
 }
 
 [sub_resource type="CylinderShape" id=20]
-radius = 6.82443
+radius = 5.58105
 
 [sub_resource type="CylinderMesh" id=21]
 

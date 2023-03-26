@@ -21,10 +21,32 @@ func _ready():
 	else:
 		$Base/Skeleton/Body.mesh = load(suits[mainChar][1])
 		$Battle_UI.show()
-		$Base/Skeleton/BoneAttachmentR/Sword.show()
+		
+		if mainChar == "Clara":
+			$"Base/Skeleton/BoneAttachmentR/Martelo Clara".show()
+			$"Base/Skeleton/BoneAttachmentL/Escudo Clara".show()
+		elif mainChar == "Caio":
+			$Base/Skeleton/BoneAttachmentR/Sword.show()
+		elif mainChar == "Bento":
+			$Base/Skeleton/BoneAttachmentR/Wand.show()
+		elif mainChar == "Yara":
+			$"Base/Skeleton/BoneAttachmentR/Arco Yara".show()
 
 	if GlobalValues.whiteScreen:
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
 	
 	if QuestManager.isInQuest:
 		QuestManager.player = self
+		create_btns_battle("ATK")
+
+# cria os botoes que serao necessarios a batalha
+func create_btns_battle(value):
+	if value == "ATK":
+		var atkButtonScene = load("res://Scenes/Attacks/Button Commands/ATK.tscn")
+		for i in GlobalValues.atkItens.size():
+			var ATKBtn = atkButtonScene.instance()
+			$Battle_UI/Attack_Container.add_child(ATKBtn)
+			ATKBtn.cooldownValue = GlobalValues.atkItens.values()[i][0]
+			ATKBtn.attackSource = GlobalValues.atkItens.values()[i][1]
+			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][2])
+			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][4]

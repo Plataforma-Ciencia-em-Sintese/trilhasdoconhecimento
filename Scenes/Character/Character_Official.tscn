@@ -303,7 +303,7 @@ animation = "Walk_Cycle"
 [sub_resource type="AnimationNodeBlend3" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -872.857, 109.233 )
+graph_offset = Vector2( -997.464, -92.6731 )
 "nodes/Gun Attack State/node" = SubResource( 34 )
 "nodes/Gun Attack State/position" = Vector2( -640, 260 )
 "nodes/Idle State/node" = SubResource( 28 )
@@ -322,7 +322,7 @@ nodes/Walk/node = SubResource( 11 )
 nodes/Walk/position = Vector2( -140, -40 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "TimeScale", 0, "Melee Attack State", "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "Seek", 0, "States General", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "States General", 0, "TimeScale", "States General", 1, "Idle State", "States General", 2, "Gun Attack State", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "TimeScale", 0, "Melee Attack State", "Seek", 0, "States General", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=41]
 
@@ -7454,7 +7454,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.886072, 0.338694, 0.316485, -0.387648, 0.915778, 0.105265, -0.254178, -0.215958, 0.942738, 1.34098e-08, 0.134443, -9.95089e-08 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachment") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.993222, -0.0943534, 0.0678721, 0.0736153, 0.962566, 0.260858, -0.0899442, -0.254093, 0.962988, 0.0398713, 0.087944, 0.0032945 )
@@ -7634,7 +7634,7 @@ skin = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Base/Armature/Skeleton"]
-transform = Transform( 0.000623733, -0.01325, -0.99991, -0.235378, -0.971821, 0.0127319, -0.971903, 0.235351, -0.00372413, -0.29331, 0.593222, 0.0654241 )
+transform = Transform( -0.0361993, 0.990013, 0.136246, 0.426863, -0.107955, 0.897849, 0.903591, 0.0906608, -0.418693, -0.11733, 0.996121, 0.31904 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Armature/Skeleton/BoneAttachment"]

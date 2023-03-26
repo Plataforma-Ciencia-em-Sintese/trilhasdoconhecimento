@@ -1,6 +1,6 @@
 extends Spatial
 
-export (String,"Melee","Gun") var attackType
+export (String,"Projectile","Melee") var attackType
 var animator
 var goFight = false
 var releasePointer = true
@@ -22,19 +22,41 @@ func start_fight():
 	if releasePointer:
 		pointer.global_transform.origin = actualEnemy.global_transform.origin
 		pointer.hide()
+		animator.set("parameters/States General/blend_amount",1)
 		
-		if attackType == "Melee":
-			animator.set("parameters/States General/blend_amount",-1)
+		if owner.mainChar == "Clara":
+			animator["parameters/All_Attacks/current"] = 0
+			attackType = 1
+		elif owner.mainChar == "Caio":
+			animator["parameters/All_Attacks/current"] = 1
+			attackType = 1
+		elif owner.mainChar == "Bento":
+			animator["parameters/All_Attacks/current"] = 2
+			attackType = 0
+		elif owner.mainChar == "Ariel":
+			animator["parameters/All_Attacks/current"] = 3
+			attackType = 0
+		elif owner.mainChar == "Yara":
+			animator["parameters/All_Attacks/current"] = 4
+			attackType = 0
+	
+		if attackType == 1:
+			if dist <= 1.5:
+				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
+				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
+				animator.set("parameters/move/blend_amount",0)
+				owner.get_node("States/Move").hide()
 		else:
-			animator.set("parameters/States General/blend_amount",1)
-		
-		if dist <= 1.5:
-			owner.get_node("Base/Skeleton").rotation_degrees.y = 180
-			owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
-			animator.set("parameters/move/blend_amount",0)
-			owner.get_node("States/Move").hide()
-			owner.get_node("Base/Skeleton/BoneAttachmentR/ProtonTrail").emit = true
-			releasePointer = false
+			if dist <= 5:
+				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
+				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
+				animator.set("parameters/move/blend_amount",0)
+				owner.get_node("States/Move").hide()
+			
+			if owner.mainChar == "Caio":
+				owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = true
+				
+		releasePointer = false
 	
 	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked and pointer.outInterface:
 		end_fight()
@@ -64,4 +86,5 @@ func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
 		area = null
 		goFight = false
-		owner.get_node("Base/Skeleton/BoneAttachmentR/ProtonTrail").emit = false
+		if owner.mainChar == "Caio": 
+			owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = false
