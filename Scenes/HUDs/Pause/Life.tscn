@@ -62,3 +62,4 @@ color = Color( 0.788235, 0.933333, 1, 1 )
 [node name="Sprite" type="Sprite" parent="Energia/EnergiaSprite"]
 position = Vector2( 14.45, 13.4 )
 scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 1 )

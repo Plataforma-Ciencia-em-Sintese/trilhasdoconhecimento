@@ -1089,6 +1089,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87336, 1.83654, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0429, 1.83654, 0 )
 
 [node name="WhiteTransition" parent="." instance=ExtResource( 7 )]
+visible = true
 backTo = "res://Scenes/Sci Fi Room/Debug_Room.tscn"
 skinType = "Normal"
 
