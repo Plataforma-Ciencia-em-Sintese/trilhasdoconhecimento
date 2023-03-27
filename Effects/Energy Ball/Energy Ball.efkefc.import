@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Energy Ball.efkefc-f6fdf037b952dda8812c94c73649f6c6.res"
+
+[deps]
+
+source_file="res://Effects/Energy Ball/Energy Ball.efkefc"
+dest_files=[ "res://.import/Energy Ball.efkefc-f6fdf037b952dda8812c94c73649f6c6.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true

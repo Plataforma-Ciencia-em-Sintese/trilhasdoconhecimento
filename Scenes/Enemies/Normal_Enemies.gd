@@ -34,6 +34,7 @@ func disable_looking_collision():
 func _on_Looking_Zone_input_event(camera, event, position, normal, shape_idx):
 	if Input.is_action_just_pressed("Click"):
 		var playerBattle = player.get_node("States/Battling")
+		playerBattle.show()
 		playerBattle.scriptEnemy = self
 		playerBattle.actualEnemy = $Enemy/Looking_Zone
 		playerBattle.goFight = true

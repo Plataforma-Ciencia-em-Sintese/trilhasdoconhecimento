@@ -1,7 +1,7 @@
 [gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Character/Character_Official.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemies/Normal_Enemies.tscn" type="PackedScene" id=3]
 [ext_resource path="res://3D/Level Design/Scifi Texture Ceiling 2.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Sci Fi Room/CameraController.gd" type="Script" id=5]
@@ -403,26 +403,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.395466, 0 )
 
 [node name="Suporte" type="Position3D" parent="Quest_Objectives/Ajude Galileu"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87053, -0.238708, 2.47824 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142996, 1.53361, -13.5076 )
-
-[node name="Camera" type="Camera" parent="Player" groups=["Camera"]]
-transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.2423, 38.2278, 26.757 )
-projection = 1
-current = true
-size = 10.0
-near = 0.01
-script = ExtResource( 5 )
-anchorCam1 = NodePath("../AnchorCam1")
-anchorCam2 = NodePath("../AnchorCam2")
-cam1 = NodePath(".")
-
-[node name="AnchorCam1" type="Position3D" parent="Player"]
-transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.242, 38.228, 26.757 )
-
-[node name="AnchorCam2" type="Position3D" parent="Player"]
-transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 917 )
@@ -1089,8 +1069,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87336, 1.83654, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0429, 1.83654, 0 )
 
 [node name="WhiteTransition" parent="." instance=ExtResource( 7 )]
-visible = true
-backTo = "res://Scenes/Sci Fi Room/Debug_Room.tscn"
+backTo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 skinType = "Normal"
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148256, 1.56348, -13.4223 )
+
+[node name="Camera" type="Camera" parent="Player" groups=["Camera"]]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.2423, 38.2278, 26.757 )
+projection = 1
+current = true
+size = 10.0
+near = 0.01
+script = ExtResource( 5 )
+anchorCam1 = NodePath("../AnchorCam1")
+anchorCam2 = NodePath("../AnchorCam2")
+cam1 = NodePath(".")
+
+[node name="AnchorCam1" type="Position3D" parent="Player"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.242, 38.228, 26.757 )
+
+[node name="AnchorCam2" type="Position3D" parent="Player"]
+transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
 
 [editable path="Reception/Elevator2"]

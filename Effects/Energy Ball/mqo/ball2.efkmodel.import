@@ -1,0 +1,14 @@
+[remap]
+
+importer="effekseer.resource"
+type="Resource"
+path="res://.import/ball2.efkmodel-9c120c39d8565d0197cf53bc5d2793d0.res"
+
+[deps]
+
+source_file="res://Effects/Energy Ball/mqo/ball2.efkmodel"
+dest_files=[ "res://.import/ball2.efkmodel-9c120c39d8565d0197cf53bc5d2793d0.res" ]
+
+[params]
+
+compress=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/Drill Arrow.efkefc-64993ae43c4d34e5d7055e0950f26757.res"
+
+[deps]
+
+source_file="res://Effects/Arrow Drill/Drill Arrow.efkefc"
+dest_files=[ "res://.import/Drill Arrow.efkefc-64993ae43c4d34e5d7055e0950f26757.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true
