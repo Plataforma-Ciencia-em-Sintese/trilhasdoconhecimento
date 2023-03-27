@@ -12,15 +12,21 @@
 		},
 		{
 			"character": "character-1669120399.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Olá, sou o cientista Oswaldo Cruz. Trabalhei no Instituto Soroterápico Federal, que deu origem a uma importante instituição de saúde brasileira, a Fiocruz.\nQuando eu era diretor do instituto, tentei promover uma campanha de vacinação em massa no Rio de Janeiro, mas muita gente foi contra."
+		},
+		{
+			"character": "character-1669120399.json",
 			"event_id": "dialogic_010",
 			"options": [
 
 			],
 			"portrait": "",
-			"question": "Olá como vai? Sou Galileu Galilei, um cientista famoso. Poderia me ajudar em uma coisa?"
+			"question": "Poderia me ajudar em uma coisa?"
 		},
 		{
-			"choice": "Aceito!",
+			"choice": "Sim!",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -30,25 +36,7 @@
 			"character": "character-1669120399.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Obrigado! Por favor encontre as partes perdidas da minha luneta."
-		},
-		{
-			"character": "character-1669120399.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Sabia que com ela descobri muitos planetas no século 18? É incrível o que podemos descobrir fora da nossa atmosfera."
-		},
-		{
-			"character": "character-1669120399.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Volte aqui quando encontrá-las e lhe darei algo muito bom em troca. Vou iniciar a sequência de teleporte ao mundo virtual."
-		},
-		{
-			"character": "character-1669120399.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Boa sorte bravo estudante!"
+			"text": "Obrigado!\nEntão colete os estudos que mostram que as vacinas são seguras atualmente para continuar.\nQuando terminar me entregue aqui nesse local.\nBoa sorte bravo estudante!"
 		},
 		{
 			"call_node": {
@@ -155,19 +143,7 @@
 			"character": "character-1669120399.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "UAU! QUE INCRÍVEL!"
-		},
-		{
-			"character": "character-1669120399.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Voce conseguiu, parabéns!"
-		},
-		{
-			"character": "character-1669120399.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Tome, você merece isso!"
+			"text": "UAU! QUE INCRÍVEL!\nVoce conseguiu, parabéns!\nTome, você merece isso!"
 		},
 		{
 			"definition": "1669121331-648",

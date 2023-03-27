@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/teste.png-80e88854b3a28129a5b367712ed83311.stex"
+path="res://.import/Osvaldo.webp-2c81db6e080f38dc5542c9e76ab06003.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://teste.png"
-dest_files=[ "res://.import/teste.png-80e88854b3a28129a5b367712ed83311.stex" ]
+source_file="res://Sprites/Faces/Galileu/Osvaldo.webp"
+dest_files=[ "res://.import/Osvaldo.webp-2c81db6e080f38dc5542c9e76ab06003.stex" ]
 
 [params]
 

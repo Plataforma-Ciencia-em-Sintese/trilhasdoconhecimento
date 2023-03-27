@@ -1,12 +1,16 @@
 extends Spatial
 
-export (String,"Melee","Gun") var attackType
+export (String,"Projectile","Melee") var attackType
 var animator
 var goFight = false
 var releasePointer = true
 var actualEnemy
 var scriptEnemy
 var pointer
+var energyBall = load("res://Scenes/Attacks/Projectiles/Energy_Ball.tscn")
+var arrowDrill = load("res://Scenes/Attacks/Projectiles/Arrow_Drill.tscn")
+var impactBoom = load("res://Scenes/Attacks/Projectiles/ImpactBoom.tscn")
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	animator = owner.get_node("AnimationTree")
@@ -22,23 +26,46 @@ func start_fight():
 	if releasePointer:
 		pointer.global_transform.origin = actualEnemy.global_transform.origin
 		pointer.hide()
+		animator.set("parameters/States General/blend_amount",1)
 		
-		if attackType == "Melee":
-			animator.set("parameters/States General/blend_amount",-1)
-		else:
-			animator.set("parameters/States General/blend_amount",1)
-		
-		if dist <= 1.5:
-			owner.get_node("Base/Armature").rotation_degrees.y = 180
-			owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
-			animator.set("parameters/move/blend_amount",0)
-			owner.get_node("States/Move").hide()
-			owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = true
-			releasePointer = false
+		if owner.mainChar == "Clara":
+			animator["parameters/All_Attacks/current"] = 0
+			attackType = 1
+		elif owner.mainChar == "Caio":
+			animator["parameters/All_Attacks/current"] = 1
+			attackType = 1
+		elif owner.mainChar == "Bento":
+			animator["parameters/All_Attacks/current"] = 2
+			attackType = 0
+		elif owner.mainChar == "Ariel":
+			animator["parameters/All_Attacks/current"] = 3
+			attackType = 0
+		elif owner.mainChar == "Yara":
+			animator["parameters/All_Attacks/current"] = 4
+			attackType = 0
 	
+		if attackType == 1:
+			print(dist)
+			if dist <= 1.5:
+				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
+				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
+				animator.set("parameters/move/blend_amount",0)
+				owner.get_node("States/Move").hide()
+				releasePointer = false
+		else:
+			if dist <= 5:
+				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
+				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
+				animator.set("parameters/move/blend_amount",0)
+				owner.get_node("States/Move").hide()
+				releasePointer = false
+			
+			if owner.mainChar == "Caio":
+				owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = true
+
 	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked and pointer.outInterface:
 		end_fight()
-		yield(get_tree().create_timer(2),"timeout")
+		yield(get_tree().create_timer(1),"timeout")
 		if goFight:
 			releasePointer = true
 
@@ -46,12 +73,30 @@ func end_fight():
 	pointer.show()
 	animator.set("parameters/States General/blend_amount",0)
 	animator.set("parameters/Seek/seek_position",0)
-	owner.get_node("Base/Armature").rotation_degrees.y = 0
+	owner.get_node("Base/Skeleton").rotation_degrees.y = 0
 	owner.get_node("States/Move").show()
 	releasePointer = false
+	goFight = false
 
-func set_melee_hitbox(stats):
-	owner.get_node("Base/Armature/Skeleton/BoneAttachment/Sword/Area_Sword/CollisionShape").set_deferred("disabled",stats)
+func set_melee_hitbox(disabled,path):
+	owner.get_node(path).set_deferred("disabled",disabled)
+
+func spawn_bullet(type):
+	if type == "Energy Ball":
+		var bullet = energyBall.instance()
+		owner.owner.add_child(bullet)
+		bullet.global_transform = player.get_node("Base/Skeleton/BoneAttachmentR/Wand/Spawner").global_transform
+		bullet.dir = bullet.global_transform.basis.x
+	elif type == "Arrow":
+		var bullet = arrowDrill.instance()
+		owner.owner.add_child(bullet)
+		bullet.global_transform = player.get_node("Base/Skeleton/BoneAttachmentR/Bow/Spawner").global_transform
+		bullet.dir = bullet.global_transform.basis.x
+	elif type == "Boom":
+		var bullet = impactBoom.instance()
+		owner.owner.add_child(bullet)
+		bullet.global_transform = player.get_node("Base/Skeleton/BoneAttachmentR/Boom_Spawner").global_transform
+		bullet.dir = bullet.global_transform.basis.x
 
 func _on_Damage_Zone_area_entered(area):
 	if area.is_in_group("Enemy_Area") and !goFight:
@@ -64,4 +109,5 @@ func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
 		area = null
 		goFight = false
-		owner.get_node("Base/Armature/Skeleton/BoneAttachment/ProtonTrail").emit = false
+		if owner.mainChar == "Caio": 
+			owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = false
