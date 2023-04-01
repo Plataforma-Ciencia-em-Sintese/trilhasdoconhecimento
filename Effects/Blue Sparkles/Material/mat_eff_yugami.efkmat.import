@@ -1,0 +1,14 @@
+[remap]
+
+importer="effekseer.resource"
+type="Resource"
+path="res://.import/mat_eff_yugami.efkmat-e1513fd7252dd795c1bcfd1fb4da1db9.res"
+
+[deps]
+
+source_file="res://Effects/Blue Sparkles/Material/mat_eff_yugami.efkmat"
+dest_files=[ "res://.import/mat_eff_yugami.efkmat-e1513fd7252dd795c1bcfd1fb4da1db9.res" ]
+
+[params]
+
+compress=true

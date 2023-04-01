@@ -1,0 +1,16 @@
+[remap]
+
+importer="effekseer.effect"
+type="Resource"
+path="res://.import/HealUp.efkefc-e075ea23b8b6054f9a71ce11ca0d33bc.res"
+
+[deps]
+
+source_file="res://Effects/Heal Up/HealUp.efkefc"
+dest_files=[ "res://.import/HealUp.efkefc-e075ea23b8b6054f9a71ce11ca0d33bc.res" ]
+
+[params]
+
+scale=1.0
+data_type=0
+compress=true
