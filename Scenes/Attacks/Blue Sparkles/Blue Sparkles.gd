@@ -13,9 +13,9 @@ func _ready():
 		$Timer.stop()
 		$Timer.queue_free()
 
-func _physics_process(delta):
-	if target != null:
-		queue_free()
+#func _physics_process(delta):
+#	if target != null:
+#		queue_free()
 
 func _on_Timer_timeout():
 	$EffekseerEmitter.play()

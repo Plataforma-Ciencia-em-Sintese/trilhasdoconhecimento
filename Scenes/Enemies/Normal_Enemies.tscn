@@ -2002,6 +2002,7 @@ shape = SubResource( 20 )
 
 [node name="Zone" type="MeshInstance" parent="Enemy/Looking_Zone"]
 transform = Transform( 4.27899, 0, 0, 0, 0.0336065, 0, 0, 0, 4.27899, 0, -0.432528, 0 )
+visible = false
 mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
@@ -2036,7 +2037,7 @@ script = ExtResource( 5 )
 script = ExtResource( 7 )
 
 [node name="Timer" type="Timer" parent="States/Colaterals"]
-wait_time = 5.0
+wait_time = 9.0
 
 [node name="NavTimerEnemy" type="Timer" parent="."]
 process_mode = 0

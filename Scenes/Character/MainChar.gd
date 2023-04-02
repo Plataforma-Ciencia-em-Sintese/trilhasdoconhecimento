@@ -37,8 +37,8 @@ func _ready():
 	
 	if QuestManager.isInQuest:
 		QuestManager.player = self
-	create_btns_battle("ATK")
-	create_btns_battle("Consum")
+		create_btns_battle("ATK")
+		create_btns_battle("Consum")
 
 # cria os botoes que serao necessarios a batalha
 func create_btns_battle(value):

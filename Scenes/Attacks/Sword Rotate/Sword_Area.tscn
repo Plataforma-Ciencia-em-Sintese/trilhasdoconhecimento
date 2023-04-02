@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/proton_trail-master/proton_trail.gd" type="Script" id=1]
+[ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Attacks/Sword Rotate/Sword_Area.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_color = Color( 1, 0.254902, 0.254902, 1 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.12367
+height = 2.20335
+
+[node name="Sword_Area" type="Area" groups=["Sword"]]
+script = ExtResource( 3 )
+speed = 5
+
+[node name="Blade1" type="MeshInstance" parent="."]
+transform = Transform( 0.0479156, 0, 0, 0, -1.76567e-08, -0.0479156, 0, 0.403939, -2.09446e-09, 0, 0.377782, -0.748151 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+
+[node name="ProtonTrail" type="Spatial" parent="Blade1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 5.68434e-14, 1, 0, 0, 0 )
+script = ExtResource( 1 )
+material = SubResource( 3 )
+life_time = 0.5
+cast_shadow = false
+
+[node name="Top" type="Position3D" parent="Blade1/ProtonTrail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Bottom" type="Position3D" parent="Blade1/ProtonTrail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="Blade2" type="MeshInstance" parent="."]
+transform = Transform( 0.0479156, 0, 0, 0, -1.76567e-08, -0.0479156, 0, 0.403939, -2.09446e-09, 0, 0.377782, 0.696903 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+
+[node name="ProtonTrail" type="Spatial" parent="Blade2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 8.52651e-14, 1, 0, 0, 0 )
+script = ExtResource( 1 )
+material = SubResource( 3 )
+life_time = 0.5
+cast_shadow = false
+
+[node name="Top" type="Position3D" parent="Blade2/ProtonTrail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 5.68434e-14, 1, 0, -1.0266, 0 )
+
+[node name="Bottom" type="Position3D" parent="Blade2/ProtonTrail"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 5.68434e-14, 1, 0, 1.03917, -9.53674e-07 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.383158, 0 )
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

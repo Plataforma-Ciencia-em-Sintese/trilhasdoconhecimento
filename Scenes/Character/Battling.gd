@@ -81,6 +81,7 @@ func end_fight():
 func set_melee_hitbox(disabled,path):
 	owner.get_node(path).set_deferred("disabled",disabled)
 
+
 func spawn_bullet(type):
 	if type == "Energy Ball":
 		var bullet = energyBall.instance()
@@ -109,5 +110,6 @@ func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
 		area = null
 		goFight = false
+		end_fight()
 		if owner.mainChar == "Caio": 
 			owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = false
