@@ -23,12 +23,12 @@ margin_right = -3.0
 margin_bottom = 0.199951
 custom_constants/separation = 55
 
-[node name="Reward" type="Button" parent="Container"]
+[node name="RewardATK" type="Button" parent="Container"]
 margin_right = 300.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 300, 500 )
 
-[node name="Img" type="TextureRect" parent="Container/Reward"]
+[node name="Img" type="TextureRect" parent="Container/RewardATK"]
 margin_left = 45.0
 margin_top = 27.0
 margin_right = 252.0
@@ -36,7 +36,7 @@ margin_bottom = 223.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Title" type="Label" parent="Container/Reward"]
+[node name="Title" type="Label" parent="Container/RewardATK"]
 margin_left = 11.0
 margin_top = 247.0
 margin_right = 289.0
@@ -45,7 +45,7 @@ text = "ESCUDO DE ENERGIA"
 align = 1
 valign = 1
 
-[node name="Desc" type="Label" parent="Container/Reward"]
+[node name="Desc" type="Label" parent="Container/RewardATK"]
 margin_left = 11.0
 margin_top = 298.0
 margin_right = 289.0
@@ -53,4 +53,36 @@ margin_bottom = 475.0
 text = "DESCRIÇAO DO ITEM"
 align = 1
 
-[connection signal="pressed" from="Container/Reward" to="." method="_on_Reward_pressed" binds= [ "ATK" ]]
+[node name="RewardConsum" type="Button" parent="Container"]
+margin_left = 355.0
+margin_right = 655.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 300, 500 )
+
+[node name="Img" type="TextureRect" parent="Container/RewardConsum"]
+margin_left = 45.0
+margin_top = 27.0
+margin_right = 252.0
+margin_bottom = 223.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Title" type="Label" parent="Container/RewardConsum"]
+margin_left = 11.0
+margin_top = 247.0
+margin_right = 289.0
+margin_bottom = 280.0
+text = "ESCUDO DE ENERGIA"
+align = 1
+valign = 1
+
+[node name="Desc" type="Label" parent="Container/RewardConsum"]
+margin_left = 11.0
+margin_top = 298.0
+margin_right = 289.0
+margin_bottom = 475.0
+text = "DESCRIÇAO DO ITEM"
+align = 1
+
+[connection signal="pressed" from="Container/RewardATK" to="." method="_on_Reward_pressed" binds= [ "ATK" ]]
+[connection signal="pressed" from="Container/RewardConsum" to="." method="_on_Reward_pressed" binds= [ "Consum" ]]

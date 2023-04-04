@@ -38,6 +38,7 @@ func _ready():
 	if QuestManager.isInQuest:
 		QuestManager.player = self
 		create_btns_battle("ATK")
+		create_btns_battle("Consum")
 
 # cria os botoes que serao necessarios a batalha
 func create_btns_battle(value):
@@ -50,3 +51,10 @@ func create_btns_battle(value):
 			ATKBtn.attackSource = GlobalValues.atkItens.values()[i][1]
 			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][2])
 			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][4]
+	elif value == "Consum":
+		var consumButtonScene = load("res://Scenes/Consumables/Button Commands/Consumable.tscn")
+		for i in GlobalValues.consumItens.size():
+			var ConsumBtn = consumButtonScene.instance()
+			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
+			ConsumBtn.icon = load(GlobalValues.consumItens.values()[i][1])
+			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]

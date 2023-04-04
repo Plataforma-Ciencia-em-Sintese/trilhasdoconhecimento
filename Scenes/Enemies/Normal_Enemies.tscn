@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Enemies/Patrol.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Enemies/Battling.gd" type="Script" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Enemies/Colaterals.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape" id=19]
 radius = 2.49825
@@ -2001,6 +2002,7 @@ shape = SubResource( 20 )
 
 [node name="Zone" type="MeshInstance" parent="Enemy/Looking_Zone"]
 transform = Transform( 4.27899, 0, 0, 0, 0.0336065, 0, 0, 0, 4.27899, 0, -0.432528, 0 )
+visible = false
 mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
@@ -2014,6 +2016,14 @@ material_override = SubResource( 42 )
 billboard = 1
 texture = ExtResource( 6 )
 
+[node name="ParalizedTxt" type="Label3D" parent="Enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.07017, 0 )
+visible = false
+pixel_size = 0.05
+billboard = 1
+modulate = Color( 0.87451, 1, 0, 1 )
+text = "PARALIZED"
+
 [node name="States" type="Spatial" parent="."]
 
 [node name="Patrol" type="Spatial" parent="States"]
@@ -2022,6 +2032,12 @@ script = ExtResource( 4 )
 [node name="Battling" type="Spatial" parent="States"]
 visible = false
 script = ExtResource( 5 )
+
+[node name="Colaterals" type="Spatial" parent="States"]
+script = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="States/Colaterals"]
+wait_time = 9.0
 
 [node name="NavTimerEnemy" type="Timer" parent="."]
 process_mode = 0
@@ -2052,5 +2068,6 @@ mesh = SubResource( 43 )
 [connection signal="body_exited" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_exited"]
 [connection signal="input_event" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_input_event"]
 [connection signal="mouse_exited" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_mouse_exited"]
+[connection signal="timeout" from="States/Colaterals/Timer" to="States/Colaterals" method="_on_Timer_timeout"]
 [connection signal="timeout" from="NavTimerEnemy" to="States/Battling" method="_on_NavTimerEnemy_timeout"]
 [connection signal="timeout" from="Wait_to_Back" to="." method="_on_Wait_to_Back_timeout"]

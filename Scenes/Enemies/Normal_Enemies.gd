@@ -14,7 +14,7 @@ func get_enemy(type):
 			i.queue_free()
 			
 func _on_Looking_Zone_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") or body.is_in_group("Clone"):
 		$Wait_to_Back.stop()
 		$States/Battling.backToPatrol = false
 		$States/Battling.show()

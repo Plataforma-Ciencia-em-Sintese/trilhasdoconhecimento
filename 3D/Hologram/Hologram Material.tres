@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=2]
 
-[ext_resource path="res://Sprites/Faces/Oswaldo/Osvaldo.webp" type="Texture" id=1]
+[ext_resource path="res://Sprites/Faces/Galileu/Galileo.webp" type="Texture" id=1]
 
 [sub_resource type="SpatialMaterial" id=980]
 flags_transparent = true
