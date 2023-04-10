@@ -45,10 +45,8 @@ anchor_bottom = 1.0
 [node name="BG_Inventory" type="Panel" parent="."]
 visible = false
 self_modulate = Color( 1, 0, 0, 0 )
-anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -207.0
 mouse_filter = 2
 
 [node name="Navigation_Buttons" type="HBoxContainer" parent="BG_Inventory"]
@@ -97,10 +95,11 @@ mouse_filter = 0
 columns = 4
 
 [node name="Panel_Item" type="TextureRect" parent="BG_Inventory"]
-margin_left = 2.0
-margin_top = -397.0
-margin_right = 446.0
-margin_bottom = 207.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -302.0
+margin_right = 444.0
+margin_bottom = 302.0
 texture = ExtResource( 8 )
 expand = true
 flip_h = true
@@ -450,15 +449,21 @@ expand_icon = true
 [node name="Panel_Descri" type="Panel" parent="BG_Inventory"]
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -311.0
-margin_top = -500.0
+margin_top = -201.0
+margin_bottom = 299.0
 
 [node name="TextureRect" type="TextureRect" parent="BG_Inventory/Panel_Descri"]
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+margin_left = -311.0
+margin_top = -250.0
+margin_bottom = 250.0
 texture = ExtResource( 8 )
 expand = true
 
@@ -629,10 +634,8 @@ valign = 1
 [node name="BT_Close" type="Button" parent="BG_Inventory"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -77.0
-margin_top = -376.0
-margin_right = -13.0
-margin_bottom = -312.0
+margin_left = -64.0
+margin_bottom = 64.0
 icon = ExtResource( 5 )
 flat = true
 expand_icon = true
