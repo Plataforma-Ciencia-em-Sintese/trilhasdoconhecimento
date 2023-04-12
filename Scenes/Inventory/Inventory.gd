@@ -58,12 +58,12 @@ func _on_BT_Close_pressed():
 
 func call_itens(type):
 	if type == "Upgrades":
-		for i in allItens[0].size():
+		for i in GlobalValues.atkItens[0].size():
 			var newItn = itemScene.instance()
 			$BG_Inventory/GridContainer.add_child(newItn)
-			newItn.descr = allItens[0][allItens[0].keys()[i]][0]
-			newItn.icon = load(allItens[0][allItens[0].keys()[i]][1])
-			newItn.nameItem = allItens[0].keys()[i]
+			newItn.descr = GlobalValues.atkItens.values()[i][3]
+			newItn.icon = GlobalValues.atkItens.values()[i][3]
+			newItn.nameItem = GlobalValues.atkItens.values()[i][3]
 			newItn.type = type
 	elif type == "Consumiveis":
 		for i in allItens[1].size():
@@ -84,3 +84,7 @@ func _on_bt_item_down(item):
 		i.queue_free()
 	
 	call_itens(item)
+
+
+func _on_BT_Itens_button_down():
+	pass # Replace with function body.
