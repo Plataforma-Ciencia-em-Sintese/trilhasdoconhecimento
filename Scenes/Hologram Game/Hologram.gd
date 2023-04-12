@@ -179,3 +179,7 @@ func end_quest():
 	QuestManager.get_node("Buttons_Diary").hide()
 	QuestManager.get_node("UI").hide()
 
+func show_rewards():
+	$Reward_Screen.show()
+	$Reward_Screen.set_reward()
+
