@@ -8,8 +8,12 @@ var choosedRewards = []
 var id = 0
 var chooseAtk
 var chooseConsum
+onready var player = get_tree().get_nodes_in_group("Player")[0]
+onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
+var stopPlayer = false
 
-func _ready():
+func set_reward():
+	stopPlayer = true
 	# checa quais itens atualmente tem o jogador
 	for i in GlobalValues.atkItens.size():
 		actualItensAtk.append(GlobalValues.atkItens.keys()[i])
@@ -81,6 +85,7 @@ func _ready():
 	else:
 		container.get_child(0).hide()
 	
+	# escolhe o consumivel a ser mostrado pro jogador
 	if rewardItensConsum.size() > 0:
 		randomize()
 		chooseConsum = randi() % rewardItensConsum.size()
@@ -96,8 +101,10 @@ func _ready():
 		container.get_child(1).hide()
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_select"):
-		get_tree().reload_current_scene()
+	if stopPlayer:
+		player.get_node("States/Move").hide()
+		pointer.outInterface = false
+		stopPlayer = false
 
 func _on_Reward_pressed(type):
 	if type == "ATK":
@@ -108,4 +115,8 @@ func _on_Reward_pressed(type):
 		var src = GlobalValues.consumRewards.get(rewardItensConsum[chooseConsum])
 		GlobalValues.consumItens[rewardItensConsum[chooseConsum]] = src
 		print(GlobalValues.consumItens)
+
+	player.get_node("States/Move").show()
+	pointer.outInterface = true
+	queue_free()
 

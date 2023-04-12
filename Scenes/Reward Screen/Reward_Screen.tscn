@@ -7,7 +7,6 @@
 script = ExtResource( 2 )
 
 [node name="BG" type="Panel" parent="."]
-modulate = Color( 1, 1, 1, 0.509804 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -22,9 +21,11 @@ margin_left = 5.0
 margin_right = -3.0
 margin_bottom = 0.199951
 custom_constants/separation = 55
+alignment = 1
 
 [node name="RewardATK" type="Button" parent="Container"]
-margin_right = 300.0
+margin_left = 180.0
+margin_right = 480.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 300, 500 )
 
@@ -54,8 +55,8 @@ text = "DESCRIÇAO DO ITEM"
 align = 1
 
 [node name="RewardConsum" type="Button" parent="Container"]
-margin_left = 355.0
-margin_right = 655.0
+margin_left = 535.0
+margin_right = 835.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 300, 500 )
 
