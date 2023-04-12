@@ -57,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="BG_Inventory" type="Panel" parent="."]
+visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -180,7 +181,7 @@ valign = 1
 anchor_right = 0.458
 anchor_bottom = 0.049
 margin_right = -0.0700073
-margin_bottom = 0.0679989
+margin_bottom = 3.068
 flat = true
 expand_icon = true
 
@@ -535,7 +536,6 @@ expand = true
 flip_h = true
 
 [node name="BT_Close" type="Button" parent="BG_Inventory"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -64.0
@@ -545,7 +545,6 @@ flat = true
 expand_icon = true
 
 [node name="BT_Inventario" type="Button" parent="."]
-visible = false
 anchor_left = 0.903
 anchor_top = 0.025
 anchor_right = 0.952
@@ -599,5 +598,6 @@ autowrap = true
 
 [connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Upgrade" to="." method="_on_bt_item_down" binds= [ "Upgrades" ]]
 [connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Consumiveis" to="." method="_on_bt_item_down" binds= [ "Consumiveis" ]]
+[connection signal="button_down" from="BG_Inventory/Panel_Inventario/BT_Itens" to="." method="_on_BT_Itens_button_down"]
 [connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
 [connection signal="pressed" from="BT_Inventario" to="." method="_on_BT_Inventario_pressed"]
