@@ -146,6 +146,16 @@
 			"text": "UAU! QUE INCRÍVEL!\nVoce conseguiu, parabéns!\nTome, você merece isso!"
 		},
 		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "show_rewards",
+				"target_node_path": "Scifi_Stage/Hologram"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
 			"definition": "1669121331-648",
 			"event_id": "dialogic_014",
 			"operation": "=",

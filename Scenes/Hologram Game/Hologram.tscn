@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://3D/Hologram/Model/DiscPlayer.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://3D/Hologram/Model/Base.tres" type="ArrayMesh" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://3D/Hologram/Hologram Material.tres" type="Material" id=8]
 [ext_resource path="res://3D/Hologram/Model/Circular Frame.tres" type="ArrayMesh" id=9]
 [ext_resource path="res://Scenes/NPCs/Quest_Holder.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Reward Screen/Reward_Screen.tscn" type="PackedScene" id=11]
 
 [sub_resource type="PlaneMesh" id=976]
 
@@ -268,6 +269,9 @@ steps = {
 rewards = {
 "Speed Booster": "res://icon.png"
 }
+
+[node name="Reward_Screen" parent="." instance=ExtResource( 11 )]
+visible = false
 
 [connection signal="body_entered" from="AreaHologram" to="." method="_on_AreaHologram_body_entered"]
 [connection signal="body_exited" from="AreaHologram" to="." method="_on_AreaHologram_body_exited"]
