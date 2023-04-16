@@ -29,8 +29,8 @@ func _on_BT_Inventario_pressed():
 	cam.anchorGeral = camera
 	cam.geralLerp = true
 	cam.projection = 0
-#	camera.current = true
-#	get_tree().get_nodes_in_group("Camera")[0].current = false
+	camera.current = true
+	get_tree().get_nodes_in_group("Camera")[0].current = false
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
@@ -49,8 +49,8 @@ func _on_BT_Close_pressed():
 	cam.anchorGeral = ""
 	cam.geralLerp = false
 	cam.projection = 1
-#	camera.current = false
-#	get_tree().get_nodes_in_group("Camera")[0].current = true
+	camera.current = false
+	get_tree().get_nodes_in_group("Camera")[0].current = true
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false
@@ -58,7 +58,8 @@ func _on_BT_Close_pressed():
 
 func call_itens(type):
 	if type == "Upgrades":
-		for i in GlobalValues.atkItens[0].size():
+		var atkButtonScene = load("res://Scenes/Attacks/Button Commands/ATK.tscn")
+		for i in GlobalValues.atkItens.size():
 			var newItn = itemScene.instance()
 			$BG_Inventory/GridContainer.add_child(newItn)
 			newItn.descr = GlobalValues.atkItens.values()[i][3]

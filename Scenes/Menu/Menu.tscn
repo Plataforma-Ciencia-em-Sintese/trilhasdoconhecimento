@@ -293,37 +293,37 @@ margin_bottom = 50.0
 
 [node name="Window" type="Button" parent="Options_Layer/Panel_Resolution/VBoxContainer"]
 margin_right = 511.0
-margin_bottom = 41.0
+margin_bottom = 32.0
 custom_fonts/font = ExtResource( 5 )
 toggle_mode = true
 text = "Janela"
 
 [node name="Full" type="Button" parent="Options_Layer/Panel_Resolution/VBoxContainer"]
-margin_top = 45.0
+margin_top = 36.0
 margin_right = 511.0
-margin_bottom = 86.0
+margin_bottom = 68.0
 custom_fonts/font = ExtResource( 5 )
 toggle_mode = true
 text = "FullScreen"
 
 [node name="800x600" type="Button" parent="Options_Layer/Panel_Resolution/VBoxContainer"]
-margin_top = 90.0
+margin_top = 72.0
 margin_right = 511.0
-margin_bottom = 131.0
+margin_bottom = 104.0
 custom_fonts/font = ExtResource( 5 )
 text = "800x600"
 
 [node name="1280x720" type="Button" parent="Options_Layer/Panel_Resolution/VBoxContainer"]
-margin_top = 135.0
+margin_top = 108.0
 margin_right = 511.0
-margin_bottom = 176.0
+margin_bottom = 140.0
 custom_fonts/font = ExtResource( 5 )
 text = "1280x720"
 
 [node name="1920x1080" type="Button" parent="Options_Layer/Panel_Resolution/VBoxContainer"]
-margin_top = 180.0
+margin_top = 144.0
 margin_right = 511.0
-margin_bottom = 221.0
+margin_bottom = 176.0
 custom_fonts/font = ExtResource( 5 )
 text = "1920x1080"
 

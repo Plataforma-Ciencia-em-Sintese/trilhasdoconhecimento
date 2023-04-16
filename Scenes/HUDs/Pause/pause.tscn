@@ -7,13 +7,14 @@
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=5]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=7]
-[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/HUDs/Options/Options.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BlackItalic.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Pause.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Inicio.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Opcoes.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Jogar.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Sair.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Icons_Config/Component 9.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -58,11 +59,39 @@ font_data = ExtResource( 6 )
 size = 30
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 8 )
-
 [node name="Pause" type="CanvasLayer"]
 script = ExtResource( 3 )
+
+[node name="Control_Options" parent="." instance=ExtResource( 8 )]
+
+[node name="BT_Exit" type="Button" parent="Control_Options"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -131.0
+margin_top = 48.0
+margin_right = -91.0
+margin_bottom = 97.0
+custom_constants/hseparation = 0
+custom_fonts/font = ExtResource( 2 )
+icon = ExtResource( 15 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="BT_Pause" type="Button" parent="."]
+anchor_left = 0.942
+anchor_top = 0.025
+anchor_right = 0.991
+anchor_bottom = 0.108
+margin_left = 0.391968
+margin_right = 0.215942
+margin_bottom = 0.199997
+custom_fonts/font = ExtResource( 4 )
+icon = ExtResource( 10 )
+flat = true
+icon_align = 1
+expand_icon = true
 
 [node name="Panel_Pause" type="Panel" parent="."]
 visible = false
@@ -138,20 +167,6 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 icon = ExtResource( 12 )
 flat = true
-
-[node name="BT_Pause" type="Button" parent="."]
-anchor_left = 0.942
-anchor_top = 0.025
-anchor_right = 0.991
-anchor_bottom = 0.108
-margin_left = 0.391968
-margin_right = 0.215942
-margin_bottom = 0.199997
-custom_fonts/font = ExtResource( 4 )
-icon = ExtResource( 10 )
-flat = true
-icon_align = 1
-expand_icon = true
 
 [node name="Panel_Options" type="Panel" parent="."]
 visible = false
@@ -278,82 +293,11 @@ text = "Español"
 flat = true
 expand_icon = true
 
-[node name="Panel_resolution" type="Panel" parent="."]
-visible = false
-self_modulate = Color( 0, 0, 0, 0.415686 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel_resolution"]
-anchor_left = 0.174
-anchor_top = 0.045
-anchor_right = 0.826
-anchor_bottom = 0.955
-margin_left = -0.199997
-margin_right = 0.199951
-margin_bottom = -3.05176e-05
-alignment = 1
-
-[node name="Window" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 162.0
-margin_right = 668.0
-margin_bottom = 203.0
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-text = "Janela"
-
-[node name="Full" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 207.0
-margin_right = 668.0
-margin_bottom = 248.0
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-text = "FullScreen"
-
-[node name="800x600" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 252.0
-margin_right = 668.0
-margin_bottom = 293.0
-custom_fonts/font = ExtResource( 1 )
-text = "800x600"
-
-[node name="1280x720" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 297.0
-margin_right = 668.0
-margin_bottom = 338.0
-custom_fonts/font = ExtResource( 1 )
-text = "1280x720"
-
-[node name="1920x1080" type="Button" parent="Panel_resolution/VBoxContainer"]
-margin_top = 342.0
-margin_right = 668.0
-margin_bottom = 383.0
-custom_fonts/font = ExtResource( 1 )
-text = "1920x1080"
-
-[node name="Exit_resolution" type="Button" parent="Panel_resolution"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -74.0
-margin_top = 40.0
-margin_right = -24.0
-margin_bottom = 90.0
-custom_fonts/font = SubResource( 2 )
-icon = ExtResource( 14 )
-flat = true
-expand_icon = true
-
+[connection signal="pressed" from="Control_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
+[connection signal="pressed" from="BT_Pause" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Home" to="." method="_on_Home_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/BT_Options" to="." method="_on_BT_Options_pressed"]
-[connection signal="pressed" from="BT_Pause" to="." method="_on_Pause_pressed"]
 [connection signal="value_changed" from="Panel_Options/sound/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="Panel_Options/Button_resolution" to="." method="_on_Button_resolution_pressed"]
 [connection signal="pressed" from="Panel_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
-[connection signal="toggled" from="Panel_resolution/VBoxContainer/Window" to="." method="_on_Window_toggled"]
-[connection signal="toggled" from="Panel_resolution/VBoxContainer/Full" to="." method="_on_Full_toggled"]
-[connection signal="pressed" from="Panel_resolution/VBoxContainer/800x600" to="." method="_on_800x600_pressed"]
-[connection signal="pressed" from="Panel_resolution/VBoxContainer/1280x720" to="." method="_on_1280x720_pressed"]
-[connection signal="pressed" from="Panel_resolution/VBoxContainer/1920x1080" to="." method="_on_1920x1080_pressed"]
-[connection signal="pressed" from="Panel_resolution/Exit_resolution" to="." method="_on_Exit_resolution_pressed"]
