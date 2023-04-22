@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
+[ext_resource path="res://Sprites/Sprites_SelectPlayer/Rectangle 3.png" type="Texture" id=17]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -73,7 +74,7 @@ animation = "Attack02"
 [sub_resource type="AnimationNodeBlend3" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -861.733, 79.2146 )
+graph_offset = Vector2( -1346.91, -77.3255 )
 nodes/All_Attacks/node = SubResource( 73 )
 nodes/All_Attacks/position = Vector2( -820, 180 )
 nodes/Bow/node = SubResource( 74 )
@@ -100,7 +101,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7847,6 +7848,7 @@ collision_layer = 2
 script = ExtResource( 7 )
 mainChar = "Caio"
 activeCloths = "Normal"
+mainGun = "Sword"
 
 [node name="States" type="Spatial" parent="."]
 
@@ -8237,11 +8239,12 @@ bones/64/enabled = true
 bones/64/bound_children = [  ]
 
 [node name="Body" type="MeshInstance" parent="Base/Skeleton"]
+layers = 3
 mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000380307, -0.0129206, -0.999917, -0.25322, -0.96733, 0.0124033, -0.967407, 0.253195, -0.00363761, -0.293254, 0.593389, 0.0673485 )
+transform = Transform( 1.3411e-07, -0.0119911, -0.999928, -0.0149165, -0.999817, 0.0119897, -0.999887, 0.0149159, -0.000176996, -0.293115, 0.59374, 0.0424528 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8304,7 +8307,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000380129, 0.0129206, 0.999917, 0.25322, -0.96733, 0.0124034, 0.967407, 0.253195, -0.0036374, 0.293254, 0.593389, 0.0673486 )
+transform = Transform( -7.45058e-08, 0.011991, 0.999928, 0.0149166, -0.999818, 0.0119897, 0.999887, 0.014916, -0.000176787, 0.293115, 0.59374, 0.0424528 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8316,8 +8319,23 @@ skeleton = NodePath("")
 [node name="CamAnchor" type="Position3D" parent="Base"]
 transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3, 3 )
 
+[node name="Cam_Invent" type="Camera" parent="Base"]
+transform = Transform( 1.28096, 0, 0, 0, 1.2498, 0.280806, 0, -0.280806, 1.2498, 0, 0.757, 3.579 )
+cull_mask = 1048574
+projection = 1
+size = 4.13227
+
+[node name="BG_Invent" type="Sprite3D" parent="Base"]
+transform = Transform( 5.86917, 0, 0, 0, 5.86917, 0, 0, 0, 5.86917, 0, 1.39228, -1.60569 )
+visible = false
+layers = 2
+texture = ExtResource( 17 )
+
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/CamAnchor")
+itensATK = [ "Clone", "Ataque Meteoro", "Espada Giratoria" ]
+itensConsum = [ "Orbe Life", "Orbe Limpeza", "Orbe Poder" ]
+weaponActual = "Shield"
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 
@@ -8336,10 +8354,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="PanelR2" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -100.0
-margin_right = 399.0
+margin_left = -399.0
+margin_top = -205.0
+margin_bottom = -105.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 
@@ -8417,10 +8438,13 @@ value = 100.0
 percent_visible = false
 
 [node name="Consumable_Container" type="HBoxContainer" parent="Battle_UI"]
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -103.0
-margin_right = 397.0
+margin_left = -397.0
+margin_top = -208.0
+margin_bottom = -105.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20

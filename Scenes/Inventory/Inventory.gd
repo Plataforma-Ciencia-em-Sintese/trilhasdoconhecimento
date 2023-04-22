@@ -1,21 +1,18 @@
 extends CanvasLayer
 
-export (NodePath) var bigDesc
 export (NodePath) var camera
-export (Array,Dictionary) var allItens
-var itemScene = load("res://Scenes/Inventory/Item_BT.tscn")
+export (Array,String) var itensATK
+export (Array,String) var itensConsum
+export var weaponActual = "Wand"
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	call_itens("Upgrades")
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_left"):
-		for i in $BG_Inventory/GridContainer.get_children():
-			i.queue_free()
-		
-		get_itens("Orbe de Conexão", "item adicionado", "res://icon.png", "Upgrades")
+	if Input.is_action_just_pressed("ui_select"):
+		change_battle_itens()
 		
 func _on_BT_Inventario_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -26,11 +23,12 @@ func _on_BT_Inventario_pressed():
 	get_parent().get_node("States/Move").hide()
 	get_parent().get_node("States/Talking").show()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
-	cam.anchorGeral = camera
-	cam.geralLerp = true
-	cam.projection = 0
-#	camera.current = true
-#	get_tree().get_nodes_in_group("Camera")[0].current = false
+	cam.current = false
+	player.get_node("Base/Cam_Invent").current = true
+	player.get_node("Base/BG_Invent").show()
+#	cam.anchorGeral = camera
+#	cam.geralLerp = true
+#	cam.projection = 0
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
@@ -46,45 +44,33 @@ func _on_BT_Close_pressed():
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
-	cam.anchorGeral = ""
-	cam.geralLerp = false
-	cam.projection = 1
-#	camera.current = false
-#	get_tree().get_nodes_in_group("Camera")[0].current = true
+	cam.current = true
+	player.get_node("Base/Cam_Invent").current = false
+	player.get_node("Base/BG_Invent").hide()
+#	cam.anchorGeral = ""
+#	cam.geralLerp = false
+#	cam.projection = 1
 	
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false
 	pointer.show()
 
-func call_itens(type):
-	if type == "Upgrades":
-		for i in GlobalValues.atkItens[0].size():
-			var newItn = itemScene.instance()
-			$BG_Inventory/GridContainer.add_child(newItn)
-			newItn.descr = GlobalValues.atkItens.values()[i][3]
-			newItn.icon = GlobalValues.atkItens.values()[i][3]
-			newItn.nameItem = GlobalValues.atkItens.values()[i][3]
-			newItn.type = type
-	elif type == "Consumiveis":
-		for i in allItens[1].size():
-			var newItn = itemScene.instance()
-			$BG_Inventory/GridContainer.add_child(newItn)
-			newItn.descr = allItens[1][allItens[1].keys()[i]][0]
-			newItn.icon = load(allItens[1][allItens[1].keys()[i]][1])
-			newItn.nameItem = allItens[1].keys()[i]
-			newItn.type = type
-
-func get_itens(nameItem,descr,icon,type):
-	if type == "Upgrades":
-		allItens[0][nameItem] = [descr,icon]
-		call_itens(type)
+func change_battle_itens():
+	#limpa dicionarios atuais
+	for i in GlobalValues.atkItens.size():
+		GlobalValues.atkItens.clear()
+	for i in GlobalValues.consumItens.size():
+		GlobalValues.consumItens.clear()
 		
-func _on_bt_item_down(item):
-	for i in $BG_Inventory/GridContainer.get_children():
-		i.queue_free()
+	#adiciona novos valores a eles
+	for i in itensATK.size():
+		if GlobalValues.atkPassivesReward.has(itensATK[i]):
+			GlobalValues.atkItens[itensATK[i]] = GlobalValues.atkPassivesReward.get(itensATK[i])
+	for i in itensConsum.size():
+		if GlobalValues.consumRewards.has(itensConsum[i]):
+			GlobalValues.consumItens[itensConsum[i]] = GlobalValues.consumRewards.get(itensConsum[i])
 	
-	call_itens(item)
-
-
-func _on_BT_Itens_button_down():
-	pass # Replace with function body.
+	player.mainGun = weaponActual
+	player.change_weapons()
+	player.create_btns_battle("ATK")
+	player.create_btns_battle("Consum")
