@@ -26,6 +26,7 @@ func start_fight():
 	if releasePointer:
 		pointer.global_transform.origin = actualEnemy.global_transform.origin
 		pointer.hide()
+		owner.get_node("Inventory").hide()
 		animator.set("parameters/States General/blend_amount",1)
 		
 		if owner.mainGun == "Shield":
@@ -79,6 +80,7 @@ func end_fight():
 	animator.set("parameters/Seek/seek_position",0)
 	owner.get_node("Base/Skeleton").rotation_degrees.y = 0
 	owner.get_node("States/Move").show()
+	owner.get_node("Inventory").show()
 	releasePointer = false
 	goFight = false
 

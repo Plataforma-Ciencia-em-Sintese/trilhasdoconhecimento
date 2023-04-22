@@ -10,9 +10,21 @@ func _ready():
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_select"):
-		change_battle_itens()
+	var inventBTN = load("res://Scenes/Inventory/ItemIvent_BTN.tscn")
+	for i in GlobalValues.atkPassivesReward.size():
+		var ATKBtn = inventBTN.instance()
+		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward.values()[i][2])
+		ATKBtn.descITN = GlobalValues.atkPassivesReward.values()[i][3]
+		ATKBtn.nameITN = GlobalValues.atkPassivesReward.keys()[i]
+		ATKBtn.typeITN = "ATK"
+		$BG_Inventory/Title_Combate/Combat_Itens.add_child(ATKBtn)
+	for i in GlobalValues.consumRewards.size():
+		var consumBtn = inventBTN.instance()
+		consumBtn.iconITN = load(GlobalValues.consumRewards.values()[i][1])
+		consumBtn.descITN = GlobalValues.consumRewards.values()[i][2]
+		consumBtn.nameITN = GlobalValues.consumRewards.keys()[i]
+		consumBtn.typeITN = "Consum"
+		$BG_Inventory/Title_Consums/Consum_Itens.add_child(consumBtn)
 		
 func _on_BT_Inventario_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -26,14 +38,18 @@ func _on_BT_Inventario_pressed():
 	cam.current = false
 	player.get_node("Base/Cam_Invent").current = true
 	player.get_node("Base/BG_Invent").show()
-#	cam.anchorGeral = camera
-#	cam.geralLerp = true
-#	cam.projection = 0
-	
+
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
 	pointer.change_position()
 	pointer.hide()
+	
+	if QuestManager.isInQuest:
+		get_tree().get_nodes_in_group("BattleUI")[0].hide()
+		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").hide()
+		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").hide()
+		
+	get_tree().paused = true
 	
 func _on_BT_Close_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -47,21 +63,20 @@ func _on_BT_Close_pressed():
 	cam.current = true
 	player.get_node("Base/Cam_Invent").current = false
 	player.get_node("Base/BG_Invent").hide()
-#	cam.anchorGeral = ""
-#	cam.geralLerp = false
-#	cam.projection = 1
-	
+
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false
 	pointer.show()
+	
+	if QuestManager.isInQuest:
+		get_tree().get_nodes_in_group("BattleUI")[0].show()
+		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
+		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
+		change_battle_itens()
+	
+	get_tree().paused = false
 
 func change_battle_itens():
-	#limpa dicionarios atuais
-	for i in GlobalValues.atkItens.size():
-		GlobalValues.atkItens.clear()
-	for i in GlobalValues.consumItens.size():
-		GlobalValues.consumItens.clear()
-		
 	#adiciona novos valores a eles
 	for i in itensATK.size():
 		if GlobalValues.atkPassivesReward.has(itensATK[i]):
@@ -74,3 +89,23 @@ func change_battle_itens():
 	player.change_weapons()
 	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")
+
+func delete_dictionaty():
+	for i in GlobalValues.atkItens.size():
+		GlobalValues.atkItens.clear()
+	for i in GlobalValues.consumItens.size():
+		GlobalValues.consumItens.clear()
+
+func _on_Clean_Consum_pressed():
+	itensConsum.resize(0)
+	for i in GlobalValues.consumItens.size():
+		GlobalValues.consumItens.clear()
+	for i in $BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child_count():
+		$BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child(i).queue_free()
+
+func _on_Clean_Combat_pressed():
+	itensATK.resize(0)
+	for i in GlobalValues.atkItens.size():
+		GlobalValues.atkItens.clear()
+	for i in $BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.get_child_count():
+		$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.get_child(i).queue_free()
