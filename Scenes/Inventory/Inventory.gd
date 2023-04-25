@@ -3,7 +3,7 @@ extends CanvasLayer
 export (NodePath) var bigDesc
 export (NodePath) var camera
 export (Array,Dictionary) var allItens
-var itemScene = load("res://Scenes/Inventory/Item_BT.tscn")
+var itemScene = load("res://Scenes/Attacks/Scripts/AttackBTN.gd")
 
 func _ready():
 	camera = get_node(camera)
