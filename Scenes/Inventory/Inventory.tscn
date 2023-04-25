@@ -1,30 +1,21 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Sprites/UI/Icons/Icon HUD/Inventario.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/Icons/Buttons/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Inventory/Desc_Panel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Sprites/UI/Icons/Icon HUD/Sair.png" type="Texture" id=5]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH3.tres" type="DynamicFont" id=6]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH1.tres" type="DynamicFont" id=7]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-BoldItalic.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Rectangle 52.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Rectangle 2.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Rectangle 19.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Vectorblur-1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Vector00.png" type="Texture" id=13]
-[ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Vector-2.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Rectangle 4.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Rectangle 56.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Vector-1.png" type="Texture" id=18]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH5.tres" type="DynamicFont" id=19]
-[ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Rectangle 47.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/sprite_Inventário/prototipo inventario/Vector01.png" type="Texture" id=21]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BoldItalic.ttf" type="DynamicFontData" id=22]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 22
@@ -43,18 +34,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -23.0 ]
 }
-allItens = [ {
-"Disruptor de sinal": [ "Ataques possuem 50% de causarem \"Lagado\".", "res://Sprites/UI/Icons/Upgrades/Signal icon.png" ],
-"Raio Imobilizador": [ "Aplica \"Imobilizado\" em 1 inimigo", "res://Sprites/UI/Icons/Upgrades/Ray icon.png" ]
-}, {
-"Orbe de Conexão": [ "Recupera 5 de vida.", "res://Sprites/UI/Icons/Consumiveis/Connect icon.png" ],
-"Orbe de Limpeza": [ "Remove status negativos.", "res://Sprites/UI/Icons/Consumiveis/Orb icon.png" ]
-} ]
 
 [node name="Mouse_Block" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="BG_Inventory" type="Panel" parent="."]
 visible = false
@@ -63,326 +48,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Navigation_Buttons" type="HBoxContainer" parent="BG_Inventory"]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -239.5
-margin_top = 10.0
-margin_right = 253.5
-margin_bottom = 57.0
-rect_min_size = Vector2( 450, 0 )
-mouse_filter = 0
-custom_constants/separation = 15
-
-[node name="BT_Upgrade" type="Button" parent="BG_Inventory/Navigation_Buttons"]
-margin_right = 150.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 150, 0 )
-text = "Upgrades"
-
-[node name="BT_Consumiveis" type="Button" parent="BG_Inventory/Navigation_Buttons"]
-margin_left = 165.0
-margin_right = 315.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 150, 0 )
-text = "Consumíveis"
-
-[node name="BT_Chaves" type="Button" parent="BG_Inventory/Navigation_Buttons"]
-margin_left = 330.0
-margin_right = 480.0
-margin_bottom = 47.0
-rect_min_size = Vector2( 150, 0 )
-text = "Chaves"
-
-[node name="GridContainer" type="GridContainer" parent="BG_Inventory"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -506.0
-margin_top = -31.0
-margin_right = 506.0
-margin_bottom = 70.0
-mouse_filter = 0
-columns = 4
-
-[node name="Panel_Inventario" type="Panel" parent="BG_Inventory"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -249.0
-margin_right = 415.0
-margin_bottom = 219.0
-
-[node name="Fundo_Inventario" type="TextureRect" parent="BG_Inventory/Panel_Inventario"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 13 )
-expand = true
-
-[node name="BT_Personagens" type="Button" parent="BG_Inventory/Panel_Inventario"]
-margin_left = 296.0
-margin_top = 1.0
-margin_right = 415.0
-margin_bottom = 22.0
-flat = true
-expand_icon = true
-
-[node name="TextureRect" type="TextureRect" parent="BG_Inventory/Panel_Inventario/BT_Personagens"]
-anchor_left = -0.042
-anchor_right = 0.958
-anchor_bottom = 1.0
-margin_left = -1.002
-margin_top = -1.0
-margin_right = 4.99799
-texture = ExtResource( 9 )
-expand = true
-
-[node name="Label3" type="Label" parent="BG_Inventory/Panel_Inventario/BT_Personagens/TextureRect"]
-modulate = Color( 0.137255, 0.258824, 0.454902, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 14 )
-text = "Personagens"
-align = 1
-valign = 1
-
-[node name="BT_Diario" type="Button" parent="BG_Inventory/Panel_Inventario"]
-anchor_right = 0.028
-anchor_bottom = 0.033
-margin_left = 179.0
-margin_top = 1.0
-margin_right = 295.38
-margin_bottom = 6.556
-flat = true
-expand_icon = true
-
-[node name="TextureRect2" type="TextureRect" parent="BG_Inventory/Panel_Inventario/BT_Diario"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1.0
-margin_top = -1.0
-margin_right = 1.0
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Label2" type="Label" parent="BG_Inventory/Panel_Inventario/BT_Diario/TextureRect2"]
-modulate = Color( 0.137255, 0.258824, 0.454902, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 14 )
-text = "Diario"
-align = 1
-valign = 1
-
-[node name="BT_Itens" type="Button" parent="BG_Inventory/Panel_Inventario"]
-anchor_right = 0.458
-anchor_bottom = 0.049
-margin_right = -0.0700073
-margin_bottom = 3.068
-flat = true
-expand_icon = true
-
-[node name="Label3" type="Label" parent="BG_Inventory/Panel_Inventario/BT_Itens"]
-modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = 0.053
-anchor_top = 0.14
-anchor_right = 0.884
-anchor_bottom = 1.87
-margin_left = -2.07
-margin_top = -0.22
-margin_right = 0.0399933
-margin_bottom = -0.0100021
-custom_fonts/font = SubResource( 1 )
-text = " Itens"
-align = 1
-valign = 1
-
-[node name="Painel_Itens" type="Panel" parent="BG_Inventory/Panel_Inventario"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -193.5
-margin_top = -127.0
-margin_right = 148.5
-margin_bottom = 165.0
-
-[node name="Button" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 5.0
-margin_top = 22.0
-margin_right = 86.0
-margin_bottom = 101.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button2" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 87.0
-margin_top = 22.0
-margin_right = 168.0
-margin_bottom = 101.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button3" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 169.0
-margin_top = 22.0
-margin_right = 250.0
-margin_bottom = 101.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button4" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 251.0
-margin_top = 22.0
-margin_right = 332.0
-margin_bottom = 101.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button5" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 5.0
-margin_top = 115.0
-margin_right = 86.0
-margin_bottom = 194.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button6" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 87.0
-margin_top = 115.0
-margin_right = 168.0
-margin_bottom = 194.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button7" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 169.0
-margin_top = 115.0
-margin_right = 250.0
-margin_bottom = 194.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button8" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 251.0
-margin_top = 115.0
-margin_right = 332.0
-margin_bottom = 194.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button9" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 5.0
-margin_top = 208.0
-margin_right = 86.0
-margin_bottom = 287.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button10" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 87.0
-margin_top = 208.0
-margin_right = 168.0
-margin_bottom = 287.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button11" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 169.0
-margin_top = 208.0
-margin_right = 250.0
-margin_bottom = 287.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Button12" type="Button" parent="BG_Inventory/Panel_Inventario/Painel_Itens"]
-margin_left = 251.0
-margin_top = 208.0
-margin_right = 332.0
-margin_bottom = 287.0
-icon = ExtResource( 10 )
-flat = true
-expand_icon = true
-
-[node name="Panel_Descri" type="Panel" parent="BG_Inventory"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -311.0
-margin_top = -201.0
-margin_bottom = 299.0
-
-[node name="Panel_fundo" type="TextureRect" parent="BG_Inventory/Panel_Descri"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -277.0
-margin_top = -255.0
-margin_bottom = 127.0
+[node name="Info_BG" type="TextureRect" parent="BG_Inventory"]
+margin_right = 277.0
+margin_bottom = 273.0
 texture = ExtResource( 21 )
 expand = true
+flip_h = true
 
-[node name="Panel_Martelo" type="TextureRect" parent="BG_Inventory/Panel_Descri"]
+[node name="Panel_Infos" type="TextureRect" parent="BG_Inventory/Info_BG"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 70.0
-margin_top = -207.0
-margin_right = 142.0
-margin_bottom = -122.0
+margin_left = 36.0
+margin_top = -119.5
+margin_right = 108.0
+margin_bottom = -34.5
 texture = ExtResource( 17 )
 expand = true
 
-[node name="Nome_Item" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo"]
-margin_left = 89.0
-margin_top = 13.0
-margin_right = 225.0
-margin_bottom = 44.0
+[node name="Name" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos"]
+margin_left = 86.0
+margin_top = 2.0
+margin_right = 233.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 2 )
 text = "Martelo Thor"
+autowrap = true
 
-[node name="Nome_Desc" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Nome_Item"]
-margin_left = -3.0
-margin_top = 28.0
-margin_right = 109.0
-margin_bottom = 44.0
+[node name="Desc" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos"]
+margin_left = 86.0
+margin_top = 72.0
+margin_right = 231.0
+margin_bottom = 118.0
 custom_fonts/font = ExtResource( 19 )
 text = "descrição descrição"
+autowrap = true
 
-[node name="Nome_Desc2" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Nome_Item"]
-margin_left = -3.0
-margin_top = 41.0
-margin_right = 109.0
-margin_bottom = 57.0
-custom_fonts/font = ExtResource( 19 )
-text = "descrição descrição"
-
-[node name="Nome_Desc3" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Nome_Item"]
-margin_left = -3.0
-margin_top = 53.0
-margin_right = 109.0
-margin_bottom = 69.0
-custom_fonts/font = ExtResource( 19 )
-text = "descrição "
-
-[node name="Efeitos" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo"]
+[node name="Effects" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos"]
 margin_left = -2.0
 margin_top = 105.0
 margin_right = 75.0
@@ -391,7 +92,7 @@ custom_fonts/font = ExtResource( 7 )
 text = " Efeitos"
 valign = 1
 
-[node name="Label" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Efeitos"]
+[node name="Label" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos/Effects"]
 margin_left = 4.0
 margin_top = 22.0
 margin_right = 56.0
@@ -399,15 +100,15 @@ margin_bottom = 36.0
 custom_fonts/font = ExtResource( 6 )
 text = "Guerreiro"
 
-[node name="Attack" type="TextureRect" parent="BG_Inventory/Panel_Descri/Panel_Martelo"]
+[node name="Attack" type="TextureRect" parent="BG_Inventory/Info_BG/Panel_Infos"]
 margin_left = 4.0
-margin_top = 159.0
+margin_top = 149.0
 margin_right = 20.0
-margin_bottom = 175.0
+margin_bottom = 165.0
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Bar_Attack" type="TextureRect" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Attack"]
+[node name="Bar_Attack" type="TextureRect" parent="BG_Inventory/Info_BG/Panel_Infos/Attack"]
 margin_left = 20.0
 margin_top = 3.0
 margin_right = 150.0
@@ -415,22 +116,22 @@ margin_bottom = 11.0
 texture = ExtResource( 11 )
 expand = true
 
-[node name="Label" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Attack"]
+[node name="Label" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos/Attack"]
 margin_left = 155.0
 margin_right = 195.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 3 )
 text = "Ataque"
 
-[node name="Defense" type="TextureRect" parent="BG_Inventory/Panel_Descri/Panel_Martelo"]
+[node name="Defense" type="TextureRect" parent="BG_Inventory/Info_BG/Panel_Infos"]
 margin_left = 4.0
-margin_top = 178.0
+margin_top = 168.0
 margin_right = 20.0
-margin_bottom = 194.0
+margin_bottom = 184.0
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Bar_Defense" type="TextureRect" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Defense"]
+[node name="Bar_Defense" type="TextureRect" parent="BG_Inventory/Info_BG/Panel_Infos/Defense"]
 margin_left = 20.0
 margin_top = 4.0
 margin_right = 150.0
@@ -438,7 +139,7 @@ margin_bottom = 12.0
 texture = ExtResource( 11 )
 expand = true
 
-[node name="Label2" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/Defense"]
+[node name="Label2" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos/Defense"]
 margin_left = 155.0
 margin_top = 1.0
 margin_right = 195.0
@@ -446,15 +147,15 @@ margin_bottom = 17.0
 custom_fonts/font = SubResource( 3 )
 text = "Defesa"
 
-[node name="velocity" type="TextureRect" parent="BG_Inventory/Panel_Descri/Panel_Martelo"]
+[node name="Velocity" type="TextureRect" parent="BG_Inventory/Info_BG/Panel_Infos"]
 margin_left = 4.0
-margin_top = 198.0
+margin_top = 188.0
 margin_right = 20.0
-margin_bottom = 214.0
+margin_bottom = 204.0
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Bar_Velocity" type="TextureRect" parent="BG_Inventory/Panel_Descri/Panel_Martelo/velocity"]
+[node name="Bar_Velocity" type="TextureRect" parent="BG_Inventory/Info_BG/Panel_Infos/Velocity"]
 margin_left = 20.0
 margin_top = 4.0
 margin_right = 150.0
@@ -462,7 +163,7 @@ margin_bottom = 12.0
 texture = ExtResource( 11 )
 expand = true
 
-[node name="Label3" type="Label" parent="BG_Inventory/Panel_Descri/Panel_Martelo/velocity"]
+[node name="Label3" type="Label" parent="BG_Inventory/Info_BG/Panel_Infos/Velocity"]
 margin_left = 155.0
 margin_top = 1.0
 margin_right = 211.0
@@ -470,18 +171,92 @@ margin_bottom = 17.0
 custom_fonts/font = SubResource( 3 )
 text = "Velocidade"
 
-[node name="BT_Equipar" type="Button" parent="BG_Inventory/Panel_Descri"]
+[node name="Equiped_BG" type="TextureRect" parent="BG_Inventory"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -356.0
+margin_top = -297.0
+margin_right = 1.0
+margin_bottom = 214.0
+texture = ExtResource( 21 )
+expand = true
+
+[node name="Title_Consums" type="Label" parent="BG_Inventory/Equiped_BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -159.5
+margin_top = -61.5
+margin_right = 157.5
+margin_bottom = -41.5
+text = "ITENS CONSUMÍVEIS"
+valign = 1
+
+[node name="Consum_Repo" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Consums"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 6.0
+margin_right = 327.0
+margin_bottom = 70.0
+
+[node name="Clean_Consum" type="Button" parent="BG_Inventory/Equiped_BG/Title_Consums"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -10.0
+margin_right = 4.0
+margin_bottom = 10.0
+text = "Limpar"
+
+[node name="Title_Combat" type="Label" parent="BG_Inventory/Equiped_BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.5
+margin_top = 37.5
+margin_right = 161.5
+margin_bottom = 57.5
+text = "ITENS COMBATE"
+valign = 1
+
+[node name="Combat_Repo" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Combat"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 6.0
+margin_right = 327.0
+margin_bottom = 70.0
+
+[node name="Clean_Combat" type="Button" parent="BG_Inventory/Equiped_BG/Title_Combat"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -59.0
+margin_top = -10.0
+margin_bottom = 10.0
+text = "Limpar"
+
+[node name="BT_Equip" type="Button" parent="BG_Inventory/Equiped_BG"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -85.5
-margin_top = -207.0
-margin_right = 128.5
-margin_bottom = -156.0
+margin_left = -107.0
+margin_top = -81.0
+margin_right = 107.0
+margin_bottom = -30.0
 flat = true
 
-[node name="Fundo" type="TextureRect" parent="BG_Inventory/Panel_Descri/BT_Equipar"]
+[node name="Fundo" type="TextureRect" parent="BG_Inventory/Equiped_BG/BT_Equip"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.0
@@ -490,7 +265,7 @@ texture = ExtResource( 15 )
 expand = true
 flip_h = true
 
-[node name="Label" type="Label" parent="BG_Inventory/Panel_Descri/BT_Equipar"]
+[node name="Label" type="Label" parent="BG_Inventory/Equiped_BG/BT_Equip"]
 modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -501,7 +276,7 @@ text = "EQUIPAR"
 align = 1
 valign = 1
 
-[node name="blur" type="TextureRect" parent="BG_Inventory/Panel_Descri/BT_Equipar"]
+[node name="blur" type="TextureRect" parent="BG_Inventory/Equiped_BG/BT_Equip"]
 margin_left = -3.0
 margin_top = -1.0
 margin_right = 27.0
@@ -509,7 +284,7 @@ margin_bottom = 53.0
 texture = ExtResource( 12 )
 expand = true
 
-[node name="detail" type="TextureRect" parent="BG_Inventory/Panel_Descri/BT_Equipar/blur"]
+[node name="detail" type="TextureRect" parent="BG_Inventory/Equiped_BG/BT_Equip/blur"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 26.0
@@ -517,7 +292,7 @@ margin_bottom = 52.0
 texture = ExtResource( 18 )
 expand = true
 
-[node name="blur2" type="TextureRect" parent="BG_Inventory/Panel_Descri/BT_Equipar"]
+[node name="blur2" type="TextureRect" parent="BG_Inventory/Equiped_BG/BT_Equip"]
 margin_left = 188.0
 margin_top = -1.0
 margin_right = 218.0
@@ -526,7 +301,7 @@ texture = ExtResource( 12 )
 expand = true
 flip_h = true
 
-[node name="detail" type="TextureRect" parent="BG_Inventory/Panel_Descri/BT_Equipar/blur2"]
+[node name="detail" type="TextureRect" parent="BG_Inventory/Equiped_BG/BT_Equip/blur2"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 26.0
@@ -534,6 +309,18 @@ margin_bottom = 52.0
 texture = ExtResource( 18 )
 expand = true
 flip_h = true
+
+[node name="Label" type="Label" parent="BG_Inventory/Equiped_BG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -108.5
+margin_top = 102.0
+margin_right = -38.5
+margin_bottom = 119.0
+rect_scale = Vector2( 3, 3 )
+text = "EM JOGO"
+align = 1
+valign = 1
 
 [node name="BT_Close" type="Button" parent="BG_Inventory"]
 anchor_left = 1.0
@@ -544,60 +331,57 @@ icon = ExtResource( 5 )
 flat = true
 expand_icon = true
 
+[node name="Title_Consums" type="Label" parent="BG_Inventory"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = 14.0
+margin_right = 242.0
+margin_bottom = 34.0
+text = "ITENS CONSUMÍVEIS"
+valign = 1
+
+[node name="Consum_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Consums"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 6.0
+margin_right = 327.0
+margin_bottom = 70.0
+mouse_filter = 2
+
+[node name="Title_Combate" type="Label" parent="BG_Inventory"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 14.0
+margin_top = 115.0
+margin_right = 243.0
+margin_bottom = 135.0
+text = "ITENS COMBATE"
+valign = 1
+
+[node name="Combat_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Combate"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 6.0
+margin_right = 327.0
+margin_bottom = 70.0
+mouse_filter = 2
+
 [node name="BT_Inventario" type="Button" parent="."]
-anchor_left = 0.903
-anchor_top = 0.025
-anchor_right = 0.952
-anchor_bottom = 0.108
-margin_left = -4.67206
-margin_right = -4.84802
-margin_bottom = 0.199997
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -154.0
+margin_top = 8.0
+margin_right = -79.0
+margin_bottom = 83.0
 icon = ExtResource( 1 )
 flat = true
 icon_align = 1
 expand_icon = true
 
-[node name="Desc_Panel" parent="." instance=ExtResource( 3 )]
-visible = false
-
-[node name="BG_Desc_Big" type="Panel" parent="." groups=["BigDescription"]]
-visible = false
-self_modulate = Color( 1, 0, 0, 0.392157 )
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -240.0
-margin_right = 257.0
-margin_bottom = 37.0
-
-[node name="Title" type="Label" parent="BG_Desc_Big"]
-margin_right = 255.0
-margin_bottom = 53.0
-text = "Item Name"
-align = 1
-valign = 1
-
-[node name="Desc" type="Label" parent="BG_Desc_Big"]
-margin_left = 11.0
-margin_top = 63.0
-margin_right = 248.0
-margin_bottom = 174.0
-text = "Descricao do item vem aqui contendo sua funcionalidade"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="Quant" type="Label" parent="BG_Desc_Big"]
-margin_left = 11.0
-margin_top = 200.0
-margin_right = 248.0
-margin_bottom = 265.0
-text = "Restam 3"
-align = 1
-valign = 1
-autowrap = true
-
-[connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Upgrade" to="." method="_on_bt_item_down" binds= [ "Upgrades" ]]
-[connection signal="button_down" from="BG_Inventory/Navigation_Buttons/BT_Consumiveis" to="." method="_on_bt_item_down" binds= [ "Consumiveis" ]]
-[connection signal="button_down" from="BG_Inventory/Panel_Inventario/BT_Itens" to="." method="_on_BT_Itens_button_down"]
+[connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Consums/Clean_Consum" to="." method="_on_Clean_Consum_pressed"]
+[connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Combat/Clean_Combat" to="." method="_on_Clean_Combat_pressed"]
 [connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
 [connection signal="pressed" from="BT_Inventario" to="." method="_on_BT_Inventario_pressed"]
