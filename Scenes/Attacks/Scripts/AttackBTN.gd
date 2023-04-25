@@ -1,6 +1,6 @@
 extends Button
 
-export (float) var cooldownValue = 1
+export (float) var cooldownValue = 1.0
 export (String) var attackSource
 export var followPlayer = false
 var startCooldown = false

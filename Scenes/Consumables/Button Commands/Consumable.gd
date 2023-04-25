@@ -9,7 +9,8 @@ func _on_Consumable_pressed():
 	var spwn = load("res://Scenes/Consumables/Orb_Consumable.tscn").instance()
 	rootPlayer.get_node("Base/Skeleton").add_child(spwn)
 	spwn.orbType = orbType
-	disabled = true
+	queue_free()
+	pointer.outInterface = true
 
 func _on_Consumable_mouse_entered():
 	pointer.outInterface = false
