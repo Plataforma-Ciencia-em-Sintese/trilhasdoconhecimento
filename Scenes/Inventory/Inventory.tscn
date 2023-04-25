@@ -34,12 +34,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -23.0 ]
 }
-itensATK = [ "", "" ]
 
 [node name="Mouse_Block" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="BG_Inventory" type="Panel" parent="."]
 visible = false
@@ -372,9 +372,9 @@ mouse_filter = 2
 [node name="BT_Inventario" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -185.0
+margin_left = -154.0
 margin_top = 8.0
-margin_right = -110.0
+margin_right = -79.0
 margin_bottom = 83.0
 icon = ExtResource( 1 )
 flat = true

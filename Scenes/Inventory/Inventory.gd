@@ -44,6 +44,8 @@ func _on_BT_Inventario_pressed():
 	pointer.change_position()
 	pointer.hide()
 	
+	print("foi")
+	
 	if QuestManager.isInQuest:
 		get_tree().get_nodes_in_group("BattleUI")[0].hide()
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").hide()

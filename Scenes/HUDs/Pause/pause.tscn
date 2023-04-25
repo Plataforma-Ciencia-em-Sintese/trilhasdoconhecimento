@@ -43,24 +43,12 @@ flat = true
 icon_align = 1
 expand_icon = true
 
-[node name="BT_Pause2" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -85.0001
-margin_top = 8.0
-margin_right = -10.0
-margin_bottom = 83.0
-custom_fonts/font = ExtResource( 4 )
-icon = ExtResource( 7 )
-flat = true
-icon_align = 1
-expand_icon = true
-
 [node name="Panel_Pause" type="Panel" parent="."]
 visible = false
 self_modulate = Color( 0, 0, 0, 0.415686 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Pause"]
 anchor_left = 0.5
@@ -118,7 +106,6 @@ flat = true
 
 [connection signal="pressed" from="Control_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
 [connection signal="pressed" from="BT_Pause" to="." method="_on_Pause_pressed"]
-[connection signal="pressed" from="BT_Pause2" to="." method="_on_Pause_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/Home" to="." method="_on_Home_pressed"]
 [connection signal="pressed" from="Panel_Pause/VBoxContainer/BT_Options" to="." method="_on_BT_Options_pressed"]

@@ -97,6 +97,8 @@ flat = true
 icon_align = 1
 
 [node name="Control_Options" parent="." instance=ExtResource( 15 )]
+margin_top = 6.0
+margin_bottom = 6.0
 mouse_filter = 2
 
 [node name="BT_Exit" type="Button" parent="Control_Options"]
