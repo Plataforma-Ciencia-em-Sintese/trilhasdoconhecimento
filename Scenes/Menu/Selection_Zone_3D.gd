@@ -96,8 +96,13 @@ func _on_ButtonLeft_pressed():
 	if canChange:
 		if id > 0:
 			id -= 1
+		else:
+			id = 4
 
 func _on_ButtonRight_pressed():
 	if canChange:
 		if id < target.size() - 1:
 			id += 1
+		else:
+			id = 0
+

@@ -97,9 +97,14 @@ flat = true
 icon_align = 1
 
 [node name="Control_Options" parent="." instance=ExtResource( 15 )]
-margin_top = 6.0
-margin_bottom = 6.0
-mouse_filter = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 
 [node name="BT_Exit" type="Button" parent="Control_Options"]
 visible = false
