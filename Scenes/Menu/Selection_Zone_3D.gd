@@ -26,17 +26,17 @@ func _physics_process(delta):
 	
 	_area_attributes()
 
-func _on_Area_mouse_entered(charName,selectedId):
-	if selectedId == id:
-		canChange = false
-		get_node("Floor").get_node(charName).get_node("Virtual").show()
-		get_node("Floor").get_node(charName).get_node("Padrao").hide()
+#func _on_Area_mouse_entered(charName,selectedId):
+#	if selectedId == id:
+#		canChange = false
+#		get_node("Floor").get_node(charName).get_node("Virtual").show()
+#		get_node("Floor").get_node(charName).get_node("Padrao").hide()
 	
-func _on_Area_mouse_exited(charName,selectedId):
-	if selectedId == id:
-		canChange = true
-		get_node("Floor").get_node(charName).get_node("Padrao").show()
-		get_node("Floor").get_node(charName).get_node("Virtual").hide()
+#func _on_Area_mouse_exited(charName,selectedId):
+#	if selectedId == id:
+#		canChange = true
+#		get_node("Floor").get_node(charName).get_node("Padrao").show()
+#		get_node("Floor").get_node(charName).get_node("Virtual").hide()
 
 func _area_attributes():
 	if id == 0:
@@ -72,8 +72,11 @@ func _area_attributes():
 
 func _on_ButtonPlay_pressed():
 	if id == 0:
+		get_node("Floor").get_node("Bento").get_node("Virtual").show()
+		get_node("Floor").get_node("Bento").get_node("Padrao").hide()
 		GlobalValues.nameChar = "Bento"
 		GlobalValues.skinChar = "Normal"
+		yield(get_tree().create_timer(3),"timeout")
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
 	if id == 1:
 		GlobalValues.nameChar = "Clara"
