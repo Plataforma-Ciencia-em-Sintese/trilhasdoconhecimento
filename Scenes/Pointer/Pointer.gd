@@ -39,7 +39,6 @@ func _input(event):
 			# E se ele pertence a grupo onde o personagem pode andar
 			# Muda o pointer para o local escolhido com o mouse
 			if not intersection.empty() and intersection.collider.is_in_group("Walkable") and !isStopped:
-				print(intersection)
 				global_transform.origin = intersection.position
 
 # Quando estiver dentro de algum objeto com dialogo,esconde

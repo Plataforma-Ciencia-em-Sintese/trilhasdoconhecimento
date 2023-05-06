@@ -4,17 +4,16 @@
 [ext_resource path="res://Sprites/UI/Icons/Attacks/Force Field.png" type="Texture" id=2]
 
 [node name="ATK" type="Button"]
-margin_left = 8.0
-margin_right = 88.0
-margin_bottom = 103.0
+margin_right = 80.0
+margin_bottom = 95.0
 rect_min_size = Vector2( 80, 95 )
 icon = ExtResource( 2 )
 flat = true
 expand_icon = true
 script = ExtResource( 1 )
-cooldownValue = 10.0
 
 [node name="CoolDown" type="ProgressBar" parent="."]
+visible = false
 margin_right = 80.0
 margin_bottom = 14.0
 value = 100.0
