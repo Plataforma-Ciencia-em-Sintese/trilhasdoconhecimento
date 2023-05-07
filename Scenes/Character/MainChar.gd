@@ -42,11 +42,11 @@ func create_btns_battle(value):
 		var atkButtonScene = load("res://Scenes/Attacks/Button Commands/ATK.tscn")
 		for i in GlobalValues.atkItens.size():
 			var ATKBtn = atkButtonScene.instance()
-			$Battle_UI/Attack_Container.add_child(ATKBtn)
 #			ATKBtn.cooldownValue = GlobalValues.atkItens.values()[i][0]
 			ATKBtn.attackSource = GlobalValues.atkItens.values()[i][0]
 			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][3]
+			$Battle_UI/Attack_Container.add_child(ATKBtn)
 	elif value == "Consum":
 		#destruir botoes
 		for i in $Battle_UI/Consumable_Container.get_child_count():
@@ -56,9 +56,10 @@ func create_btns_battle(value):
 		var consumButtonScene = load("res://Scenes/Consumables/Button Commands/Consumable.tscn")
 		for i in GlobalValues.consumItens.size():
 			var ConsumBtn = consumButtonScene.instance()
-			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
 			ConsumBtn.icon = load(GlobalValues.consumItens.values()[i][1])
 			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
+			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
+			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
 
 func change_weapons():
 	if mainGun == "Escudo":

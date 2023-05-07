@@ -21,12 +21,14 @@ func _ready():
 		ATKBtn.typeITN = "ATK"
 		$BG_Inventory/Title_Combate/Combat_Itens.add_child(ATKBtn)
 	for i in GlobalValues.consumRewards.size():
-		var consumBtn = inventBTN.instance()
-		consumBtn.iconITN = load(GlobalValues.consumRewards.values()[i][1])
-		consumBtn.descITN = GlobalValues.consumRewards.values()[i][2]
-		consumBtn.nameITN = GlobalValues.consumRewards.keys()[i]
-		consumBtn.typeITN = "Consum"
-		$BG_Inventory/Title_Consums/Consum_Itens.add_child(consumBtn)
+		if GlobalValues.consumRewards.values()[i][3] > 0:
+			var consumBtn = inventBTN.instance()
+			consumBtn.name = GlobalValues.consumRewards.keys()[i]
+			consumBtn.iconITN = load(GlobalValues.consumRewards.values()[i][1])
+			consumBtn.descITN = GlobalValues.consumRewards.values()[i][2]
+			consumBtn.nameITN = GlobalValues.consumRewards.keys()[i]
+			consumBtn.typeITN = "Consum"
+			$BG_Inventory/Title_Consums/Consum_Itens.add_child(consumBtn)
 	for i in GlobalValues.chipsRewards.size():
 		var chipsBtn = inventBTN.instance()
 		chipsBtn.iconITN = load(GlobalValues.chipsRewards.values()[i][1])
@@ -60,6 +62,24 @@ func _on_BT_Inventario_pressed():
 	pointer.isStopped = true
 	pointer.change_position()
 	pointer.hide()
+	
+	#checar novamente os itens consumiveis quantidade
+	# valor dos itens vem do dicionario de recompensas, nao do que ta equipado
+	itensConsum.resize(0)
+	for i in $BG_Inventory/Title_Consums/Consum_Itens.get_child_count():
+		$BG_Inventory/Title_Consums/Consum_Itens.get_child(i).queue_free()
+	
+	var inventBTN = load("res://Scenes/Inventory/ItemIvent_BTN.tscn")
+	for i in GlobalValues.consumRewards.size():
+		if GlobalValues.consumRewards.values()[i][3] > 0:
+			var consumBtn = inventBTN.instance()
+			consumBtn.name = GlobalValues.consumRewards.keys()[i]
+			consumBtn.iconITN = load(GlobalValues.consumRewards.values()[i][1])
+			consumBtn.descITN = GlobalValues.consumRewards.values()[i][2]
+			consumBtn.nameITN = GlobalValues.consumRewards.keys()[i]
+			consumBtn.typeITN = "Consum"
+			$BG_Inventory/Title_Consums/Consum_Itens.add_child(consumBtn)
+	#------
 	
 	if QuestManager.isInQuest:
 		get_tree().get_nodes_in_group("BattleUI")[0].hide()

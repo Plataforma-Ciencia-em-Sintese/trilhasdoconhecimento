@@ -19,16 +19,31 @@ func _on_ItemIvent_BTN_pressed():
 		
 		var allBTNS = get_tree().get_nodes_in_group("BTEquip")
 		for i in allBTNS.size():
-			get_tree().get_nodes_in_group("BTEquip")[i].hide()	
+			get_tree().get_nodes_in_group("BTEquip")[i].hide()
 		$UI/BG_Infos.show()
+		
+		if typeITN == "Consum":
+			$UI/BG_Infos/Quant_BG.show()
+			$UI/BG_Infos/Quant_BG/Quant.text = "X " + str(GlobalValues.consumRewards[nameITN][3])
+		else:
+			$UI/BG_Infos/Quant_BG.hide()
+		
+		invent.change_battle_itens()
 	
 func _on_BT_Equip_pressed():
+	$UI/BG_Infos.hide()
+	
+	for i in GlobalValues.consumItens.size():
+		if GlobalValues.consumItens.keys()[i] == nameITN:
+			return
+			
 	var btn = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
 	btn.name = nameITN
 	btn.nameITN = nameITN
 	btn.descITN = descITN
 	btn.iconITN = iconITN
 	btn.source = source
+
 	if typeITN == "Consum":
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo").add_child(btn)
 		invent.itensConsum.append(nameITN)
@@ -46,4 +61,3 @@ func _on_BT_Equip_pressed():
 		btn.disabled = true
 		invent.weaponActual = nameITN
 	btn.blockMouse = true
-	$UI/BG_Infos.hide()

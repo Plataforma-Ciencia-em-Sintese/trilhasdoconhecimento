@@ -50,5 +50,19 @@ margin_right = 40.0
 margin_bottom = 30.0
 text = "EQUIPAR"
 
+[node name="Quant_BG" type="ColorRect" parent="UI/BG_Infos"]
+margin_left = 138.0
+margin_top = 49.0
+margin_right = 178.0
+margin_bottom = 89.0
+color = Color( 0.00392157, 0.203922, 0.258824, 1 )
+
+[node name="Quant" type="Label" parent="UI/BG_Infos/Quant_BG"]
+margin_right = 40.0
+margin_bottom = 40.0
+text = "x10"
+align = 1
+valign = 1
+
 [connection signal="pressed" from="." to="." method="_on_ItemIvent_BTN_pressed"]
 [connection signal="pressed" from="UI/BG_Infos/BT_Equip" to="." method="_on_BT_Equip_pressed"]
