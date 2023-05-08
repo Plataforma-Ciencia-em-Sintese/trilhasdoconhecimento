@@ -75,8 +75,8 @@ func set_reward():
 		randomize()
 		chooseAtk = randi() % rewardItensATK.size()
 		var src = GlobalValues.atkPassivesReward.get(rewardItensATK[chooseAtk])
-		var srcImg = src[2]
-		var srcDesc = src[3]
+		var srcImg = src[1]
+		var srcDesc = src[2]
 	
 		container.get_child(0).get_node("Img").texture = load(srcImg)
 		container.get_child(0).get_node("Desc").text = srcDesc

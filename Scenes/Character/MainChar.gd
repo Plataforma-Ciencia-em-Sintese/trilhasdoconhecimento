@@ -2,7 +2,7 @@ extends KinematicBody
 
 export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
-export var mainGun = ""
+export var mainGun = "Espada"
 
 var suits = {
 	"Ariel": ["res://3D/Character Oficial/Ariel/Ariel Normal.tres","res://3D/Character Oficial/Ariel/Ariel Armadura.tres"],
@@ -42,11 +42,11 @@ func create_btns_battle(value):
 		var atkButtonScene = load("res://Scenes/Attacks/Button Commands/ATK.tscn")
 		for i in GlobalValues.atkItens.size():
 			var ATKBtn = atkButtonScene.instance()
+#			ATKBtn.cooldownValue = GlobalValues.atkItens.values()[i][0]
+			ATKBtn.attackSource = GlobalValues.atkItens.values()[i][0]
+			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][1])
+			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][3]
 			$Battle_UI/Attack_Container.add_child(ATKBtn)
-			ATKBtn.cooldownValue = GlobalValues.atkItens.values()[i][0]
-			ATKBtn.attackSource = GlobalValues.atkItens.values()[i][1]
-			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][2])
-			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][4]
 	elif value == "Consum":
 		#destruir botoes
 		for i in $Battle_UI/Consumable_Container.get_child_count():
@@ -56,38 +56,50 @@ func create_btns_battle(value):
 		var consumButtonScene = load("res://Scenes/Consumables/Button Commands/Consumable.tscn")
 		for i in GlobalValues.consumItens.size():
 			var ConsumBtn = consumButtonScene.instance()
-			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
 			ConsumBtn.icon = load(GlobalValues.consumItens.values()[i][1])
 			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
+			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
+			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
 
 func change_weapons():
-	if mainGun == "Shield":
+	if mainGun == "Escudo":
 		$Base/Skeleton/BoneAttachmentR/Hammer.show()
 		$Base/Skeleton/BoneAttachmentL/Shield.show()
 		$Base/Skeleton/BoneAttachmentR/Sword.hide()
 		$Base/Skeleton/BoneAttachmentR/Wand.hide()
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
-	elif mainGun == "Sword":
+	elif mainGun == "Espada":
 		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
 		$Base/Skeleton/BoneAttachmentL/Shield.hide()
 		$Base/Skeleton/BoneAttachmentR/Sword.show()
 		$Base/Skeleton/BoneAttachmentR/Wand.hide()
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
-	elif mainGun == "Wand":
+	elif mainGun == "Varinha":
 		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
 		$Base/Skeleton/BoneAttachmentL/Shield.hide()
 		$Base/Skeleton/BoneAttachmentR/Sword.hide()
 		$Base/Skeleton/BoneAttachmentR/Wand.show()
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
-	elif mainGun == "Bow":
+	elif mainGun == "Arco":
 		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
 		$Base/Skeleton/BoneAttachmentL/Shield.hide()
 		$Base/Skeleton/BoneAttachmentR/Sword.hide()
 		$Base/Skeleton/BoneAttachmentR/Wand.hide()
 		$Base/Skeleton/BoneAttachmentR/Bow.show()
-	elif mainGun == "Gauntlet":
+	elif mainGun == "Manopla":
 		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
 		$Base/Skeleton/BoneAttachmentL/Shield.hide()
 		$Base/Skeleton/BoneAttachmentR/Sword.hide()
 		$Base/Skeleton/BoneAttachmentR/Wand.hide()
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+	else:
+		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
+		$Base/Skeleton/BoneAttachmentL/Shield.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.show()
+		$Base/Skeleton/BoneAttachmentR/Wand.hide()
+		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+		
+func choose_chip(value):
+	var chipScene = load(value).instance()
+	$Base/Skeleton.add_child(chipScene)
+	

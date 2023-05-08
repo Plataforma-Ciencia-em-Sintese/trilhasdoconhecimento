@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
+[ext_resource path="res://Textures/Prototype/texture_08.png" type="Texture" id=17]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -100,7 +101,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "output", 0, "move" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7848,7 +7849,6 @@ collision_layer = 2
 script = ExtResource( 7 )
 mainChar = "Caio"
 activeCloths = "Normal"
-mainGun = "Sword"
 
 [node name="States" type="Spatial" parent="."]
 
@@ -8244,7 +8244,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -1.15931e-05, -0.0120167, -0.999928, -0.406035, -0.913792, 0.0109865, -0.913856, 0.406006, -0.00486666, -0.293118, 0.593738, 0.0841228 )
+transform = Transform( 0.000761539, -0.0133769, -0.99991, -0.184054, -0.982831, 0.0130084, -0.982914, 0.184028, -0.00320855, -0.293334, 0.592901, 0.059999 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8307,7 +8307,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -1.16229e-05, 0.012017, 0.999928, 0.406035, -0.913792, 0.0109868, 0.913856, 0.406006, -0.00486675, 0.293118, 0.593738, 0.0841228 )
+transform = Transform( 0.000761539, 0.0133772, 0.999911, 0.184054, -0.982831, 0.0130087, 0.982914, 0.184028, -0.00320859, 0.293334, 0.592901, 0.059999 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8329,6 +8329,7 @@ size = 4.13227
 transform = Transform( 5.86917, 0, 0, 0, 5.86917, 0, 0, 0, 5.86917, 0, 1.39228, -1.60569 )
 visible = false
 layers = 2
+texture = ExtResource( 17 )
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/CamAnchor")
@@ -8388,7 +8389,6 @@ icon = ExtResource( 11 )
 flat = true
 expand_icon = true
 script = ExtResource( 15 )
-cooldownValue = 50.0
 followPlayer = true
 
 [node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK2"]
@@ -8407,7 +8407,6 @@ icon = ExtResource( 13 )
 flat = true
 expand_icon = true
 script = ExtResource( 15 )
-cooldownValue = 20.0
 followPlayer = true
 
 [node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK3"]
@@ -8426,7 +8425,6 @@ icon = ExtResource( 12 )
 flat = true
 expand_icon = true
 script = ExtResource( 15 )
-cooldownValue = 15.0
 
 [node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK4"]
 margin_right = 80.0
@@ -8462,7 +8460,6 @@ icon = ExtResource( 11 )
 flat = true
 expand_icon = true
 script = ExtResource( 15 )
-cooldownValue = 50.0
 followPlayer = true
 
 [node name="CoolDown" type="ProgressBar" parent="Battle_UI/Consumable_Container/ATK2"]
@@ -8481,7 +8478,6 @@ icon = ExtResource( 13 )
 flat = true
 expand_icon = true
 script = ExtResource( 15 )
-cooldownValue = 20.0
 followPlayer = true
 
 [node name="CoolDown" type="ProgressBar" parent="Battle_UI/Consumable_Container/ATK3"]
@@ -8500,7 +8496,6 @@ icon = ExtResource( 12 )
 flat = true
 expand_icon = true
 script = ExtResource( 15 )
-cooldownValue = 15.0
 
 [node name="CoolDown" type="ProgressBar" parent="Battle_UI/Consumable_Container/ATK4"]
 margin_right = 80.0

@@ -28,7 +28,6 @@ func start_battle():
 	if !backToPatrol:
 		var distanceToPlayer
 		if clone == null:
-			print("tem clone")
 			distanceToPlayer = getOwner.get_node("Enemy").global_transform.origin.distance_to(player.global_transform.origin) - 0.1
 			dir = player.global_transform.origin - getOwner.get_node("Enemy").global_transform.origin
 			vel = dir * speed

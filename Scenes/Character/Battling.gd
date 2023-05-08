@@ -29,23 +29,23 @@ func start_fight():
 		owner.get_node("Inventory").hide()
 		animator.set("parameters/States General/blend_amount",1)
 		
-		if owner.mainGun == "Shield":
+		if owner.mainGun == "Escudo":
 			animator["parameters/All_Attacks/current"] = 0
 			attackType = "Melee"
 			
-		elif owner.mainGun == "Sword":
+		elif owner.mainGun == "Espada":
 			animator["parameters/All_Attacks/current"] = 1
 			attackType = "Melee"
 			
-		elif owner.mainGun == "Wand":
+		elif owner.mainGun == "Varinha":
 			animator["parameters/All_Attacks/current"] = 2
 			attackType = "Projectile"
 			
-		elif owner.mainGun == "Gauntlet":
+		elif owner.mainGun == "Manopla":
 			animator["parameters/All_Attacks/current"] = 3
 			attackType = "Projectile"
 			
-		elif owner.mainGun == "Bow":
+		elif owner.mainGun == "Arco":
 			animator["parameters/All_Attacks/current"] = 4
 			attackType = "Projectile"
 	
