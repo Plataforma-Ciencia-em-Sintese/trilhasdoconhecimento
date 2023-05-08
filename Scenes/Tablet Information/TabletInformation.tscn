@@ -1,0 +1,223 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 9.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/OBJECTS.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/Group 331.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/Group 333.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/Group 332.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/Tablet de Informações.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/Group 312.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Tablet_Sprite/Group 325.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tablet Information/Daily_Tablet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 1 )
+
+[node name="PanelTablet" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="background_Tablet" type="TextureRect" parent="PanelTablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -409.0
+margin_top = -256.0
+margin_right = 372.0
+margin_bottom = 258.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text_Tablet" type="TextureRect" parent="PanelTablet/background_Tablet"]
+margin_left = 92.0
+margin_top = 35.0
+margin_right = 273.0
+margin_bottom = 58.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="BT_Inventory" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -213.5
+margin_top = -120.0
+margin_right = -137.5
+margin_bottom = -10.0
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+
+[node name="BT_Daily" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.5
+margin_top = -118.0
+margin_right = 35.5
+margin_bottom = -11.0
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
+
+[node name="BT_Inventory2" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 132.5
+margin_top = -120.0
+margin_right = 208.5
+margin_bottom = -10.0
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+
+[node name="BT_Enemy" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -236.5
+margin_top = -4.0
+margin_right = -115.5
+margin_bottom = 128.0
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
+
+[node name="BT_Trails" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = 6.0
+margin_right = 33.5
+margin_bottom = 117.0
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+
+[node name="BT_notables" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 107.5
+margin_top = 9.0
+margin_right = 237.5
+margin_bottom = 117.0
+icon = ExtResource( 8 )
+flat = true
+expand_icon = true
+
+[node name="BT_ExitTablet" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -57.0
+margin_top = -19.0
+margin_right = -22.0
+margin_bottom = 14.0
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+
+[node name="Panel_Exit" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="BT_ExitEnemy" type="Button" parent="Panel_Exit"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 314.5
+margin_top = -275.5
+margin_right = 349.5
+margin_bottom = -242.5
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+
+[node name="BT_ExitDaily" type="Button" parent="Panel_Exit"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 314.5
+margin_top = -275.5
+margin_right = 349.5
+margin_bottom = -242.5
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+
+[node name="BT_ExitNotable" type="Button" parent="Panel_Exit"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 314.5
+margin_top = -275.5
+margin_right = 349.5
+margin_bottom = -242.5
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+
+[node name="BT_ExitTrails" type="Button" parent="Panel_Exit"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 314.5
+margin_top = -275.5
+margin_right = 349.5
+margin_bottom = -242.5
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+
+[node name="Scenes" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="BestiaryEnemy" parent="Scenes" instance=ExtResource( 10 )]
+
+[node name="BestiaryNotables" parent="Scenes" instance=ExtResource( 11 )]
+
+[node name="Daily" parent="Scenes" instance=ExtResource( 12 )]
+
+[node name="Trails" parent="Scenes" instance=ExtResource( 13 )]
+
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory" to="." method="_on_BT_Inventory_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Daily" to="." method="_on_BT_Daily_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory2" to="." method="_on_BT_Inventory2_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Enemy" to="." method="_on_BT_Enemy_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Trails" to="." method="_on_BT_Trails_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_notables" to="." method="_on_BT_notables_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/BT_ExitTablet" to="." method="_on_BT_ExitTablet_pressed"]
+[connection signal="pressed" from="Panel_Exit/BT_ExitEnemy" to="." method="_on_BT_ExitEnemy_pressed"]
+[connection signal="pressed" from="Panel_Exit/BT_ExitDaily" to="." method="_on_BT_ExitDaily_pressed"]
+[connection signal="pressed" from="Panel_Exit/BT_ExitNotable" to="." method="_on_BT_ExitNotable_pressed"]
+[connection signal="pressed" from="Panel_Exit/BT_ExitTrails" to="." method="_on_BT_ExitTrails_pressed"]
