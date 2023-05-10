@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/NPCs/NPC Original.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Transitions/WhiteTransition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3D/Level Design/PolygonScifiSpace_Material_01_A_001.material" type="Material" id=8]
+[ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Sci Fi Room/Elevator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationMesh" id=898]
@@ -6145,6 +6146,35 @@ transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0
 
 [node name="AnchorCam2" type="Position3D" parent="Player"]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+margin_left = 16.0
+margin_top = 14.0
+margin_right = 216.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 200, 200 )
+color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="GUI/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 200 )
+
+[node name="Viewport" type="Viewport" parent="GUI/ColorRect/ViewportContainer"]
+size = Vector2( 200, 200 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera_Minimap" type="Camera" parent="GUI/ColorRect/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 12.2182, -10.0854 )
+projection = 1
+current = true
+size = 10.0
+script = ExtResource( 9 )
+target = NodePath("../../../../../Player")
 
 [editable path="NPC_Root/Path_Quest_NPC_1/Path_NPC"]
 [editable path="NPC_Root/Path_Quest_NPC_2/Path_NPC"]

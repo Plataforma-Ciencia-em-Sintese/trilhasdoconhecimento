@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/OBJECTS.png-d32fd096fd1e1d9ab2a47b925cd0282e.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/UI/Tablet_Sprite/OBJECTS.png"
+dest_files=[ "res://.import/OBJECTS.png-d32fd096fd1e1d9ab2a47b925cd0282e.stex" ]
+
 [params]
 
 compress/mode=0
