@@ -28,7 +28,8 @@ func _on_ItemIvent_BTN_pressed():
 		else:
 			$UI/BG_Infos/Quant_BG.hide()
 		
-		invent.change_battle_itens()
+		if QuestManager.isInQuest:
+			invent.change_battle_itens()
 	
 func _on_BT_Equip_pressed():
 	$UI/BG_Infos.hide()
@@ -68,7 +69,8 @@ func _on_BT_Equip_pressed():
 				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i][0])
 				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
 				break
-		invent.change_battle_itens()
+		if QuestManager.isInQuest:
+			invent.change_battle_itens()
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
 		passive.disabled = true
 			
