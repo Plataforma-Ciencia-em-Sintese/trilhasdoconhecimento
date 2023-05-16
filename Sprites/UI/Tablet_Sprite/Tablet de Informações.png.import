@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/Tablet de Informações.png-3ecac2aee72687dad6e9ac4f6f2e0f4b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/UI/Tablet_Sprite/Tablet de Informações.png"
+dest_files=[ "res://.import/Tablet de Informações.png-3ecac2aee72687dad6e9ac4f6f2e0f4b.stex" ]
+
 [params]
 
 compress/mode=0

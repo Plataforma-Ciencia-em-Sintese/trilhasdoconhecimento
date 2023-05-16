@@ -9,6 +9,9 @@ var whiteScreen = false
 var backToScene = ""
 var sceneNameToQuestMNG = ""
 
+var levelPlayer = 1
+var xpActual = 0
+
 # itens do inventário
 var atkItens = {
 	# chave: valor cooldown, cena do ataque, icone do ataque, seguir o jogador	
@@ -54,9 +57,9 @@ var chipsRewards = {
 
 # Armas fixas
 var weapons = {
-	"Escudo": ["res://Sprites/UI/Icons/Weapons/Shield.png","Escudo do personagem"],
-	"Espada Laser": ["res://Sprites/UI/Icons/Weapons/Sword.png","Espada laser star wars"],
-	"Manopla": ["res://Sprites/UI/Icons/Weapons/Gauntlet.png","Manopla do Thanos"],
-	"Varinha": ["res://Sprites/UI/Icons/Weapons/Wand.png","Varinha com poder supremo"],
-	"Arco": ["res://Sprites/UI/Icons/Weapons/Bow.png","Lança flechas nos inimigos"]
+	"Escudo": ["res://Sprites/UI/Icons/Weapons/Shield.png","Escudo do personagem",[["Escudo de Energia",1],["Ataque Meteoro",2],["Aumento de velocidade",3]]],
+	"Espada": ["res://Sprites/UI/Icons/Weapons/Sword.png","Espada laser star wars",[["Laser Cibernetico",1],["Raio Paralizante",2],["Multiplas Balas",3]]],
+	"Manopla": ["res://Sprites/UI/Icons/Weapons/Gauntlet.png","Manopla do Thanos",[["Espada Giratoria",1],["Clone",2],["Escudo de Energia",3]]],
+	"Varinha": ["res://Sprites/UI/Icons/Weapons/Wand.png","Varinha com poder supremo",[["Escudo de Energia",1],["Ataque Meteoro",2],["Aumento de velocidade",3]]],
+	"Arco": ["res://Sprites/UI/Icons/Weapons/Bow.png","Lança flechas nos inimigos",[["Laser Cibernetico",1],["Raio Paralizante",2],["Multiplas Balas",3]]]
 }

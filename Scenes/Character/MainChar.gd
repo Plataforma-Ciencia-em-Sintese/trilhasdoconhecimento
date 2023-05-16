@@ -2,7 +2,7 @@ extends KinematicBody
 
 export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
-export var mainGun = "Espada"
+export var mainGun = "Arco"
 
 var suits = {
 	"Ariel": ["res://3D/Character Oficial/Ariel/Ariel Normal.tres","res://3D/Character Oficial/Ariel/Ariel Armadura.tres"],
