@@ -5,8 +5,11 @@ func _ready():
 	pass
 
 func _on_BT_Inventory_pressed():
-	pass # Replace with function body.
+	$Inventory/BG_Inventory.show()
 
+func _on_BT_tablet_pressed():
+	$BT_tablet.hide()
+	$PanelTablet.show()
 
 func _on_BT_Daily_pressed():
 	$PanelTablet/background_Tablet.hide()
@@ -37,7 +40,8 @@ func _on_BT_notables_pressed():
 	
 
 func _on_BT_ExitTablet_pressed():
-	$PanelTablet/background_Tablet.hide()
+	$PanelTablet.hide()
+	$BT_tablet.show()
 
 
 # Funções criadas para voltar para tela do Tablet
@@ -68,5 +72,4 @@ func _on_BT_ExitTrails_pressed():
 	$Panel_Exit/BT_ExitTrails.hide()
 	$PanelTablet/background_Tablet.show()
 	
-
 

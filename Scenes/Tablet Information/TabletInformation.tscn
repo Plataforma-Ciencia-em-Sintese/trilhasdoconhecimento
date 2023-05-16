@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 9.png" type="Texture" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tablet Information/Daily_Tablet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet_Icon.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Inventory/ItemIvent_BTN.tscn" type="PackedScene" id=16]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -21,6 +24,7 @@ mouse_filter = 1
 script = ExtResource( 1 )
 
 [node name="PanelTablet" type="Panel" parent="."]
+visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -135,6 +139,8 @@ icon = ExtResource( 2 )
 flat = true
 expand_icon = true
 
+[node name="ItemIvent_BTN" parent="PanelTablet/background_Tablet/BT_ExitTablet" instance=ExtResource( 16 )]
+
 [node name="Panel_Exit" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
@@ -210,6 +216,21 @@ mouse_filter = 2
 
 [node name="Trails" parent="Scenes" instance=ExtResource( 13 )]
 
+[node name="BT_tablet" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -154.0
+margin_top = 8.0
+margin_right = -79.0
+margin_bottom = 83.0
+icon = ExtResource( 14 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Inventory" parent="." instance=ExtResource( 15 )]
+visible = false
+
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory" to="." method="_on_BT_Inventory_pressed"]
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_Daily" to="." method="_on_BT_Daily_pressed"]
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory2" to="." method="_on_BT_Inventory2_pressed"]
@@ -221,3 +242,4 @@ mouse_filter = 2
 [connection signal="pressed" from="Panel_Exit/BT_ExitDaily" to="." method="_on_BT_ExitDaily_pressed"]
 [connection signal="pressed" from="Panel_Exit/BT_ExitNotable" to="." method="_on_BT_ExitNotable_pressed"]
 [connection signal="pressed" from="Panel_Exit/BT_ExitTrails" to="." method="_on_BT_ExitTrails_pressed"]
+[connection signal="pressed" from="BT_tablet" to="." method="_on_BT_tablet_pressed"]

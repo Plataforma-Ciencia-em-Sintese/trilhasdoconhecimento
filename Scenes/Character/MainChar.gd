@@ -18,10 +18,16 @@ func _ready():
 	if activeCloths == "Normal":
 		$Base/Skeleton/Body.mesh = load(suits[mainChar][0])
 		$Battle_UI.hide()
+  # Parte dos buttons
+		$Inventory/BT_Inventario.show()
+		$Control/BT_tablet.hide()
 	else:
 		$Base/Skeleton/Body.mesh = load(suits[mainChar][1])
 		$Battle_UI.show()
 		change_weapons()
+# Parte dos buttons
+		$Inventory/BT_Inventario.hide()
+		$Control/BT_tablet.show()
 
 	if GlobalValues.whiteScreen:
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
@@ -60,6 +66,7 @@ func create_btns_battle(value):
 			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
 			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
 			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
+
 
 func change_weapons():
 	if mainGun == "Escudo":
@@ -102,4 +109,4 @@ func change_weapons():
 func choose_chip(value):
 	var chipScene = load(value).instance()
 	$Base/Skeleton.add_child(chipScene)
-	
+
