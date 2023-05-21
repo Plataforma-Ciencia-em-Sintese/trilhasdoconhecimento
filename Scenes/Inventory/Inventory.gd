@@ -131,7 +131,7 @@ func _on_BT_Close_pressed():
 		get_tree().get_nodes_in_group("BattleUI")[0].show()
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
 		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
-		change_battle_itens()
+	change_battle_itens()
 	
 	get_tree().paused = false
 
@@ -149,8 +149,11 @@ func change_battle_itens():
 	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")
 	
-	for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
-		player.choose_chip($BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).source)
+	if $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count() > 0:
+		for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
+			player.choose_chip($BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).source)
+	else:
+		player.choose_chip("")
 
 func delete_dictionary_ATK():
 	itensATK.resize(0)

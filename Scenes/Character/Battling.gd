@@ -1,6 +1,7 @@
 extends Spatial
 
 export (String,"Projectile","Melee") var attackType
+
 var animator
 var goFight = false
 var releasePointer = true

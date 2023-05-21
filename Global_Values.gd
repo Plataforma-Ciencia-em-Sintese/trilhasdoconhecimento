@@ -2,13 +2,14 @@ extends Node
 
 # Seleção de personagens
 var nameChar = "Yara"
-var skinChar = "Normal"
+var skinChar = "Armadura"
 
 # Controle de cena batalha/mundo real
 var whiteScreen = false
 var backToScene = ""
 var sceneNameToQuestMNG = ""
 
+#Medidor de xp do jogador
 var levelPlayer = 1
 var xpActual = 0
 
@@ -50,9 +51,10 @@ var consumRewards = {
 
 # o que ja ganhou
 # quando pegar um novo item, ele deve ser add aqui
+#ataque,life,energia,velocidade e xp
 var chipsRewards = {
-	"Chip de Conexão": ["res://Scenes/Attacks/Energy Barrier/EnergyBarrier.tscn","res://Sprites/UI/Icons/Chips/Chip.png","Chip que conecta as coisas","Conexao"],
-	"Chip de Recarga": ["res://Scenes/Attacks/Energy Barrier/EnergyBarrier.tscn","res://Sprites/UI/Icons/Chips/Chip.png","Chip que recarrega as coisas","Recarga"],
+	"Chip de Conexão": ["res://Scenes/Chips/ChipConexao.tscn","res://Sprites/UI/Icons/Chips/Chip.png","Chip que conecta as coisas","Conexao"],
+	"Chip de Recarga": ["res://Scenes/Chips/ChipRecarga.tscn","res://Sprites/UI/Icons/Chips/Chip.png","Chip que recarrega as coisas","Recarga"]
 }
 
 # Armas fixas

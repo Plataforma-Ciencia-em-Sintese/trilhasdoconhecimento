@@ -100,6 +100,16 @@ func change_weapons():
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
 		
 func choose_chip(value):
-	var chipScene = load(value).instance()
-	$Base/Skeleton.add_child(chipScene)
+	if value != "":
+		var chipScene = load(value).instance()
+		$Base/Skeleton.add_child(chipScene)
+		$Status/Life_Bar.max_value = 100 + chipScene.lifeBoost
+		$Status/Energy_Bar.max_value = 100 + chipScene.energyBoost
+		$States/Move.speedRun = 1.0 + chipScene.speedBoost
+		$States/Move.speedWalk = 1.0 + chipScene.speedBoost
+	else:
+		$Status/Life_Bar.max_value = 100
+		$Status/Energy_Bar.max_value = 100
+		$States/Move.speedRun = 1.0
+		$States/Move.speedWalk = 1.0
 	
