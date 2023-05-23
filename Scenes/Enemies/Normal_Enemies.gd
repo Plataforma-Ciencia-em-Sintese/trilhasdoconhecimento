@@ -1,12 +1,11 @@
 extends PathFollow
 
 export (String, "Parafuso", "Serra", "Golem", "Flexivel", "Bala") var enemyType
-var player
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 var clicked = false
 
 func _ready():
 	get_enemy(enemyType)
-	player = get_tree().get_nodes_in_group("Player")[0]
 	
 func get_enemy(type):
 	for i in $Enemy/Root_Enemies.get_children():

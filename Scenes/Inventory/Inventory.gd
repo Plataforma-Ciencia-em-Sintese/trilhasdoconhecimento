@@ -11,15 +11,35 @@ func _ready():
 	$BG_Inventory/Info_BG/Name_Char.text = GlobalValues.nameChar
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+	weaponActual = player.mainGun
 	var inventBTN = load("res://Scenes/Inventory/ItemIvent_BTN.tscn")
-	for i in GlobalValues.atkPassivesReward.size():
-		var ATKBtn = inventBTN.instance()
-		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward.values()[i][1])
-		ATKBtn.descITN = GlobalValues.atkPassivesReward.values()[i][2]
-		ATKBtn.nameITN = GlobalValues.atkPassivesReward.keys()[i]
-		ATKBtn.typeITN = "ATK"
-		$BG_Inventory/Title_Combate/Combat_Itens.add_child(ATKBtn)
+#	for i in GlobalValues.atkPassivesReward.size():
+#		var ATKBtn = inventBTN.instance()
+#		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward.values()[i][1])
+#		ATKBtn.descITN = GlobalValues.atkPassivesReward.values()[i][2]
+#		ATKBtn.nameITN = GlobalValues.atkPassivesReward.keys()[i]
+#		ATKBtn.typeITN = "ATK"
+#		$BG_Inventory/Title_Combate/Combat_Itens.add_child(ATKBtn)
+
+	var weaponIcon = inventBTN.instance()
+	weaponIcon.iconITN = load(GlobalValues.weapons[player.mainGun][0])
+	weaponIcon.disabled = true
+	$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.add_child(weaponIcon)
+
+	var ATKBtn = inventBTN.instance()
+	for i in GlobalValues.weapons[player.mainGun][2].size():
+		if GlobalValues.weapons[player.mainGun][2][i][1] >= GlobalValues.levelPlayer:
+			itensATK.append(GlobalValues.weapons[player.mainGun][2][i][0])
+			ATKBtn.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.mainGun][2][i][0]][1])
+			break
+	$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.add_child(ATKBtn)
+	ATKBtn.disabled = true
+	for i in itensATK.size():
+		if GlobalValues.atkPassivesReward.has(itensATK[i]):
+			GlobalValues.atkItens[itensATK[i]] = GlobalValues.atkPassivesReward.get(itensATK[i])
+			
+	player.create_btns_battle("ATK")
+	
 	for i in GlobalValues.consumRewards.size():
 		if GlobalValues.consumRewards.values()[i][3] > 0:
 			var consumBtn = inventBTN.instance()
@@ -29,6 +49,7 @@ func _ready():
 			consumBtn.nameITN = GlobalValues.consumRewards.keys()[i]
 			consumBtn.typeITN = "Consum"
 			$BG_Inventory/Title_Consums/Consum_Itens.add_child(consumBtn)
+			
 	for i in GlobalValues.chipsRewards.size():
 		var chipsBtn = inventBTN.instance()
 		chipsBtn.iconITN = load(GlobalValues.chipsRewards.values()[i][1])
@@ -37,6 +58,7 @@ func _ready():
 		chipsBtn.nameITN = GlobalValues.chipsRewards.keys()[i]
 		chipsBtn.typeITN = "Chips"
 		$BG_Inventory/Title_Passives/Passive_Itens.add_child(chipsBtn)
+		
 	for i in GlobalValues.weapons.size():
 		var weaponsBtn = inventBTN.instance()
 		weaponsBtn.iconITN = load(GlobalValues.weapons.values()[i][0])
@@ -50,7 +72,7 @@ func _on_BT_Inventario_pressed():
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
 	get_parent().get_node("Pause").hide()
-	get_parent().get_node("Life").hide()
+	get_parent().get_node("Status").hide()
 	get_parent().get_node("States/Move").hide()
 	get_parent().get_node("States/Talking").show()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
@@ -93,7 +115,7 @@ func _on_BT_Close_pressed():
 	$BT_Inventario.show()
 	$BG_Inventory.hide()
 	get_parent().get_node("Pause").show()
-	get_parent().get_node("Life").show()
+	get_parent().get_node("Status").show()
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
@@ -109,7 +131,7 @@ func _on_BT_Close_pressed():
 		get_tree().get_nodes_in_group("BattleUI")[0].show()
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
 		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
-		change_battle_itens()
+	change_battle_itens()
 	
 	get_tree().paused = false
 
@@ -127,14 +149,18 @@ func change_battle_itens():
 	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")
 	
-	for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
-		player.choose_chip($BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).source)
+	if $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count() > 0:
+		for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
+			player.choose_chip($BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).source)
+	else:
+		player.choose_chip("")
 
-func delete_dictionaty():
+func delete_dictionary_ATK():
+	itensATK.resize(0)
 	for i in GlobalValues.atkItens.size():
 		GlobalValues.atkItens.clear()
-	for i in GlobalValues.consumItens.size():
-		GlobalValues.consumItens.clear()
+	for i in $BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.get_child_count():
+		$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.get_child(i).queue_free()
 
 func _on_Clean_Consum_pressed():
 	itensConsum.resize(0)
@@ -144,11 +170,7 @@ func _on_Clean_Consum_pressed():
 		$BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child(i).queue_free()
 
 func _on_Clean_Combat_pressed():
-	itensATK.resize(0)
-	for i in GlobalValues.atkItens.size():
-		GlobalValues.atkItens.clear()
-	for i in $BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.get_child_count():
-		$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.get_child(i).queue_free()
+	delete_dictionary_ATK()
 
 func _on_Clean_Passive_pressed():
 	itensPassive.resize(0)

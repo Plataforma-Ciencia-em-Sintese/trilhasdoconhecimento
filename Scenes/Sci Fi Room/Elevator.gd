@@ -67,7 +67,7 @@ func start_level():
 	player.get_node("States/Talking").show()
 	player.get_node("Inventory").hide()
 	player.get_node("Pause").hide()
-	player.get_node("Life").hide()
+	player.get_node("Status").hide()
 	owner.get_node("WhiteTransition/Back").hide()
 	QuestManager.get_node("Buttons_Diary").hide()
 	
@@ -91,7 +91,7 @@ func start_level():
 	
 	player.get_node("Inventory").show()
 	player.get_node("Pause").show()
-	player.get_node("Life").show()
+	player.get_node("Status").show()
 	
 	if QuestManager.isInQuest:
 		owner.get_node("WhiteTransition/Back").show()

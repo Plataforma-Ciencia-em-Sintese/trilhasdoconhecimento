@@ -28,7 +28,8 @@ func _on_ItemIvent_BTN_pressed():
 		else:
 			$UI/BG_Infos/Quant_BG.hide()
 		
-		invent.change_battle_itens()
+		if QuestManager.isInQuest:
+			invent.change_battle_itens()
 	
 func _on_BT_Equip_pressed():
 	$UI/BG_Infos.hide()
@@ -47,9 +48,9 @@ func _on_BT_Equip_pressed():
 	if typeITN == "Consum":
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo").add_child(btn)
 		invent.itensConsum.append(nameITN)
-	elif typeITN == "ATK":
-		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(btn)
-		invent.itensATK.append(nameITN)
+#	elif typeITN == "ATK":
+#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(btn)
+#		invent.itensATK.append(nameITN)
 	elif typeITN == "Chips":
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo").add_child(btn)
 		invent.itensPassive.append(nameITN)
@@ -60,4 +61,17 @@ func _on_BT_Equip_pressed():
 		invent.itensPassive.append(nameITN)
 		btn.disabled = true
 		invent.weaponActual = nameITN
+		#----------------------------
+		invent.delete_dictionary_ATK()
+		var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+		for i in GlobalValues.weapons[nameITN][2].size():
+			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
+				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i][0])
+				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
+				break
+		if QuestManager.isInQuest:
+			invent.change_battle_itens()
+		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
+		passive.disabled = true
+			
 	btn.blockMouse = true
