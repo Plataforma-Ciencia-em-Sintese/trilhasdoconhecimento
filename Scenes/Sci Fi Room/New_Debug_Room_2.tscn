@@ -6127,7 +6127,8 @@ skinType = "Armadura"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148256, 1.56348, -13.4223 )
-mainChar = "Ariel"
+mainChar = "Bento"
+activeCloths = "Armadura"
 
 [node name="Camera" type="Camera" parent="Player" groups=["Camera"]]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.2423, 38.2278, 26.757 )

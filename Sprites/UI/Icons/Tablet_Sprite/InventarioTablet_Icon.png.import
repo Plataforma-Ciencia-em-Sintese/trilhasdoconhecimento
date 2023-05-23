@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OBJECTS.png-d32fd096fd1e1d9ab2a47b925cd0282e.stex"
+path="res://.import/InventarioTablet_Icon.png-819ca86a136b0534e1c92d2b46987cd0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Tablet_Sprite/OBJECTS.png"
-dest_files=[ "res://.import/OBJECTS.png-d32fd096fd1e1d9ab2a47b925cd0282e.stex" ]
+source_file="res://Sprites/UI/Icons/Tablet_Sprite/InventarioTablet_Icon.png"
+dest_files=[ "res://.import/InventarioTablet_Icon.png-819ca86a136b0534e1c92d2b46987cd0.stex" ]
 
 [params]
 

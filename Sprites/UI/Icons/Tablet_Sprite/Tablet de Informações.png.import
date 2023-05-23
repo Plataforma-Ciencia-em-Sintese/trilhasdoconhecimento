@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Group 333.png-5f47404dbaaab24600900e97de8a36b3.stex"
+path="res://.import/Tablet de Informações.png-36c637c149f7a4dde73f082e15ee20cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Tablet_Sprite/Group 333.png"
-dest_files=[ "res://.import/Group 333.png-5f47404dbaaab24600900e97de8a36b3.stex" ]
+source_file="res://Sprites/UI/Icons/Tablet_Sprite/Tablet de Informações.png"
+dest_files=[ "res://.import/Tablet de Informações.png-36c637c149f7a4dde73f082e15ee20cb.stex" ]
 
 [params]
 

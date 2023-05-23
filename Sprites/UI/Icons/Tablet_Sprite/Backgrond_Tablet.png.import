@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Test.png-ca522073132de32baadc104efeb1806f.stex"
+path="res://.import/Backgrond_Tablet.png-aba092df204b47b34f4ed9d0cae28676.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Tablet_Sprite/Test.png"
-dest_files=[ "res://.import/Test.png-ca522073132de32baadc104efeb1806f.stex" ]
+source_file="res://Sprites/UI/Icons/Tablet_Sprite/Backgrond_Tablet.png"
+dest_files=[ "res://.import/Backgrond_Tablet.png-aba092df204b47b34f4ed9d0cae28676.stex" ]
 
 [params]
 

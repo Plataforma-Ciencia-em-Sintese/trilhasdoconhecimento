@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Group 332.png-69a7bd17f2d1317d384d93ba00e237e8.stex"
+path="res://.import/BInimigos_Icon.png-35ec3fb5f3d5e0bcb0d3f3a4e7e87a43.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Tablet_Sprite/Group 332.png"
-dest_files=[ "res://.import/Group 332.png-69a7bd17f2d1317d384d93ba00e237e8.stex" ]
+source_file="res://Sprites/UI/Icons/Tablet_Sprite/BInimigos_Icon.png"
+dest_files=[ "res://.import/BInimigos_Icon.png-35ec3fb5f3d5e0bcb0d3f3a4e7e87a43.stex" ]
 
 [params]
 

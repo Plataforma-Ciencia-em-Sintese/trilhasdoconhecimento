@@ -1,15 +1,41 @@
 extends CanvasLayer
 
+onready var player = get_tree().get_nodes_in_group("Player")[0]
+export (Array,String) var itensConsum
 
 func _ready():
-	pass
+	$Scenes/Inventory/BT_Inventario.hide()
 
-func _on_BT_Inventory_pressed():
-	$Inventory/BG_Inventory.show()
 
 func _on_BT_tablet_pressed():
 	$BT_tablet.hide()
 	$PanelTablet.show()
+
+#func 
+
+func _on_BT_Inventory_pressed():
+	#$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	$PanelTablet/background_Tablet.hide()
+	$Scenes/Inventory/BG_Inventory/BT_Close.hide()
+	$Scenes/Inventory/BG_Inventory.show()
+	$Panel_Exit/BT_ExitInventory.show()
+	
+	get_parent().get_node("Pause").hide()
+	get_parent().get_node("Status").hide()
+	get_parent().get_node("States/Move").hide()
+	get_parent().get_node("States/Talking").show()
+	var cam = get_tree().get_nodes_in_group("Camera")[0]
+	cam.current = false
+	player.get_node("Base/Cam_Invent").current = true
+	player.get_node("Base/BG_Invent").show()
+	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
+	pointer.isStopped = true
+	pointer.change_position()
+	pointer.hide()
+	
+	get_tree().paused = true
+
 
 func _on_BT_Daily_pressed():
 	$PanelTablet/background_Tablet.hide()
@@ -73,3 +99,28 @@ func _on_BT_ExitTrails_pressed():
 	$PanelTablet/background_Tablet.show()
 	
 
+
+func _on_BT_ExitInventory_pressed():
+	$Scenes/Inventory/BG_Inventory.hide()
+	$Panel_Exit/BT_ExitInventory.hide()
+	$PanelTablet/background_Tablet.show()
+	
+	get_parent().get_node("Pause").show()
+	get_parent().get_node("Status").show()
+	get_parent().get_node("States/Move").show()
+	get_parent().get_node("States/Talking").hide()
+	var cam = get_tree().get_nodes_in_group("Camera")[0]
+	cam.current = true
+	player.get_node("Base/Cam_Invent").current = false
+	player.get_node("Base/BG_Invent").hide()
+
+	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
+	pointer.isStopped = false
+	pointer.show()
+	
+	if QuestManager.isInQuest:
+		get_tree().get_nodes_in_group("BattleUI")[0].show()
+		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
+		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
+	
+	get_tree().paused = false
