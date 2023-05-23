@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
 [ext_resource path="res://Textures/Prototype/texture_08.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
+[ext_resource path="res://icon.png" type="Texture" id=20]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -7961,7 +7964,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8066,7 +8069,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8330,6 +8333,44 @@ transform = Transform( 5.86917, 0, 0, 0, 5.86917, 0, 0, 0, 5.86917, 0, 1.39228, 
 visible = false
 layers = 2
 texture = ExtResource( 17 )
+
+[node name="MiniMap_UI" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
+margin_left = 16.0
+margin_top = 14.0
+margin_right = 166.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 150, 150 )
+color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="MiniMap_UI/ColorRect"]
+anchor_right = 1.5
+anchor_bottom = 1.5
+margin_right = -50.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 150, 150 )
+
+[node name="Viewport" type="Viewport" parent="MiniMap_UI/ColorRect/ViewportContainer"]
+size = Vector2( 150, 150 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera_Minimap" type="Camera" parent="MiniMap_UI/ColorRect/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 6.30899, -10.0854 )
+projection = 1
+current = true
+size = 10.0
+script = ExtResource( 19 )
+target = NodePath("../../../../..")
+
+[node name="IconMap_Player" type="Sprite3D" parent="MiniMap_UI"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.70752, 0 )
+visible = false
+texture = ExtResource( 20 )
+
+[node name="TabletInformation" parent="." instance=ExtResource( 18 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/CamAnchor")
