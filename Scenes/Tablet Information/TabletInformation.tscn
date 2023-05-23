@@ -17,10 +17,7 @@
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Inventory/ItemIvent_BTN.tscn" type="PackedScene" id=16]
 
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
+[node name="TabletInformation" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="PanelTablet" type="Panel" parent="."]

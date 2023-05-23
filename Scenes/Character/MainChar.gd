@@ -20,14 +20,14 @@ func _ready():
 		$Battle_UI.hide()
   # Parte dos buttons
 		$Inventory/BT_Inventario.show()
-		$Control/BT_tablet.hide()
+		$TabletInformation/BT_tablet.hide()
 	else:
 		$Base/Skeleton/Body.mesh = load(suits[mainChar][1])
 		$Battle_UI.show()
 		change_weapons()
 # Parte dos buttons
 		$Inventory/BT_Inventario.hide()
-		$Control/BT_tablet.show()
+		$TabletInformation/BT_tablet.show()
 
 	if GlobalValues.whiteScreen:
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
