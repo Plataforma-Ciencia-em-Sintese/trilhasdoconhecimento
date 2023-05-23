@@ -8247,7 +8247,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.00120008, -0.014094, -0.9999, -0.198987, -0.979909, 0.0135734, -0.98, 0.198951, -0.00397861, -0.29345, 0.59352, 0.0615242 )
+transform = Transform( 0.00120008, -0.0140941, -0.9999, -0.19899, -0.979908, 0.0135735, -0.979999, 0.198954, -0.00397865, -0.29345, 0.59352, 0.0615245 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8310,7 +8310,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.00120005, 0.0140942, 0.9999, 0.198987, -0.979909, 0.0135737, 0.98, 0.198951, -0.00397864, 0.29345, 0.59352, 0.0615242 )
+transform = Transform( 0.00120005, 0.0140942, 0.9999, 0.19899, -0.979908, 0.0135736, 0.979999, 0.198954, -0.00397864, 0.29345, 0.59352, 0.0615246 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
