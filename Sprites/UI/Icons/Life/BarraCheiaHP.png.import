@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fundo teste life.png-0bf2ec5a6376654c77e8f703b460a9ff.stex"
+path="res://.import/BarraCheiaHP.png-6c12ba326bcccdcb6d79036bb4d09e6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Life/Fundo teste life.png"
-dest_files=[ "res://.import/Fundo teste life.png-0bf2ec5a6376654c77e8f703b460a9ff.stex" ]
+source_file="res://Sprites/UI/Icons/Life/BarraCheiaHP.png"
+dest_files=[ "res://.import/BarraCheiaHP.png-6c12ba326bcccdcb6d79036bb4d09e6e.stex" ]
 
 [params]
 
