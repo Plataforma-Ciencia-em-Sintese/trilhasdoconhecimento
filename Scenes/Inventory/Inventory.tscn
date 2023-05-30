@@ -447,9 +447,9 @@ mouse_filter = 2
 [node name="BT_Inventario" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -154.0
+margin_left = -221.0
 margin_top = 8.0
-margin_right = -79.0
+margin_right = -146.0
 margin_bottom = 83.0
 icon = ExtResource( 1 )
 flat = true

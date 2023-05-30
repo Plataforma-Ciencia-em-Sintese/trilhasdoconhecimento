@@ -26,7 +26,7 @@ func _ready():
 		$Battle_UI.show()
 		change_weapons()
 # Parte dos buttons
-		$Inventory/BT_Inventario.hide()
+#		$Inventory/BT_Inventario.hide()
 		$TabletInformation/BT_tablet.show()
 
 	if GlobalValues.whiteScreen:
