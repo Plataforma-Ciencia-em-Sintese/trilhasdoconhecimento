@@ -90,7 +90,7 @@ func move():
 	navAgent.set_velocity(velocity)
 	
 	# Faz o personagem olhar para o caminho do navmesh
-	get_parent().get_parent().get_node("Base").look_at(player.transform.origin - direction,Vector3.UP)
+	base.look_at(player.transform.origin - direction,Vector3.UP)
 	
 func _on_velocity_computed(new_velocity):
 	# Move o personagem assim que o calculo de velocidade é realizado

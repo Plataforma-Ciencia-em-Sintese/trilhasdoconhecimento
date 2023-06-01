@@ -131,7 +131,7 @@ func _on_BT_Close_pressed():
 		get_tree().get_nodes_in_group("BattleUI")[0].show()
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
 		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
-		change_battle_itens()
+	change_battle_itens()
 	
 	get_tree().paused = false
 

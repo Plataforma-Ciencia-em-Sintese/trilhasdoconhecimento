@@ -2,7 +2,7 @@ extends Node
 
 # Seleção de personagens
 var nameChar = "Yara"
-var skinChar = "Normal"
+var skinChar = "Armadura"
 
 # Controle de cena batalha/mundo real
 var whiteScreen = false

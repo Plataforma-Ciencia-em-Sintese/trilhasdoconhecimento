@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 9.png" type="Texture" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Scenes/Tablet Information/Daily_Tablet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Login_Icon.png" type="Texture" id=14]
-[ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Inventory/ItemIvent_BTN.tscn" type="PackedScene" id=16]
 
 [node name="TabletInformation" type="CanvasLayer"]
@@ -224,9 +223,6 @@ icon = ExtResource( 14 )
 flat = true
 icon_align = 1
 expand_icon = true
-
-[node name="Inventory" parent="." instance=ExtResource( 15 )]
-visible = false
 
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory" to="." method="_on_BT_Inventory_pressed"]
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_Daily" to="." method="_on_BT_Daily_pressed"]

@@ -69,8 +69,8 @@ func _on_BT_Equip_pressed():
 				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i][0])
 				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
 				break
-		if QuestManager.isInQuest:
-			invent.change_battle_itens()
+#		if QuestManager.isInQuest:
+		invent.change_battle_itens()
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
 		passive.disabled = true
 			
