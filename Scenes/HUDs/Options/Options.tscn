@@ -76,13 +76,13 @@ size = 30
 font_data = ExtResource( 4 )
 
 [node name="Control_Options" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 11 )
 
 [node name="Panel_Options" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 0, 0, 0, 0 )
 show_behind_parent = true
 anchor_right = 1.0
