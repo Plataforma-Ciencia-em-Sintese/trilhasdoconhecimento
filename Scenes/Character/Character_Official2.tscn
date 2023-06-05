@@ -7861,6 +7861,7 @@ __meta__ = {
 "_editor_description_": "
 "
 }
+speedWalk = 2.0
 speedRun = 5.0
 
 [node name="Talking" type="Spatial" parent="States"]
@@ -8247,7 +8248,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 1.3411e-07, -0.0119911, -0.999928, -0.0149204, -0.999818, 0.0119898, -0.999887, 0.0149198, -0.000177175, -0.293115, 0.59374, 0.0424532 )
+transform = Transform( -1.71363e-05, -0.0120117, -0.999928, -0.288838, -0.957309, 0.0115048, -0.957376, 0.288817, -0.00345127, -0.293117, 0.593782, 0.0711753 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8310,7 +8311,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -5.96046e-08, 0.011991, 0.999928, 0.0149205, -0.999817, 0.0119897, 0.999887, 0.01492, -0.000176936, 0.293115, 0.59374, 0.0424533 )
+transform = Transform( -1.74046e-05, 0.0120115, 0.999928, 0.288838, -0.95731, 0.0115047, 0.957376, 0.288817, -0.00345083, 0.293117, 0.593782, 0.0711754 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8385,6 +8386,7 @@ weaponActual = "Shield"
 visible = false
 
 [node name="PanelR" type="Panel" parent="Battle_UI"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -8400,12 +8402,13 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -399.0
-margin_top = -205.0
-margin_bottom = -105.0
+margin_top = -105.0
+margin_bottom = -5.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="Attack_Container" type="HBoxContainer" parent="Battle_UI"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -8481,8 +8484,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -397.0
-margin_top = -208.0
-margin_bottom = -105.0
+margin_top = -108.0
+margin_bottom = -5.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20

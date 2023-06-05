@@ -5,6 +5,7 @@ export (Array,String) var itensATK
 export (Array,String) var itensConsum
 export (Array,String) var itensPassive
 export var weaponActual = ""
+export var weaponSecond = ""
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	weaponActual = player.mainGun
+	weaponSecond = player.secGun
 	var inventBTN = load("res://Scenes/Inventory/ItemIvent_BTN.tscn")
 #	for i in GlobalValues.atkPassivesReward.size():
 #		var ATKBtn = inventBTN.instance()
@@ -38,7 +40,7 @@ func _ready():
 		if GlobalValues.atkPassivesReward.has(itensATK[i]):
 			GlobalValues.atkItens[itensATK[i]] = GlobalValues.atkPassivesReward.get(itensATK[i])
 			
-	player.create_btns_battle("ATK")
+#	player.create_btns_battle("ATK")
 	
 	for i in GlobalValues.consumRewards.size():
 		if GlobalValues.consumRewards.values()[i][3] > 0:
@@ -131,7 +133,7 @@ func _on_BT_Close_pressed():
 		get_tree().get_nodes_in_group("BattleUI")[0].show()
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
 		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
-	change_battle_itens()
+#	change_battle_itens()
 	
 	get_tree().paused = false
 
@@ -145,8 +147,11 @@ func change_battle_itens():
 			GlobalValues.consumItens[itensConsum[i]] = GlobalValues.consumRewards.get(itensConsum[i])
 	
 	player.mainGun = weaponActual
+	player.secGun = weaponSecond
+	player.set_attributes()
 	player.change_weapons()
-	player.create_btns_battle("ATK")
+	player.change_UI_status()
+#	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")
 	
 	if $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count() > 0:
@@ -178,3 +183,16 @@ func _on_Clean_Passive_pressed():
 		GlobalValues.chipsItens.clear()
 	for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
 		$BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).queue_free()
+		
+func _on_Clean_Weapons_pressed():
+	for i in $BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child_count():
+		$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child(i).queue_free()
+	weaponActual = ""
+	$BG_Inventory/BT_Close.hide()
+	change_battle_itens()
+	
+func _on_Clean_Weapons_Sec_pressed():
+	for i in $BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child_count():
+		$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child(i).queue_free()
+	weaponSecond = ""
+	change_battle_itens()

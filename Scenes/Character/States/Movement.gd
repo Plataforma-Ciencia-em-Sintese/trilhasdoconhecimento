@@ -3,6 +3,8 @@ extends Spatial
 # Velocidade do agente
 export (float) var speedWalk = 1.0
 export (float) var speedRun = 1.0
+var speedWalkChoosed 
+var speedRunChoosed
 
 # Declara quem e o node de navegacao
 var navAgent: NavigationAgent
@@ -41,6 +43,9 @@ func _ready():
 	
 	# Conecta o signal que calcula a velocidade para desviar de obstaculos moveis
 	navAgent.connect("velocity_computed",self, "_on_velocity_computed")
+	
+	speedWalkChoosed = speedWalk
+	speedRunChoosed = speedRun
 	
 	if clickCount == 1:
 		navAgent.max_speed = speedWalk

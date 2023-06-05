@@ -13,6 +13,28 @@ var sceneNameToQuestMNG = ""
 var levelPlayer = 1
 var xpActual = 0
 
+# Boost das armas
+var lifeBoost = 0
+var atkBoost = 0
+var energyBoost = 0
+var speedBoostWalk = 0
+var speedBoostRun = 0
+
+# Boost dos chips
+var lifeBoostChip = 0
+var atkBoostChip = 0
+var energyBoostChip = 0
+var speedBoostWalkChip = 0
+var speedBoostRunChip = 0
+var XPBoostChip = 0
+
+# Boost das armas
+var lifeBoostWeapon = 0
+var atkBoostWeapon = 0
+var energyBoostWeapon = 0
+var speedBoostWalkWeapon = 0
+var speedBoostRunWeapon = 0
+
 # itens do inventário
 var atkItens = {
 	# chave: valor cooldown, cena do ataque, icone do ataque, seguir o jogador	
