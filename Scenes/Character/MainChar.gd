@@ -35,8 +35,8 @@ func _ready():
 	
 	if QuestManager.isInQuest:
 		QuestManager.player = self
-		create_btns_battle("ATK")
-		create_btns_battle("Consum")
+#	create_btns_battle("ATK")
+	create_btns_battle("Consum")
 		
 # cria os botoes que serao necessarios a batalha
 func create_btns_battle(value):
@@ -67,10 +67,6 @@ func create_btns_battle(value):
 			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
 			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
 			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
-#	elif value == "Weapon":
-#		var btn = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
-#		btn.name = nameITN
-#		btn.iconITN = iconITN
 
 func change_weapons():
 	if mainGun == "Escudo" or secGun == "Escudo":
@@ -204,7 +200,8 @@ func set_attributes():
 	elif mainGun == "Varinha" and secGun == "":
 		GlobalValues.lifeBoostWeapon -= 100/3
 		GlobalValues.atkBoostWeapon += 100/2
-		GlobalValues.speedBoostWeapon -= 100/2
+		GlobalValues.speedBoostWalkWeapon -= 100/2
+		GlobalValues.speedBoostRunWeapon -= 100/2
 	elif mainGun == "Arco" and secGun == "":
 		GlobalValues.lifeBoostWeapon -= 100/3
 		GlobalValues.energyBoostWeapon -= 100/3
@@ -214,7 +211,8 @@ func set_attributes():
 		GlobalValues.atkBoostWeapon += 100/6
 		print("ssdsds")
 	elif mainGun == "Manopla" and secGun == "":
-		GlobalValues.speedBoostWeapon += 100/2
+		GlobalValues.speedBoostWalkWeapon += 100/2
+		GlobalValues.speedBoostRunWeapon += 100/2
 		GlobalValues.atkBoostWeapon -= 100/6
 	elif mainGun == "Escudo" and secGun == "":
 		GlobalValues.lifeBoostWeapon += 100/2

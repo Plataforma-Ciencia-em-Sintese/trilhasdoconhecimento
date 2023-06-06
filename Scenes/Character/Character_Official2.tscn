@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7965,7 +7965,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8070,7 +8070,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8248,7 +8248,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000768125, -0.0133944, -0.99991, -0.186314, -0.982405, 0.0130168, -0.982488, 0.186287, -0.00324827, -0.293336, 0.592911, 0.0602357 )
+transform = Transform( -0.00110888, -0.0113716, -0.999935, -0.357426, -0.933877, 0.011017, -0.933939, 0.357415, -0.0030269, -0.293122, 0.593729, 0.0788078 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8311,7 +8311,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000768155, 0.0133946, 0.99991, 0.186314, -0.982405, 0.0130171, 0.982488, 0.186287, -0.00324835, 0.293336, 0.592911, 0.0602357 )
+transform = Transform( -0.00110886, 0.0113717, 0.999935, 0.357426, -0.933877, 0.0110171, 0.933939, 0.357415, -0.00302696, 0.293122, 0.593729, 0.0788078 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8384,32 +8384,83 @@ weaponActual = "Shield"
 
 [node name="Battle_UI" type="CanvasLayer" parent="." groups=["BattleUI"]]
 
-[node name="Panel_Weapon2" type="Panel" parent="Battle_UI"]
-visible = false
+[node name="Container_Weapon_Main" type="Panel" parent="Battle_UI"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -399.0
-margin_top = -320.0
-margin_bottom = -220.0
+margin_left = -331.0
+margin_top = -217.0
+margin_right = -215.0
+margin_bottom = -117.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Weapon_Main" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Main"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -98.0
+margin_top = -101.0
+margin_right = -18.0
+margin_bottom = 2.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Container_Weapon_Sec" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -188.0
+margin_top = -217.0
+margin_right = -72.0
+margin_bottom = -117.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Weapon_Sec" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Sec"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -98.0
+margin_top = -101.0
+margin_right = -18.0
+margin_bottom = 2.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Panel_Weapon2" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -806.0
+margin_top = -106.0
+margin_right = -407.0
+margin_bottom = -6.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="Panel_Weapon1" type="Panel" parent="Battle_UI"]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -399.0
+margin_left = -805.0
 margin_top = -213.0
+margin_right = -406.0
 margin_bottom = -113.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="Panel_Consums" type="Panel" parent="Battle_UI"]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -8421,13 +8472,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="Weapon_Container" type="HBoxContainer" parent="Battle_UI"]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -397.0
+margin_left = -803.0
 margin_top = -214.0
+margin_right = -406.0
 margin_bottom = -111.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
@@ -8493,14 +8544,14 @@ value = 100.0
 percent_visible = false
 
 [node name="Weapon_Sec_Container" type="HBoxContainer" parent="Battle_UI"]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -397.0
-margin_top = -322.0
-margin_bottom = -219.0
+margin_left = -804.0
+margin_top = -108.0
+margin_right = -407.0
+margin_bottom = -5.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20
@@ -8565,7 +8616,6 @@ value = 100.0
 percent_visible = false
 
 [node name="Consumable_Container" type="HBoxContainer" parent="Battle_UI"]
-visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

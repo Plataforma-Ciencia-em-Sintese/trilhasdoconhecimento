@@ -23,10 +23,14 @@ func _ready():
 #		ATKBtn.typeITN = "ATK"
 #		$BG_Inventory/Title_Combate/Combat_Itens.add_child(ATKBtn)
 
-	var weaponIcon = inventBTN.instance()
-	weaponIcon.iconITN = load(GlobalValues.weapons[player.mainGun][0])
-	weaponIcon.disabled = true
-	$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.add_child(weaponIcon)
+	var weaponIconInvent = inventBTN.instance()
+	var weaponIconStage = inventBTN.instance()
+	weaponIconInvent.iconITN = load(GlobalValues.weapons[player.mainGun][0])
+	weaponIconStage.iconITN = load(GlobalValues.weapons[player.mainGun][0])
+	weaponIconInvent.disabled = true
+	weaponIconStage.disabled = true
+	$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.add_child(weaponIconInvent)
+	player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponIconStage)
 
 	var ATKBtn = inventBTN.instance()
 	for i in GlobalValues.weapons[player.mainGun][2].size():
@@ -187,6 +191,7 @@ func _on_Clean_Passive_pressed():
 func _on_Clean_Weapons_pressed():
 	for i in $BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child_count():
 		$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child(i).queue_free()
+		player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").get_child(i).queue_free()
 	weaponActual = ""
 	$BG_Inventory/BT_Close.hide()
 	change_battle_itens()
@@ -194,5 +199,6 @@ func _on_Clean_Weapons_pressed():
 func _on_Clean_Weapons_Sec_pressed():
 	for i in $BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child_count():
 		$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child(i).queue_free()
+		player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").get_child(i).queue_free()
 	weaponSecond = ""
 	change_battle_itens()

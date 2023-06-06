@@ -59,12 +59,25 @@ func _on_BT_Equip_pressed():
 		if invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").get_child_count() > 0:
 			if invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").get_child_count() > 0:
 				invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").get_child(0).queue_free()
+				invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").get_child(0).queue_free()
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").add_child(btn)
+			
+			var btnGame = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+			btnGame.name = nameITN
+			btnGame.iconITN = iconITN
+			invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(btnGame)
+			
 			invent.itensPassive.append(nameITN)
 			btn.disabled = true
 			invent.weaponSecond = nameITN
 		else:
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").add_child(btn)
+			
+			var btnGame = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+			btnGame.name = nameITN
+			btnGame.iconITN = iconITN
+			invent.player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(btnGame)
+			
 			invent.itensPassive.append(nameITN)
 			btn.disabled = true
 			invent.weaponActual = nameITN
