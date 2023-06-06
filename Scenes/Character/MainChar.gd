@@ -67,7 +67,11 @@ func create_btns_battle(value):
 			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
 			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
 			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
-			
+#	elif value == "Weapon":
+#		var btn = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+#		btn.name = nameITN
+#		btn.iconITN = iconITN
+
 func change_weapons():
 	if mainGun == "Escudo" or secGun == "Escudo":
 		$Base/Skeleton/BoneAttachmentR/Hammer.show()
