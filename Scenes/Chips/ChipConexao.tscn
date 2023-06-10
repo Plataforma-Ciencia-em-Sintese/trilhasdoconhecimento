@@ -8,4 +8,4 @@ atkBoost = 100
 lifeBoost = 4
 energyBoost = 4
 speedBoostWalk = 1
-speedBoostRun = 10
+speedBoostRun = 2

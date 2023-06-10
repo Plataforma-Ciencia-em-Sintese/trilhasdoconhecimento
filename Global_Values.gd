@@ -41,6 +41,11 @@ var atkItens = {
 	
 }
 
+var atkItensSec = {
+	# chave: valor cooldown, cena do ataque, icone do ataque, seguir o jogador	
+	
+}
+
 var consumItens = {
 	#chave: nome, sprite, descricao
 	

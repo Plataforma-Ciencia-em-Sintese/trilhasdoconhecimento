@@ -428,7 +428,7 @@ margin_right = 327.0
 margin_bottom = 70.0
 mouse_filter = 2
 
-[node name="Title_Combate" type="Label" parent="BG_Inventory"]
+[node name="Title_Combat" type="Label" parent="BG_Inventory"]
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -439,7 +439,7 @@ margin_bottom = 5.0
 text = "ITENS COMBATE"
 valign = 1
 
-[node name="Combat_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Combate"]
+[node name="Combat_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Combat"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = -9.0
@@ -484,6 +484,34 @@ margin_top = 6.0
 margin_right = 327.0
 margin_bottom = 70.0
 mouse_filter = 2
+
+[node name="LifeStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 48.0
+margin_right = 171.0
+margin_bottom = 62.0
+percent_visible = false
+
+[node name="AtkStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 68.0
+margin_right = 171.0
+margin_bottom = 82.0
+percent_visible = false
+
+[node name="SpeedStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 90.0
+margin_right = 171.0
+margin_bottom = 104.0
+percent_visible = false
+
+[node name="EnergyStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 112.0
+margin_right = 171.0
+margin_bottom = 126.0
+percent_visible = false
 
 [node name="BT_Inventario" type="Button" parent="."]
 anchor_left = 1.0

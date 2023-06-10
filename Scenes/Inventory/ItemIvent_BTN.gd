@@ -70,6 +70,18 @@ func _on_BT_Equip_pressed():
 			invent.itensPassive.append(nameITN)
 			btn.disabled = true
 			invent.weaponSecond = nameITN
+			
+			invent.delete_dictionary_ATK_Sec()
+			var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+			for i in GlobalValues.weapons[nameITN][2].size():
+	#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
+				invent.itensATKSec.append(GlobalValues.weapons[nameITN][2][i][0])
+				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
+	#				break
+	#		if QuestManager.isInQuest:
+			invent.change_battle_itens()
+	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
+			passive.disabled = true
 		else:
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").add_child(btn)
 			
@@ -83,17 +95,16 @@ func _on_BT_Equip_pressed():
 			invent.weaponActual = nameITN
 			invent.get_node("BG_Inventory/BT_Close").show()
 		
-		#----------------------------
-		invent.delete_dictionary_ATK()
-		var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
-		for i in GlobalValues.weapons[nameITN][2].size():
-			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
+			invent.delete_dictionary_ATK()
+			var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+			for i in GlobalValues.weapons[nameITN][2].size():
+	#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
 				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i][0])
 				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
-				break
-#		if QuestManager.isInQuest:
-		invent.change_battle_itens()
-#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
-		passive.disabled = true
+	#				break
+	#		if QuestManager.isInQuest:
+			invent.change_battle_itens()
+	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
+			passive.disabled = true
 			
 	btn.blockMouse = true
