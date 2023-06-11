@@ -101,6 +101,7 @@ func _on_BT_Inventario_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_STOP
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
+	player.get_node("Battle_UI").hide()
 	get_parent().get_node("Pause").hide()
 	get_parent().get_node("Status").hide()
 	get_parent().get_node("States/Move").hide()
@@ -144,6 +145,7 @@ func _on_BT_Close_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$BT_Inventario.show()
 	$BG_Inventory.hide()
+	player.get_node("Battle_UI").show()
 	get_parent().get_node("Pause").show()
 	get_parent().get_node("Status").show()
 	get_parent().get_node("States/Move").show()

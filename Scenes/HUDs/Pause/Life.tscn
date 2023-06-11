@@ -7,9 +7,9 @@ script = ExtResource( 1 )
 
 [node name="XP_Bar" type="ProgressBar" parent="."]
 margin_left = 35.0
-margin_top = 20.0
+margin_top = 859.0
 margin_right = 236.0
-margin_bottom = 34.0
+margin_bottom = 873.0
 percent_visible = false
 
 [node name="TXT_Level" type="Label" parent="XP_Bar"]
@@ -23,9 +23,9 @@ valign = 1
 
 [node name="Life_Bar" type="ProgressBar" parent="."]
 margin_left = 14.0
-margin_top = 77.0
+margin_top = 916.0
 margin_right = 249.0
-margin_bottom = 91.0
+margin_bottom = 930.0
 value = 90.0
 percent_visible = false
 
@@ -40,9 +40,9 @@ valign = 1
 
 [node name="Energy_Bar" type="ProgressBar" parent="."]
 margin_left = 14.0
-margin_top = 125.0
+margin_top = 964.0
 margin_right = 249.0
-margin_bottom = 139.0
+margin_bottom = 978.0
 value = 100.0
 percent_visible = false
 
