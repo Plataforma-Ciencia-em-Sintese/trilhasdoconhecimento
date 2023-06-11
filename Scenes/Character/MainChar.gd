@@ -4,6 +4,7 @@ export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
 export var mainGun = "Arco"
 export var secGun = "Varinha"
+onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 
 var suits = {
 	"Ariel": ["res://3D/Character Oficial/Ariel/Ariel Normal.tres","res://3D/Character Oficial/Ariel/Ariel Armadura.tres"],
@@ -60,7 +61,7 @@ func create_btns_battle(value):
 			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][3]
 			$Battle_UI/Weapon_Container.add_child(ATKBtn)
-		
+
 		for i in GlobalValues.atkItensSec.size():
 			var ATKBtn = atkButtonScene.instance()
 #			ATKBtn.cooldownValue = GlobalValues.atkItens.values()[i][0]
@@ -68,6 +69,27 @@ func create_btns_battle(value):
 			ATKBtn.icon = load(GlobalValues.atkItensSec.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItensSec.values()[i][3]
 			$Battle_UI/Weapon_Sec_Container.add_child(ATKBtn)
+		
+		yield(get_tree().create_timer(0.1),"timeout")
+		for i in invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").get_child_count():
+			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").get_child(i).queue_free()
+		for i in invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").get_child_count():
+			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").get_child(i).queue_free()
+			
+		for i in GlobalValues.atkItens.size():
+			var ATKInventBTN = atkButtonScene.instance()
+			ATKInventBTN.attackSource = GlobalValues.atkItens.values()[i][0]
+			ATKInventBTN.icon = load(GlobalValues.atkItens.values()[i][1])
+			ATKInventBTN.disabled = true
+			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").add_child(ATKInventBTN)
+		
+		for i in GlobalValues.atkItensSec.size():
+			var ATKInventBTN = atkButtonScene.instance()
+			ATKInventBTN.attackSource = GlobalValues.atkItensSec.values()[i][0]
+			ATKInventBTN.icon = load(GlobalValues.atkItensSec.values()[i][1])
+			ATKInventBTN.disabled = true
+			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").add_child(ATKInventBTN)
+
 	elif value == "Consum":
 		#destruir botoes
 		for i in $Battle_UI/Consumable_Container.get_child_count():
@@ -108,6 +130,44 @@ func change_weapons():
 		$Base/Skeleton/BoneAttachmentR/Wand.hide()
 		$Base/Skeleton/BoneAttachmentR/Bow.show()
 	elif mainGun == "Manopla" or secGun == "Manopla":
+		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
+		$Base/Skeleton/BoneAttachmentL/Shield.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.hide()
+		$Base/Skeleton/BoneAttachmentR/Wand.hide()
+		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+	else:
+		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
+		$Base/Skeleton/BoneAttachmentL/Shield.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.show()
+		$Base/Skeleton/BoneAttachmentR/Wand.hide()
+		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+
+func change_weapons_in_game(weapon):
+	if weapon == "Escudo":
+		$Base/Skeleton/BoneAttachmentR/Hammer.show()
+		$Base/Skeleton/BoneAttachmentL/Shield.show()
+		$Base/Skeleton/BoneAttachmentR/Sword.hide()
+		$Base/Skeleton/BoneAttachmentR/Wand.hide()
+		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+	elif weapon == "Espada":
+		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
+		$Base/Skeleton/BoneAttachmentL/Shield.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.show()
+		$Base/Skeleton/BoneAttachmentR/Wand.hide()
+		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+	elif weapon == "Varinha":
+		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
+		$Base/Skeleton/BoneAttachmentL/Shield.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.hide()
+		$Base/Skeleton/BoneAttachmentR/Wand.show()
+		$Base/Skeleton/BoneAttachmentR/Bow.hide()
+	elif weapon == "Arco":
+		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
+		$Base/Skeleton/BoneAttachmentL/Shield.hide()
+		$Base/Skeleton/BoneAttachmentR/Sword.hide()
+		$Base/Skeleton/BoneAttachmentR/Wand.hide()
+		$Base/Skeleton/BoneAttachmentR/Bow.show()
+	elif weapon == "Manopla":
 		$Base/Skeleton/BoneAttachmentR/Hammer.hide()
 		$Base/Skeleton/BoneAttachmentL/Shield.hide()
 		$Base/Skeleton/BoneAttachmentR/Sword.hide()

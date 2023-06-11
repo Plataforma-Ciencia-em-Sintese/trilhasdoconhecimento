@@ -62,10 +62,10 @@ func _on_BT_Equip_pressed():
 				invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").get_child(0).queue_free()
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").add_child(btn)
 			
-			var btnGame = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
-			btnGame.name = nameITN
-			btnGame.iconITN = iconITN
-			invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(btnGame)
+			var weaponBTN = load("res://Scenes/Inventory/WeaponBTN.tscn").instance()
+			weaponBTN.weapon = nameITN
+			weaponBTN.icon = iconITN
+			invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(weaponBTN)
 			
 			invent.itensPassive.append(nameITN)
 			btn.disabled = true
@@ -85,10 +85,10 @@ func _on_BT_Equip_pressed():
 		else:
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").add_child(btn)
 			
-			var btnGame = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
-			btnGame.name = nameITN
-			btnGame.iconITN = iconITN
-			invent.player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(btnGame)
+			var weaponBTN = load("res://Scenes/Inventory/WeaponBTN.tscn").instance()
+			weaponBTN.weapon = nameITN
+			weaponBTN.icon = iconITN
+			invent.player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponBTN)
 			
 			invent.itensPassive.append(nameITN)
 			btn.disabled = true

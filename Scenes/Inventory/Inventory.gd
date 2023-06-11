@@ -16,6 +16,7 @@ func _ready():
 	weaponActual = player.mainGun
 	weaponSecond = player.secGun
 	var inventBTN = load("res://Scenes/Inventory/ItemIvent_BTN.tscn")
+	var weaponBTN = load("res://Scenes/Inventory/WeaponBTN.tscn")
 #	for i in GlobalValues.atkPassivesReward.size():
 #		var ATKBtn = inventBTN.instance()
 #		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward.values()[i][1])
@@ -25,20 +26,22 @@ func _ready():
 #		$BG_Inventory/Title_Combate/Combat_Itens.add_child(ATKBtn)
 
 	var weaponIconInvent = inventBTN.instance()
-	var weaponIconStage = inventBTN.instance()
+	var weaponIconStage = weaponBTN.instance()
 	weaponIconInvent.iconITN = load(GlobalValues.weapons[player.mainGun][0])
-	weaponIconStage.iconITN = load(GlobalValues.weapons[player.mainGun][0])
-	weaponIconInvent.disabled = true
-	weaponIconStage.disabled = true
+	weaponIconStage.icon = load(GlobalValues.weapons[player.mainGun][0])
+	weaponIconStage.weapon = player.mainGun
+#	weaponIconInvent.disabled = true
+#	weaponIconStage.disabled = true
 	$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.add_child(weaponIconInvent)
 	player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponIconStage)
 	
 	var weaponIconInventSec = inventBTN.instance()
-	var weaponIconStageSec = inventBTN.instance()
+	var weaponIconStageSec = weaponBTN.instance()
 	weaponIconInventSec.iconITN = load(GlobalValues.weapons[player.secGun][0])
-	weaponIconStageSec.iconITN = load(GlobalValues.weapons[player.secGun][0])
-	weaponIconInventSec.disabled = true
-	weaponIconStageSec.disabled = true
+	weaponIconStageSec.icon = load(GlobalValues.weapons[player.secGun][0])
+	weaponIconStageSec.weapon = player.secGun
+#	weaponIconInventSec.disabled = true
+#	weaponIconStageSec.disabled = true
 	$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.add_child(weaponIconInventSec)
 	player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(weaponIconStageSec)
 
