@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 9.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Backgrond_Tablet.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/InventarioTablet_Icon.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Trilhas_icon.png" type="Texture" id=5]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Tablet Information/Daily_Tablet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet.png" type="Texture" id=14]
+
 
 [node name="TabletInformation" type="CanvasLayer"]
 script = ExtResource( 1 )
