@@ -98,7 +98,7 @@ func _ready():
 		$BG_Inventory/Title_Weapons/Weapons_Itens.add_child(weaponsBtn)
 		
 func _on_BT_Inventario_pressed():
-	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_STOP
+	
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
 	player.get_node("Battle_UI").hide()
