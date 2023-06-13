@@ -4,20 +4,20 @@
 [ext_resource path="res://Scenes/Consumables/Button Commands/Consumable.gd" type="Script" id=2]
 
 [node name="Consumable" type="Button"]
-margin_left = 8.0
-margin_right = 88.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
+margin_left = 1.0
+margin_right = 51.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 50, 55 )
 icon = ExtResource( 1 )
 flat = true
 expand_icon = true
 script = ExtResource( 2 )
 
 [node name="Quant" type="Label" parent="."]
-margin_left = 18.0
-margin_top = 89.0
-margin_right = 65.0
-margin_bottom = 107.0
+margin_left = 2.0
+margin_top = 53.0
+margin_right = 49.0
+margin_bottom = 71.0
 text = "x99"
 align = 1
 valign = 1

@@ -54,24 +54,57 @@ func _on_BT_Equip_pressed():
 	elif typeITN == "Chips":
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo").add_child(btn)
 		invent.itensPassive.append(nameITN)
+		invent.change_battle_itens()
 	elif typeITN == "Weapons":
 		if invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").get_child_count() > 0:
-			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").get_child(0).queue_free()
-		invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").add_child(btn)
-		invent.itensPassive.append(nameITN)
-		btn.disabled = true
-		invent.weaponActual = nameITN
-		#----------------------------
-		invent.delete_dictionary_ATK()
-		var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
-		for i in GlobalValues.weapons[nameITN][2].size():
-			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
+			if invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").get_child_count() > 0:
+				invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").get_child(0).queue_free()
+				invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").get_child(0).queue_free()
+			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").add_child(btn)
+			
+			var weaponBTN = load("res://Scenes/Inventory/WeaponBTN.tscn").instance()
+			weaponBTN.weapon = nameITN
+			weaponBTN.icon = iconITN
+			invent.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(weaponBTN)
+			
+			invent.itensPassive.append(nameITN)
+			btn.disabled = true
+			invent.weaponSecond = nameITN
+			
+			invent.delete_dictionary_ATK_Sec()
+			var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+			for i in GlobalValues.weapons[nameITN][2].size():
+	#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
+				invent.itensATKSec.append(GlobalValues.weapons[nameITN][2][i][0])
+				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
+	#				break
+	#		if QuestManager.isInQuest:
+			invent.change_battle_itens()
+	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
+			passive.disabled = true
+		else:
+			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").add_child(btn)
+			
+			var weaponBTN = load("res://Scenes/Inventory/WeaponBTN.tscn").instance()
+			weaponBTN.weapon = nameITN
+			weaponBTN.icon = iconITN
+			invent.player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponBTN)
+			
+			invent.itensPassive.append(nameITN)
+			btn.disabled = true
+			invent.weaponActual = nameITN
+			invent.get_node("BG_Inventory/BT_Close").show()
+		
+			invent.delete_dictionary_ATK()
+			var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
+			for i in GlobalValues.weapons[nameITN][2].size():
+	#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
 				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i][0])
 				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
-				break
-		if QuestManager.isInQuest:
+	#				break
+	#		if QuestManager.isInQuest:
 			invent.change_battle_itens()
-		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
-		passive.disabled = true
+	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
+			passive.disabled = true
 			
 	btn.blockMouse = true

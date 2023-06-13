@@ -66,8 +66,8 @@ func start_fight():
 				owner.get_node("States/Move").hide()
 				releasePointer = false
 			
-			if owner.mainChar == "Caio":
-				owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = true
+#			if owner.mainChar == "Caio":
+#				owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = true
 
 	if Input.is_action_just_pressed("Click") and !scriptEnemy.clicked and pointer.outInterface:
 		end_fight()

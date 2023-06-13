@@ -3,6 +3,8 @@ extends Spatial
 # Velocidade do agente
 export (float) var speedWalk = 1.0
 export (float) var speedRun = 1.0
+var speedWalkChoosed 
+var speedRunChoosed
 
 # Declara quem e o node de navegacao
 var navAgent: NavigationAgent
@@ -41,6 +43,9 @@ func _ready():
 	
 	# Conecta o signal que calcula a velocidade para desviar de obstaculos moveis
 	navAgent.connect("velocity_computed",self, "_on_velocity_computed")
+	
+	speedWalkChoosed = speedWalk
+	speedRunChoosed = speedRun
 	
 	if clickCount == 1:
 		navAgent.max_speed = speedWalk
@@ -90,7 +95,7 @@ func move():
 	navAgent.set_velocity(velocity)
 	
 	# Faz o personagem olhar para o caminho do navmesh
-	get_parent().get_parent().get_node("Base").look_at(player.transform.origin - direction,Vector3.UP)
+	base.look_at(player.transform.origin - direction,Vector3.UP)
 	
 func _on_velocity_computed(new_velocity):
 	# Move o personagem assim que o calculo de velocidade é realizado

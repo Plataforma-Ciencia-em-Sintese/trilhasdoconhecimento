@@ -2,10 +2,7 @@
 
 [ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.gd" type="Script" id=1]
 
-[node name="BestiaryEnemy" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
+[node name="BestiaryEnemy" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="Panel_Enemy" type="Panel" parent="."]

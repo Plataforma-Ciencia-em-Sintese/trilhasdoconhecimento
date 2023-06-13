@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks" ]
+node_connections = [ "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7850,18 +7850,21 @@ radius = 0.491932
 pause_mode = 2
 collision_layer = 2
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 mainChar = "Caio"
 activeCloths = "Normal"
 
 [node name="States" type="Spatial" parent="."]
 
 [node name="Move" type="Spatial" parent="States"]
-visible = false
 script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": "
 "
 }
+speedWalk = 2.0
 speedRun = 5.0
 
 [node name="Talking" type="Spatial" parent="States"]
@@ -7869,6 +7872,7 @@ visible = false
 script = ExtResource( 5 )
 
 [node name="Battling" type="Spatial" parent="States"]
+visible = false
 script = ExtResource( 8 )
 attackType = "Melee"
 
@@ -7964,7 +7968,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
+bones/9/bound_children = [  ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8069,7 +8073,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
+bones/30/bound_children = [  ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8247,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.00118473, -0.0137767, -0.999905, -0.164971, -0.986208, 0.0133926, -0.986296, 0.16494, -0.00343916, -0.29341, 0.593311, 0.0579367 )
+transform = Transform( 0.0627907, -0.998027, -1.9896e-08, 1.13565e-07, -5.35401e-08, 1, -0.998025, -0.0627898, 1.1031e-07, -0.653273, 1.06254, -0.01179 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8310,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.00118467, 0.0137767, 0.999904, 0.164971, -0.986208, 0.0133926, 0.986296, 0.16494, -0.00343914, 0.29341, 0.593311, 0.0579368 )
+transform = Transform( 0.0627907, 0.998027, 1.9896e-08, -1.13565e-07, -5.35401e-08, 1, 0.998025, -0.0627898, 1.1031e-07, 0.653273, 1.06254, -0.01179 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8371,6 +8375,7 @@ visible = false
 texture = ExtResource( 20 )
 
 [node name="TabletInformation" parent="." instance=ExtResource( 18 )]
+visible = false
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/CamAnchor")
@@ -8381,47 +8386,112 @@ weaponActual = "Shield"
 [node name="Status" parent="." instance=ExtResource( 6 )]
 
 [node name="Battle_UI" type="CanvasLayer" parent="." groups=["BattleUI"]]
-visible = false
 
-[node name="PanelR" type="Panel" parent="Battle_UI"]
+[node name="Container_Weapon_Main" type="Panel" parent="Battle_UI"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -399.0
-margin_top = -100.0
+margin_left = -164.0
+margin_top = -77.0
+margin_right = -92.0
+margin_bottom = -9.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 
-[node name="PanelR2" type="Panel" parent="Battle_UI"]
+[node name="Weapon_Main" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Main"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -399.0
-margin_top = -205.0
-margin_bottom = -105.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-
-[node name="Attack_Container" type="HBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -397.0
-margin_top = -103.0
+margin_left = -72.0
+margin_top = -67.0
+margin_bottom = -1.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20
 alignment = 1
 
-[node name="ATK" parent="Battle_UI/Attack_Container" instance=ExtResource( 14 )]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
+[node name="Container_Weapon_Sec" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -82.0
+margin_top = -77.0
+margin_right = -14.0
+margin_bottom = -9.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 
-[node name="ATK2" type="Button" parent="Battle_UI/Attack_Container"]
+[node name="Weapon_Sec" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Sec"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -68.0
+margin_top = -68.0
+margin_bottom = -1.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Panel_Weapon2" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -82.0
+margin_top = -311.0
+margin_right = -13.0
+margin_bottom = -83.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Panel_Weapon1" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -165.0
+margin_top = -311.0
+margin_right = -91.0
+margin_bottom = -83.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Panel_Consums" type="Panel" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -390.0
+margin_top = -76.0
+margin_right = -168.0
+margin_bottom = -10.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="Weapon_Container" type="VBoxContainer" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -154.0
+margin_top = -310.0
+margin_right = -104.0
+margin_bottom = -83.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/separation = 20
+alignment = 1
+
+[node name="ATK" parent="Battle_UI/Weapon_Container" instance=ExtResource( 14 )]
+margin_top = 86.0
+margin_bottom = 141.0
+
+[node name="ATK2" type="Button" parent="Battle_UI/Weapon_Container"]
 visible = false
 margin_left = 158.0
 margin_right = 238.0
@@ -8433,13 +8503,13 @@ expand_icon = true
 script = ExtResource( 15 )
 followPlayer = true
 
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK2"]
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK2"]
 margin_right = 80.0
 margin_bottom = 14.0
 value = 100.0
 percent_visible = false
 
-[node name="ATK3" type="Button" parent="Battle_UI/Attack_Container"]
+[node name="ATK3" type="Button" parent="Battle_UI/Weapon_Container"]
 visible = false
 margin_left = 158.0
 margin_right = 238.0
@@ -8451,13 +8521,13 @@ expand_icon = true
 script = ExtResource( 15 )
 followPlayer = true
 
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK3"]
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK3"]
 margin_right = 80.0
 margin_bottom = 14.0
 value = 100.0
 percent_visible = false
 
-[node name="ATK4" type="Button" parent="Battle_UI/Attack_Container"]
+[node name="ATK4" type="Button" parent="Battle_UI/Weapon_Container"]
 visible = false
 margin_left = 208.0
 margin_right = 288.0
@@ -8468,7 +8538,78 @@ flat = true
 expand_icon = true
 script = ExtResource( 15 )
 
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Attack_Container/ATK4"]
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK4"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
+[node name="Weapon_Sec_Container" type="VBoxContainer" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -73.0
+margin_top = -309.0
+margin_right = -23.0
+margin_bottom = -88.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+custom_constants/separation = 20
+alignment = 1
+
+[node name="ATK" parent="Battle_UI/Weapon_Sec_Container" instance=ExtResource( 14 )]
+margin_top = 83.0
+margin_bottom = 138.0
+
+[node name="ATK2" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
+visible = false
+margin_left = 158.0
+margin_right = 238.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+followPlayer = true
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK2"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
+[node name="ATK3" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
+visible = false
+margin_left = 158.0
+margin_right = 238.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 13 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+followPlayer = true
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK3"]
+margin_right = 80.0
+margin_bottom = 14.0
+value = 100.0
+percent_visible = false
+
+[node name="ATK4" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
+visible = false
+margin_left = 208.0
+margin_right = 288.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 80, 95 )
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+
+[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK4"]
 margin_right = 80.0
 margin_bottom = 14.0
 value = 100.0
@@ -8479,9 +8620,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -397.0
-margin_top = -208.0
-margin_bottom = -105.0
+margin_left = -372.0
+margin_top = -77.0
+margin_right = -183.0
+margin_bottom = -10.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20
@@ -8491,6 +8633,7 @@ alignment = 1
 visible = false
 margin_left = 158.0
 margin_right = 238.0
+margin_bottom = 103.0
 
 [node name="ATK2" type="Button" parent="Battle_UI/Consumable_Container"]
 visible = false
@@ -8557,15 +8700,24 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.68
 shape = SubResource( 43 )
 
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
-[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK2" to="Battle_UI/Attack_Container/ATK2" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK2" to="Battle_UI/Attack_Container/ATK2" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Attack_Container/ATK2" to="Battle_UI/Attack_Container/ATK2" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK3" to="Battle_UI/Attack_Container/ATK3" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK3" to="Battle_UI/Attack_Container/ATK3" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Attack_Container/ATK3" to="Battle_UI/Attack_Container/ATK3" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Attack_Container/ATK4" to="Battle_UI/Attack_Container/ATK4" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Attack_Container/ATK4" to="Battle_UI/Attack_Container/ATK4" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Attack_Container/ATK4" to="Battle_UI/Attack_Container/ATK4" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_pressed"]
+[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_mouse_entered"]
+[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_mouse_exited"]
+[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_pressed"]
 [connection signal="mouse_entered" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_mouse_entered"]
 [connection signal="mouse_exited" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_mouse_exited"]
 [connection signal="pressed" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_pressed"]

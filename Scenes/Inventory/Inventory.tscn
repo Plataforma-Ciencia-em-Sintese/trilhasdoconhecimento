@@ -166,7 +166,7 @@ anchor_bottom = 0.5
 margin_left = -356.0
 margin_top = -297.0
 margin_right = 1.0
-margin_bottom = 214.0
+margin_bottom = 299.0
 texture = ExtResource( 21 )
 expand = true
 
@@ -202,6 +202,7 @@ margin_bottom = 10.0
 text = "Limpar"
 
 [node name="Title_Combat" type="Label" parent="BG_Inventory/Equiped_BG"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -237,10 +238,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -156.5
-margin_top = 45.5
+margin_top = -46.5
 margin_right = 161.5
-margin_bottom = 65.5
-text = "ITENS PASSIVOS"
+margin_bottom = -26.5
+text = "CHIPS"
 valign = 1
 
 [node name="Passive_Repo" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Passives"]
@@ -267,10 +268,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -156.5
-margin_top = 130.5
+margin_top = 38.5
 margin_right = 161.5
-margin_bottom = 150.5
-text = "ARMAS"
+margin_bottom = 58.5
+text = "ARMA PRIMARIA"
 valign = 1
 
 [node name="Weapons_Repo" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Weapons"]
@@ -280,6 +281,63 @@ margin_left = -9.0
 margin_top = 6.0
 margin_right = 327.0
 margin_bottom = 70.0
+
+[node name="Weapons_Main_Abilities" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Weapons"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 70.0
+margin_right = 327.0
+margin_bottom = 110.0
+
+[node name="Clean_Weapons" type="Button" parent="BG_Inventory/Equiped_BG/Title_Weapons"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -59.0
+margin_top = -12.0
+margin_bottom = 8.0
+text = "Limpar"
+
+[node name="Title_Weapons_Sec" type="Label" parent="BG_Inventory/Equiped_BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.5
+margin_top = 164.5
+margin_right = 161.5
+margin_bottom = 184.5
+rect_pivot_offset = Vector2( 159, 9 )
+text = "ARMA SECUNDARIA"
+valign = 1
+
+[node name="Weapons_Sec_Repo" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Weapons_Sec"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 6.0
+margin_right = 327.0
+margin_bottom = 70.0
+
+[node name="Clean_Weapons_Sec" type="Button" parent="BG_Inventory/Equiped_BG/Title_Weapons_Sec"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -59.0
+margin_top = -14.0
+margin_bottom = 6.0
+text = "Limpar"
+
+[node name="Weapons_Sec_Abilities" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Weapons_Sec"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = 70.0
+margin_right = 327.0
+margin_bottom = 110.0
 
 [node name="BT_Equip" type="Button" parent="BG_Inventory/Equiped_BG"]
 visible = false
@@ -372,9 +430,9 @@ expand_icon = true
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 13.0
-margin_top = -97.0
+margin_top = -293.0
 margin_right = 242.0
-margin_bottom = -77.0
+margin_bottom = -273.0
 text = "ITENS CONSUMÍVEIS"
 valign = 1
 
@@ -387,7 +445,8 @@ margin_right = 327.0
 margin_bottom = 70.0
 mouse_filter = 2
 
-[node name="Title_Combate" type="Label" parent="BG_Inventory"]
+[node name="Title_Combat" type="Label" parent="BG_Inventory"]
+visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 14.0
@@ -397,7 +456,7 @@ margin_bottom = 5.0
 text = "ITENS COMBATE"
 valign = 1
 
-[node name="Combat_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Combate"]
+[node name="Combat_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Combat"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = -9.0
@@ -410,9 +469,8 @@ mouse_filter = 2
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 14.0
-margin_top = 68.0
+margin_top = -20.0
 margin_right = 243.0
-margin_bottom = 88.0
 text = "CHIPS DE MELHORIA"
 valign = 1
 
@@ -429,9 +487,9 @@ mouse_filter = 2
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 14.0
-margin_top = 150.0
+margin_top = 256.0
 margin_right = 243.0
-margin_bottom = 170.0
+margin_bottom = 276.0
 text = "ARMAS"
 valign = 1
 
@@ -444,12 +502,40 @@ margin_right = 327.0
 margin_bottom = 70.0
 mouse_filter = 2
 
+[node name="LifeStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 48.0
+margin_right = 171.0
+margin_bottom = 62.0
+percent_visible = false
+
+[node name="AtkStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 68.0
+margin_right = 171.0
+margin_bottom = 82.0
+percent_visible = false
+
+[node name="SpeedStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 90.0
+margin_right = 171.0
+margin_bottom = 104.0
+percent_visible = false
+
+[node name="EnergyStatus" type="ProgressBar" parent="BG_Inventory"]
+margin_left = 37.0
+margin_top = 112.0
+margin_right = 171.0
+margin_bottom = 126.0
+percent_visible = false
+
 [node name="BT_Inventario" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -154.0
+margin_left = -221.0
 margin_top = 8.0
-margin_right = -79.0
+margin_right = -146.0
 margin_bottom = 83.0
 icon = ExtResource( 1 )
 flat = true
@@ -459,5 +545,7 @@ expand_icon = true
 [connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Consums/Clean_Consum" to="." method="_on_Clean_Consum_pressed"]
 [connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Combat/Clean_Combat" to="." method="_on_Clean_Combat_pressed"]
 [connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Passives/Clean_Passive" to="." method="_on_Clean_Passive_pressed"]
+[connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Weapons/Clean_Weapons" to="." method="_on_Clean_Weapons_pressed"]
+[connection signal="pressed" from="BG_Inventory/Equiped_BG/Title_Weapons_Sec/Clean_Weapons_Sec" to="." method="_on_Clean_Weapons_Sec_pressed"]
 [connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
 [connection signal="pressed" from="BT_Inventario" to="." method="_on_BT_Inventario_pressed"]
