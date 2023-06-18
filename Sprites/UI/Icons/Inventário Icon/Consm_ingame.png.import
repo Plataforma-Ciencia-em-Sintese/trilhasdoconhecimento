@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Component 9.png-5b92a724b240b6dbbb975d0295ca7186.stex"
+path="res://.import/Consm_ingame.png-f43ed9cb76f661a8f84202017bba03aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icons_Config/Component 9.png"
-dest_files=[ "res://.import/Component 9.png-5b92a724b240b6dbbb975d0295ca7186.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/Consm_ingame.png"
+dest_files=[ "res://.import/Consm_ingame.png-f43ed9cb76f661a8f84202017bba03aa.stex" ]
 
 [params]
 

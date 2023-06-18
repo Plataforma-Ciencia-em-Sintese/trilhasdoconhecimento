@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7968,7 +7968,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8073,7 +8073,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8251,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.0627907, -0.998027, -1.9896e-08, 1.13565e-07, -5.35401e-08, 1, -0.998025, -0.0627898, 1.1031e-07, -0.653273, 1.06254, -0.01179 )
+transform = Transform( 0.00129282, -0.0141101, -0.9999, -0.23265, -0.972468, 0.0134223, -0.972558, 0.232609, -0.00453807, -0.293459, 0.593808, 0.0650486 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.0627907, 0.998027, 1.9896e-08, -1.13565e-07, -5.35401e-08, 1, 0.998025, -0.0627898, 1.1031e-07, 0.653273, 1.06254, -0.01179 )
+transform = Transform( 0.00129271, 0.0141104, 0.9999, 0.23265, -0.972468, 0.0134226, 0.972558, 0.23261, -0.00453797, 0.293459, 0.593808, 0.0650486 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8341,22 +8341,24 @@ texture = ExtResource( 17 )
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
-margin_left = 16.0
-margin_top = 14.0
-margin_right = 166.0
-margin_bottom = 164.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = -280.0
+margin_right = 300.0
+margin_bottom = -30.0
 rect_min_size = Vector2( 150, 150 )
 color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="MiniMap_UI/ColorRect"]
-anchor_right = 1.5
-anchor_bottom = 1.5
-margin_right = -50.0
-margin_bottom = -50.0
+anchor_left = 0.004
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
 rect_min_size = Vector2( 150, 150 )
 
 [node name="Viewport" type="Viewport" parent="MiniMap_UI/ColorRect/ViewportContainer"]
-size = Vector2( 150, 150 )
+size = Vector2( 200, 200 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
