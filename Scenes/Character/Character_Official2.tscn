@@ -8251,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000174791, -0.0123626, -0.999924, -0.0778249, -0.996892, 0.0123115, -0.996965, 0.0778171, -0.00113441, -0.293172, 0.593474, 0.0489839 )
+transform = Transform( -0.000118226, -0.0118827, -0.99993, -0.0917351, -0.995714, 0.0118434, -0.995781, 0.0917305, -0.000970185, -0.293094, 0.593036, 0.0504528 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000174731, 0.0123628, 0.999924, 0.077825, -0.996892, 0.0123117, 0.996965, 0.0778173, -0.00113435, 0.293172, 0.593474, 0.0489839 )
+transform = Transform( -0.000118196, 0.0118828, 0.99993, 0.0917351, -0.995714, 0.0118436, 0.995781, 0.0917305, -0.000970274, 0.293094, 0.593036, 0.0504528 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8341,14 +8341,14 @@ texture = ExtResource( 17 )
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
-anchor_left = 0.035
+anchor_left = 0.038
 anchor_top = 0.696
-anchor_right = 0.192
-anchor_bottom = 0.974
-margin_left = 5.8
+anchor_right = 0.194
+anchor_bottom = 0.987
+margin_left = 3.03999
 margin_top = 0.319946
-margin_right = 4.35999
-margin_bottom = 20.08
+margin_right = 0.519989
+margin_bottom = 3.03992
 rect_min_size = Vector2( 150, 150 )
 color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
 
