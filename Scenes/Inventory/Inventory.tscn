@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://Sprites/UI/prototipo inventario/Vector-1.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background armas.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background consumiveis.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/prototipo inventario/Vector01.png" type="Texture" id=21]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BoldItalic.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background Chip.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Teste Inventario.png" type="Texture" id=24]
@@ -59,13 +58,8 @@ mouse_filter = 2
 [node name="BG_Inventory" type="Panel" parent="."]
 visible = false
 self_modulate = Color( 1, 0, 0, 0 )
-anchor_top = -0.015
 anchor_right = 1.0
-anchor_bottom = 0.985
-margin_left = -2.0
-margin_top = 0.200001
-margin_right = -2.0
-margin_bottom = 0.199951
+anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="back_inventory" type="TextureRect" parent="BG_Inventory"]
@@ -81,13 +75,13 @@ texture = ExtResource( 24 )
 expand = true
 
 [node name="Info_BG" type="TextureRect" parent="BG_Inventory"]
-anchor_left = 0.587
+anchor_left = 0.571
 anchor_top = 0.682
-anchor_right = 0.806
+anchor_right = 0.789
 anchor_bottom = 0.872
-margin_left = -31.04
-margin_top = 0.439941
-margin_right = -32.5201
+margin_left = -0.320068
+margin_top = 0.43988
+margin_right = 0.119751
 margin_bottom = 0.239929
 texture = ExtResource( 9 )
 expand = true
@@ -256,18 +250,16 @@ anchor_bottom = 0.705
 margin_left = -0.280029
 margin_top = -0.240005
 margin_right = -0.400146
-margin_bottom = -0.400024
-texture = ExtResource( 21 )
-expand = true
+margin_bottom = 0.600037
 
 [node name="Title_Consums" type="TextureRect" parent="BG_Inventory/Equiped_BG"]
-anchor_left = -0.235
+anchor_left = -0.339
 anchor_top = 0.342
-anchor_right = 0.63
+anchor_right = 0.527
 anchor_bottom = 0.574
-margin_left = -37.105
+margin_left = 0.0230026
 margin_top = 0.168015
-margin_right = -36.9099
+margin_right = -0.138901
 margin_bottom = -0.103973
 texture = ExtResource( 14 )
 expand = true
@@ -294,13 +286,13 @@ margin_bottom = -52.5
 text = "Limpar"
 
 [node name="Title_Passives" type="TextureRect" parent="BG_Inventory/Equiped_BG"]
-anchor_left = -0.238
+anchor_left = -0.342
 anchor_top = 0.591
-anchor_right = 0.885
+anchor_right = 0.782
 anchor_bottom = 0.822
-margin_left = -37.034
+margin_left = 0.0940018
 margin_top = -0.235962
-margin_right = -36.9449
+margin_right = -0.173889
 margin_bottom = 0.0880432
 texture = ExtResource( 17 )
 expand = true
@@ -327,13 +319,13 @@ margin_bottom = 0.0599995
 text = "Limpar"
 
 [node name="Title_Weapons" type="TextureRect" parent="BG_Inventory/Equiped_BG"]
-anchor_left = -0.266
+anchor_left = -0.37
 anchor_top = 0.054
-anchor_right = 0.381
+anchor_right = 0.277
 anchor_bottom = 0.312
-margin_left = -37.038
+margin_left = 0.0899811
 margin_top = -0.183998
-margin_right = -37.017
+margin_right = 0.110985
 margin_bottom = 0.0480194
 texture = ExtResource( 16 )
 expand = true
@@ -425,13 +417,13 @@ margin_bottom = 10.0
 text = "Limpar"
 
 [node name="Title_Weapons_Sec" type="Label" parent="BG_Inventory/Equiped_BG"]
-anchor_left = 0.902
-anchor_top = 0.156
-anchor_right = 1.409
+anchor_left = 0.804
+anchor_top = 0.134
+anchor_right = 1.331
 anchor_bottom = 0.314
-margin_left = -35.0139
-margin_top = -12.976
-margin_right = -28.0128
+margin_left = -0.0279236
+margin_top = 0.136002
+margin_right = -0.166809
 margin_bottom = -0.143982
 rect_pivot_offset = Vector2( 159, 9 )
 text = "
@@ -450,14 +442,14 @@ margin_bottom = 0.034
 text = "Limpar"
 
 [node name="Weapons_Sec_Abilities" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Weapons_Sec"]
-anchor_left = 0.077
+anchor_left = 0.144
 anchor_top = 0.362
-anchor_right = 0.926
-anchor_bottom = 0.85
-margin_left = 0.523998
-margin_top = 0.265999
-margin_right = -0.0880127
-margin_bottom = 0.0499954
+anchor_right = 0.979
+anchor_bottom = 0.84
+margin_left = -0.0720196
+margin_top = -0.799168
+margin_right = -0.052124
+margin_bottom = -0.0312195
 
 [node name="Weapons_Sec_Repo" type="HBoxContainer" parent="BG_Inventory/Equiped_BG/Title_Weapons_Sec"]
 anchor_left = -1.666

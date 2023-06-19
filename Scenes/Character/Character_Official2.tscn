@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "output", 0, "move" ]
+node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7968,7 +7968,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
+bones/9/bound_children = [  ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8073,7 +8073,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
+bones/30/bound_children = [  ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8251,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000118226, -0.0118827, -0.99993, -0.0917351, -0.995714, 0.0118434, -0.995781, 0.0917305, -0.000970185, -0.293094, 0.593036, 0.0504528 )
+transform = Transform( 5.36442e-07, -0.0119914, -0.999928, -0.00372924, -0.999922, 0.0119912, -0.999991, 0.00372951, -4.33922e-05, -0.293115, 0.59374, 0.0412878 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000118196, 0.0118828, 0.99993, 0.0917351, -0.995714, 0.0118436, 0.995781, 0.0917305, -0.000970274, 0.293094, 0.593036, 0.0504528 )
+transform = Transform( 2.83122e-07, 0.0119911, 0.999928, 0.00373083, -0.999922, 0.0119909, 0.999991, 0.00373111, -4.32134e-05, 0.293115, 0.59374, 0.0412879 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8334,23 +8334,12 @@ size = 4.13227
 
 [node name="BG_Invent" type="Sprite3D" parent="Base"]
 transform = Transform( 0.436844, 0, 0, 0, 0.491581, 0, 0, 0, 0.491581, -0.104, -0.3, -1.067 )
+visible = false
 layers = 2
 billboard = 1
 texture = ExtResource( 17 )
 
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
-anchor_left = 0.038
-anchor_top = 0.696
-anchor_right = 0.194
-anchor_bottom = 0.987
-margin_left = 3.03999
-margin_top = 0.319946
-margin_right = 0.519989
-margin_bottom = 3.03992
-rect_min_size = Vector2( 150, 150 )
-color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
 
 [node name="IconMap_Player" type="Sprite3D" parent="MiniMap_UI"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.70752, 0 )
