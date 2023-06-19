@@ -24,7 +24,7 @@ func _ready():
 		startStage = true
 		start_level()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if goToElevator and selectedThis:
 		var dist = player.global_transform.origin.distance_to(pointerPosInside.global_transform.origin)
 		if dist < 0.5 and !changeStage and !startStage:
@@ -41,7 +41,7 @@ func _on_Area_Elevator_mouse_exited():
 	if !goToElevator:
 		$AnimationPlayer_Door.play("Close")
 		
-func _on_Area_Elevator_input_event(camera, event, position, normal, shape_idx):
+func _on_Area_Elevator_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("Click") and !goToElevator and !player.get_node("States/Battling").goFight:
 			$AnimationPlayer_Door.play("Open")

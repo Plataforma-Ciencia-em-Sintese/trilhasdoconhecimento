@@ -49,8 +49,6 @@ func _ready():
 	for i in GlobalValues.weapons[player.mainGun][2].size():
 #		if GlobalValues.weapons[player.mainGun][2][i][1] >= GlobalValues.levelPlayer:
 		itensATK.append(GlobalValues.weapons[player.mainGun][2][i])
-		print(GlobalValues.weapons[player.mainGun][2][i])
-		print(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.mainGun][2][i]][1])
 		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.mainGun][2][i]][1])
 #			break
 #		$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.add_child(ATKBtn)

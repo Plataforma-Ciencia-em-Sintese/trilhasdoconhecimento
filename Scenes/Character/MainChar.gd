@@ -39,7 +39,7 @@ func _ready():
 #	create_btns_battle("ATK")
 	create_btns_battle("Consum")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_select"):
 		print("Life - " + str(GlobalValues.lifeBoost) + "\nEnergy - " + str(GlobalValues.energyBoost) + "\nSpeedWalk - " + str(GlobalValues.speedBoostWalk) +  "\nSpeedRun - " + str(GlobalValues.speedBoostRun) + "\nAttack - " + str(GlobalValues.atkBoost))
 
@@ -61,6 +61,7 @@ func create_btns_battle(value):
 			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][3]
 			ATKBtn.lvlToUnlock = GlobalValues.atkItens.values()[i][4]
+			ATKBtn.check_lvl()
 			$Battle_UI/Weapon_Container.add_child(ATKBtn)
 
 		for i in GlobalValues.atkItensSec.size():
@@ -70,6 +71,7 @@ func create_btns_battle(value):
 			ATKBtn.icon = load(GlobalValues.atkItensSec.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItensSec.values()[i][3]
 			ATKBtn.lvlToUnlock = GlobalValues.atkItensSec.values()[i][4]
+			ATKBtn.check_lvl()
 			$Battle_UI/Weapon_Sec_Container.add_child(ATKBtn)
 		
 		yield(get_tree().create_timer(0.1),"timeout")
@@ -84,6 +86,7 @@ func create_btns_battle(value):
 			ATKInventBTN.icon = load(GlobalValues.atkItens.values()[i][1])
 			ATKInventBTN.lvlToUnlock = GlobalValues.atkItens.values()[i][4]
 			ATKInventBTN.disabled = true
+			ATKInventBTN.check_lvl()
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").add_child(ATKInventBTN)
 		
 		for i in GlobalValues.atkItensSec.size():
@@ -92,6 +95,7 @@ func create_btns_battle(value):
 			ATKInventBTN.icon = load(GlobalValues.atkItensSec.values()[i][1])
 			ATKInventBTN.lvlToUnlock = GlobalValues.atkItensSec.values()[i][4]
 			ATKInventBTN.disabled = true
+			ATKInventBTN.check_lvl()
 			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").add_child(ATKInventBTN)
 
 	elif value == "Consum":

@@ -30,7 +30,7 @@ func _ready():
 	get_node("Base/Cientistas/Skeleton/Cabelo").get_node(cabelo).get_node(corpo).show()
 	get_node("Base/Cientistas/Skeleton/Manga").get_node(mangas).get_node(corpo).show()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Quando clicar compara se pode conversar
 	if Input.is_action_just_pressed("Click"):
 		if canTalk:

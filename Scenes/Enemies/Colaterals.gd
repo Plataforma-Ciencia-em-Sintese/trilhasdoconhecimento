@@ -6,7 +6,7 @@ var stopParalize = false
 var stop = false
 var spark
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_visible_in_tree():
 		if paralized:
 			$Timer.start()

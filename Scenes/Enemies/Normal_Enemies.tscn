@@ -8,6 +8,27 @@
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Enemies/Colaterals.gd" type="Script" id=7]
 
+[sub_resource type="StyleBoxFlat" id=39]
+bg_color = Color( 0.521569, 1, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id=40]
+bg_color = Color( 0.00392157, 0.027451, 0, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.243137, 1, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [sub_resource type="CapsuleShape" id=19]
 radius = 2.49825
 height = 4.29013
@@ -1509,31 +1530,24 @@ params_use_alpha_scissor = true
 params_alpha_scissor_threshold = 0.98
 albedo_texture = SubResource( 41 )
 
-[sub_resource type="StyleBoxFlat" id=39]
-bg_color = Color( 0.521569, 1, 0, 1 )
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-corner_detail = 10
-
-[sub_resource type="StyleBoxFlat" id=40]
-bg_color = Color( 0.00392157, 0.027451, 0, 1 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color( 0.243137, 1, 0, 1 )
-border_blend = true
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-
 [sub_resource type="CubeMesh" id=43]
 
 [node name="Path_Enemy" type="PathFollow" groups=["RootEnemy"]]
 script = ExtResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 500, 500 )
+transparent_bg = true
+disable_3d = true
+
+[node name="BarLife" type="ProgressBar" parent="Viewport"]
+margin_top = 50.0
+margin_right = 500.0
+margin_bottom = 450.0
+custom_styles/fg = SubResource( 39 )
+custom_styles/bg = SubResource( 40 )
+value = 100.0
+percent_visible = false
 
 [node name="Enemy" type="KinematicBody" parent="."]
 input_ray_pickable = false
@@ -2045,19 +2059,6 @@ wait_time = 0.1
 
 [node name="Wait_to_Back" type="Timer" parent="."]
 one_shot = true
-
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 500, 500 )
-transparent_bg = true
-
-[node name="BarLife" type="ProgressBar" parent="Viewport"]
-margin_top = 50.0
-margin_right = 500.0
-margin_bottom = 450.0
-custom_styles/fg = SubResource( 39 )
-custom_styles/bg = SubResource( 40 )
-value = 100.0
-percent_visible = false
 
 [node name="LastPos" type="MeshInstance" parent="."]
 visible = false

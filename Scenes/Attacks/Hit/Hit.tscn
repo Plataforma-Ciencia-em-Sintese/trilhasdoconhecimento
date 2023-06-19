@@ -1,11 +1,3 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://Effects/Hit/Simple_SpawnMethod1.efkefc" type="Resource" id=1]
-[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=2]
+[gd_scene format=2]
 
 [node name="Hit" type="Spatial"]
-
-[node name="EffectHit" type="Spatial" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-script = ExtResource( 2 )
-effect = ExtResource( 1 )

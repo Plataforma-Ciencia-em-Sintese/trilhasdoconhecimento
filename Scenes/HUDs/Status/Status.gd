@@ -33,7 +33,7 @@ func _on_XP_Bar_value_changed(value):
 	if value >= 100:
 		grow_lvl()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("ui_select"):
 		$XP_Bar.value += 1
 	

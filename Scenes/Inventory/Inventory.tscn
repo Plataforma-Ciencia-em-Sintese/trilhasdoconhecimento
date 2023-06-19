@@ -25,6 +25,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background Chip.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/back_inventory.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Sabre habilidades.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=26]
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -37,10 +38,6 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=4]
 size = 17
 font_data = ExtResource( 4 )
-
-[sub_resource type="StreamTexture" id=5]
-flags = 4
-load_path = "res://.import/Component 9.png-5b92a724b240b6dbbb975d0295ca7186.stex"
 
 [sub_resource type="Theme" id=6]
 
@@ -68,14 +65,8 @@ margin_bottom = -16.0
 mouse_filter = 2
 
 [node name="back_inventory" type="TextureRect" parent="BG_Inventory"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -928.0
-margin_top = -492.0
-margin_right = 944.0
-margin_bottom = 501.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 24 )
 expand = true
 
@@ -509,11 +500,11 @@ valign = 1
 [node name="BT_Close" type="Button" parent="BG_Inventory"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -167.0
-margin_top = 26.0
-margin_right = -114.0
-margin_bottom = 71.0
-icon = SubResource( 5 )
+margin_left = -90.0
+margin_top = 32.0
+margin_right = -37.0
+margin_bottom = 77.0
+icon = ExtResource( 26 )
 flat = true
 expand_icon = true
 

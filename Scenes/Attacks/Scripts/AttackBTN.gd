@@ -22,10 +22,6 @@ onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 #		else:
 #			disabled = false
 
-func _ready():
-	yield(get_tree().create_timer(0.1),"timeout")
-	check_lvl()
-
 func _on_ATK_pressed():
 	if unlocked:
 		pointer.outInterface = false

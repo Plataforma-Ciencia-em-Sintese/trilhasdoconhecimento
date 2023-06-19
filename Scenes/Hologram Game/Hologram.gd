@@ -36,7 +36,6 @@ func _ready():
 	mat = $Base.get_surface_material(0).next_pass
 	mat.set_shader_param("enable", false)
 	$Arrow.hide()
-	$Hologram_Effect.hide()
 	$Face.hide()
 	$"Base/Projector/Light Volume 2".hide()
 	$"Base/Projector/Light Volume 3".hide()
@@ -74,7 +73,6 @@ func talk_to_player():
 	player.hide()
 	pointer.hide()
 	yield(get_tree().create_timer(1),"timeout")
-	$Hologram_Effect.show()
 	QuestManager.get_node("Buttons_Diary").hide()
 	yield(get_tree().create_timer(1.5),"timeout")
 	$Face.show()
@@ -134,7 +132,6 @@ func dialogic_signal(arg):
 		pointer.isStopped = false
 		yield(get_tree().create_timer(2),"timeout")
 		startInteract = false
-		$Hologram_Effect.hide()
 		
 func _on_AreaHologram_mouse_entered():
 	# Se o mouse tocar no NPC e ele ja nao estiver em colisão, habilita o dialogo
@@ -168,7 +165,7 @@ func _on_AreaHologram_body_exited(body):
 		touchingNPC = false
 		pointer.isStopped = false
 
-func _on_AnimationPlayerUI_animation_finished(anim_name):
+func _on_AnimationPlayerUI_animation_finished(_anim_name):
 	get_tree().change_scene("res://Scenes/Hologram Game/Teleport.tscn")
 
 func set_quest():

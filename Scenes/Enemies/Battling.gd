@@ -10,7 +10,7 @@ var backToPatrol = false
 var player
 var clone
 var getOwner
-var explosion = load("res://Effects/Toon Explosion/Explosion.tscn")
+#var explosion = load("res://Effects/Toon Explosion/Explosion.tscn")
 var hit = load("res://Scenes/Attacks/Hit/Hit.tscn")
 var bigHit = load("res://Scenes/Attacks/Big Hit/Big Hit.tscn")
 var dir
@@ -56,8 +56,8 @@ func start_battle():
 			self.hide()
 			backToPatrol = true
 		else:
-			var dir = getOwner.get_node("LastPos").global_transform.origin - getOwner.get_node("Enemy").global_transform.origin
-			var vel = dir * speed
+			dir = getOwner.get_node("LastPos").global_transform.origin - getOwner.get_node("Enemy").global_transform.origin
+			vel = dir * speed
 			getOwner.get_node("Enemy").look_at(getOwner.get_node("LastPos").global_transform.origin,Vector3.UP)
 			getOwner.get_node("Enemy").move_and_slide(vel.normalized(),Vector3.UP)
 
@@ -65,9 +65,9 @@ func check_life():
 	if getOwner.get_node("Viewport/BarLife").value <= 0:
 		player.get_node("States/Battling").actualEnemy = null
 		player.get_node("States/Battling").end_fight()
-		var spawnExplosion = explosion.instance()
-		owner.owner.add_child(spawnExplosion)
-		spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)
+#		var spawnExplosion = explosion.instance()
+#		owner.owner.add_child(spawnExplosion)
+#		spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)
 		owner.queue_free()
 
 func _on_Damage_Area_area_entered(area):

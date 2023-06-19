@@ -14,7 +14,7 @@ func _ready():
 	camera = get_node(camera)
 #	change_position()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Rotaciona o objeto Arrow
 	rotate_y(0.1)
 

@@ -1,11 +1,9 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://3D/Hologram/Model/DiscPlayer.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://3D/Hologram/Model/Base.tres" type="ArrayMesh" id=2]
 [ext_resource path="res://3D/Hologram/Model/Projector.tres" type="ArrayMesh" id=3]
 [ext_resource path="res://Scenes/Hologram Game/Hologram.gd" type="Script" id=4]
-[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=5]
-[ext_resource path="res://Effects/Hologram/Simple_Distortion.efkefc" type="Resource" id=6]
 [ext_resource path="res://3D/Hologram/Material/Atlas.material" type="Material" id=7]
 [ext_resource path="res://3D/Hologram/Hologram Material.tres" type="Material" id=8]
 [ext_resource path="res://3D/Hologram/Model/Circular Frame.tres" type="ArrayMesh" id=9]
@@ -220,28 +218,6 @@ shape = SubResource( 985 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.999914, -0.000399737, 0.0130835, 0, 0.999534, 0.0305385, -0.0130896, -0.0305359, 0.999448, 0.159825, 2.27002, 5.23116 )
 current = true
-
-[node name="Hologram_Effect" type="Spatial" parent="."]
-transform = Transform( 0.374663, 0, 0, 0, 0.374663, 0, 0, 0, 0.374663, 0, 1.21816, 0 )
-visible = false
-script = ExtResource( 5 )
-effect = ExtResource( 6 )
-
-[node name="Light Volume 1" type="MeshInstance" parent="Hologram_Effect"]
-transform = Transform( -5.1271e-08, -1.01353e-07, -2.9291, -1.17255, 0.824473, 0, 0.699313, 1.38241, -7.6335e-08, -0.0264579, 2.1888, -5.76863 )
-mesh = SubResource( 976 )
-skeleton = NodePath("../../..")
-material/0 = SubResource( 978 )
-
-[node name="Light Volume Suport" type="MeshInstance" parent="Hologram_Effect/Light Volume 1"]
-transform = Transform( 0.688963, -4.17233e-07, 0, 8.9407e-08, 1, 0, 0, 0, 1, -0.776661, 0.300362, 0 )
-mesh = SubResource( 976 )
-skeleton = NodePath("../../../..")
-material/0 = SubResource( 978 )
-
-[node name="OmniLight" type="OmniLight" parent="Hologram_Effect"]
-transform = Transform( 3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 2.41233, 0 )
-light_color = Color( 0.396078, 0.992157, 0.823529, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/End = SubResource( 990 )
