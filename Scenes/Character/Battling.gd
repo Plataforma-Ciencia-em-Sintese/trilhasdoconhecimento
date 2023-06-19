@@ -17,7 +17,7 @@ func _ready():
 	animator = owner.get_node("AnimationTree")
 	pointer = get_tree().get_nodes_in_group("Pointer")[0]
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if goFight:
 		start_fight()
 

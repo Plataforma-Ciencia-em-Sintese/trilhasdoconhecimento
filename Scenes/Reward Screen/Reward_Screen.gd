@@ -100,7 +100,7 @@ func set_reward():
 	else:
 		container.get_child(1).hide()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if stopPlayer:
 		player.get_node("States/Move").hide()
 		pointer.outInterface = false

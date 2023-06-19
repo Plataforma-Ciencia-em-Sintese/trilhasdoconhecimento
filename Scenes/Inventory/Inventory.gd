@@ -30,7 +30,7 @@ func _ready():
 	weaponIconInvent.iconITN = load(GlobalValues.weapons[player.mainGun][0])
 	weaponIconStage.icon = load(GlobalValues.weapons[player.mainGun][0])
 	weaponIconStage.weapon = player.mainGun
-#	weaponIconInvent.disabled = true
+	weaponIconInvent.disabled = true
 #	weaponIconStage.disabled = true
 	$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.add_child(weaponIconInvent)
 	player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponIconStage)
@@ -40,7 +40,7 @@ func _ready():
 	weaponIconInventSec.iconITN = load(GlobalValues.weapons[player.secGun][0])
 	weaponIconStageSec.icon = load(GlobalValues.weapons[player.secGun][0])
 	weaponIconStageSec.weapon = player.secGun
-#	weaponIconInventSec.disabled = true
+	weaponIconInventSec.disabled = true
 #	weaponIconStageSec.disabled = true
 	$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.add_child(weaponIconInventSec)
 	player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(weaponIconStageSec)
@@ -48,8 +48,8 @@ func _ready():
 	var ATKBtn = inventBTN.instance()
 	for i in GlobalValues.weapons[player.mainGun][2].size():
 #		if GlobalValues.weapons[player.mainGun][2][i][1] >= GlobalValues.levelPlayer:
-		itensATK.append(GlobalValues.weapons[player.mainGun][2][i][0])
-		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.mainGun][2][i][0]][1])
+		itensATK.append(GlobalValues.weapons[player.mainGun][2][i])
+		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.mainGun][2][i]][1])
 #			break
 #		$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.add_child(ATKBtn)
 		ATKBtn.disabled = true
@@ -59,8 +59,8 @@ func _ready():
 #------------------------------------------------
 	for i in GlobalValues.weapons[player.secGun][2].size():
 #		if GlobalValues.weapons[player.mainGun][2][i][1] >= GlobalValues.levelPlayer:
-		itensATKSec.append(GlobalValues.weapons[player.secGun][2][i][0])
-		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.secGun][2][i][0]][1])
+		itensATKSec.append(GlobalValues.weapons[player.secGun][2][i])
+		ATKBtn.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[player.secGun][2][i]][1])
 #			break
 #		$BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo.add_child(ATKBtn)
 		ATKBtn.disabled = true
@@ -98,7 +98,6 @@ func _ready():
 		$BG_Inventory/Title_Weapons/Weapons_Itens.add_child(weaponsBtn)
 		
 func _on_BT_Inventario_pressed():
-	
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
 	player.get_node("Battle_UI").hide()
@@ -163,7 +162,7 @@ func _on_BT_Close_pressed():
 		get_tree().get_nodes_in_group("BattleUI")[0].show()
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("Back").show()
 		get_tree().get_nodes_in_group("QuestManager")[0].get_node("Buttons_Diary").show()
-	change_battle_itens()
+		change_battle_itens()
 	
 	get_tree().paused = false
 

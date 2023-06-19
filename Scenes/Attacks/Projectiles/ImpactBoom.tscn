@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=1]
 [ext_resource path="res://Scenes/Attacks/Projectiles/Energy_Ball.gd" type="Script" id=2]
-[ext_resource path="res://Effects/Impact Boom/Impact Boom.efkefc" type="Resource" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.682471
@@ -10,11 +8,6 @@ radius = 0.682471
 [node name="Impact_Drill" type="Area" groups=["EnergyBall"]]
 script = ExtResource( 2 )
 speed = -5
-
-[node name="EffekseerEmitter" type="Spatial" parent="."]
-transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0 )
-script = ExtResource( 1 )
-effect = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

@@ -124,7 +124,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/proton_trail-master/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg" )
 
 [global]
 

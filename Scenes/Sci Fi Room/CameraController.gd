@@ -12,7 +12,7 @@ func _ready():
 	anchorCam1 = get_node(anchorCam1)
 	anchorCam2 = get_node(anchorCam2)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("R_Click") and !geralLerp:
 		setCam = !setCam
 	

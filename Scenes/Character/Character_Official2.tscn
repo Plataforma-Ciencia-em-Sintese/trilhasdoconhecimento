@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -8251,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.0627907, -0.998027, -1.9896e-08, 1.13565e-07, -5.35401e-08, 1, -0.998025, -0.0627898, 1.1031e-07, -0.653273, 1.06254, -0.01179 )
+transform = Transform( -0.00145307, -0.0110976, -0.999938, -0.345722, -0.938274, 0.0109159, -0.938334, 0.345716, -0.00247137, -0.293117, 0.593739, 0.0775495 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.0627907, 0.998027, 1.9896e-08, -1.13565e-07, -5.35401e-08, 1, 0.998025, -0.0627898, 1.1031e-07, 0.653273, 1.06254, -0.01179 )
+transform = Transform( -0.00145307, 0.0110977, 0.999938, 0.345722, -0.938274, 0.0109159, 0.938334, 0.345716, -0.00247149, 0.293117, 0.593739, 0.0775495 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8341,22 +8341,24 @@ texture = ExtResource( 17 )
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
-margin_left = 16.0
-margin_top = 14.0
-margin_right = 166.0
-margin_bottom = 164.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = -280.0
+margin_right = 300.0
+margin_bottom = -30.0
 rect_min_size = Vector2( 150, 150 )
 color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="MiniMap_UI/ColorRect"]
-anchor_right = 1.5
-anchor_bottom = 1.5
-margin_right = -50.0
-margin_bottom = -50.0
+anchor_left = 0.004
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
 rect_min_size = Vector2( 150, 150 )
 
 [node name="Viewport" type="Viewport" parent="MiniMap_UI/ColorRect/ViewportContainer"]
-size = Vector2( 150, 150 )
+size = Vector2( 200, 200 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3

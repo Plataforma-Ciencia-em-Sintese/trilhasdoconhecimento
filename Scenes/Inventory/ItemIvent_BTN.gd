@@ -75,8 +75,8 @@ func _on_BT_Equip_pressed():
 			var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
 			for i in GlobalValues.weapons[nameITN][2].size():
 	#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
-				invent.itensATKSec.append(GlobalValues.weapons[nameITN][2][i][0])
-				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
+				invent.itensATKSec.append(GlobalValues.weapons[nameITN][2][i])
+				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i]][1])
 	#				break
 	#		if QuestManager.isInQuest:
 			invent.change_battle_itens()
@@ -99,8 +99,8 @@ func _on_BT_Equip_pressed():
 			var passive = load("res://Scenes/Inventory/ItemIvent_BTN.tscn").instance()
 			for i in GlobalValues.weapons[nameITN][2].size():
 	#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
-				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i][0])
-				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i][0]][1])
+				invent.itensATK.append(GlobalValues.weapons[nameITN][2][i])
+				passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i]][1])
 	#				break
 	#		if QuestManager.isInQuest:
 			invent.change_battle_itens()

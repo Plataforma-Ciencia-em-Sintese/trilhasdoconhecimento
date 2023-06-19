@@ -9,7 +9,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Login_Icon.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Jogar_Icon.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/HUDs/Options/Options.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 9.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=16]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -26,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -192.0
-margin_top = -175.5
-margin_right = 64.0
-margin_bottom = 65.5
+margin_left = -223.0
+margin_top = -222.0
+margin_right = 77.0
+margin_bottom = 78.0
 rect_scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 expand = true
@@ -37,10 +37,10 @@ expand = true
 [node name="NameGame" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -320.0
-margin_top = 46.0
-margin_right = 320.0
-margin_bottom = 106.0
+margin_left = -387.5
+margin_top = 96.0
+margin_right = 387.5
+margin_bottom = 238.0
 custom_colors/font_color = Color( 0.145098, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.992157, 0.992157, 0.992157, 1 )
@@ -54,17 +54,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -119.0
-margin_top = -110.0
-margin_right = 277.0
-margin_bottom = 45.0
+margin_left = -133.0
+margin_top = -183.0
+margin_right = 315.0
+margin_bottom = 34.0
 rect_scale = Vector2( 0.6, 0.6 )
 alignment = 1
 
 [node name="Play" type="Button" parent="Buttons"]
-margin_left = 65.0
-margin_right = 192.0
-margin_bottom = 155.0
+margin_left = 91.0
+margin_right = 218.0
+margin_bottom = 217.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
@@ -73,9 +73,9 @@ flat = true
 icon_align = 1
 
 [node name="Configure" type="Button" parent="Buttons"]
-margin_left = 196.0
-margin_right = 330.0
-margin_bottom = 155.0
+margin_left = 222.0
+margin_right = 356.0
+margin_bottom = 217.0
 rect_min_size = Vector2( 0.051, 0 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )

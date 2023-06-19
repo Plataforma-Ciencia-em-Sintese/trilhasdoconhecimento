@@ -1,10 +1,3 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://addons/effekseer/src/EffekseerEmitter.gdns" type="Script" id=1]
-[ext_resource path="res://Effects/Big Hit/Big Hit.efkefc" type="Resource" id=2]
+[gd_scene format=2]
 
 [node name="Big Hit" type="Spatial"]
-
-[node name="EffekseerEmitter" type="Spatial" parent="."]
-script = ExtResource( 1 )
-effect = ExtResource( 2 )

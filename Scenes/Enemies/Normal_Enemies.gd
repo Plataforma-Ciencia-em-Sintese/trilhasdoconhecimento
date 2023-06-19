@@ -21,7 +21,7 @@ func _on_Looking_Zone_body_entered(body):
 		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 
 func _on_Looking_Zone_body_exited(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and $Viewport/BarLife.value > 0:
 		$Wait_to_Back.start(3)
 		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color( 0.956863, 0.643137, 0.376471, 0.05)
 
@@ -30,7 +30,7 @@ func disable_looking_collision():
 	yield(get_tree().create_timer(2),"timeout")
 	$Enemy/Looking_Zone/CollisionShape.set_deferred("disabled",false)
 
-func _on_Looking_Zone_input_event(camera, event, position, normal, shape_idx):
+func _on_Looking_Zone_input_event(_camera, _event, _position, _normal, _shape_idx):
 	if Input.is_action_just_pressed("Click"):
 		var playerBattle = player.get_node("States/Battling")
 		playerBattle.show()
