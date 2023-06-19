@@ -16,7 +16,7 @@
 [ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
-[ext_resource path="res://Textures/Prototype/texture_08.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/back_inventory.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -8251,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.00129282, -0.0141101, -0.9999, -0.23265, -0.972468, 0.0134223, -0.972558, 0.232609, -0.00453807, -0.293459, 0.593808, 0.0650486 )
+transform = Transform( 0.000174791, -0.0123626, -0.999924, -0.0778249, -0.996892, 0.0123115, -0.996965, 0.0778171, -0.00113441, -0.293172, 0.593474, 0.0489839 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.00129271, 0.0141104, 0.9999, 0.23265, -0.972468, 0.0134226, 0.972558, 0.23261, -0.00453797, 0.293459, 0.593808, 0.0650486 )
+transform = Transform( 0.000174731, 0.0123628, 0.999924, 0.077825, -0.996892, 0.0123117, 0.996965, 0.0778173, -0.00113435, 0.293172, 0.593474, 0.0489839 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8333,48 +8333,54 @@ projection = 1
 size = 4.13227
 
 [node name="BG_Invent" type="Sprite3D" parent="Base"]
-transform = Transform( 5.86917, 0, 0, 0, 5.86917, 0, 0, 0, 5.86917, 0, 1.39228, -1.60569 )
-visible = false
+transform = Transform( 0.436844, 0, 0, 0, 0.491581, 0, 0, 0, 0.491581, -0.104, -0.3, -1.067 )
 layers = 2
+billboard = 1
 texture = ExtResource( 17 )
 
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = -280.0
-margin_right = 300.0
-margin_bottom = -30.0
+anchor_left = 0.035
+anchor_top = 0.696
+anchor_right = 0.192
+anchor_bottom = 0.974
+margin_left = 5.8
+margin_top = 0.319946
+margin_right = 4.35999
+margin_bottom = 20.08
 rect_min_size = Vector2( 150, 150 )
 color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
-
-[node name="ViewportContainer" type="ViewportContainer" parent="MiniMap_UI/ColorRect"]
-anchor_left = 0.004
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -1.0
-rect_min_size = Vector2( 150, 150 )
-
-[node name="Viewport" type="Viewport" parent="MiniMap_UI/ColorRect/ViewportContainer"]
-size = Vector2( 200, 200 )
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 3
-
-[node name="Camera_Minimap" type="Camera" parent="MiniMap_UI/ColorRect/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 6.30899, -10.0854 )
-projection = 1
-current = true
-size = 10.0
-script = ExtResource( 19 )
-target = NodePath("../../../../..")
 
 [node name="IconMap_Player" type="Sprite3D" parent="MiniMap_UI"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.70752, 0 )
 visible = false
 texture = ExtResource( 20 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="MiniMap_UI"]
+anchor_left = 0.045
+anchor_top = 0.7
+anchor_right = 0.179
+anchor_bottom = 0.932
+margin_left = -0.400002
+margin_top = -6.10352e-05
+margin_right = -0.680023
+margin_bottom = 0.439941
+rect_min_size = Vector2( 150, 150 )
+
+[node name="Viewport" type="Viewport" parent="MiniMap_UI/ViewportContainer"]
+size = Vector2( 200, 200 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera_Minimap" type="Camera" parent="MiniMap_UI/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 6.30899, -10.0854 )
+projection = 1
+current = true
+size = 10.0
+script = ExtResource( 19 )
+target = NodePath("../../../..")
 
 [node name="TabletInformation" parent="." instance=ExtResource( 18 )]
 visible = false
