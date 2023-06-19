@@ -219,7 +219,6 @@ shape = SubResource( 985 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.999914, -0.000399737, 0.0130835, 0, 0.999534, 0.0305385, -0.0130896, -0.0305359, 0.999448, 0.159825, 2.27002, 5.23116 )
-current = true
 
 [node name="Hologram_Effect" type="Spatial" parent="."]
 transform = Transform( 0.374663, 0, 0, 0, 0.374663, 0, 0, 0, 0.374663, 0, 1.21816, 0 )

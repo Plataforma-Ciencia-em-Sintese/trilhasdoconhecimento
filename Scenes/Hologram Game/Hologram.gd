@@ -152,8 +152,9 @@ func _on_AreaHologram_mouse_exited():
 		
 func _on_AreaHologram_body_entered(body):
 	if body.is_in_group("Player"):
-		for i in elevators.size():
-			get_tree().get_nodes_in_group("Elevator")[i].owner.goToElevator = true
+		print("Okay")
+#		for i in elevators.size():
+#			get_tree().get_nodes_in_group("Elevator")[i].owner.goToElevator = true
 			
 		# Ativa a bool de toque
 		touchingNPC = true

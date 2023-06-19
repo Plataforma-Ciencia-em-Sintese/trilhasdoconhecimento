@@ -6126,7 +6126,7 @@ backTo = "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
 skinType = "Armadura"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148256, 1.56348, -13.4223 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166593, 1.47445, -13.391 )
 mainChar = "Ariel"
 
 [node name="Camera" type="Camera" parent="Player" groups=["Camera"]]

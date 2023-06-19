@@ -11,7 +11,7 @@ dest_files=[ "res://.import/Elevador.gltf-314a5e76e95a96bc2a1532ec41bcf104.scn" 
 
 [params]
 
-nodes/root_type="Spatial"
+nodes/root_type="MeshInstance"
 nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
