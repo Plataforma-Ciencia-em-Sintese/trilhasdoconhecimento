@@ -2,7 +2,7 @@ extends Node
 
 # Seleção de personagens
 var nameChar = "Yara"
-var skinChar = "Normal"
+var skinChar = "Armadura"
 
 # Controle de cena batalha/mundo real
 var whiteScreen = false
@@ -34,6 +34,13 @@ var atkBoostWeapon = 0
 var energyBoostWeapon = 0
 var speedBoostWalkWeapon = 0
 var speedBoostRunWeapon = 0
+
+# Valor ataque armas
+var espadaValue = 35
+var varinhaValue = 15
+var manoplaValue = 50
+var escudoValue = 5
+var arcoValue = 10
 
 # itens do inventário
 var atkItens = {

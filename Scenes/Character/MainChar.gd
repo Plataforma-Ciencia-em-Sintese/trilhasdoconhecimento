@@ -39,6 +39,8 @@ func _ready():
 #	create_btns_battle("ATK")
 	create_btns_battle("Consum")
 
+	set_attributes()
+
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_select"):
 		print("Life - " + str(GlobalValues.lifeBoost) + "\nEnergy - " + str(GlobalValues.energyBoost) + "\nSpeedWalk - " + str(GlobalValues.speedBoostWalk) +  "\nSpeedRun - " + str(GlobalValues.speedBoostRun) + "\nAttack - " + str(GlobalValues.atkBoost))
@@ -189,24 +191,6 @@ func change_weapons_in_game(weapon):
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
 		
 func choose_chip(value):
-	print("LIFEBOOST ATUAL " + str(GlobalValues.lifeBoost))
-	print("ENERGY ATUAL " + str(GlobalValues.energyBoost))
-	print("ATK ATUAL " + str(GlobalValues.atkBoost))
-	print("SPEEDWALK ATUAL " + str(GlobalValues.speedBoostWalk))
-	print("SPEEDRUN ATUAL " + str(GlobalValues.speedBoostRun))
-	
-	GlobalValues.lifeBoost -= GlobalValues.lifeBoostChip
-	GlobalValues.energyBoost -= GlobalValues.energyBoostChip
-	GlobalValues.atkBoost -= GlobalValues.atkBoostChip
-	GlobalValues.speedBoostWalk -= GlobalValues.speedBoostWalkChip
-	GlobalValues.speedBoostRun -= GlobalValues.speedBoostRunChip
-	
-	GlobalValues.lifeBoostChip = 0
-	GlobalValues.energyBoostChip = 0
-	GlobalValues.atkBoostChip = 0
-	GlobalValues.speedBoostWalkChip = 0
-	GlobalValues.speedBoostRunChip = 0
-
 	if value != "":
 		var chipScene = load(value).instance()
 		$Base/Skeleton.add_child(chipScene)
@@ -228,108 +212,177 @@ func choose_chip(value):
 		GlobalValues.atkBoost = 0
 		GlobalValues.speedBoostWalk = 0
 		GlobalValues.speedBoostRun = 0
-		print("limpapapa")
 	
 	print("LIFEBOOST MUDADO " + str(GlobalValues.lifeBoost))
 	print("ENERGY MUDADO " + str(GlobalValues.energyBoost))
 	print("ATK MUDADO " + str(GlobalValues.atkBoost))
 	print("SPEEDWALK MUDADO " + str(GlobalValues.speedBoostWalk))
-	print("SPEEDRUN MUDADO " + str(GlobalValues.speedBoostRun))
+	print("SPEEDRUN MUDADO " + str(GlobalValues.speedBoostRun) + "\n")
+	change_UI_status()
 		
 func set_attributes():
-	pass
-#	GlobalValues.lifeBoost -= GlobalValues.lifeBoostWeapon
-#	GlobalValues.energyBoost -= GlobalValues.energyBoostWeapon
-#	GlobalValues.atkBoost -= GlobalValues.atkBoostWeapon
-#	GlobalValues.speedBoostWalk -= GlobalValues.speedBoostWalkWeapon
-#	GlobalValues.speedBoostRun -= GlobalValues.speedBoostRunWeapon
-#
-#	GlobalValues.lifeBoostWeapon = 0
-#	GlobalValues.energyBoostWeapon = 0
-#	GlobalValues.atkBoostWeapon = 0
-#	GlobalValues.speedBoostWalkWeapon = 0
-#	GlobalValues.speedBoostRunWeapon = 0
-#
-#	#Cominacoes de armas
-#	if mainGun == "Espada" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Espada":
-#		GlobalValues.lifeBoostWeapon += 25
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 1
-#	elif mainGun == "Manopla" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Manopla":
-#		GlobalValues.lifeBoostWeapon += 15
-#		GlobalValues.atkBoostWeapon -= 2
-#		GlobalValues.speedBoostWalkWeapon += 1
-#		GlobalValues.speedBoostRunWeapon += 1
-#	elif mainGun == "Espada" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Espada":
-#		GlobalValues.lifeBoostWeapon += 10
-#		GlobalValues.speedBoostWalkWeapon += 2
-#		GlobalValues.speedBoostRunWeapon += 2
-#	elif mainGun == "Varinha" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon += 5
-#		GlobalValues.speedBoostWalkWeapon -= 3
-#		GlobalValues.speedBoostRunWeapon -= 3
-#		GlobalValues.atkBoostWeapon += 2
-#	elif mainGun == "Arco" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Arco":
-#		GlobalValues.lifeBoostWeapon += 5
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 2
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 1
-#	elif mainGun == "Varinha" and secGun == "Espada" or mainGun == "Espada" and secGun == "Varinha":
-#		GlobalValues.atkBoostWeapon += 4
-#		GlobalValues.speedBoostWalkWeapon -= 2
-#		GlobalValues.speedBoostRunWeapon -= 2
-#	elif mainGun == "Arco" and secGun == "Espada" or mainGun == "Espada" and secGun == "Arco":
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.speedBoostWalkWeapon += 4
-#		GlobalValues.speedBoostRunWeapon += 4
-#	elif mainGun == "Varinha" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 2
-#	elif mainGun == "Arco" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Arco":
-#		GlobalValues.lifeBoostWeapon -= 10
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 2
-#		GlobalValues.speedBoostWalkWeapon += 2
-#		GlobalValues.speedBoostRunWeapon += 2
-#	elif mainGun == "Varinha" and secGun == "Arco" or mainGun == "Arco" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon -= 20
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 6
-#		GlobalValues.speedBoostWalkWeapon -= 2
-#		GlobalValues.speedBoostRunWeapon -= 2
-#	# Armas Solo
-#	elif mainGun == "Varinha" and secGun == "":
-#		GlobalValues.lifeBoostWeapon -= 100/3
-#		GlobalValues.atkBoostWeapon += 100/2
-#		GlobalValues.speedBoostWalkWeapon -= 100/2
-#		GlobalValues.speedBoostRunWeapon -= 100/2
-#	elif mainGun == "Arco" and secGun == "":
-#		GlobalValues.lifeBoostWeapon -= 100/3
-#		GlobalValues.energyBoostWeapon -= 100/3
-#		GlobalValues.atkBoostWeapon += 100/2
-#	elif mainGun == "Espada" and secGun == "":
-#		GlobalValues.lifeBoostWeapon += 100/3
-#		GlobalValues.atkBoostWeapon += 100/6
-#	elif mainGun == "Manopla" and secGun == "":
-#		GlobalValues.speedBoostWalkWeapon += 100/2
-#		GlobalValues.speedBoostRunWeapon += 100/2
-#		GlobalValues.atkBoostWeapon -= 100/6
-#	elif mainGun == "Escudo" and secGun == "":
-#		GlobalValues.lifeBoostWeapon += 100/2
-#		GlobalValues.atkBoostWeapon -= 100/6
-#		GlobalValues.speedBoostWalkWeapon -= $States/Move.speedWalkChoosed/4
-#		GlobalValues.speedBoostRunWeapon -= $States/Move.speedRunChoosed/4
-#
-#	GlobalValues.lifeBoost += GlobalValues.lifeBoostWeapon
-#	GlobalValues.energyBoost += GlobalValues.energyBoostWeapon
-#	GlobalValues.atkBoost += GlobalValues.atkBoostWeapon
-#	GlobalValues.speedBoostWalk += GlobalValues.speedBoostWalkWeapon
-#	GlobalValues.speedBoostRun += GlobalValues.speedBoostRunWeapon
+	GlobalValues.lifeBoost -= GlobalValues.lifeBoostWeapon
+	GlobalValues.energyBoost -= GlobalValues.energyBoostWeapon
+	GlobalValues.atkBoost -= GlobalValues.atkBoostWeapon
+	GlobalValues.speedBoostWalk -= GlobalValues.speedBoostWalkWeapon
+	GlobalValues.speedBoostRun -= GlobalValues.speedBoostRunWeapon
+
+	GlobalValues.lifeBoostWeapon = 0
+	GlobalValues.energyBoostWeapon = 0
+	GlobalValues.atkBoostWeapon = 0
+	GlobalValues.speedBoostWalkWeapon = 0
+	GlobalValues.speedBoostRunWeapon = 0
+	$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = 0
+	$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = 0"
+	$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = 0"
+
+#	Combinacoes de armas
+	if mainGun == "Espada" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Espada":
+		GlobalValues.lifeBoostWeapon += 25
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 1
+	elif mainGun == "Manopla" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Manopla":
+		GlobalValues.lifeBoostWeapon += 15
+		GlobalValues.atkBoostWeapon -= 2
+		GlobalValues.speedBoostWalkWeapon += 1
+		GlobalValues.speedBoostRunWeapon += 1
+	elif mainGun == "Espada" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Espada":
+		GlobalValues.lifeBoostWeapon += 10
+		GlobalValues.speedBoostWalkWeapon += 2
+		GlobalValues.speedBoostRunWeapon += 2
+	elif mainGun == "Varinha" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Varinha":
+		GlobalValues.lifeBoostWeapon += 5
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 3
+		GlobalValues.atkBoostWeapon += 2
+	elif mainGun == "Arco" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Arco":
+		GlobalValues.lifeBoostWeapon += 5
+		GlobalValues.energyBoostWeapon -= 10
+		GlobalValues.atkBoostWeapon += 2
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 1
+	elif mainGun == "Varinha" and secGun == "Espada" or mainGun == "Espada" and secGun == "Varinha":
+		GlobalValues.atkBoostWeapon += 4
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 2
+	elif mainGun == "Arco" and secGun == "Espada" or mainGun == "Espada" and secGun == "Arco":
+		GlobalValues.energyBoostWeapon -= 10
+		GlobalValues.speedBoostWalkWeapon += 4
+		GlobalValues.speedBoostRunWeapon += 4
+	elif mainGun == "Varinha" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Varinha":
+		GlobalValues.lifeBoostWeapon -= 10
+		GlobalValues.atkBoostWeapon += 2
+	elif mainGun == "Arco" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Arco":
+		GlobalValues.lifeBoostWeapon -= 10
+		GlobalValues.energyBoostWeapon -= 10
+		GlobalValues.atkBoostWeapon += 2
+		GlobalValues.speedBoostWalkWeapon += 2
+		GlobalValues.speedBoostRunWeapon += 2
+	elif mainGun == "Varinha" and secGun == "Arco" or mainGun == "Arco" and secGun == "Varinha":
+		GlobalValues.lifeBoostWeapon -= 20
+		GlobalValues.energyBoostWeapon -= 10
+		GlobalValues.atkBoostWeapon += 6
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 2
+	# Armas Solo
+	elif mainGun == "Varinha" and secGun == "":
+		GlobalValues.lifeBoostWeapon -= 2
+		GlobalValues.atkBoostWeapon += 2
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 2
+	elif mainGun == "" and secGun == "Varinha":
+		GlobalValues.lifeBoostWeapon -= 2
+		GlobalValues.atkBoostWeapon += 2
+		GlobalValues.speedBoostWalkWeapon -= 1
+		GlobalValues.speedBoostRunWeapon -= 2
+	elif mainGun == "Arco" and secGun == "":
+		GlobalValues.lifeBoostWeapon -= 3
+		GlobalValues.energyBoostWeapon -= 3
+		GlobalValues.atkBoostWeapon += 3
+	elif mainGun == "" and secGun == "Arco":
+		GlobalValues.lifeBoostWeapon -= 3
+		GlobalValues.energyBoostWeapon -= 3
+		GlobalValues.atkBoostWeapon += 3
+	elif mainGun == "Espada" and secGun == "":
+		GlobalValues.lifeBoostWeapon += 4
+		GlobalValues.atkBoostWeapon += 4
+	elif mainGun == "" and secGun == "Espada":
+		GlobalValues.lifeBoostWeapon += 4
+		GlobalValues.atkBoostWeapon += 4
+	elif mainGun == "Manopla" and secGun == "":
+		GlobalValues.speedBoostWalkWeapon += 5
+		GlobalValues.speedBoostRunWeapon += 5
+		GlobalValues.atkBoostWeapon -= 5
+	elif mainGun == "" and secGun == "Manopla":
+		GlobalValues.speedBoostWalkWeapon += 5
+		GlobalValues.speedBoostRunWeapon += 5
+		GlobalValues.atkBoostWeapon -= 5
+	elif mainGun == "Escudo" and secGun == "":
+		GlobalValues.lifeBoostWeapon += 4
+		GlobalValues.atkBoostWeapon -= 100/6
+		GlobalValues.speedBoostWalkWeapon -= $States/Move.speedWalkChoosed/4
+		GlobalValues.speedBoostRunWeapon -= $States/Move.speedRunChoosed/4
+	elif mainGun == "" and secGun == "Escudo":
+		GlobalValues.lifeBoostWeapon += 4
+		GlobalValues.atkBoostWeapon -= 100/6
+		GlobalValues.speedBoostWalkWeapon -= $States/Move.speedWalkChoosed/4
+		GlobalValues.speedBoostRunWeapon -= $States/Move.speedRunChoosed/4
+	else:
+		print("sem combinacao de armas")
+		
+	GlobalValues.lifeBoost += GlobalValues.lifeBoostWeapon
+	GlobalValues.energyBoost += GlobalValues.energyBoostWeapon
+	GlobalValues.atkBoost += GlobalValues.atkBoostWeapon
+	GlobalValues.speedBoostWalk += GlobalValues.speedBoostWalkWeapon
+	GlobalValues.speedBoostRun += GlobalValues.speedBoostRunWeapon
 	
+	change_UI_status()
+
 func change_UI_status():
 	$Status/Life_Bar.max_value = 100 + GlobalValues.lifeBoost
 	$Status/Energy_Bar.max_value = 100 + GlobalValues.energyBoost
 	$States/Move.speedRun = $States/Move.speedRunChoosed + GlobalValues.speedBoostRun
 	$States/Move.speedWalk = $States/Move.speedWalkChoosed + GlobalValues.speedBoostWalk
-	print("mudado")
+	#------
+	$Inventory/BG_Inventory/Info_BG/Life/Bar_Life.value = $Status/Life_Bar.max_value
+	$Inventory/BG_Inventory/Info_BG/Life/N_Life.text = "Saude = " + str($Status/Life_Bar.max_value)
+	
+	$Inventory/BG_Inventory/Info_BG/Energy/Bar_Energy.value = 100 + $Status/Energy_Bar.max_value
+	$Inventory/BG_Inventory/Info_BG/Energy/N_Energy.text = "Energia = " + str($Status/Energy_Bar.max_value)
+	
+	$Inventory/BG_Inventory/Info_BG/Velocity/Bar_Velocity.value = $States/Move.speedRun
+	$Inventory/BG_Inventory/Info_BG/Velocity/N_Velocity_Run.text = "Velocidade Correr = " + str($States/Move.speedRun)
+	$Inventory/BG_Inventory/Info_BG/Velocity/N_Velocity_Walk.text = "Velocidade Andar = " + str($States/Move.speedWalk)
+	
+	if mainGun == "Espada":
+		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.espadaValue + GlobalValues.atkBoost
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+	elif mainGun == "Varinha":
+		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.varinhaValue + GlobalValues.atkBoost
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+	elif mainGun == "Escudo":
+		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.escudoValue + GlobalValues.atkBoost
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+	elif mainGun == "Manopla":
+		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.manoplaValue + GlobalValues.atkBoost
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+	elif mainGun == "Arco":
+		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.arcoValue + GlobalValues.atkBoost
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+	
+	if secGun == "Espada":
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+	elif secGun == "Varinha":
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+	elif secGun == "Escudo":
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+	elif secGun == "Manopla":
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+	elif secGun == "Arco":
+		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+
+	print("LIFE  " + str($Status/Life_Bar.max_value))
+	print("ENERGY " + str($Status/Energy_Bar.max_value))
+	print("ATK " + str(GlobalValues.atkBoost))
+	print("SPEEDWALK " + str($States/Move.speedWalk))
+	print("SPEEDRUN " + str($States/Move.speedRun) + "\n")

@@ -111,15 +111,6 @@ margin_bottom = -0.0550079
 texture = ExtResource( 13 )
 expand = true
 
-[node name="Label2" type="Label" parent="BG_Inventory/Info_BG/Life"]
-visible = false
-margin_left = 277.0
-margin_top = -24.0
-margin_right = 317.0
-margin_bottom = -8.0
-custom_fonts/font = SubResource( 3 )
-text = "Vida"
-
 [node name="Bar_Life" type="TextureProgress" parent="BG_Inventory/Info_BG/Life"]
 anchor_left = 0.13
 anchor_top = 0.5
@@ -133,6 +124,19 @@ value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
+
+[node name="N_Life" type="Label" parent="BG_Inventory/Info_BG/Life"]
+anchor_left = 1.285
+anchor_top = 1.0
+anchor_right = 1.285
+anchor_bottom = 1.0
+margin_left = -38.0054
+margin_top = -15.9212
+margin_right = 172.995
+margin_bottom = 0.0787888
+custom_fonts/font = SubResource( 3 )
+text = "0"
+autowrap = true
 
 [node name="Attack" type="TextureRect" parent="BG_Inventory/Info_BG"]
 anchor_left = 0.103
@@ -155,18 +159,36 @@ margin_left = -0.0850029
 margin_top = -5.0
 margin_right = -0.0550232
 margin_bottom = 0.0119991
-value = 50.0
+value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 
-[node name="Label" type="Label" parent="BG_Inventory/Info_BG/Attack"]
-visible = false
-margin_left = 155.0
-margin_right = 195.0
-margin_bottom = 16.0
+[node name="N_Attack_Main" type="Label" parent="BG_Inventory/Info_BG/Attack"]
+anchor_left = 1.285
+anchor_top = 1.0
+anchor_right = 1.285
+anchor_bottom = 1.0
+margin_left = -42.08
+margin_top = -16.338
+margin_right = 92.92
+margin_bottom = -0.338013
 custom_fonts/font = SubResource( 3 )
-text = "Ataque"
+text = "0"
+autowrap = true
+
+[node name="N_Attack_Sec" type="Label" parent="BG_Inventory/Info_BG/Attack"]
+anchor_left = 1.285
+anchor_top = 1.0
+anchor_right = 1.285
+anchor_bottom = 1.0
+margin_left = 97.6185
+margin_top = -16.338
+margin_right = 214.619
+margin_bottom = -0.338013
+custom_fonts/font = SubResource( 3 )
+text = "0"
+autowrap = true
 
 [node name="Velocity" type="TextureRect" parent="BG_Inventory/Info_BG"]
 anchor_left = 0.103
@@ -189,19 +211,36 @@ margin_left = -0.101002
 margin_top = -5.0
 margin_right = -0.026001
 margin_bottom = 0.0119991
-value = 60.0
+value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 
-[node name="Label3" type="Label" parent="BG_Inventory/Info_BG/Velocity"]
-visible = false
-margin_left = 155.0
-margin_top = 1.0
-margin_right = 211.0
-margin_bottom = 17.0
+[node name="N_Velocity_Walk" type="Label" parent="BG_Inventory/Info_BG/Velocity"]
+anchor_left = 1.285
+anchor_top = 1.0
+anchor_right = 1.285
+anchor_bottom = 1.0
+margin_left = -41.6307
+margin_top = -16.338
+margin_right = 82.3693
+margin_bottom = -0.337997
 custom_fonts/font = SubResource( 3 )
-text = "Velocidade"
+text = "0"
+autowrap = true
+
+[node name="N_Velocity_Run" type="Label" parent="BG_Inventory/Info_BG/Velocity"]
+anchor_left = 1.285
+anchor_top = 1.0
+anchor_right = 1.285
+anchor_bottom = 1.0
+margin_left = 86.0679
+margin_top = -16.338
+margin_right = 286.068
+margin_bottom = -0.337997
+custom_fonts/font = SubResource( 3 )
+text = "0"
+autowrap = true
 
 [node name="Energy" type="TextureRect" parent="BG_Inventory/Info_BG"]
 anchor_left = 0.103
@@ -224,19 +263,23 @@ margin_left = 0.0419998
 margin_top = -5.0
 margin_right = -0.0220032
 margin_bottom = 0.0119991
-value = 70.0
+value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 
-[node name="Label3" type="Label" parent="BG_Inventory/Info_BG/Energy"]
-visible = false
-margin_left = 155.0
-margin_top = 1.0
-margin_right = 211.0
-margin_bottom = 17.0
+[node name="N_Energy" type="Label" parent="BG_Inventory/Info_BG/Energy"]
+anchor_left = 1.28
+anchor_top = 1.107
+anchor_right = 1.28
+anchor_bottom = 1.107
+margin_left = -36.7267
+margin_top = -15.9792
+margin_right = 232.273
+margin_bottom = 0.0208282
 custom_fonts/font = SubResource( 3 )
-text = "Energia"
+text = "0"
+autowrap = true
 
 [node name="Equiped_BG" type="TextureRect" parent="BG_Inventory"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -554,9 +597,9 @@ anchor_top = 0.345
 anchor_right = 0.435
 anchor_bottom = 0.469
 margin_left = 0.47998
-margin_top = 0.399963
+margin_top = 42.0
 margin_right = -0.200073
-margin_bottom = 0.47998
+margin_bottom = 42.08
 texture = ExtResource( 20 )
 expand = true
 
@@ -600,9 +643,9 @@ anchor_top = 0.488
 anchor_right = 0.432
 anchor_bottom = 0.702
 margin_left = -0.52002
-margin_top = -0.0400391
+margin_top = 106.2
 margin_right = 0.559998
-margin_bottom = -0.160034
+margin_bottom = 106.08
 texture = ExtResource( 23 )
 expand = true
 
