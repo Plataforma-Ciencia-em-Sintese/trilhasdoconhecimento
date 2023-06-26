@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sabre de luz.png-a8e8f3813b2989d53cc824930102e18d.stex"
+path="res://.import/espada_arma.png-8df9ee7b832eb3de49a4aabb1990425d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/sabre de luz.png"
-dest_files=[ "res://.import/sabre de luz.png-a8e8f3813b2989d53cc824930102e18d.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/armas_icons/espada_arma.png"
+dest_files=[ "res://.import/espada_arma.png-8df9ee7b832eb3de49a4aabb1990425d.stex" ]
 
 [params]
 

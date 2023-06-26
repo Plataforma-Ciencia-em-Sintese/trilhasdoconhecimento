@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arma.png-d7ebc8b3bb34536b201293957566ca45.stex"
+path="res://.import/back_descript.png-6b695656f78f81f7d637a3ec450eae05.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/arma.png"
-dest_files=[ "res://.import/arma.png-d7ebc8b3bb34536b201293957566ca45.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/back_descript.png"
+dest_files=[ "res://.import/back_descript.png-6b695656f78f81f7d637a3ec450eae05.stex" ]
 
 [params]
 

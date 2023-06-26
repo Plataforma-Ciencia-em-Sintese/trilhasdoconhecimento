@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arco.png-b513190e679fc244aa5ea59a3a617289.stex"
+path="res://.import/item_block.png-ed7386d1c0dfb02fd8ae579fabb208a1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/arco.png"
-dest_files=[ "res://.import/arco.png-b513190e679fc244aa5ea59a3a617289.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/armas_icons/item_block.png"
+dest_files=[ "res://.import/item_block.png-ed7386d1c0dfb02fd8ae579fabb208a1.stex" ]
 
 [params]
 

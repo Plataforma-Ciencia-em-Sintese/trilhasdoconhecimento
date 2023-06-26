@@ -33,7 +33,6 @@ func _on_ItemIvent_BTN_pressed():
 			invent.change_battle_itens()
 	
 func _on_BT_Equip_pressed():
-	$UI/BG_Infos.hide()
 	
 	for i in GlobalValues.consumItens.size():
 		if GlobalValues.consumItens.keys()[i] == nameITN:
