@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/manopola.png-bd27a63f2cb33801d00ed4c218cf1b54.stex"
+path="res://.import/arco_arma.png-6a6f11a4077a248039a76fa7ec952d72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/manopola.png"
-dest_files=[ "res://.import/manopola.png-bd27a63f2cb33801d00ed4c218cf1b54.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/armas_icons/arco_arma.png"
+dest_files=[ "res://.import/arco_arma.png-6a6f11a4077a248039a76fa7ec952d72.stex" ]
 
 [params]
 
