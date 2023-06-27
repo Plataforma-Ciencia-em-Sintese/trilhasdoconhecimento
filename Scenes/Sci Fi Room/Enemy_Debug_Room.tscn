@@ -1040,7 +1040,7 @@ curve = SubResource( 1000 )
 [node name="Path_Enemy" parent="Enemies/Way1" instance=ExtResource( 3 )]
 transform = Transform( -0.00204229, 0, 0.403713, 0, 0.403718, 0, -0.403713, 0, -0.00204229, -9.77716, 0, -9.37589 )
 rotation_mode = 4
-enemyType = "Parafuso"
+enemyType = "Golem"
 
 [node name="Way2" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69265, 0 )
@@ -1050,7 +1050,7 @@ curve = SubResource( 1001 )
 transform = Transform( 0.281048, 0, -0.289828, 0, 0.403718, 0, 0.289828, 0, 0.281048, -2.42778, 0, -7.30822 )
 offset = 7.34
 rotation_mode = 4
-enemyType = "Golem"
+enemyType = "Serra"
 
 [node name="Way3" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70902, 0 )

@@ -6,6 +6,7 @@ var descITN
 var source
 onready var iconITN
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 var blockMouse = false
 
 func _ready():
@@ -32,7 +33,6 @@ func _on_ItemIvent_BTN_pressed():
 			invent.change_battle_itens()
 	
 func _on_BT_Equip_pressed():
-	$UI/BG_Infos.hide()
 	
 	for i in GlobalValues.consumItens.size():
 		if GlobalValues.consumItens.keys()[i] == nameITN:
@@ -54,7 +54,8 @@ func _on_BT_Equip_pressed():
 	elif typeITN == "Chips":
 		invent.get_node("BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo").add_child(btn)
 		invent.itensPassive.append(nameITN)
-		invent.change_battle_itens()
+#		invent.change_battle_itens()
+		player.choose_chip(btn.source)
 	elif typeITN == "Weapons":
 		if invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo").get_child_count() > 0:
 			if invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo").get_child_count() > 0:
@@ -106,5 +107,5 @@ func _on_BT_Equip_pressed():
 			invent.change_battle_itens()
 	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
 			passive.disabled = true
-			
+	
 	btn.blockMouse = true

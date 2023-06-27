@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/effekseer/src/EffekseerResource.gdns"
 }, {
+"base": "",
+"class": "FmodNative",
+"language": "NativeScript",
+"path": "res://addons/fmod/Fmod.gdns"
+}, {
 "base": "PanelContainer",
 "class": "HistoryRow",
 "language": "GDScript",
@@ -99,6 +104,7 @@ _global_script_class_icons={
 "EffekseerEmitter": "res://addons/effekseer/icon16.png",
 "EffekseerEmitter2D": "res://addons/effekseer/icon16.png",
 "EffekseerResource": "res://addons/effekseer/icon16.png",
+"FmodNative": "",
 "HistoryRow": ""
 }
 
@@ -115,16 +121,16 @@ StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
 Global="*res://Global_Translation.gd"
 GlobalValues="*res://Global_Values.gd"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+Fmod="*res://addons/fmod/Fmod.tscn"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=800
 window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/fmod/plugin.cfg" )
 
 [global]
 

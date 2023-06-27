@@ -2,7 +2,7 @@ extends Node
 
 # Seleção de personagens
 var nameChar = "Yara"
-var skinChar = "Normal"
+var skinChar = "Armadura"
 
 # Controle de cena batalha/mundo real
 var whiteScreen = false
@@ -34,6 +34,13 @@ var atkBoostWeapon = 0
 var energyBoostWeapon = 0
 var speedBoostWalkWeapon = 0
 var speedBoostRunWeapon = 0
+
+# Valor ataque armas
+var espadaValue = 35
+var varinhaValue = 15
+var manoplaValue = 50
+var escudoValue = 5
+var arcoValue = 10
 
 # itens do inventário
 var atkItens = {
@@ -86,9 +93,9 @@ var chipsRewards = {
 
 # Armas fixas
 var weapons = {
-	"Escudo": ["res://Sprites/UI/Icons/Weapons/Shield.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
-	"Espada": ["res://Sprites/UI/Icons/Weapons/Sword.png","Espada laser star wars",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]],
-	"Manopla": ["res://Sprites/UI/Icons/Weapons/Gauntlet.png","Manopla do Thanos",["Escudo de Energia","Clone","Espada Giratoria"]],
-	"Varinha": ["res://Sprites/UI/Icons/Weapons/Wand.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
-	"Arco": ["res://Sprites/UI/Icons/Inventário Icon/arco.png","Lança flechas nos inimigos",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]]
+	"Escudo": ["res://Sprites/UI/Icons/Inventário Icon/Group 407.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
+	"Espada": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/espada_arma.png","Espada laser star wars",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]],
+	"Manopla": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/manopola_arma.png","Manopla do Thanos",["Escudo de Energia","Clone","Espada Giratoria"]],
+	"Varinha": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
+	"Arco": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/arco_arma.png","Lança flechas nos inimigos",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]]
 }

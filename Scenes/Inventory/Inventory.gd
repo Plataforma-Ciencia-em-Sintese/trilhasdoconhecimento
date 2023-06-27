@@ -186,9 +186,9 @@ func change_battle_itens():
 	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")
 	
-	if $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count() > 0:
-		for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
-			player.choose_chip($BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).source)
+#	if $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count() > 0:
+#		for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count()-1:
+#			player.choose_chip($BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).source)
 
 func delete_dictionary_ATK():
 	itensATK.resize(0)
