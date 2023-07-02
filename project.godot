@@ -111,7 +111,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Trilha Cientifica IBICT"
-run/main_scene="res://Scenes/Menu/Menu.tscn"
+run/main_scene="res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -125,7 +125,8 @@ Fmod="*res://addons/fmod/Fmod.tscn"
 
 [display]
 
-window/size/width=800
+window/size/width=1920
+window/size/height=1080
 window/stretch/aspect="keep_width"
 
 [editor_plugins]

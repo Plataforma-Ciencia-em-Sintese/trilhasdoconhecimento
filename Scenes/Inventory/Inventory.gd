@@ -10,7 +10,7 @@ export var weaponSecond = ""
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
-	$BG_Inventory/Info_BG/Name_Char.text = GlobalValues.nameChar
+	$BG_Inventory/Description_Item.hide()
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	weaponActual = player.mainGun
@@ -27,22 +27,40 @@ func _ready():
 
 	var weaponIconInvent = inventBTN.instance()
 	var weaponIconStage = weaponBTN.instance()
+	
 	weaponIconInvent.iconITN = load(GlobalValues.weapons[player.mainGun][0])
+	weaponIconInvent.nameITN = player.mainGun
+	weaponIconInvent.descITN = GlobalValues.weapons[player.mainGun][1]
+	weaponIconInvent.typeITN = "Weapons"
+	weaponIconInvent.order = "main"
+	weaponIconInvent.equiped = true
+	weaponIconInvent.btnOnEquiped = weaponIconInvent
+	
 	weaponIconStage.icon = load(GlobalValues.weapons[player.mainGun][0])
 	weaponIconStage.weapon = player.mainGun
-	weaponIconInvent.disabled = true
+	
+#	weaponIconInvent.disabled = true
 #	weaponIconStage.disabled = true
-	$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.add_child(weaponIconInvent)
+	$BG_Inventory/Title_Weapon/Weapons_Repo.add_child(weaponIconInvent)
 	player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponIconStage)
 	
 	var weaponIconInventSec = inventBTN.instance()
 	var weaponIconStageSec = weaponBTN.instance()
+	
 	weaponIconInventSec.iconITN = load(GlobalValues.weapons[player.secGun][0])
+	weaponIconInventSec.nameITN = player.secGun
+	weaponIconInventSec.descITN = GlobalValues.weapons[player.secGun][1]
+	weaponIconInventSec.typeITN = "Weapons"
+	weaponIconInventSec.order = "sec"
+	weaponIconInventSec.equiped = true
+	weaponIconInventSec.btnOnEquiped = weaponIconInventSec
+	
 	weaponIconStageSec.icon = load(GlobalValues.weapons[player.secGun][0])
 	weaponIconStageSec.weapon = player.secGun
-	weaponIconInventSec.disabled = true
+	
+#	weaponIconInventSec.disabled = true
 #	weaponIconStageSec.disabled = true
-	$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.add_child(weaponIconInventSec)
+	$BG_Inventory/Title_Weapon/Weapons_Sec_Repo.add_child(weaponIconInventSec)
 	player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(weaponIconStageSec)
 
 	var ATKBtn = inventBTN.instance()
@@ -101,6 +119,7 @@ func _on_BT_Inventario_pressed():
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
 	player.get_node("Battle_UI").hide()
+	player.get_node("MiniMap_UI").hide()
 	get_parent().get_node("Pause").hide()
 	get_parent().get_node("Status").hide()
 	get_parent().get_node("States/Move").hide()
@@ -145,6 +164,7 @@ func _on_BT_Close_pressed():
 	$BT_Inventario.show()
 	$BG_Inventory.hide()
 	player.get_node("Battle_UI").show()
+	player.get_node("MiniMap_UI").show()
 	get_parent().get_node("Pause").show()
 	get_parent().get_node("Status").show()
 	get_parent().get_node("States/Move").show()
@@ -202,36 +222,68 @@ func delete_dictionary_ATK_Sec():
 	for i in GlobalValues.atkItensSec.size():
 		GlobalValues.atkItensSec.clear()
 
-func _on_Clean_Consum_pressed():
-	itensConsum.resize(0)
-	for i in GlobalValues.consumItens.size():
-		GlobalValues.consumItens.clear()
-	for i in $BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child_count():
-		$BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child(i).queue_free()
+#func _on_Clean_Consum_pressed():
+#	itensConsum.resize(0)
+#	for i in GlobalValues.consumItens.size():
+#		GlobalValues.consumItens.clear()
+#	for i in $BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child_count():
+#		$BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo.get_child(i).queue_free()
+
+func clean_consums(nameConsum):
+	itensConsum.resize(itensConsum.size()-1)
+	GlobalValues.consumItens.erase(nameConsum)
+	print(GlobalValues.consumItens.keys())
+#	for i in GlobalValues.consumItens.size():
+#		GlobalValues.consumItens.clear()
 
 func _on_Clean_Combat_pressed():
 	delete_dictionary_ATK()
 
-func _on_Clean_Passive_pressed():
+#func _on_Clean_Passive_pressed():
+#	itensPassive.resize(0)
+#	player.choose_chip("")
+#	for i in GlobalValues.chipsItens.size():
+#		GlobalValues.chipsItens.clear()
+#	for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
+#		$BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).queue_free()
+
+func clean_passive(nameChip):
 	itensPassive.resize(0)
+	GlobalValues.chipsItens.erase(nameChip)
+	print(GlobalValues.chipsItens.keys())
 	player.choose_chip("")
-	for i in GlobalValues.chipsItens.size():
-		GlobalValues.chipsItens.clear()
-	for i in $BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child_count():
-		$BG_Inventory/Equiped_BG/Title_Passives/Passive_Repo.get_child(i).queue_free()
+#	for i in GlobalValues.chipsItens.size():
+#		GlobalValues.chipsItens.clear()
 		
-func _on_Clean_Weapons_pressed():
-	for i in $BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child_count():
-		$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child(i).queue_free()
+#func _on_Clean_Weapons_pressed():
+#	for i in $BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child_count():
+#		$BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Repo.get_child(i).queue_free()
+#		player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").get_child(i).queue_free()
+#	weaponActual = ""
+#	$BG_Inventory/BT_Close.hide()
+#	delete_dictionary_ATK()
+#	change_battle_itens()
+	
+#func _on_Clean_Weapons_Sec_pressed():
+#	for i in $BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child_count():
+#		$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child(i).queue_free()
+#		player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").get_child(i).queue_free()
+#	weaponSecond = ""
+#	delete_dictionary_ATK_Sec()
+#	change_battle_itens()
+
+func clean_main_weapon():
+	for i in $BG_Inventory/Title_Weapon/Weapons_Repo.get_child_count():
+		$BG_Inventory/Title_Weapon/Weapons_Repo.get_child(i).queue_free()
 		player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").get_child(i).queue_free()
 	weaponActual = ""
 	$BG_Inventory/BT_Close.hide()
 	delete_dictionary_ATK()
 	change_battle_itens()
-	
-func _on_Clean_Weapons_Sec_pressed():
-	for i in $BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child_count():
-		$BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Repo.get_child(i).queue_free()
+
+func clean_sec_weapon():
+	for i in $BG_Inventory/Title_Weapon/Weapons_Sec_Repo.get_child_count():
+		$BG_Inventory/Title_Weapon/Weapons_Sec_Repo.get_child(i).queue_free()
 		player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").get_child(i).queue_free()
 	weaponSecond = ""
 	delete_dictionary_ATK_Sec()

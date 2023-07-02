@@ -77,10 +77,10 @@ func create_btns_battle(value):
 			$Battle_UI/Weapon_Sec_Container.add_child(ATKBtn)
 		
 		yield(get_tree().create_timer(0.1),"timeout")
-		for i in invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").get_child_count():
-			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").get_child(i).queue_free()
-		for i in invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").get_child_count():
-			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").get_child(i).queue_free()
+		for i in invent.get_node("BG_Inventory/Title_Weapon/Weapons_Main_Abilities").get_child_count():
+			invent.get_node("BG_Inventory/Title_Weapon/Weapons_Main_Abilities").get_child(i).queue_free()
+		for i in invent.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Abilities").get_child_count():
+			invent.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Abilities").get_child(i).queue_free()
 			
 		for i in GlobalValues.atkItens.size():
 			var ATKInventBTN = atkButtonScene.instance()
@@ -89,7 +89,7 @@ func create_btns_battle(value):
 			ATKInventBTN.lvlToUnlock = GlobalValues.atkItens.values()[i][4]
 			ATKInventBTN.disabled = true
 			ATKInventBTN.check_lvl()
-			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons/Weapons_Main_Abilities").add_child(ATKInventBTN)
+			invent.get_node("BG_Inventory/Title_Weapon/Weapons_Main_Abilities").add_child(ATKInventBTN)
 		
 		for i in GlobalValues.atkItensSec.size():
 			var ATKInventBTN = atkButtonScene.instance()
@@ -98,7 +98,7 @@ func create_btns_battle(value):
 			ATKInventBTN.lvlToUnlock = GlobalValues.atkItensSec.values()[i][4]
 			ATKInventBTN.disabled = true
 			ATKInventBTN.check_lvl()
-			invent.get_node("BG_Inventory/Equiped_BG/Title_Weapons_Sec/Weapons_Sec_Abilities").add_child(ATKInventBTN)
+			invent.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Abilities").add_child(ATKInventBTN)
 
 	elif value == "Consum":
 		#destruir botoes
@@ -213,11 +213,11 @@ func choose_chip(value):
 		GlobalValues.speedBoostWalk = 0
 		GlobalValues.speedBoostRun = 0
 	
-	print("LIFEBOOST MUDADO " + str(GlobalValues.lifeBoost))
-	print("ENERGY MUDADO " + str(GlobalValues.energyBoost))
-	print("ATK MUDADO " + str(GlobalValues.atkBoost))
-	print("SPEEDWALK MUDADO " + str(GlobalValues.speedBoostWalk))
-	print("SPEEDRUN MUDADO " + str(GlobalValues.speedBoostRun) + "\n")
+#	print("LIFEBOOST MUDADO " + str(GlobalValues.lifeBoost))
+#	print("ENERGY MUDADO " + str(GlobalValues.energyBoost))
+#	print("ATK MUDADO " + str(GlobalValues.atkBoost))
+#	print("SPEEDWALK MUDADO " + str(GlobalValues.speedBoostWalk))
+#	print("SPEEDRUN MUDADO " + str(GlobalValues.speedBoostRun) + "\n")
 	change_UI_status()
 		
 func set_attributes():
@@ -232,10 +232,16 @@ func set_attributes():
 	GlobalValues.atkBoostWeapon = 0
 	GlobalValues.speedBoostWalkWeapon = 0
 	GlobalValues.speedBoostRunWeapon = 0
-	$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = 0
-	$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = 0"
-	$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = 0"
+	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = 0
+	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = 0
 
+	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Arma Primaria = 0"
+	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Arma Secundaria = 0"
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Life/ID_Bar.text = "Vida = 100"
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/ID_Bar.text = "Energia = 100"
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. Correr = " + str($States/Move.speedRunChoosed)
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar = " + str($States/Move.speedWalkChoosed)
+	
 #	Combinacoes de armas
 	if mainGun == "Espada" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Espada":
 		GlobalValues.lifeBoostWeapon += 25
@@ -344,45 +350,120 @@ func change_UI_status():
 	$States/Move.speedRun = $States/Move.speedRunChoosed + GlobalValues.speedBoostRun
 	$States/Move.speedWalk = $States/Move.speedWalkChoosed + GlobalValues.speedBoostWalk
 	#------
-	$Inventory/BG_Inventory/Info_BG/Life/Bar_Life.value = $Status/Life_Bar.max_value
-	$Inventory/BG_Inventory/Info_BG/Life/N_Life.text = "Saude = " + str($Status/Life_Bar.max_value)
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Bar.value = $Status/Life_Bar.max_value
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Life/ID_Bar.text = "Saude + " + str($Status/Life_Bar.max_value)
 	
-	$Inventory/BG_Inventory/Info_BG/Energy/Bar_Energy.value = 100 + $Status/Energy_Bar.max_value
-	$Inventory/BG_Inventory/Info_BG/Energy/N_Energy.text = "Energia = " + str($Status/Energy_Bar.max_value)
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Bar.value = 100 + $Status/Energy_Bar.max_value
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/ID_Bar.text = "Energia + " + str($Status/Energy_Bar.max_value)
 	
-	$Inventory/BG_Inventory/Info_BG/Velocity/Bar_Velocity.value = $States/Move.speedRun
-	$Inventory/BG_Inventory/Info_BG/Velocity/N_Velocity_Run.text = "Velocidade Correr = " + str($States/Move.speedRun)
-	$Inventory/BG_Inventory/Info_BG/Velocity/N_Velocity_Walk.text = "Velocidade Andar = " + str($States/Move.speedWalk)
-	
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar.value = $States/Move.speedRun
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/BG_Bar/Bar.value = $States/Move.speedWalk
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. Correr + " + str($States/Move.speedRun)
+	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar + " + str($States/Move.speedWalk)
+#---------------------
 	if mainGun == "Espada":
-		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.espadaValue + GlobalValues.atkBoost
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.espadaValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+			
 	elif mainGun == "Varinha":
-		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.varinhaValue + GlobalValues.atkBoost
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.varinhaValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+		
 	elif mainGun == "Escudo":
-		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.escudoValue + GlobalValues.atkBoost
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.escudoValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+		
 	elif mainGun == "Manopla":
-		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.manoplaValue + GlobalValues.atkBoost
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.manoplaValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+		
 	elif mainGun == "Arco":
-		$Inventory/BG_Inventory/Info_BG/Attack/Bar_Attack.value = GlobalValues.arcoValue + GlobalValues.atkBoost
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Main.text = "Ataque Primario = " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
-	
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.arcoValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+#------------------------
 	if secGun == "Espada":
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.espadaValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
+			
 	elif secGun == "Varinha":
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.varinhaValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
+		
 	elif secGun == "Escudo":
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.escudoValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
+		
 	elif secGun == "Manopla":
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.manoplaValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
+		
 	elif secGun == "Arco":
-		$Inventory/BG_Inventory/Info_BG/Attack/N_Attack_Sec.text = "Ataque Sec = " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.arcoValue + GlobalValues.atkBoost
+		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+		else:
+			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
+			
+#--------------------------- Vida
+	if $Status/Life_Bar.max_value >= 100:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Bar.self_modulate = Color.red
+	else:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Bar.self_modulate = Color.white
+#--------------------------- Energia
+	if $Status/Energy_Bar.max_value >= 100:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Bar.self_modulate = Color.red
+	else:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Bar.self_modulate = Color.white
+#--------------------------- Correr
+	if $States/Move.speedRun >= 100:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.self_modulate = Color.red
+	else:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.self_modulate = Color.white
+#--------------------------- Andar
+	if $States/Move.speedWalk >= 100:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.red
+	else:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.white
+#--------------------------- Primario Atk
+	if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value >= 100:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.self_modulate = Color.red
+	else:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.self_modulate = Color.white
+#--------------------------- Sec. Atk
+	if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value >= 100:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.self_modulate = Color.red
+	else:
+		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.self_modulate = Color.white
 
-	print("LIFE  " + str($Status/Life_Bar.max_value))
-	print("ENERGY " + str($Status/Energy_Bar.max_value))
-	print("ATK " + str(GlobalValues.atkBoost))
-	print("SPEEDWALK " + str($States/Move.speedWalk))
-	print("SPEEDRUN " + str($States/Move.speedRun) + "\n")
+#	print("LIFE  " + str($Status/Life_Bar.max_value))
+#	print("ENERGY " + str($Status/Energy_Bar.max_value))
+#	print("ATK " + str(GlobalValues.atkBoost))
+#	print("SPEEDWALK " + str($States/Move.speedWalk))
+#	print("SPEEDRUN " + str($States/Move.speedRun) + "\n")
