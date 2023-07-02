@@ -10,17 +10,36 @@ var order = ""
 onready var iconITN
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 onready var player = get_tree().get_nodes_in_group("Player")[0]
+var marker
 #var blockMouse = false
 
 func _ready():
 	icon = iconITN
 	$UI/BG_Infos.hide()
+	$Marker.hide()
 
 func _on_ItemIvent_BTN_pressed():
 #	if !blockMouse:
+	marker =  get_tree().get_nodes_in_group("Marker")
+	for i in marker.size():
+		marker[i].hide()
+		
+	$Marker.show()
+
 	invent.get_node("BG_Inventory/Description_Item").show()
 	$UI/BG_Infos/Desc.text = descITN
 	$UI/BG_Infos/Name.text = nameITN
+	
+	print(equiped)
+	if typeITN == "Weapons":
+		if equiped:
+			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+		else:
+			if player.mainGun != "" and player.secGun != "":
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = true
+			else:
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+	
 	invent.get_node("BG_Inventory/Description_Item/BT_Equip").text = "Equipar"
 	
 	invent.get_node("BG_Inventory/Description_Item/Icon_Item").texture = iconITN
