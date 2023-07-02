@@ -344,13 +344,13 @@ expand = true
 
 [node name="Consum_Repo" type="HBoxContainer" parent="BG_Inventory/Title_Consum"]
 anchor_left = 0.031
-anchor_top = 0.303
-anchor_right = 0.445
+anchor_top = 0.308
+anchor_right = 0.955
 anchor_bottom = 0.867
-margin_left = 0.0809994
-margin_top = -0.0849991
-margin_right = 0.194992
-margin_bottom = -0.0650024
+margin_left = 0.0810003
+margin_top = -0.0600052
+margin_right = 0.204987
+margin_bottom = 0.934998
 
 [node name="Clean_Consum" type="Button" parent="BG_Inventory/Title_Consum"]
 visible = false
@@ -379,12 +379,12 @@ expand = true
 [node name="Passive_Repo" type="HBoxContainer" parent="BG_Inventory/Title_Passive"]
 anchor_left = 0.025
 anchor_top = 0.282
-anchor_right = 0.465
+anchor_right = 0.964
 anchor_bottom = 0.893
 margin_left = 3.8
-margin_top = -0.0920029
-margin_right = 0.279968
-margin_bottom = 0.0419922
+margin_top = -0.0919914
+margin_right = -0.112122
+margin_bottom = 0.0420074
 
 [node name="Clean_Passive" type="Button" parent="BG_Inventory/Title_Passive"]
 visible = false
@@ -493,11 +493,11 @@ expand = true
 [node name="Consum_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Consums"]
 anchor_left = 0.017
 anchor_top = 0.261
-anchor_right = 0.395
+anchor_right = 0.949
 anchor_bottom = 0.94
 margin_left = 0.0890007
 margin_top = 0.0259972
-margin_right = -0.284988
+margin_right = -0.266968
 margin_bottom = 0.0399933
 rect_clip_content = true
 mouse_filter = 2
@@ -544,12 +544,12 @@ expand = true
 [node name="Passive_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Passives"]
 anchor_left = 0.033
 anchor_top = 0.291
-anchor_right = 0.435
+anchor_right = 0.958
 anchor_bottom = 0.811
-margin_left = -0.180922
-margin_top = -0.0813446
-margin_right = 0.160553
-margin_bottom = 0.0482025
+margin_left = -0.18092
+margin_top = -0.0813293
+margin_right = 0.172058
+margin_bottom = 0.0482483
 mouse_filter = 2
 
 [node name="Description_Item" type="Panel" parent="BG_Inventory"]

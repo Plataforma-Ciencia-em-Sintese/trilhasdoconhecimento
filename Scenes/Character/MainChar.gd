@@ -101,6 +101,7 @@ func create_btns_battle(value):
 			invent.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Abilities").add_child(ATKInventBTN)
 
 	elif value == "Consum":
+		print(GlobalValues.consumItens.size())
 		#destruir botoes
 		for i in $Battle_UI/Consumable_Container.get_child_count():
 			$Battle_UI/Consumable_Container.get_child(i).queue_free()
@@ -113,6 +114,7 @@ func create_btns_battle(value):
 			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
 			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
 			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
+			
 
 func change_weapons():
 	if mainGun == "Escudo" or secGun == "Escudo":
