@@ -19,7 +19,7 @@ func _ready() -> void:
 
 	
 func _on_Play_pressed()-> void:
-	Fmod.play_one_shot("event:/BotaoIniciar", self)
+	Fmod.play_one_shot("event:/SFX/Menu/BotaoIniciar", self)
 	var _play: bool = get_tree().change_scene("res://Scenes/Menu/Selection_Zone_3D.tscn")
 
 
