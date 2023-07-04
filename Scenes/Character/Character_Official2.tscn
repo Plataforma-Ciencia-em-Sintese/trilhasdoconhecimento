@@ -104,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7968,7 +7968,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8073,7 +8073,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8251,7 +8251,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.0627907, -0.998027, -1.9896e-08, 1.13565e-07, -5.35401e-08, 1, -0.998025, -0.0627898, 1.1031e-07, -0.653273, 1.06254, -0.01179 )
+transform = Transform( -8.04663e-06, -0.0120328, -0.999928, -0.0246022, -0.999626, 0.0120294, -0.999695, 0.024601, -0.000286102, -0.29312, 0.593723, 0.0434668 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8314,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.0627907, 0.998027, 1.9896e-08, -1.13565e-07, -5.35401e-08, 1, 0.998025, -0.0627898, 1.1031e-07, 0.653273, 1.06254, -0.01179 )
+transform = Transform( -7.95722e-06, 0.0120327, 0.999928, 0.0246021, -0.999626, 0.0120292, 0.999695, 0.0246009, -0.000286251, 0.29312, 0.593723, 0.0434668 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8492,8 +8492,7 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="ATK" parent="Battle_UI/Weapon_Container" instance=ExtResource( 14 )]
-margin_top = 86.0
-margin_bottom = 141.0
+margin_bottom = 227.0
 
 [node name="ATK2" type="Button" parent="Battle_UI/Weapon_Container"]
 visible = false
@@ -8563,8 +8562,7 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="ATK" parent="Battle_UI/Weapon_Sec_Container" instance=ExtResource( 14 )]
-margin_top = 83.0
-margin_bottom = 138.0
+margin_bottom = 221.0
 
 [node name="ATK2" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
 visible = false
@@ -8635,9 +8633,8 @@ alignment = 1
 
 [node name="ATK" parent="Battle_UI/Consumable_Container" instance=ExtResource( 14 )]
 visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
+margin_right = 189.0
+margin_bottom = 67.0
 
 [node name="ATK2" type="Button" parent="Battle_UI/Consumable_Container"]
 visible = false

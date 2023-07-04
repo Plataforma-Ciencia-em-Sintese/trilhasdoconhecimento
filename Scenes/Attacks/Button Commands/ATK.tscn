@@ -7,7 +7,8 @@
 [node name="ATK" type="Button" groups=["ATKButton"]]
 margin_right = 50.0
 margin_bottom = 45.0
-rect_min_size = Vector2( 50, 55 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 icon = ExtResource( 2 )
 flat = true
 expand_icon = true
@@ -20,14 +21,14 @@ margin_bottom = 14.0
 value = 100.0
 percent_visible = false
 
-[node name="Lock_Icon" type="TextureRect" parent="."]
+[node name="Lock_Icon" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0.898039 )
-margin_left = 6.0
-margin_top = 8.0
-margin_right = 44.0
-margin_bottom = 46.0
-texture = ExtResource( 3 )
-expand = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_ATK_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_ATK_mouse_exited"]
