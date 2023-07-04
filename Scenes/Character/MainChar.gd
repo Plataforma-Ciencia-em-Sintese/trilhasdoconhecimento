@@ -41,10 +41,6 @@ func _ready():
 
 	set_attributes()
 
-func _physics_process(_delta):
-	if Input.is_action_just_pressed("ui_select"):
-		print("Life - " + str(GlobalValues.lifeBoost) + "\nEnergy - " + str(GlobalValues.energyBoost) + "\nSpeedWalk - " + str(GlobalValues.speedBoostWalk) +  "\nSpeedRun - " + str(GlobalValues.speedBoostRun) + "\nAttack - " + str(GlobalValues.atkBoost))
-
 # cria os botoes que serao necessarios a batalha
 func create_btns_battle(value):
 	if value == "ATK":
