@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slidebar_Velocity.png-9da8a16d5224be56072d19d9c9df9daf.stex"
+path="res://.import/Back_Button.png-16d94e18e5e28699a057cbb9286c5f65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/slidebar_Velocity.png"
-dest_files=[ "res://.import/slidebar_Velocity.png-9da8a16d5224be56072d19d9c9df9daf.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/Back_Button.png"
+dest_files=[ "res://.import/Back_Button.png-16d94e18e5e28699a057cbb9286c5f65.stex" ]
 
 [params]
 

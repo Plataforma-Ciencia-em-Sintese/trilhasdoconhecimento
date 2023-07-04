@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slidebar_ataque.png-dee13df9969d54cb01718c8ff29056af.stex"
+path="res://.import/icon_Speed.png-9768d6ccf39cf4abc5482329529a5a1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/slidebar_ataque.png"
-dest_files=[ "res://.import/slidebar_ataque.png-dee13df9969d54cb01718c8ff29056af.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/armas_icons/icon_Speed.png"
+dest_files=[ "res://.import/icon_Speed.png-9768d6ccf39cf4abc5482329529a5a1f.stex" ]
 
 [params]
 

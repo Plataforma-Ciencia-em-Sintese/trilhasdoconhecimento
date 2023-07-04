@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slidebar_Saude.png-43222735f82c3b16d2369b43281fd4f2.stex"
+path="res://.import/teste invent.png-20beeec37ea6b744f54470094c23b359.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Inventário Icon/slidebar_Saude.png"
-dest_files=[ "res://.import/slidebar_Saude.png-43222735f82c3b16d2369b43281fd4f2.stex" ]
+source_file="res://Sprites/UI/Icons/Inventário Icon/teste invent.png"
+dest_files=[ "res://.import/teste invent.png-20beeec37ea6b744f54470094c23b359.stex" ]
 
 [params]
 
