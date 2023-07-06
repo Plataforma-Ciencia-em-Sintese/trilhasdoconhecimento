@@ -124,6 +124,9 @@ func _ready():
 			weaponsBtn.nameITN = GlobalValues.weapons.keys()[i]
 			weaponsBtn.typeITN = "Weapons"
 			$BG_Inventory/Title_Weapons/Weapons_Itens.add_child(weaponsBtn)
+			
+	#------------------------------------------------
+	
 
 func _on_BT_Inventario_pressed():
 	$BT_Inventario.hide()

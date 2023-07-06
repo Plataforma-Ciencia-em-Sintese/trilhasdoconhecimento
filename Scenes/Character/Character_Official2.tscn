@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -16,10 +16,11 @@
 [ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
-[ext_resource path="res://Textures/Prototype/texture_08.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/background_Invent.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste invent.png" type="Texture" id=21]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -104,7 +105,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7856,6 +7857,13 @@ __meta__ = {
 mainChar = "Caio"
 activeCloths = "Normal"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 21 )
+expand = true
+
 [node name="States" type="Spatial" parent="."]
 
 [node name="Move" type="Spatial" parent="States"]
@@ -8251,7 +8259,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -8.04663e-06, -0.0120328, -0.999928, -0.0246022, -0.999626, 0.0120294, -0.999695, 0.024601, -0.000286102, -0.29312, 0.593723, 0.0434668 )
+transform = Transform( -0.000399292, -0.0118704, -0.99993, -0.302945, -0.95294, 0.0114337, -0.953006, 0.302928, -0.00321348, -0.293126, 0.593754, 0.0727581 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8314,7 +8322,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -7.95722e-06, 0.0120327, 0.999928, 0.0246021, -0.999626, 0.0120292, 0.999695, 0.0246009, -0.000286251, 0.29312, 0.593723, 0.0434668 )
+transform = Transform( -0.00039956, 0.0118705, 0.99993, 0.302945, -0.95294, 0.0114338, 0.953006, 0.302928, -0.00321335, 0.293126, 0.593754, 0.0727581 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8327,13 +8335,13 @@ skeleton = NodePath("")
 transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3, 3 )
 
 [node name="Cam_Invent" type="Camera" parent="Base"]
-transform = Transform( 1.28096, 0, 0, 0, 1.2498, 0.280806, 0, -0.280806, 1.2498, 0, 0.757, 3.579 )
+transform = Transform( 1.28096, 0, 0, 0, 1.27619, -0.110373, 0, 0.110373, 1.27619, -0.146696, 0.942341, 5.95516 )
 cull_mask = 1048574
 projection = 1
 size = 4.13227
 
 [node name="BG_Invent" type="Sprite3D" parent="Base"]
-transform = Transform( 5.86917, 0, 0, 0, 5.86917, 0, 0, 0, 5.86917, 0, 1.39228, -1.60569 )
+transform = Transform( 0.54, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.15, 1.5, 0 )
 visible = false
 layers = 2
 texture = ExtResource( 17 )
