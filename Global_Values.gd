@@ -93,9 +93,9 @@ var chipsRewards = {
 
 # Armas fixas
 var weapons = {
-	"Escudo": ["res://Sprites/UI/Icons/Inventário Icon/Group 407.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
-	"Espada": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/espada_arma.png","Espada laser star wars",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]],
-	"Manopla": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/manopola_arma.png","Manopla do Thanos",["Escudo de Energia","Clone","Espada Giratoria"]],
-	"Varinha": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
-	"Arco": ["res://Sprites/UI/Icons/Inventário Icon/armas_icons/arco_arma.png","Lança flechas nos inimigos",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]]
+	"Escudo": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/manopola_arma.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
+	"Espada": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/espada_arma.png","Espada laser star wars",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]],
+	"Manopla": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/manopola_arma.png","Manopla do Thanos",["Escudo de Energia","Clone","Espada Giratoria"]],
+	"Varinha": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
+	"Arco": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/arco_arma.png","Lança flechas nos inimigos",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]]
 }

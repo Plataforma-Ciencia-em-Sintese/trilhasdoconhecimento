@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=2]
 
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/Back_Button.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/UI/prototipo inventario/HUD Marker.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Inventory/ItemIvent_BTN.gd" type="Script" id=3]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Equipar_descript.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/back_descript.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_descript.png" type="Texture" id=6]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultItalicFont.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/armas_icons/manopola_arma.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/manopola_arma.png" type="Texture" id=9]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/NameFont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/numero.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/numero.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -139,7 +139,7 @@ margin_left = 0.184006
 margin_top = -0.0300007
 margin_right = 0.0279846
 margin_bottom = 0.0039978
-icon = ExtResource( 5 )
+icon = ExtResource( 1 )
 flat = true
 icon_align = 1
 expand_icon = true

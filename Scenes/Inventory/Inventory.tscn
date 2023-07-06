@@ -1,35 +1,41 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Bar_Empty.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Empty.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Bar_Full.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/armas_icons/icon_Speed.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Armarhab_2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/slidebar.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background escolha.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Bar_Full_Life.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/teste invent.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/armas_icons/Icon_Lifes.png" type="Texture" id=12]
-[ext_resource path="res://Fontes/fonte Poppins/Poppins-Black.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Consm_ingame.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Back_Button.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Armas_ingame.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/chip_ingame.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/numero.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background armas.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background consumiveis.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Full.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/icon_Speed.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_armas_inGame.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/slidebar.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/background_Choice.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Full_Life.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste invent.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/Icon_Lifes.png" type="Texture" id=12]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Black.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_armas_ choice.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/Back_Button.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_itens_ choice.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_descript.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/numero.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_itens_inGame.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_chips_choice.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/UI/Icons/Select_Player/Attack_Icon.png" type="Texture" id=21]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BoldItalic.ttf" type="DynamicFontData" id=22]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/background Chip.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/background_Invent.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/UI/Icons/Select_Player/Speed_Icon.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/UI/Icons/Inventário Icon/Sabre habilidades.png" type="Texture" id=25]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://icon.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/Inventory/BT_Equip_Invent.gd" type="Script" id=27]
-[ext_resource path="res://Fontes/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
-[ext_resource path="res://Fontes/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=29]
-[ext_resource path="res://Fontes/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=30]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=29]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=30]
+
+[sub_resource type="DynamicFont" id=14]
+size = 21
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 25 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -59,6 +65,12 @@ font_data = ExtResource( 13 )
 size = 10
 font_data = ExtResource( 13 )
 
+[sub_resource type="DynamicFont" id=13]
+size = 11
+use_filter = true
+extra_spacing_char = -1
+font_data = ExtResource( 30 )
+
 [sub_resource type="DynamicFont" id=9]
 size = 10
 font_data = ExtResource( 30 )
@@ -87,18 +99,41 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 11 )
 expand = true
 
 [node name="BG_Inventory" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="background_Invent" type="TextureRect" parent="BG_Inventory"]
+anchor_left = 0.014
+anchor_top = 0.036
+anchor_right = 0.988
+anchor_bottom = 0.964
+margin_left = 0.0799999
+margin_top = 0.079998
+margin_right = 0.359985
+margin_bottom = -0.0800171
+texture = ExtResource( 23 )
+expand = true
+
+[node name="Label" type="Label" parent="BG_Inventory/background_Invent"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+anchor_left = 0.087
+anchor_top = 0.037
+anchor_right = 0.183
+anchor_bottom = 0.084
+margin_left = 0.510994
+margin_top = 0.284
+margin_right = -0.201019
+margin_bottom = -0.112003
+custom_fonts/font = SubResource( 14 )
+text = "Inventário"
 
 [node name="BT_Close" type="Button" parent="BG_Inventory"]
 anchor_left = 1.0
@@ -113,23 +148,27 @@ expand_icon = true
 
 [node name="Info_BG" type="TextureRect" parent="BG_Inventory"]
 self_modulate = Color( 1, 1, 1, 0.478431 )
-anchor_left = 0.576
-anchor_top = 0.644
-anchor_right = 0.954
-anchor_bottom = 0.989
-margin_left = 99.72
-margin_top = -10.68
-margin_right = -28.12
-margin_bottom = -75.08
+anchor_left = 0.654
+anchor_top = 0.629
+anchor_right = 0.932
+anchor_bottom = 0.885
+margin_left = -0.120056
+margin_top = 0.119995
+margin_right = 0.039917
+margin_bottom = -0.200012
 texture = ExtResource( 9 )
 expand = true
 
 [node name="Status_Txt" type="Label" parent="BG_Inventory/Info_BG"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 27.0
-margin_top = 7.0
-margin_right = 117.0
-margin_bottom = 33.0
+anchor_left = 0.07
+anchor_top = 0.027
+anchor_right = 0.323
+anchor_bottom = 0.168
+margin_left = 0.0800037
+margin_top = 0.0320001
+margin_right = 0.0120163
+margin_bottom = 0.0879974
 custom_fonts/font = SubResource( 2 )
 text = "Status"
 valign = 1
@@ -193,10 +232,14 @@ expand = true
 
 [node name="ID_Bar" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Life"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 308.0
-margin_top = 10.0
-margin_right = 347.0
-margin_bottom = 25.0
+anchor_left = 0.491
+anchor_top = 0.162
+anchor_right = 0.592
+anchor_bottom = 0.612
+margin_left = -0.105377
+margin_top = -0.00935793
+margin_right = -9.67535
+margin_bottom = -3.00936
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 3 )
 text = "Energia"
@@ -243,10 +286,14 @@ expand = true
 
 [node name="ID_Bar" type="Label" parent="BG_Inventory/Info_BG/Status_Container/ATK_Main"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 308.0
-margin_top = -6.607
-margin_right = 402.0
-margin_bottom = 7.393
+anchor_left = 0.491
+anchor_top = -0.234
+anchor_right = 0.575
+anchor_bottom = 0.216
+margin_left = -0.105377
+margin_top = 0.00709534
+margin_right = -7.98538
+margin_bottom = -2.99291
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 4 )
 text = "ATK 1"
@@ -296,10 +343,14 @@ expand = true
 
 [node name="ID_Bar" type="Label" parent="BG_Inventory/Info_BG/Status_Container/ATK_Sec"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 308.0
-margin_top = -26.0
-margin_right = 421.0
-margin_bottom = -11.0
+anchor_left = 0.491
+anchor_top = -0.621
+anchor_right = 0.577
+anchor_bottom = -0.171
+margin_left = -0.105377
+margin_top = 0.0165157
+margin_right = -8.12537
+margin_bottom = -2.98349
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 5 )
 text = "ATK 2"
@@ -348,10 +399,14 @@ expand = true
 
 [node name="ID_Bar" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Speed_Walk"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 308.0
-margin_top = -43.3125
-margin_right = 402.0
-margin_bottom = -29.3125
+anchor_left = 0.491
+anchor_top = -1.083
+anchor_right = 0.634
+anchor_bottom = -0.684
+margin_left = -0.105377
+margin_top = -2.0329
+margin_right = -13.6154
+margin_bottom = -2.9929
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 6 )
 text = "Vel. Andar"
@@ -401,10 +456,14 @@ expand = true
 
 [node name="ID_Bar" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Speed_Run"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 308.0
-margin_top = -58.7252
-margin_right = 402.0
-margin_bottom = -44.7252
+anchor_left = 0.491
+anchor_top = -1.563
+anchor_right = 0.647
+anchor_bottom = -1.113
+margin_left = -0.105377
+margin_top = -0.00935364
+margin_right = -15.0254
+margin_bottom = -3.00936
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 7 )
 text = "Vel. Correr"
@@ -454,10 +513,14 @@ expand = true
 
 [node name="ID_Bar" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Energy"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 308.544
-margin_top = -76.4894
-margin_right = 402.544
-margin_bottom = -62.4894
+anchor_left = 0.492
+anchor_top = -2.0
+anchor_right = 0.69
+anchor_bottom = -1.55
+margin_left = -0.131348
+margin_top = -0.0187683
+margin_right = -18.9914
+margin_bottom = -3.01876
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 8 )
 text = "Energia"
@@ -472,7 +535,7 @@ margin_left = -0.400024
 margin_top = -0.280014
 margin_right = 0.119995
 margin_bottom = 0.0799866
-texture = ExtResource( 14 )
+texture = ExtResource( 19 )
 expand = true
 
 [node name="Consum_Repo" type="HBoxContainer" parent="BG_Inventory/Title_Consum"]
@@ -497,6 +560,16 @@ margin_right = -9.0
 margin_bottom = -52.5
 text = "Limpar"
 
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Consum"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 102.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 13 )
+text = "Itens   Consumíveis"
+align = 1
+
 [node name="Title_Passive" type="TextureRect" parent="BG_Inventory"]
 anchor_left = 0.655
 anchor_top = 0.454
@@ -506,7 +579,7 @@ margin_left = -0.400024
 margin_top = 0.119995
 margin_right = 0.399902
 margin_bottom = 0.319977
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 expand = true
 
 [node name="Passive_Repo" type="HBoxContainer" parent="BG_Inventory/Title_Passive"]
@@ -531,96 +604,105 @@ margin_right = 0.019989
 margin_bottom = 0.0599995
 text = "Limpar"
 
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Passive"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 35.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 13 )
+text = "Chips  de  Melhoria"
+align = 1
+
 [node name="Title_Weapon" type="TextureRect" parent="BG_Inventory"]
-anchor_left = 0.574
-anchor_top = 0.065
-anchor_right = 0.727
-anchor_bottom = 0.224
-margin_left = -0.0799561
-margin_top = -34.2
-margin_right = -0.840088
-margin_bottom = -33.92
-texture = ExtResource( 16 )
-expand = true
-
-[node name="Armarhab_1" type="TextureRect" parent="BG_Inventory/Title_Weapon"]
-anchor_left = 1.026
-anchor_top = 0.305
-anchor_right = 1.802
-anchor_bottom = 0.986
-margin_left = -0.00601196
-margin_top = 0.0299988
-margin_right = 4.73798
-margin_bottom = 0.155991
-texture = ExtResource( 25 )
-expand = true
-
-[node name="Armarhab_2" type="TextureRect" parent="BG_Inventory/Title_Weapon"]
-anchor_left = 1.879
-anchor_top = 0.364
-anchor_right = 2.671
-anchor_bottom = 1.0
-margin_left = -0.0489502
-margin_top = -1.60801
-margin_right = -0.000976563
-margin_bottom = -1.552
+anchor_left = 0.655
+anchor_top = 0.136
+anchor_right = 0.79
+anchor_bottom = 0.275
+margin_left = 0.599976
+margin_top = 0.0799942
+margin_right = -0.200012
 texture = ExtResource( 7 )
 expand = true
 
+[node name="Armarhab_2" type="TextureRect" parent="BG_Inventory/Title_Weapon"]
+anchor_left = 1.047
+anchor_top = 0.01
+anchor_right = 2.047
+anchor_bottom = 1.01
+margin_left = -0.0840149
+margin_right = -0.0840149
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Weapon/Armarhab_2"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 35.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 13 )
+text = "Arma 1 / Habilidades"
+align = 1
+
 [node name="Weapons_Repo" type="HBoxContainer" parent="BG_Inventory/Title_Weapon"]
-anchor_left = 0.092
-anchor_top = 0.291
-anchor_right = 0.444
-anchor_bottom = 0.884
-margin_left = 0.0439987
-margin_top = -0.052002
-margin_right = -0.0920105
-margin_bottom = -0.0480042
+anchor_left = 0.029
+anchor_top = 0.29
+anchor_right = 0.378
+anchor_bottom = 0.91
+margin_left = 0.0119996
+margin_top = 0.999998
+margin_right = -0.0160065
 alignment = 1
 
 [node name="Weapons_Sec_Repo" type="HBoxContainer" parent="BG_Inventory/Title_Weapon"]
-anchor_left = 0.546
-anchor_top = 0.291
-anchor_right = 0.898
-anchor_bottom = 0.884
-margin_left = 0.0220032
-margin_top = -0.052002
-margin_right = -0.114014
-margin_bottom = -0.0480042
+anchor_left = 1.07
+anchor_top = 0.31
+anchor_right = 1.421
+anchor_bottom = 0.903
+margin_left = -0.0400085
+margin_right = -0.00404358
+margin_bottom = 0.0039978
 alignment = 1
 
 [node name="Weapons_Main_Abilities" type="HBoxContainer" parent="BG_Inventory/Title_Weapon"]
-anchor_left = 1.051
-anchor_top = 0.448
-anchor_right = 1.795
-anchor_bottom = 0.953
-margin_left = 0.0570068
-margin_top = -0.0559998
-margin_right = 0.0650024
-margin_bottom = 0.0839844
+anchor_left = 0.384
+anchor_top = 0.43
+anchor_right = 0.971
+anchor_bottom = 0.8
+margin_left = -0.0480042
+margin_right = -0.0120087
 alignment = 1
 
 [node name="Weapons_Sec_Abilities" type="HBoxContainer" parent="BG_Inventory/Title_Weapon"]
-anchor_left = 1.908
-anchor_top = 0.488
-anchor_right = 2.635
-anchor_bottom = 0.971
-margin_left = -0.0440063
-margin_top = 0.0639954
-margin_right = -0.0550537
-margin_bottom = -0.0120087
+anchor_left = 1.424
+anchor_top = 0.42
+anchor_right = 2.017
+anchor_bottom = 0.79
+margin_left = 0.071991
+margin_right = 0.0759583
 alignment = 1
 
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Weapon"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 35.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 13 )
+text = "Arma 1 / Habilidades"
+align = 1
+
 [node name="Title_Consums" type="TextureRect" parent="BG_Inventory"]
-anchor_left = 0.017
-anchor_top = 0.202
-anchor_right = 0.321
-anchor_bottom = 0.326
-margin_left = 71.24
-margin_top = 70.56
-margin_right = 81.12
-margin_bottom = 80.28
-texture = ExtResource( 20 )
+anchor_left = 0.073
+anchor_top = 0.3
+anchor_right = 0.384
+anchor_bottom = 0.437
+margin_left = -0.44001
+margin_top = -1.52588e-05
+margin_right = 0.47998
+margin_bottom = 0.359985
+texture = ExtResource( 16 )
 expand = true
 
 [node name="Consum_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Consums"]
@@ -638,16 +720,26 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/separation = 10
 
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Consums"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 102.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 13 )
+text = "Itens   Consumíveis"
+align = 1
+
 [node name="Title_Weapons" type="TextureRect" parent="BG_Inventory"]
 anchor_left = 0.073
-anchor_top = 0.14
+anchor_top = 0.139
 anchor_right = 0.384
 anchor_bottom = 0.279
-margin_left = -0.44001
-margin_top = 0.199997
+margin_left = -0.440002
+margin_top = -0.0800095
 margin_right = 0.47998
 margin_bottom = 0.119995
-texture = ExtResource( 19 )
+texture = ExtResource( 14 )
 expand = true
 
 [node name="Weapons_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Weapons"]
@@ -662,6 +754,16 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Weapons"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 40.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 13 )
+text = "Armas"
+align = 1
+
 [node name="Title_Passives" type="TextureRect" parent="BG_Inventory"]
 anchor_left = 0.072
 anchor_top = 0.457
@@ -671,7 +773,7 @@ margin_left = -0.160004
 margin_top = -1.04001
 margin_right = 0.47998
 margin_bottom = 0.320007
-texture = ExtResource( 23 )
+texture = ExtResource( 20 )
 expand = true
 
 [node name="Passive_Itens" type="HBoxContainer" parent="BG_Inventory/Title_Passives"]
@@ -684,16 +786,27 @@ margin_top = -0.00400162
 margin_bottom = 0.0399933
 mouse_filter = 2
 
-[node name="Description_Item" type="Panel" parent="BG_Inventory"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.019
-anchor_top = 0.627
-anchor_right = 0.316
-anchor_bottom = 0.832
-margin_left = 67.68
-margin_top = 71.56
-margin_right = 88.52
-margin_bottom = 25.96
+[node name="Name_object" type="Label" parent="BG_Inventory/Title_Passives"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 35.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 13 )
+text = "Chips  de  Melhoria"
+align = 1
+
+[node name="Description_Item" type="TextureRect" parent="BG_Inventory"]
+anchor_left = 0.072
+anchor_top = 0.726
+anchor_right = 0.385
+anchor_bottom = 0.868
+margin_left = -0.160004
+margin_top = 0.279968
+margin_right = 0.199982
+margin_bottom = 0.0400391
+texture = ExtResource( 17 )
+expand = true
 
 [node name="Icon_Item" type="TextureRect" parent="BG_Inventory/Description_Item"]
 anchor_left = 0.135
@@ -734,50 +847,52 @@ custom_fonts/font = SubResource( 10 )
 text = "Descriçao"
 
 [node name="Back_Button" type="TextureRect" parent="BG_Inventory/Description_Item"]
-margin_left = 237.0
-margin_top = 32.0
-margin_right = 387.0
-margin_bottom = 73.0
+anchor_left = 0.591
+anchor_top = 0.314
+anchor_right = 0.965
+anchor_bottom = 0.716
+margin_left = 0.00900269
+margin_top = -0.0279999
+margin_right = 0.0350037
+margin_bottom = -0.0320053
 texture = ExtResource( 15 )
 expand = true
 
 [node name="BT_Equip" type="Button" parent="BG_Inventory/Description_Item"]
 self_modulate = Color( 0.0627451, 0.121569, 0.207843, 1 )
-anchor_left = 0.769
-anchor_top = 0.5
-anchor_right = 0.769
-anchor_bottom = 0.5
-margin_left = -71.369
-margin_top = -17.0
-margin_right = 76.631
-margin_bottom = 20.0
+anchor_left = 0.591
+anchor_top = 0.333
+anchor_right = 0.96
+anchor_bottom = 0.696
+margin_left = 0.00898743
+margin_top = 0.0340004
+margin_right = 0.0400085
+margin_bottom = 0.00799561
 custom_fonts/font = SubResource( 11 )
 text = "Equipar"
 flat = true
 script = ExtResource( 27 )
 
-[node name="TextureRect" type="TextureRect" parent="BG_Inventory/Description_Item/BT_Equip"]
-anchor_left = -1.392
-anchor_top = 0.757
-anchor_right = -1.392
-anchor_bottom = 0.757
-margin_left = -6.98399
-margin_top = -8.009
-margin_right = 9.01601
-margin_bottom = 7.991
+[node name="back_Quant" type="TextureRect" parent="BG_Inventory/Description_Item/BT_Equip"]
+anchor_left = -1.439
+anchor_top = 0.568
+anchor_right = -1.331
+anchor_bottom = 1.0
+margin_left = -0.0279846
+margin_top = -0.0160007
+margin_right = -0.0119781
 texture = ExtResource( 18 )
 expand = true
 
 [node name="Item_Quant" type="Label" parent="BG_Inventory/Description_Item/BT_Equip"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = -1.392
-anchor_top = 0.757
-anchor_right = -1.392
-anchor_bottom = 0.757
-margin_left = -6.98399
-margin_top = -8.009
-margin_right = 9.01601
-margin_bottom = 7.991
+anchor_left = -1.439
+anchor_top = 0.568
+anchor_right = -1.338
+anchor_bottom = 1.0
+margin_left = -0.0279694
+margin_top = -0.0160007
+margin_right = 0.0240479
 custom_fonts/font = SubResource( 12 )
 text = "1"
 align = 1
