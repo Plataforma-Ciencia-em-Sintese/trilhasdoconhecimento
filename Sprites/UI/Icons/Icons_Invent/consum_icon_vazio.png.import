@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Group 407.png-0e262017c62f3bd7460a7f94ddf35b28.stex"
+path="res://.import/consum_icon_vazio.png-0e2d92ab1432ab59a8732a6b989907fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icons_Invent/armas_icons/Group 407.png"
-dest_files=[ "res://.import/Group 407.png-0e262017c62f3bd7460a7f94ddf35b28.stex" ]
+source_file="res://Sprites/UI/Icons/Icons_Invent/consum_icon_vazio.png"
+dest_files=[ "res://.import/consum_icon_vazio.png-0e2d92ab1432ab59a8732a6b989907fb.stex" ]
 
 [params]
 

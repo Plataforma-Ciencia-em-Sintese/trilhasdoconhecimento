@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -20,7 +20,9 @@
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste invent.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste lab.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Trocar_Arma_Icon.png" type="Texture" id=22]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=23]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -105,7 +107,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "output", 0, "move" ]
+node_connections = [ "output", 0, "move", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7844,6 +7846,10 @@ surfaces/0 = {
 "vertex_count": 470
 }
 
+[sub_resource type="DynamicFont" id=80]
+size = 12
+font_data = ExtResource( 23 )
+
 [sub_resource type="CapsuleShape" id=43]
 radius = 0.491932
 
@@ -8259,7 +8265,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000399292, -0.0118704, -0.99993, -0.302945, -0.95294, 0.0114337, -0.953006, 0.302928, -0.00321348, -0.293126, 0.593754, 0.0727581 )
+transform = Transform( 0.00119957, -0.0140922, -0.9999, -0.198619, -0.979983, 0.0135733, -0.980074, 0.198583, -0.00397259, -0.29345, 0.593517, 0.0614855 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8322,7 +8328,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.00039956, 0.0118705, 0.99993, 0.302945, -0.95294, 0.0114338, 0.953006, 0.302928, -0.00321335, 0.293126, 0.593754, 0.0727581 )
+transform = Transform( 0.00119945, 0.0140923, 0.9999, 0.198619, -0.979983, 0.0135734, 0.980074, 0.198583, -0.00397247, 0.29345, 0.593517, 0.0614856 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8400,6 +8406,7 @@ weaponActual = "Shield"
 [node name="Battle_UI" type="CanvasLayer" parent="." groups=["BattleUI"]]
 
 [node name="Container_Weapon_Main" type="Panel" parent="Battle_UI"]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -8412,95 +8419,66 @@ mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="Weapon_Main" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Main"]
+self_modulate = Color( 1, 1, 1, 0.156863 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -72.0
-margin_top = -67.0
-margin_bottom = -1.0
+margin_left = -71.0
+margin_top = -147.0
+margin_right = 4.0
+margin_bottom = -74.0
+rect_scale = Vector2( 1.12, 1.12 )
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Container_Weapon_Sec" type="Panel" parent="Battle_UI"]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -82.0
-margin_top = -77.0
-margin_right = -14.0
-margin_bottom = -9.0
+margin_left = -91.0
+margin_top = -154.0
+margin_right = -16.0
+margin_bottom = -81.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="Weapon_Sec" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Sec"]
+self_modulate = Color( 1, 1, 1, 0.156863 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -68.0
-margin_top = -68.0
-margin_bottom = -1.0
+margin_left = -83.0
+margin_top = -76.0
+margin_right = -8.0
+margin_bottom = -3.0
+rect_scale = Vector2( 1.12, 1.12 )
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 custom_constants/separation = 20
 alignment = 1
-
-[node name="Panel_Weapon2" type="Panel" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -82.0
-margin_top = -311.0
-margin_right = -13.0
-margin_bottom = -83.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-
-[node name="Panel_Weapon1" type="Panel" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -165.0
-margin_top = -311.0
-margin_right = -91.0
-margin_bottom = -83.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-
-[node name="Panel_Consums" type="Panel" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -390.0
-margin_top = -76.0
-margin_right = -168.0
-margin_bottom = -10.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
 
 [node name="Weapon_Container" type="VBoxContainer" parent="Battle_UI"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -154.0
-margin_top = -310.0
-margin_right = -104.0
-margin_bottom = -83.0
+margin_left = -148.0
+margin_top = -309.0
+margin_right = -79.0
+margin_bottom = -152.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_constants/separation = 20
 alignment = 1
 
 [node name="ATK" parent="Battle_UI/Weapon_Container" instance=ExtResource( 14 )]
-margin_bottom = 227.0
+margin_right = 69.0
+margin_bottom = 157.0
 
 [node name="ATK2" type="Button" parent="Battle_UI/Weapon_Container"]
 visible = false
@@ -8560,17 +8538,18 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -73.0
+margin_left = -86.0
 margin_top = -309.0
-margin_right = -23.0
-margin_bottom = -88.0
+margin_right = -17.0
+margin_bottom = -152.0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_constants/separation = 20
+custom_constants/separation = 1
 alignment = 1
 
 [node name="ATK" parent="Battle_UI/Weapon_Sec_Container" instance=ExtResource( 14 )]
-margin_bottom = 221.0
+margin_right = 69.0
+margin_bottom = 157.0
 
 [node name="ATK2" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
 visible = false
@@ -8626,17 +8605,19 @@ value = 100.0
 percent_visible = false
 
 [node name="Consumable_Container" type="HBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
+self_modulate = Color( 1, 1, 1, 0.156863 )
+anchor_left = 0.822
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.822
 anchor_bottom = 1.0
-margin_left = -372.0
-margin_top = -77.0
-margin_right = -183.0
-margin_bottom = -10.0
+margin_left = -104.16
+margin_top = -102.0
+margin_right = 34.84
+margin_bottom = -53.0
+rect_scale = Vector2( 1.5, 1.5 )
 mouse_filter = 2
 mouse_default_cursor_shape = 2
-custom_constants/separation = 20
+custom_constants/separation = -1
 alignment = 1
 
 [node name="ATK" parent="Battle_UI/Consumable_Container" instance=ExtResource( 14 )]
@@ -8696,6 +8677,33 @@ margin_right = 80.0
 margin_bottom = 14.0
 value = 100.0
 percent_visible = false
+
+[node name="Button" type="Button" parent="Battle_UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -85.0
+margin_top = -86.0
+margin_right = -22.0
+margin_bottom = -25.0
+icon = ExtResource( 22 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Battle_UI/Button"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+anchor_left = -0.079
+anchor_top = 1.021
+anchor_right = 1.26
+anchor_bottom = 1.354
+margin_left = -0.0239992
+margin_top = -0.0219994
+margin_right = -0.00800323
+margin_bottom = -0.0039978
+custom_fonts/font = SubResource( 80 )
+text = "Trocar Arma"
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 path_desired_distance = 0.1

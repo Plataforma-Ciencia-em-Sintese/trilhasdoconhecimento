@@ -65,30 +65,30 @@ var chipsItens = {
 # o que ja ganhou
 # quando pegar um novo item, ele deve ser add aqui
 var atkPassivesReward = {
-	"Escudo de Energia": ["res://Scenes/Attacks/Energy Barrier/EnergyBarrier.tscn","res://Sprites/UI/Icons/Attacks/Force Field.png","O que escudo faz",true,1],
-	"Ataque Meteoro": ["res://Scenes/Attacks/Meteor Attack/Meteor Attack.tscn","res://Sprites/UI/Icons/Attacks/Ray Explosion.png","meteoro caindo",false,2],
-	"Aumento de velocidade": ["res://Scenes/Attacks/Speed Up/SpeedUp.tscn","res://Sprites/UI/Icons/Attacks/Speed.png","velocidade aumentada",true,1],
-	"Laser Cibernetico": ["res://Scenes/Attacks/Laser/Laser.tscn","res://Sprites/UI/Icons/Attacks/Laser.png","laser do dbz",true,2],
-	"Raio Paralizante": ["res://Scenes/Attacks/Blue Sparkles/Blue Sparkles.tscn","res://Sprites/UI/Icons/Attacks/Sparkles.png","raio paralizador de inimigo",false,2],
-	"Multiplas Balas": ["res://Scenes/Attacks/Projectiles/Special_Bullet_Spawner.tscn","res://Sprites/UI/Icons/Attacks/Bullets.png","balas multiplas",true,1],
-	"Espada Giratoria": ["res://Scenes/Attacks/Sword Rotate/Sword_Area.tscn","res://Sprites/UI/Icons/Attacks/Sword Spin.png","espada giratoria",true,2],
-	"Clone": ["res://Scenes/Attacks/Clone/Clone.tscn","res://Sprites/UI/Icons/Attacks/Clone.png","cria clone do char",false,1]
+	"Escudo de Energia": ["res://Scenes/Attacks/Energy Barrier/EnergyBarrier.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","O que escudo faz",true,1],
+	"Ataque Meteoro": ["res://Scenes/Attacks/Meteor Attack/Meteor Attack.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","meteoro caindo",false,2],
+	"Aumento de velocidade": ["res://Scenes/Attacks/Speed Up/SpeedUp.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","velocidade aumentada",true,1],
+	"Laser Cibernetico": ["res://Scenes/Attacks/Laser/Laser.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","laser do dbz",true,2],
+	"Raio Paralizante": ["res://Scenes/Attacks/Blue Sparkles/Blue Sparkles.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","raio paralizador de inimigo",false,2],
+	"Multiplas Balas": ["res://Scenes/Attacks/Projectiles/Special_Bullet_Spawner.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","balas multiplas",true,1],
+	"Espada Giratoria": ["res://Scenes/Attacks/Sword Rotate/Sword_Area.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","espada giratoria",true,2],
+	"Clone": ["res://Scenes/Attacks/Clone/Clone.tscn","res://Sprites/UI/Icons/Attacks/Atk2_teste.png","cria clone do char",false,1]
 }
 
 # o que ja ganhou
 # apenas mudar o numero de itens que possui que ele aparece no inventario
 var consumRewards = {
-	"Orbe Life":["Heal","res://Sprites/UI/Icons/Consumiveis/Connect icon.png","Descricao vida",1],
-	"Orbe Limpeza":["Clean","res://Sprites/UI/Icons/Consumiveis/Orb icon.png","Descricao limpeza",1],
-	"Orbe Poder":["Power","res://Sprites/UI/Icons/Attacks/Force Field.png","Descricao poder de luta",1]
+	"Orbe Life":["Heal","res://Sprites/UI/Icons/Icons_Invent/consum_icon.png","Descricao vida",1],
+	"Orbe Limpeza":["Clean","res://Sprites/UI/Icons/Icons_Invent/consum_icon_vazio.png","Descricao limpeza",1],
+	"Orbe Poder":["Power","res://Sprites/UI/Icons/Icons_Invent/consum_icon_vazio.png","Descricao poder de luta",1]
 }
 
 # o que ja ganhou
 # quando pegar um novo item, ele deve ser add aqui
 #ataque,life,energia,velocidade e xp
 var chipsRewards = {
-	"Chip de Conexão": ["res://Scenes/Chips/ChipConexao.tscn","res://Sprites/UI/Icons/Chips/Chip.png","Chip que conecta as coisas","Conexao"],
-	"Chip de Recarga": ["res://Scenes/Chips/ChipRecarga.tscn","res://Sprites/UI/Icons/Chips/Chip.png","Chip que recarrega as coisas","Recarga"]
+	"Chip de Conexão": ["res://Scenes/Chips/ChipConexao.tscn","res://Sprites/UI/Icons/Icons_Invent/Chips_Icon.png","Chip que conecta as coisas","Conexao"],
+	"Chip de Recarga": ["res://Scenes/Chips/ChipRecarga.tscn","res://Sprites/UI/Icons/Icons_Invent/Chips_Icon_vazio.png","Chip que recarrega as coisas","Recarga"]
 }
 
 # Armas fixas
