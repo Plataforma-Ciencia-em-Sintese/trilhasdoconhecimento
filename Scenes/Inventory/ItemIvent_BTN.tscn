@@ -182,9 +182,9 @@ valign = 1
 
 [node name="Marker" type="Button" parent="." groups=["Marker"]]
 modulate = Color( 1, 0.933333, 0.623529, 1 )
-anchor_right = 1.016
-anchor_bottom = 1.0
-margin_right = -1.024
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 icon = ExtResource( 2 )

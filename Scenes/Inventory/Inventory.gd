@@ -127,7 +127,6 @@ func _ready():
 			
 	#------------------------------------------------
 	
-
 func _on_BT_Inventario_pressed():
 	$BT_Inventario.hide()
 	$BG_Inventory.show()

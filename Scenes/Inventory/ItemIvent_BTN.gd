@@ -30,16 +30,6 @@ func _on_ItemIvent_BTN_pressed():
 	$UI/BG_Infos/Desc.text = descITN
 	$UI/BG_Infos/Name.text = nameITN
 	
-	print(equiped)
-	if typeITN == "Weapons":
-		if equiped:
-			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
-		else:
-			if player.mainGun != "" and player.secGun != "":
-				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = true
-			else:
-				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
-	
 	invent.get_node("BG_Inventory/Description_Item/BT_Equip").text = "Equipar"
 	
 	invent.get_node("BG_Inventory/Description_Item/Icon_Item").texture = iconITN
@@ -54,18 +44,34 @@ func _on_ItemIvent_BTN_pressed():
 	invent.get_node("BG_Inventory/Description_Item/BT_Equip").source = source
 	invent.get_node("BG_Inventory/Description_Item/BT_Equip").typeITN = typeITN
 	
-#	var allBTNS = get_tree().get_nodes_in_group("BTEquip")
-#	for i in allBTNS.size():
-#		get_tree().get_nodes_in_group("BTEquip")[i].hide()
-#	$UI/BG_Infos.show()
-	
-	if typeITN == "Consum":
-#		$UI/BG_Infos/Quant_BG.show()
-#		$UI/BG_Infos/Quant_BG/Quant.text = "X " + str(GlobalValues.consumRewards[nameITN][3])
+	if typeITN == "Weapons":
+		if equiped:
+			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+		else:
+			if player.mainGun != "" and player.secGun != "":
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = true
+			else:
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+	elif typeITN == "Consum":
+		if equiped:
+			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+		else:
+			if player.get_node("Inventory").itensConsum.size() < 2:
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+			else:
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = true
+				
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").show()
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").text = "X " + str(GlobalValues.consumRewards[nameITN][3])
 	else:
-#		$UI/BG_Infos/Quant_BG.hide()
+		if equiped:
+			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+		else:
+			if player.get_node("Inventory").itensPassive.size() < 1:
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
+			else:
+				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = true
+				
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").hide()
 	
 	if QuestManager.isInQuest:

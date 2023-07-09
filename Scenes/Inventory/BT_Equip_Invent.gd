@@ -25,9 +25,9 @@ func _on_BT_Equip_pressed():
 
 		if typeITN == "Consum":
 			owner.get_node("BG_Inventory/Title_Consum/Consum_Repo").add_child(btn)
+			btn.typeITN = "Consum"
 			owner.itensConsum.append(nameITN)
 			GlobalValues.consumItens[nameITN] = GlobalValues.consumRewards.get(nameITN)
-			print("antes " + str(GlobalValues.consumItens.size()))
 	#	elif typeITN == "ATK":
 	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(btn)
 	#		invent.itensATK.append(nameITN)
