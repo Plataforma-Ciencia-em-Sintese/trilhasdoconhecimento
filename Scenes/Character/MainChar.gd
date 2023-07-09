@@ -238,7 +238,7 @@ func set_attributes():
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Life/ID_Bar.text = "Vida = 100"
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/ID_Bar.text = "Energia = 100"
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. Correr = " + str($States/Move.speedRunChoosed)
-	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar = " + str($States/Move.speedWalkChoosed)
+#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar = " + str($States/Move.speedWalkChoosed)
 	
 #	Combinacoes de armas
 	if mainGun == "Espada" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Espada":
@@ -355,9 +355,9 @@ func change_UI_status():
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/ID_Bar.text = "Energia + " + str($Status/Energy_Bar.max_value)
 	
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar.value = $States/Move.speedRun
-	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/BG_Bar/Bar.value = $States/Move.speedWalk
+#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/BG_Bar/Bar.value = $States/Move.speedWalk
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. Correr + " + str($States/Move.speedRun)
-	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar + " + str($States/Move.speedWalk)
+#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar + " + str($States/Move.speedWalk)
 #---------------------
 	if mainGun == "Espada":
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.espadaValue + GlobalValues.atkBoost
@@ -445,10 +445,10 @@ func change_UI_status():
 	else:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.self_modulate = Color.white
 #--------------------------- Andar
-	if $States/Move.speedWalk >= 100:
-		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.red
-	else:
-		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.white
+#	if $States/Move.speedWalk >= 100:
+#		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.red
+#	else:
+#		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.white
 #--------------------------- Primario Atk
 	if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value >= 100:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.self_modulate = Color.red

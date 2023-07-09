@@ -22,7 +22,7 @@ var base: Spatial
 var target: Object
 
 var animationType = 0
-var clickCount = 1
+var clickCount = 2
 
 func _ready():
 	# Identifica quem é o alvo a ser seguido
@@ -60,7 +60,7 @@ func move():
 	# Muda de velocidade de acordo com os cliques do mouse
 	if Input.is_action_just_pressed("Click") and clickCount < 2 and target.outInterface:
 		animator.set("parameters/Seek/seek_position",0)
-		clickCount += 1
+#		clickCount += 1
 		if clickCount == 1:
 			animationType = -1
 		elif clickCount >= 2:
@@ -77,7 +77,7 @@ func move():
 	# Isso evita que ele fique "tremendo" quando estiver em cima do alvo
 	if navAgent.is_navigation_finished():
 		target.hide()
-		clickCount = 1
+		clickCount = 2
 		animator.set("parameters/move/blend_amount",0)
 		return
 	else:
