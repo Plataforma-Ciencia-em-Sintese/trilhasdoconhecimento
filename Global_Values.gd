@@ -13,34 +13,20 @@ var sceneNameToQuestMNG = ""
 var levelPlayer = 1
 var xpActual = 0
 
-# Boost das armas
-var lifeBoost = 0
-var atkBoost = 0
-var energyBoost = 0
-var speedBoostWalk = 0
-var speedBoostRun = 0
+# Valor base jogador
+var atkMain = 6
+var atkSec = 6
+var speed = 4
+var life = 30
+var energy = 30
+var xpChip = 0
 
-# Boost dos chips
-var lifeBoostChip = 0
-var atkBoostChip = 0
-var energyBoostChip = 0
-var speedBoostWalkChip = 0
-var speedBoostRunChip = 0
-var XPBoostChip = 0
-
-# Boost das armas
-var lifeBoostWeapon = 0
-var atkBoostWeapon = 0
-var energyBoostWeapon = 0
-var speedBoostWalkWeapon = 0
-var speedBoostRunWeapon = 0
-
-# Valor ataque armas
-var espadaValue = 35
-var varinhaValue = 15
-var manoplaValue = 50
-var escudoValue = 5
-var arcoValue = 10
+# Valores atuais jogador
+var atkMainActual = 0.0
+var atkSecActual = 0.0
+var speedActual = 0.0
+var lifeActual = 0.0
+var energyActual = 0.0
 
 # itens do inventário
 var atkItens = {
@@ -93,7 +79,7 @@ var chipsRewards = {
 
 # Armas fixas
 var weapons = {
-	"Escudo": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/manopola_arma.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
+	"Escudo": ["res://Sprites/UI/Icons/Weapons/Shield.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
 	"Espada": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/espada_arma.png","Espada laser star wars",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]],
 	"Manopla": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/manopola_arma.png","Manopla do Thanos",["Escudo de Energia","Clone","Espada Giratoria"]],
 	"Varinha": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],

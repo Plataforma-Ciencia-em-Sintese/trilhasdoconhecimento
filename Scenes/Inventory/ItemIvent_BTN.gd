@@ -20,6 +20,11 @@ func _ready():
 
 func _on_ItemIvent_BTN_pressed():
 #	if !blockMouse:
+	if !equiped:
+		invent.get_node("BG_Inventory/Description_Item/BT_Equip").deleteITN = false
+	else:
+		invent.get_node("BG_Inventory/Description_Item/BT_Equip").deleteITN = true
+	
 	marker =  get_tree().get_nodes_in_group("Marker")
 	for i in marker.size():
 		marker[i].hide()
@@ -43,6 +48,8 @@ func _on_ItemIvent_BTN_pressed():
 	
 	invent.get_node("BG_Inventory/Description_Item/BT_Equip").source = source
 	invent.get_node("BG_Inventory/Description_Item/BT_Equip").typeITN = typeITN
+	print("o tipo desse botao eh " + typeITN)
+	print("ja o do botao equipar eh " + invent.get_node("BG_Inventory/Description_Item/BT_Equip").typeITN)
 	
 	if typeITN == "Weapons":
 		if equiped:
@@ -63,7 +70,7 @@ func _on_ItemIvent_BTN_pressed():
 				
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").show()
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").text = "X " + str(GlobalValues.consumRewards[nameITN][3])
-	else:
+	elif typeITN == "Chips":
 		if equiped:
 			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
 		else:
@@ -83,6 +90,8 @@ func _on_ItemIvent_BTN_pressed():
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip").text = "Deletar"
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip").btnOnEquip = btnOnEquiped
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip").deleteITN = true
+		
+		print("esse botao equipado tem o type " + typeITN)
 		
 		if typeITN != "Weapons":
 			invent.get_node("BG_Inventory/Description_Item/BT_Equip").btnOnDestroy = self

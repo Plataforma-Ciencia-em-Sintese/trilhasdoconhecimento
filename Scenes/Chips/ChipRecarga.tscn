@@ -4,7 +4,4 @@
 
 [node name="Recarga" type="Spatial"]
 script = ExtResource( 1 )
-lifeBoost = 22
 energyBoost = 6
-speedBoostWalk = 5
-speedBoostRun = 5

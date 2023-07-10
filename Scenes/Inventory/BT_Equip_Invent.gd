@@ -22,10 +22,15 @@ func _on_BT_Equip_pressed():
 		btn.descITN = descITN
 		btn.iconITN = iconITN
 		btn.source = source
-
+		
 		if typeITN == "Consum":
 			owner.get_node("BG_Inventory/Title_Consum/Consum_Repo").add_child(btn)
+			
 			btn.typeITN = "Consum"
+			btn.equiped = true
+			btn.btnOnEquiped = btnOnEquip
+			btnOnEquip.hide()
+			
 			owner.itensConsum.append(nameITN)
 			GlobalValues.consumItens[nameITN] = GlobalValues.consumRewards.get(nameITN)
 	#	elif typeITN == "ATK":
@@ -33,10 +38,18 @@ func _on_BT_Equip_pressed():
 	#		invent.itensATK.append(nameITN)
 		elif typeITN == "Chips":
 			owner.get_node("BG_Inventory/Title_Passive/Passive_Repo").add_child(btn)
+			
+			btn.typeITN = "Chips"
+			btn.equiped = true
+			btn.btnOnEquiped = btnOnEquip
+			btnOnEquip.hide()
+			
 			owner.itensPassive.append(nameITN)
 			GlobalValues.chipsItens[nameITN] = GlobalValues.chipsRewards.get(nameITN)
 	#		invent.change_battle_itens()
-			player.choose_chip(btn.source)
+			player.choose_chip(btn.source,"Add")
+			owner.change_battle_itens()
+
 		elif typeITN == "Weapons":
 			if owner.get_node("BG_Inventory/Title_Weapon/Weapons_Repo").get_child_count() > 0:
 				if owner.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Repo").get_child_count() > 0:
@@ -49,7 +62,6 @@ func _on_BT_Equip_pressed():
 				weaponBTN.icon = iconITN
 				owner.player.get_node("Battle_UI/Container_Weapon_Sec/Weapon_Sec").add_child(weaponBTN)
 				
-				owner.itensPassive.append(nameITN)
 	#			btn.disabled = true
 				btnOnEquip.order = "sec"
 				owner.weaponSecond = nameITN
@@ -63,6 +75,7 @@ func _on_BT_Equip_pressed():
 		#				break
 		#		if QuestManager.isInQuest:
 				owner.change_battle_itens()
+				player.set_attributes("ATKSec")
 		#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
 	#			passive.disabled = true
 			else:
@@ -73,7 +86,6 @@ func _on_BT_Equip_pressed():
 				weaponBTN.icon = iconITN
 				owner.player.get_node("Battle_UI/Container_Weapon_Main/Weapon_Main").add_child(weaponBTN)
 				
-				owner.itensPassive.append(nameITN)
 	#			btn.disabled = true
 				btnOnEquip.order = "main"
 				owner.weaponActual = nameITN
@@ -88,22 +100,30 @@ func _on_BT_Equip_pressed():
 		#				break
 		#		if QuestManager.isInQuest:
 				owner.change_battle_itens()
+				player.set_attributes("ATKMain")
 		#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(passive)
 	#			passive.disabled = true
-	
-		btn.equiped = true
-		btn.btnOnEquiped = btnOnEquip
-		btnOnEquip.hide()
+		
+			btn.typeITN = "Weapons"
+			btn.equiped = true
+			btn.btnOnEquiped = btnOnEquip
+			btnOnEquip.hide()
 	else:
 		if btnOnEquip.typeITN == "Weapons":
 			if btnOnEquip.order == "sec":
+				player.clear_attributes("ATKSec")
 				owner.clean_sec_weapon()
 			else:
+				player.clear_attributes("ATKMain")
 				owner.clean_main_weapon()
+			
+			if player.mainGun == "" and player.secGun == "":
+				player.reset_attributes()
+				print("dfsefeasdeasd")
 		elif btnOnEquip.typeITN == "Consum":
 			owner.clean_consums(btnOnEquip.nameITN)
 			btnOnDestroy.queue_free()
-		else:
+		elif btnOnEquip.typeITN == "Chips":
 			owner.clean_passive(btnOnEquip.nameITN)
 			btnOnDestroy.queue_free()
 			
