@@ -195,16 +195,6 @@ func change_battle_itens():
 	player.mainGun = weaponActual
 	player.secGun = weaponSecond
 	
-#	if !gunMainEquiped:
-#		player.set_attributes("ATKMain")
-#		print(" main esta true")
-#		gunMainEquiped = true
-#
-#	if !gunSecEquiped:
-#		player.set_attributes("ATKSec")
-#		print(" sec esta true")
-#		gunSecEquiped = true
-
 	player.change_weapons()
 	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")

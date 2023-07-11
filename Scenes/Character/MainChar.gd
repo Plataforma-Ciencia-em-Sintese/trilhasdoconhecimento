@@ -198,11 +198,23 @@ func choose_chip(value,toDo):
 	if toDo == "Add":
 		var chipScene = load(value).instance()
 		$Base/Skeleton.add_child(chipScene)
-		GlobalValues.lifeActual += chipScene.lifeBoost
-		GlobalValues.energyActual += chipScene.energyBoost
+		if GlobalValues.lifeActual > 0:
+			GlobalValues.lifeActual += chipScene.lifeBoost
+		else:
+			GlobalValues.lifeActual += GlobalValues.life + chipScene.lifeBoost
+		
+		if GlobalValues.energyActual > 0:
+			GlobalValues.energyActual += chipScene.energyBoost
+		else:
+			GlobalValues.energyActual += GlobalValues.energy + chipScene.energyBoost
+		
+		if GlobalValues.speedActual > 0:
+			GlobalValues.speedActual += chipScene.speedBoostRun
+		else:
+			GlobalValues.speedActual += GlobalValues.speed + chipScene.speedBoostRun
+			
 		GlobalValues.atkMainActual += chipScene.atkBoost
 		GlobalValues.atkSecActual += chipScene.atkBoost
-		GlobalValues.speedActual += chipScene.speedBoostRun
 		GlobalValues.xpChip += chipScene.xpBoost
 	else:
 		var chipScene = load(value).instance()
@@ -229,31 +241,31 @@ func set_attributes(typeAttribute):
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,3)
 			else:
-				GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,3)
+				GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,3)
 		elif mainGun == "Arco":
 			GlobalValues.atkMainActual += GlobalValues.atkMain + calculate_status(GlobalValues.atkMain,1,2)
 			#-------
 			if GlobalValues.energyActual <= 0:
 				GlobalValues.energyActual += GlobalValues.energy - calculate_status(GlobalValues.energy,1,3)
 			else:
-				GlobalValues.energyActual -= calculate_status(GlobalValues.energyActual,1,3)
+				GlobalValues.energyActual -= calculate_status(GlobalValues.energy,1,3)
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life - calculate_status(GlobalValues.life,1,3)
 			else:
-				GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,3)
+				GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,3)
 		elif mainGun == "Varinha":
 			GlobalValues.atkMainActual += GlobalValues.atkMain + calculate_status(GlobalValues.atkMain,1,2)
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life - calculate_status(GlobalValues.life,1,3)
 			else:
-				GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,3)
+				GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,3)
 			#-------
 			if GlobalValues.speedActual <= 0:
 				GlobalValues.speedActual += GlobalValues.speed - calculate_status(GlobalValues.speed,1,2)
 			else:
-				GlobalValues.speedActual -= calculate_status(GlobalValues.speedActual,1,2)
+				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
 		elif mainGun == "Escudo":
 			GlobalValues.atkMainActual += GlobalValues.atkMain - calculate_status(GlobalValues.atkMain,1,6) 
 			#-------
@@ -265,7 +277,7 @@ func set_attributes(typeAttribute):
 			if GlobalValues.speedActual <= 0:
 				GlobalValues.speedActual += GlobalValues.speed - calculate_status(GlobalValues.speed,1,4)
 			else:
-				GlobalValues.speedActual -= calculate_status(GlobalValues.speedActual,1,4)
+				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,4)
 		elif mainGun == "Manopla":
 			GlobalValues.atkMainActual += GlobalValues.atkMain - calculate_status(GlobalValues.atkMain,1,6)
 			#-------
@@ -282,38 +294,38 @@ func set_attributes(typeAttribute):
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,3)
 			else:
-				GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,3)
+				GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,3)
 		elif secGun == "Arco":
 			GlobalValues.atkSecActual += GlobalValues.atkSec + calculate_status(GlobalValues.atkSec,1,2)
 			#-------
 			if GlobalValues.energyActual <= 0:
 				GlobalValues.energyActual += GlobalValues.energy - calculate_status(GlobalValues.energy,1,3)
 			else:
-				GlobalValues.energyActual -= calculate_status(GlobalValues.energyActual,1,3)
+				GlobalValues.energyActual -= calculate_status(GlobalValues.energy,1,3)
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life - calculate_status(GlobalValues.life,1,3)
 			else:
-				GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,3)
+				GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,3)
 		elif secGun == "Varinha":
 			GlobalValues.atkSecActual += GlobalValues.atkSec + calculate_status(GlobalValues.atkSec,1,2)
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life - calculate_status(GlobalValues.life,1,3)
 			else:
-				GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,3)
+				GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,3)
 			#-------
 			if GlobalValues.speedActual <= 0:
 				GlobalValues.speedActual += GlobalValues.speed - calculate_status(GlobalValues.speed,1,2)
 			else:
-				GlobalValues.speedActual -= calculate_status(GlobalValues.speedActual,1,2)
+				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
 		elif secGun == "Escudo":
 			GlobalValues.atkSecActual += GlobalValues.atkSec - calculate_status(GlobalValues.atkSec,1,6) 
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,2)
 			else:
-				GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,2)
+				GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,2)
 			#-------
 			if GlobalValues.speedActual <= 0:
 				GlobalValues.speedActual += GlobalValues.speed - calculate_status(GlobalValues.speed,1,4)
@@ -326,176 +338,53 @@ func set_attributes(typeAttribute):
 				GlobalValues.speedActual += GlobalValues.speed + calculate_status(GlobalValues.speed,1,2)
 			else:
 				GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,2)
-
+				
 		print("resultado das armas sec é " + str(GlobalValues.atkSecActual))
 	
 	print("vida - " + str(GlobalValues.lifeActual))
 	print("energia - " + str(GlobalValues.energyActual))
 	print("velocidade - " + str(GlobalValues.speedActual))
 	change_UI_status()
-#	GlobalValues.lifeBoost -= GlobalValues.lifeBoostWeapon
-#	GlobalValues.energyBoost -= GlobalValues.energyBoostWeapon
-#	GlobalValues.atkBoost -= GlobalValues.atkBoostWeapon
-#	GlobalValues.speedBoostWalk -= GlobalValues.speedBoostWalkWeapon
-#	GlobalValues.speedBoostRun -= GlobalValues.speedBoostRunWeapon
-#
-#	GlobalValues.lifeBoostWeapon = 0
-#	GlobalValues.energyBoostWeapon = 0
-#	GlobalValues.atkBoostWeapon = 0
-#	GlobalValues.speedBoostWalkWeapon = 0
-#	GlobalValues.speedBoostRunWeapon = 0
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = 0
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = 0
-#
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Arma Primaria = 0"
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Arma Secundaria = 0"
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/Life/ID_Bar.text = "Vida = 100"
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/ID_Bar.text = "Energia = 100"
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. Correr = " + str($States/Move.speedRunChoosed)
-##	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar = " + str($States/Move.speedWalkChoosed)
-#
-##	Combinacoes de armas
-#	if mainGun == "Espada" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Espada":
-#		GlobalValues.lifeBoostWeapon += 25
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 1
-#	elif mainGun == "Manopla" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Manopla":
-#		GlobalValues.lifeBoostWeapon += 15
-#		GlobalValues.atkBoostWeapon -= 2
-#		GlobalValues.speedBoostWalkWeapon += 1
-#		GlobalValues.speedBoostRunWeapon += 1
-#	elif mainGun == "Espada" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Espada":
-#		GlobalValues.lifeBoostWeapon += 10
-#		GlobalValues.speedBoostWalkWeapon += 2
-#		GlobalValues.speedBoostRunWeapon += 2
-#	elif mainGun == "Varinha" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon += 5
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 3
-#		GlobalValues.atkBoostWeapon += 2
-#	elif mainGun == "Arco" and secGun == "Escudo" or mainGun == "Escudo" and secGun == "Arco":
-#		GlobalValues.lifeBoostWeapon += 5
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 2
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 1
-#	elif mainGun == "Varinha" and secGun == "Espada" or mainGun == "Espada" and secGun == "Varinha":
-#		GlobalValues.atkBoostWeapon += 4
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 2
-#	elif mainGun == "Arco" and secGun == "Espada" or mainGun == "Espada" and secGun == "Arco":
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.speedBoostWalkWeapon += 4
-#		GlobalValues.speedBoostRunWeapon += 4
-#	elif mainGun == "Varinha" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 2
-#	elif mainGun == "Arco" and secGun == "Manopla" or mainGun == "Manopla" and secGun == "Arco":
-#		GlobalValues.lifeBoostWeapon -= 10
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 2
-#		GlobalValues.speedBoostWalkWeapon += 2
-#		GlobalValues.speedBoostRunWeapon += 2
-#	elif mainGun == "Varinha" and secGun == "Arco" or mainGun == "Arco" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon -= 20
-#		GlobalValues.energyBoostWeapon -= 10
-#		GlobalValues.atkBoostWeapon += 6
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 2
-#	# Armas Solo
-#	elif mainGun == "Varinha" and secGun == "":
-#		GlobalValues.lifeBoostWeapon -= 2
-#		GlobalValues.atkBoostWeapon += 2
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 2
-#	elif mainGun == "" and secGun == "Varinha":
-#		GlobalValues.lifeBoostWeapon -= 2
-#		GlobalValues.atkBoostWeapon += 2
-#		GlobalValues.speedBoostWalkWeapon -= 1
-#		GlobalValues.speedBoostRunWeapon -= 2
-#	elif mainGun == "Arco" and secGun == "":
-#		GlobalValues.lifeBoostWeapon -= 3
-#		GlobalValues.energyBoostWeapon -= 3
-#		GlobalValues.atkBoostWeapon += 3
-#	elif mainGun == "" and secGun == "Arco":
-#		GlobalValues.lifeBoostWeapon -= 3
-#		GlobalValues.energyBoostWeapon -= 3
-#		GlobalValues.atkBoostWeapon += 3
-#	elif mainGun == "Espada" and secGun == "":
-#		GlobalValues.lifeBoostWeapon += 4
-#		GlobalValues.atkBoostWeapon += 4
-#	elif mainGun == "" and secGun == "Espada":
-#		GlobalValues.lifeBoostWeapon += 4
-#		GlobalValues.atkBoostWeapon += 4
-#	elif mainGun == "Manopla" and secGun == "":
-#		GlobalValues.speedBoostWalkWeapon += 5
-#		GlobalValues.speedBoostRunWeapon += 5
-#		GlobalValues.atkBoostWeapon -= 5
-#	elif mainGun == "" and secGun == "Manopla":
-#		GlobalValues.speedBoostWalkWeapon += 5
-#		GlobalValues.speedBoostRunWeapon += 5
-#		GlobalValues.atkBoostWeapon -= 5
-#	elif mainGun == "Escudo" and secGun == "":
-#		GlobalValues.lifeBoostWeapon += 4
-#		GlobalValues.atkBoostWeapon -= 100/6
-#		GlobalValues.speedBoostWalkWeapon -= $States/Move.speedWalkChoosed/4
-#		GlobalValues.speedBoostRunWeapon -= $States/Move.speedRunChoosed/4
-#	elif mainGun == "" and secGun == "Escudo":
-#		GlobalValues.lifeBoostWeapon += 4
-#		GlobalValues.atkBoostWeapon -= 100/6
-#		GlobalValues.speedBoostWalkWeapon -= $States/Move.speedWalkChoosed/4
-#		GlobalValues.speedBoostRunWeapon -= $States/Move.speedRunChoosed/4
-#	else:
-#		print("sem combinacao de armas")
-#
-#	GlobalValues.lifeBoost += GlobalValues.lifeBoostWeapon
-#	GlobalValues.energyBoost += GlobalValues.energyBoostWeapon
-#	GlobalValues.atkBoost += GlobalValues.atkBoostWeapon
-#	GlobalValues.speedBoostWalk += GlobalValues.speedBoostWalkWeapon
-#	GlobalValues.speedBoostRun += GlobalValues.speedBoostRunWeapon
-#
-#	change_UI_status()
-	pass
 
 func clear_attributes(typeAttribute):
 	if typeAttribute == "ATKMain":
 		if mainGun == "Espada":
-			GlobalValues.atkMainActual -= calculate_status(GlobalValues.atkMainActual,1,6)
-			GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,3)
+			GlobalValues.atkMainActual = 0
+			GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,3)
 		elif mainGun == "Arco":
-			GlobalValues.atkMainActual -= calculate_status(GlobalValues.atkMainActual,1,2)
-			GlobalValues.energyActual += calculate_status(GlobalValues.energyActual,1,3)
-			GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,3)
+			GlobalValues.atkMainActual = 0
+			GlobalValues.energyActual += calculate_status(GlobalValues.energy,1,3)
+			GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,3)
 		elif mainGun == "Varinha":
-			GlobalValues.atkMainActual -= calculate_status(GlobalValues.atkMainActual,1,2)
-			GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,3)
-			GlobalValues.speedActual += calculate_status(GlobalValues.speedActual,1,2)
+			GlobalValues.atkMainActual = 0
+			GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,3)
+			GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,2)
 		elif mainGun == "Escudo":
-			GlobalValues.atkMainActual += calculate_status(GlobalValues.atkMainActual,1,6) 
-			GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,2) 
-			GlobalValues.speedActual += calculate_status(GlobalValues.speedActual,1,4)
+			GlobalValues.atkMainActual = 0 
+			GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,2) 
+			GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,4)
 		elif mainGun == "Manopla":
-			GlobalValues.atkMainActual += calculate_status(GlobalValues.atkMainActual,1,6)
-			GlobalValues.speedActual -= calculate_status(GlobalValues.speedActual,1,2)
+			GlobalValues.atkMainActual = 0
+			GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
 	elif typeAttribute == "ATKSec":
 		if secGun == "Espada":
-			GlobalValues.atkSecActual -= calculate_status(GlobalValues.atkSecActual,1,6)
-			GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,3)
+			GlobalValues.atkSecActual = 0
+			GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,3)
 		elif secGun == "Arco":
-			GlobalValues.atkSecActual -= calculate_status(GlobalValues.atkSecActual,1,2)
-			GlobalValues.energyActual += calculate_status(GlobalValues.energyActual,1,3)
-			GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,3)
+			GlobalValues.atkSecActual = 0
+			GlobalValues.energyActual += calculate_status(GlobalValues.energy,1,3)
+			GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,3)
 		elif secGun == "Varinha":
-			GlobalValues.atkSecActual -= calculate_status(GlobalValues.atkSecActual,1,2)
-			GlobalValues.lifeActual += calculate_status(GlobalValues.lifeActual,1,3)
-			GlobalValues.speedActual += calculate_status(GlobalValues.speedActual,1,2)
+			GlobalValues.atkSecActual = 0
+			GlobalValues.lifeActual += calculate_status(GlobalValues.life,1,3)
+			GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,2)
 		elif secGun == "Escudo":
-			GlobalValues.atkSecActual += calculate_status(GlobalValues.atkSecActual,1,6) 
-			GlobalValues.lifeActual -= calculate_status(GlobalValues.lifeActual,1,2) 
-			GlobalValues.speedActual += calculate_status(GlobalValues.speedActual,1,4)
+			GlobalValues.atkSecActual = 0
+			GlobalValues.lifeActual -= calculate_status(GlobalValues.life,1,2) 
+			GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,4)
 		elif secGun == "Manopla":
-			GlobalValues.atkSecActual += calculate_status(GlobalValues.atkSecActual,1,6)
-			GlobalValues.speedActual -= calculate_status(GlobalValues.speedActual,1,2)
+			GlobalValues.atkSecActual = 0
+			GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
 	
 	print("vida atualizada - " + str(GlobalValues.lifeActual))
 	print("energia atualizada - " + str(GlobalValues.energyActual))
@@ -555,81 +444,6 @@ func change_UI_status():
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.atkSecActual)
 	else:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.atkSecActual)
-	#------
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/BG_Bar/Bar.value = $States/Move.speedWalk
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. Correr + " + str($States/Move.speedRun)
-#	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.text = "Vel. Andar + " + str($States/Move.speedWalk)
-	#---------------------
-#	if mainGun == "Espada":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.espadaValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
-#
-#	elif mainGun == "Varinha":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.varinhaValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
-#
-#	elif mainGun == "Escudo":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.escudoValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
-#
-#	elif mainGun == "Manopla":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.manoplaValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
-#
-#	elif mainGun == "Arco":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value = GlobalValues.arcoValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
-##------------------------
-#	if secGun == "Espada":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.espadaValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.espadaValue + GlobalValues.atkBoost)
-#
-#	elif secGun == "Varinha":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.varinhaValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.varinhaValue + GlobalValues.atkBoost)
-#
-#	elif secGun == "Escudo":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.escudoValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.escudoValue + GlobalValues.atkBoost)
-#
-#	elif secGun == "Manopla":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.manoplaValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.manoplaValue + GlobalValues.atkBoost)
-#
-#	elif secGun == "Arco":
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value = GlobalValues.arcoValue + GlobalValues.atkBoost
-#		if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.value > 0:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec + " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
-#		else:
-#			$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/ID_Bar.text = "Ataque Sec " + str(GlobalValues.arcoValue + GlobalValues.atkBoost)
-			
 #--------------------------- Vida
 	if $Status/Life_Bar.max_value >= 100:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Bar.self_modulate = Color.red
@@ -645,11 +459,6 @@ func change_UI_status():
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.self_modulate = Color.red
 	else:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.self_modulate = Color.white
-#--------------------------- Andar
-#	if $States/Move.speedWalk >= 100:
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.red
-#	else:
-#		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Walk/ID_Bar.self_modulate = Color.white
 #--------------------------- Primario Atk
 	if $Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.value >= 100:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar.self_modulate = Color.red
@@ -663,9 +472,3 @@ func change_UI_status():
 
 func calculate_status(baseValue,numerator,denominator):
 	return (baseValue/denominator) * numerator
-
-#	print("LIFE  " + str($Status/Life_Bar.max_value))
-#	print("ENERGY " + str($Status/Energy_Bar.max_value))
-#	print("ATK " + str(GlobalValues.atkBoost))
-#	print("SPEEDWALK " + str($States/Move.speedWalk))
-#	print("SPEEDRUN " + str($States/Move.speedRun) + "\n")
