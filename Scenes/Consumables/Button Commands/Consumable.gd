@@ -18,9 +18,10 @@ func _on_Consumable_pressed():
 	pointer.outInterface = true
 	
 	GlobalValues.consumRewards[keyName][3] -= 1
+	invent.itensConsum.resize(invent.itensConsum.size()-1)
 	$Quant.text = "X " + str(GlobalValues.consumRewards[keyName][3])
 	if GlobalValues.consumRewards[keyName][3] <= 0:
-		invent.get_node("BG_Inventory/Equiped_BG/Title_Consums/Consum_Repo").get_node(keyName).queue_free()
+		invent.get_node("BG_Inventory/Title_Consum/Consum_Repo").get_node(keyName).queue_free()
 		GlobalValues.consumItens.erase(keyName)
 		queue_free()
 

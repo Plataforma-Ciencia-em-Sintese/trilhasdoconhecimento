@@ -124,7 +124,9 @@ func _ready():
 			weaponsBtn.nameITN = GlobalValues.weapons.keys()[i]
 			weaponsBtn.typeITN = "Weapons"
 			$BG_Inventory/Title_Weapons/Weapons_Itens.add_child(weaponsBtn)
-
+			
+	#------------------------------------------------
+	
 func _on_BT_Inventario_pressed():
 	$BT_Inventario.hide()
 	$BG_Inventory.show()
@@ -192,9 +194,8 @@ func change_battle_itens():
 	
 	player.mainGun = weaponActual
 	player.secGun = weaponSecond
-	player.set_attributes()
+	
 	player.change_weapons()
-	player.change_UI_status()
 	player.create_btns_battle("ATK")
 	player.create_btns_battle("Consum")
 
@@ -218,10 +219,9 @@ func _on_Clean_Combat_pressed():
 
 func clean_passive(nameChip):
 	itensPassive.resize(0)
+	player.choose_chip(GlobalValues.chipsItens[nameChip][0],"Remove")
 	GlobalValues.chipsItens.erase(nameChip)
-	print(GlobalValues.chipsItens.keys())
-	player.choose_chip("")
-
+	
 func clean_main_weapon():
 	for i in $BG_Inventory/Title_Weapon/Weapons_Repo.get_child_count():
 		$BG_Inventory/Title_Weapon/Weapons_Repo.get_child(i).queue_free()

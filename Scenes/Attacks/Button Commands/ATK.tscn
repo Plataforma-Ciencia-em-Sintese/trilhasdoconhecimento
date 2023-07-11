@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/UI/Icons/Attacks/Force Field.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/UI/prototipo inventario/Lock Icon.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Atk2_teste.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/item_block.png" type="Texture" id=3]
 
 [node name="ATK" type="Button" groups=["ATKButton"]]
 margin_right = 50.0
@@ -22,9 +22,13 @@ value = 100.0
 percent_visible = false
 
 [node name="Lock_Icon" type="Button" parent="."]
-modulate = Color( 1, 1, 1, 0.898039 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+self_modulate = Color( 1, 1, 1, 0.792157 )
+anchor_left = -0.08
+anchor_top = -0.044
+anchor_right = 1.38
+anchor_bottom = 1.222
+margin_top = -0.0199999
+margin_bottom = 0.00999832
 size_flags_horizontal = 3
 icon = ExtResource( 3 )
 flat = true
