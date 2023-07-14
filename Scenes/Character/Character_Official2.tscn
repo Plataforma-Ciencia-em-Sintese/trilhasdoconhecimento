@@ -1,8 +1,7 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/HUDs/Pause/pause.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Character/States/Movement.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Character/States/Talking.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
@@ -20,7 +19,6 @@
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste lab.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/UI/Icons/Attacks/Trocar_Arma_Icon.png" type="Texture" id=22]
 [ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://Sprites/UI/Icons/minimap/Button_MiniMap.png" type="Texture" id=24]
@@ -7900,13 +7898,6 @@ __meta__ = {
 mainChar = "Caio"
 activeCloths = "Normal"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 21 )
-expand = true
-
 [node name="States" type="Spatial" parent="."]
 
 [node name="Move" type="Spatial" parent="States"]
@@ -8019,7 +8010,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
+bones/9/bound_children = [  ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8124,7 +8115,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
+bones/30/bound_children = [  ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8302,7 +8293,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000766665, -0.0133905, -0.99991, -0.185789, -0.982504, 0.013015, -0.982587, 0.185762, -0.00323902, -0.293336, 0.592909, 0.0601807 )
+transform = Transform( 8.34465e-07, -0.0119845, -0.999928, -0.420755, -0.90711, 0.0108719, -0.907173, 0.420724, -0.0050413, -0.293115, 0.593744, 0.0857988 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8365,7 +8356,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000766724, 0.0133907, 0.99991, 0.185789, -0.982504, 0.0130153, 0.982587, 0.185762, -0.00323913, 0.293336, 0.592909, 0.0601807 )
+transform = Transform( 4.17233e-07, 0.0119837, 0.999928, 0.420754, -0.90711, 0.0108714, 0.907173, 0.420724, -0.00504048, 0.293114, 0.593744, 0.0857986 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8479,13 +8470,10 @@ align = 1
 valign = 1
 
 [node name="TabletInformation" parent="." instance=ExtResource( 18 )]
-visible = false
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/CamAnchor")
 weaponActual = "Shield"
-
-[node name="Pause" parent="." instance=ExtResource( 3 )]
 
 [node name="Status" parent="." instance=ExtResource( 6 )]
 

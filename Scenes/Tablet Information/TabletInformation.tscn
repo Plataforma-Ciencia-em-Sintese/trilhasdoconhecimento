@@ -1,23 +1,59 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Backgrond_Tablet.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/InventarioTablet_Icon.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Trilhas_icon.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Diario_Icon.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Tablet de Informações.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/BNotaveis_Icon.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/BInimigos_Icon.png" type="Texture" id=9]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Contatos.png" type="Texture" id=6]
+[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Diario.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Trilhas.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tablet Information/Daily_Tablet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/tablet test.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Bestiario.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Invent.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Background.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Icon_Missoes.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Icon_trilhas.png" type="Texture" id=20]
 
+[sub_resource type="DynamicFont" id=1]
+size = 24
+use_filter = true
+extra_spacing_char = -2
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+use_filter = true
+extra_spacing_char = -1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+use_filter = true
+extra_spacing_bottom = -7
+extra_spacing_char = -1
+font_data = ExtResource( 5 )
 
 [node name="TabletInformation" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 15 )
+expand = true
 
 [node name="PanelTablet" type="Panel" parent="."]
 visible = false
@@ -27,189 +63,307 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="background_Tablet" type="TextureRect" parent="PanelTablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -409.0
-margin_top = -256.0
-margin_right = 372.0
-margin_bottom = 258.0
+anchor_left = 0.036
+anchor_top = 0.044
+anchor_right = 0.969
+anchor_bottom = 0.962
+margin_left = -0.0800018
+margin_top = 0.319998
+margin_right = -0.320068
+margin_bottom = 0.359924
 texture = ExtResource( 3 )
 expand = true
 
-[node name="Text_Tablet" type="TextureRect" parent="PanelTablet/background_Tablet"]
-margin_left = 92.0
-margin_top = 35.0
-margin_right = 273.0
-margin_bottom = 58.0
-texture = ExtResource( 7 )
-expand = true
-
-[node name="BT_Inventory" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -213.5
-margin_top = -120.0
-margin_right = -137.5
-margin_bottom = -10.0
-icon = ExtResource( 4 )
+[node name="BT_ExitTablet" type="Button" parent="PanelTablet/background_Tablet"]
+anchor_left = 0.957
+anchor_top = -0.023
+anchor_right = 0.996
+anchor_bottom = 0.029
+margin_left = 0.341919
+margin_top = 0.203001
+margin_right = -0.224121
+margin_bottom = -0.169001
+icon = ExtResource( 2 )
 flat = true
 expand_icon = true
 
-[node name="BT_Daily" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.5
-margin_top = -118.0
-margin_right = 35.5
-margin_bottom = -11.0
-icon = ExtResource( 6 )
+[node name="Name_Tablet" type="Label" parent="PanelTablet/background_Tablet"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+anchor_left = 0.086
+anchor_top = 0.077
+anchor_right = 0.333
+anchor_bottom = 0.137
+margin_left = 0.401993
+margin_top = 0.102997
+margin_right = 0.318024
+margin_bottom = 0.322998
+custom_fonts/font = SubResource( 1 )
+text = "Tablet de Informações"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
+margin_left = 561.0
+margin_top = 326.0
+margin_right = 1095.0
+margin_bottom = 462.0
+custom_constants/separation = 135
+
+[node name="BT_Invent" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
+margin_right = 85.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 85, 85 )
+icon = ExtResource( 17 )
 flat = true
 expand_icon = true
 
-[node name="BT_Inventory2" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 132.5
-margin_top = -120.0
-margin_right = 208.5
-margin_bottom = -10.0
-icon = ExtResource( 4 )
-flat = true
-expand_icon = true
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Invent"]
+anchor_left = 0.082
+anchor_top = 0.824
+anchor_right = 1.024
+anchor_bottom = 0.985
+margin_left = 0.0299997
+margin_top = -0.0640106
+margin_right = -5.04
+margin_bottom = -1.96001
+custom_fonts/font = SubResource( 2 )
+text = "Inventário"
 
-[node name="BT_Enemy" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -236.5
-margin_top = -4.0
-margin_right = -115.5
-margin_bottom = 128.0
-icon = ExtResource( 9 )
-flat = true
-expand_icon = true
-
-[node name="BT_Trails" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -37.5
-margin_top = 6.0
-margin_right = 33.5
-margin_bottom = 117.0
-icon = ExtResource( 5 )
-flat = true
-expand_icon = true
-
-[node name="BT_notables" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 107.5
-margin_top = 9.0
-margin_right = 237.5
-margin_bottom = 117.0
+[node name="BT_Diario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
+margin_left = 220.0
+margin_right = 305.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
 
-[node name="BT_ExitTablet" type="Button" parent="PanelTablet/background_Tablet"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -57.0
-margin_top = -19.0
-margin_right = -22.0
-margin_bottom = 14.0
-icon = ExtResource( 2 )
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Diario"]
+anchor_left = 0.059
+anchor_top = 0.824
+anchor_right = 0.941
+anchor_bottom = 0.971
+margin_left = -0.0150003
+margin_top = -0.0640106
+margin_right = 0.0149994
+margin_bottom = -0.056015
+custom_fonts/font = SubResource( 2 )
+text = "Diário"
+align = 1
+
+[node name="BT_Invent3" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
+margin_left = 440.0
+margin_right = 525.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 85, 85 )
+icon = ExtResource( 17 )
 flat = true
 expand_icon = true
 
-[node name="Panel_Exit" type="Panel" parent="."]
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Invent3"]
+anchor_left = 0.059
+anchor_top = 0.824
+anchor_right = 0.941
+anchor_bottom = 0.971
+margin_left = -0.0150003
+margin_top = -0.0640106
+margin_right = 0.0149994
+margin_bottom = -0.056015
+custom_fonts/font = SubResource( 2 )
+text = "Inventário"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
+margin_left = 561.0
+margin_top = 464.0
+margin_right = 1095.0
+margin_bottom = 578.0
+custom_constants/separation = 135
+
+[node name="BT_Bestiario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
+margin_right = 85.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 85, 85 )
+icon = ExtResource( 16 )
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Bestiario"]
+anchor_left = 0.094
+anchor_top = 0.886
+anchor_right = 0.976
+anchor_bottom = 1.079
+margin_left = 0.00999975
+margin_top = -0.00400543
+margin_right = 0.0399933
+margin_bottom = -0.0059967
+custom_fonts/font = SubResource( 2 )
+text = "Bestiário"
+align = 1
+
+[node name="BT_Trilhas" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
+margin_left = 220.0
+margin_right = 305.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 85, 85 )
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Trilhas"]
+anchor_left = 0.059
+anchor_top = 0.877
+anchor_right = 0.941
+anchor_bottom = 1.079
+margin_left = -0.0150003
+margin_top = 1.022
+margin_right = 0.0149994
+margin_bottom = -0.0059967
+custom_fonts/font = SubResource( 2 )
+text = "Trilhas"
+align = 1
+
+[node name="BT_Contatos" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
+margin_left = 440.0
+margin_right = 525.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 85, 85 )
+icon = ExtResource( 6 )
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Contatos"]
+anchor_left = 0.059
+anchor_top = 0.886
+anchor_right = 0.953
+anchor_bottom = 1.079
+margin_left = -0.0150003
+margin_top = -0.00400543
+margin_right = -0.00500488
+margin_bottom = -0.0059967
+custom_fonts/font = SubResource( 2 )
+text = "Contatos"
+
+[node name="Panel_Widget" type="Panel" parent="PanelTablet/background_Tablet"]
 self_modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
+margin_left = 99.0
+margin_top = 127.0
+margin_right = 486.0
+margin_bottom = 594.0
+
+[node name="BG_Wiget" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_Widget"]
+anchor_left = 0.005
+anchor_right = 0.997
 anchor_bottom = 1.0
-mouse_filter = 2
+margin_left = 0.0649998
+margin_top = 2.0
+margin_right = 0.16098
+texture = ExtResource( 18 )
+expand = true
 
-[node name="BT_ExitEnemy" type="Button" parent="Panel_Exit"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 314.5
-margin_top = -275.5
-margin_right = 349.5
-margin_bottom = -242.5
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
+[node name="Panel_MP" type="Panel" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.112
+anchor_top = 0.112
+anchor_right = 0.883
+anchor_bottom = 0.402
+margin_left = -0.00800323
+margin_top = -0.0800018
+margin_right = -0.0720215
+margin_bottom = 0.0699921
 
-[node name="BT_ExitDaily" type="Button" parent="Panel_Exit"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 314.5
-margin_top = -275.5
-margin_right = 349.5
-margin_bottom = -242.5
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
+[node name="Icon_MP" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget/Panel_MP"]
+anchor_left = 0.027
+anchor_top = 0.022
+anchor_right = 0.159
+anchor_bottom = 0.311
+margin_left = 0.0079999
+margin_top = 0.0299997
+margin_right = -0.064003
+margin_bottom = 0.0149956
+texture = ExtResource( 19 )
+expand = true
 
-[node name="BT_ExitNotable" type="Button" parent="Panel_Exit"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 314.5
-margin_top = -275.5
-margin_right = 349.5
-margin_bottom = -242.5
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget/Panel_MP/Icon_MP"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+anchor_left = 1.128
+anchor_top = 0.205
+anchor_right = 4.641
+anchor_bottom = 0.897
+margin_left = 0.00799942
+margin_top = 0.00499964
+margin_right = 0.000991821
+margin_bottom = 0.0169983
+custom_fonts/font = SubResource( 3 )
+text = "Missão primária"
+align = 1
+valign = 1
 
-[node name="BT_ExitTrails" type="Button" parent="Panel_Exit"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 314.5
-margin_top = -275.5
-margin_right = 349.5
-margin_bottom = -242.5
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
+[node name="Text_MP" type="Label" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget/Panel_MP"]
+anchor_left = 0.037
+anchor_top = 0.474
+anchor_right = 0.98
+anchor_bottom = 0.993
+margin_left = 0.0480003
+margin_top = 0.00999451
+margin_right = -0.0800171
+margin_bottom = -0.0550079
+custom_fonts/font = SubResource( 4 )
+text = "Pegar o tubo de Crooks 
+Encontrar o livro de Marie Curie"
+valign = 1
 
-[node name="BT_ExitInventory" type="Button" parent="Panel_Exit"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 314.5
-margin_top = -275.5
-margin_right = 349.5
-margin_bottom = -242.5
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
+[node name="Panel_MS" type="Panel" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.112
+anchor_top = 0.447
+anchor_right = 0.883
+anchor_bottom = 0.862
+margin_left = -0.00800323
+margin_top = 0.144989
+margin_right = -0.0720215
+margin_bottom = 0.169983
+
+[node name="Icon_MS" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget/Panel_MS"]
+anchor_left = 0.034
+anchor_top = 0.031
+anchor_right = 0.155
+anchor_bottom = 0.218
+margin_left = -0.0640001
+margin_top = 0.0169997
+margin_right = 0.119999
+margin_bottom = -0.0740013
+texture = ExtResource( 20 )
+expand = true
+
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget/Panel_MS/Icon_MS"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+anchor_left = 1.25
+anchor_top = 0.083
+anchor_right = 5.472
+anchor_bottom = 0.833
+margin_top = 0.0119903
+margin_right = -19.992
+margin_bottom = 0.0119877
+custom_fonts/font = SubResource( 3 )
+text = "Missão secundaria"
+align = 1
+valign = 1
+
+[node name="Text_MS" type="Label" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Wiget/Panel_MS"]
+anchor_left = 0.037
+anchor_top = 0.342
+anchor_right = 0.983
+anchor_bottom = 0.97
+margin_left = 0.0480003
+margin_top = -0.00600433
+margin_right = 0.0319824
+margin_bottom = -0.210007
+custom_fonts/font = SubResource( 4 )
+text = "Pegar o tubo de Crooks 
+Encontrar o livro de Marie Curie
+
+Pegar o tubo de Crooks 
+Encontrar o livro de Marie Curie"
+valign = 1
 
 [node name="Scenes" type="Node" parent="."]
 
@@ -224,25 +378,20 @@ expand_icon = true
 [node name="BT_tablet" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -154.0
+margin_left = -85.0
 margin_top = 8.0
-margin_right = -79.0
+margin_right = -10.0
 margin_bottom = 83.0
 icon = ExtResource( 14 )
 flat = true
 icon_align = 1
 expand_icon = true
 
-[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory" to="." method="_on_BT_Inventory_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Daily" to="." method="_on_BT_Daily_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Inventory2" to="." method="_on_BT_Inventory2_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Enemy" to="." method="_on_BT_Enemy_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/BT_Trails" to="." method="_on_BT_Trails_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/BT_notables" to="." method="_on_BT_notables_pressed"]
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_ExitTablet" to="." method="_on_BT_ExitTablet_pressed"]
-[connection signal="pressed" from="Panel_Exit/BT_ExitEnemy" to="." method="_on_BT_ExitEnemy_pressed"]
-[connection signal="pressed" from="Panel_Exit/BT_ExitDaily" to="." method="_on_BT_ExitDaily_pressed"]
-[connection signal="pressed" from="Panel_Exit/BT_ExitNotable" to="." method="_on_BT_ExitNotable_pressed"]
-[connection signal="pressed" from="Panel_Exit/BT_ExitTrails" to="." method="_on_BT_ExitTrails_pressed"]
-[connection signal="pressed" from="Panel_Exit/BT_ExitInventory" to="." method="_on_BT_ExitInventory_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer/BT_Invent" to="." method="_on_BT_Invent_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer/BT_Diario" to="." method="_on_BT_Diario_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer/BT_Invent3" to="." method="_on_BT_Invent3_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer2/BT_Bestiario" to="." method="_on_BT_Bestiario_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer2/BT_Trilhas" to="." method="_on_BT_Trilhas_pressed"]
+[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer2/BT_Contatos" to="." method="_on_BT_Contatos_pressed"]
 [connection signal="pressed" from="BT_tablet" to="." method="_on_BT_tablet_pressed"]
