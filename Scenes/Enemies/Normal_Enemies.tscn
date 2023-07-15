@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
@@ -74,6 +74,9 @@ bind/1/name = "Broca"
 bind/1/bone = -1
 bind/1/pose = Transform( 1, 0, 2.38419e-07, 0, -1, 0, 2.38419e-07, 0, -1, 0, 2.12629, 0 )
 
+[sub_resource type="CylinderShape" id=44]
+radius = 2.78794
+
 [sub_resource type="Animation" id=3]
 resource_name = "Attack"
 length = 1.66667
@@ -92,6 +95,23 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0.323702, 0, 0.946159, 1, 1, 1, 0.0666667, 1, 0, -0.000252724, 0.00827063, 0, -0.168211, 0, 0.985751, 1, 1, 1, 0.133333, 1, -1.08793e-09, -0.00167084, 0.0199636, 0, -0.725195, 0, 0.688544, 1, 1, 1, 0.2, 1, -5.43964e-09, -0.0572767, 0.0190591, 0, 0.991327, 0, -0.13142, 1, 1, 1, 0.266667, 1, -5.43964e-09, -0.342318, 0.00365764, 0, 0.8682, 0, 0.496215, 1, 1, 1, 0.333333, 1, 1.72521e-09, -0.765201, -0.00723604, 0, 0.437057, 0, 0.899434, 1, 1, 1, 0.4, 1, 1.72521e-09, -1.22085, -0.00723604, 0, -0.187096, 0, 0.982342, 1, 1.07854, 1.00063, 0.466667, 1, 1.72521e-09, -1.71851, -0.00723604, 0, -0.746716, 0, 0.665143, 1, 1.20378, 1.00161, 0.533333, 1, 1.72521e-09, -2.27724, -0.00723604, 0, 0.994928, 0, -0.100588, 1, 1.28262, 1.00215, 0.6, 1, 1.72521e-09, -2.82308, -0.00723604, 0, 0.859324, 0, 0.511432, 1, 1.3111, 1.0023, 0.666667, 1, 1.72521e-09, -3.28386, -0.00723604, 0, 0.357871, 0, 0.933771, 1, 1.3076, 1.00226, 0.733333, 1, 1.72521e-09, -3.61933, -0.00723604, 0, -0.154528, 0, 0.987988, 1, 1.27215, 1.00199, 0.8, 1, 1.72521e-09, -3.86976, -0.00723604, 0, -0.783625, 0, 0.621235, 1, 1.21644, 1.00158, 0.866667, 1, 1.72521e-09, -4.05141, -0.00723604, 0, 0.149711, 0, 0.98873, 1, 1.14671, 1.00106, 0.933333, 1, 1.72521e-09, -4.18218, -0.00723604, 0, -0.484905, 0, 0.874567, 1, 1.072, 1.00052, 1, 1, 1.72521e-09, -4.27342, -0.00723604, 0, 0.893879, 0, -0.448307, 1, 1, 1, 1.06667, 1, 1.72521e-09, -4.32763, -0.00723604, 0, 0.979494, 0, 0.201471, 1, 0.939689, 0.999583, 1.13333, 1, 1.72521e-09, -4.35786, -0.00723604, 0, 0.683963, 0, 0.729517, 1, 0.893596, 0.999274, 1.2, 1, 1.72521e-09, -4.36962, -0.00723604, 0, 0.136223, 0, 0.990678, 1, 0.866086, 0.999095, 1.26667, 1, 1.72521e-09, -4.33322, -0.00723604, 0, -0.493619, 0, 0.869678, 1, 0.872667, 0.999151, 1.33333, 1, 1.72521e-09, -3.9745, -0.00723604, 0, 0.919206, 0, -0.393777, 1, 0.975953, 0.999919, 1.4, 1, 1.72521e-09, -2.98826, -0.00723604, 0, 0.97859, 0, 0.20582, 1, 1.12396, 1.00102, 1.46667, 1, 1.72521e-09, -1.40309, -0.00686084, 0, 0.63696, 0, 0.770897, 1, 1.17179, 1.00144, 1.53333, 1, 1.72521e-09, 0.439758, -0.00257282, 0, 0.172372, 0, 0.985032, 1, 0.945729, 1.00054, 1.6, 1, 0, 0.887393, 0, 0, -0.635282, 0, 0.77228, 1, 0.848072, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../States/Battling")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_collisor_parafuso"
+}, {
+"args": [ false ],
+"method": "set_collisor_parafuso"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Attack02"
@@ -1583,6 +1603,13 @@ material_overlay = SubResource( 24 )
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 
+[node name="Attack_Area_Parafuso" type="Area" parent="Enemy/Root_Enemies/Parafuso/IA_01" groups=["Damage_Enemy_Parafuso"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemy/Root_Enemies/Parafuso/IA_01/Attack_Area_Parafuso"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+shape = SubResource( 44 )
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Parafuso"]
 autoplay = "Idle"
 playback_speed = 3.0
@@ -1601,6 +1628,7 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83384e
 
 [node name="Serra" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+visible = false
 
 [node name="IA_02" type="Spatial" parent="Enemy/Root_Enemies/Serra"]
 
@@ -1661,6 +1689,7 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-
 
 [node name="Golem" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+visible = false
 
 [node name="IA_03" type="Spatial" parent="Enemy/Root_Enemies/Golem"]
 
@@ -1766,6 +1795,7 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83949e
 
 [node name="Flexivel" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+visible = false
 
 [node name="IA_04" type="Spatial" parent="Enemy/Root_Enemies/Flexivel"]
 
@@ -2001,6 +2031,7 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-
 
 [node name="Bala" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+visible = false
 
 [node name="IA_05" type="MeshInstance" parent="Enemy/Root_Enemies/Bala"]
 mesh = SubResource( 18 )

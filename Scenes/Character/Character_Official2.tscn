@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -19,11 +19,9 @@
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Icons/Attacks/Trocar_Arma_Icon.png" type="Texture" id=22]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=23]
-[ext_resource path="res://Sprites/UI/Icons/minimap/Button_MiniMap.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/UI/Icons/Minimap/Button_MiniMap.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/Character/MiniMap_UI.gd" type="Script" id=25]
-[ext_resource path="res://Sprites/UI/Icons/minimap/B_MP.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/UI/Icons/Minimap/B_MP.png" type="Texture" id=26]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -108,7 +106,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "output", 0, "move" ]
+node_connections = [ "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7881,10 +7879,6 @@ surfaces/0 = {
 "vertex_count": 470
 }
 
-[sub_resource type="DynamicFont" id=80]
-size = 12
-font_data = ExtResource( 23 )
-
 [sub_resource type="CapsuleShape" id=43]
 radius = 0.491932
 
@@ -8293,7 +8287,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 8.34465e-07, -0.0119845, -0.999928, -0.420755, -0.90711, 0.0108719, -0.907173, 0.420724, -0.0050413, -0.293115, 0.593744, 0.0857988 )
+transform = Transform( -0.00145283, -0.0110978, -0.999938, -0.345731, -0.938271, 0.0109159, -0.938331, 0.345725, -0.00247172, -0.293117, 0.593739, 0.0775504 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8356,7 +8350,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 4.17233e-07, 0.0119837, 0.999928, 0.420754, -0.90711, 0.0108714, 0.907173, 0.420724, -0.00504048, 0.293114, 0.593744, 0.0857986 )
+transform = Transform( -0.0014528, 0.011098, 0.999938, 0.345731, -0.938271, 0.010916, 0.938331, 0.345725, -0.0024718, 0.293117, 0.593739, 0.0775505 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8751,33 +8745,6 @@ margin_right = 80.0
 margin_bottom = 14.0
 value = 100.0
 percent_visible = false
-
-[node name="Button" type="Button" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -85.0
-margin_top = -86.0
-margin_right = -22.0
-margin_bottom = -25.0
-icon = ExtResource( 22 )
-flat = true
-icon_align = 1
-expand_icon = true
-
-[node name="Label" type="Label" parent="Battle_UI/Button"]
-self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = -0.079
-anchor_top = 1.021
-anchor_right = 1.26
-anchor_bottom = 1.354
-margin_left = -0.0239992
-margin_top = -0.0219994
-margin_right = -0.00800323
-margin_bottom = -0.0039978
-custom_fonts/font = SubResource( 80 )
-text = "Trocar Arma"
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 path_desired_distance = 0.1

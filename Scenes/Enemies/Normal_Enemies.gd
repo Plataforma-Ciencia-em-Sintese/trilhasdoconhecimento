@@ -46,3 +46,4 @@ func _on_Looking_Zone_mouse_exited():
 func _on_Wait_to_Back_timeout():
 	$States/Battling.backToPatrol = true
 	$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(0, 1, 0, 0.01)
+

@@ -30,23 +30,23 @@ func start_fight():
 		owner.get_node("Inventory").hide()
 		animator.set("parameters/States General/blend_amount",1)
 		
-		if owner.mainGun == "Escudo":
+		if player.selectedGun == "Escudo":
 			animator["parameters/All_Attacks/current"] = 0
 			attackType = "Melee"
 			
-		elif owner.mainGun == "Espada":
+		elif player.selectedGun == "Espada":
 			animator["parameters/All_Attacks/current"] = 1
 			attackType = "Melee"
 			
-		elif owner.mainGun == "Varinha":
+		elif player.selectedGun == "Varinha":
 			animator["parameters/All_Attacks/current"] = 2
 			attackType = "Projectile"
 			
-		elif owner.mainGun == "Manopla":
+		elif player.selectedGun == "Manopla":
 			animator["parameters/All_Attacks/current"] = 3
 			attackType = "Projectile"
 			
-		elif owner.mainGun == "Arco":
+		elif player.selectedGun == "Arco":
 			animator["parameters/All_Attacks/current"] = 4
 			attackType = "Projectile"
 	
@@ -111,6 +111,9 @@ func _on_Damage_Zone_area_entered(area):
 		scriptEnemy = area.owner
 		goFight = true
 		releasePointer = true
+	
+	if area.is_in_group("Damage_Enemy_Parafuso"):
+		owner.get_node("Status").set_life(-10)
 
 func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
