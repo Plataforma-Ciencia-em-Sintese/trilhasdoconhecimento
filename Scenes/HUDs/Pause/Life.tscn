@@ -54,7 +54,6 @@ margin_right = 299.0
 margin_bottom = 38.0
 max_value = 30.0
 value = 30.0
-allow_greater = true
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true

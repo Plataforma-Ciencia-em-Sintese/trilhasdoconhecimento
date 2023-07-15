@@ -42,6 +42,8 @@ func _ready():
 
 	set_attributes("ATKMain")
 	set_attributes("ATKSec")
+	#Precisa chamar de novo porque caso se um valor menor seja chamado pras barras, o max value nao enche a barra se ela encolher e depois aumentou
+	$Status/Life_Bar.value = $Status/Life_Bar.max_value
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
