@@ -27,7 +27,8 @@ func _physics_process(_delta):
 		$XP_Bar.value += 1
 
 func set_life(value):
-	$Life_Bar.value += value
+	GlobalValues.lifeActual += value
+	player.change_only_bar_value("Life")
 	
 	if $Life_Bar.value <= 0:
 		player.get_node("States/Move").hide()
@@ -37,4 +38,5 @@ func set_life(value):
 		player.hide()
 
 func set_energy(value):
-	$Energy_Bar.value += value
+	GlobalValues.energyActual += value
+	player.change_only_bar_value("Energy")

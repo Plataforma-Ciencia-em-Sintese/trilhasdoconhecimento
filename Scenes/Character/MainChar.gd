@@ -44,6 +44,7 @@ func _ready():
 	set_attributes("ATKSec")
 	#Precisa chamar de novo porque caso se um valor menor seja chamado pras barras, o max value nao enche a barra se ela encolher e depois aumentou
 	$Status/Life_Bar.value = $Status/Life_Bar.max_value
+	$Status/Energy_Bar.value = $Status/Energy_Bar.max_value
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
@@ -456,6 +457,13 @@ func change_UI_status():
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.self_modulate = Color.red
 	else:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.self_modulate = Color.white
+
+func change_only_bar_value(bar):
+	if bar == "Life":
+		$Status/Life_Bar.value = GlobalValues.lifeActual
+	elif bar == "Energy":
+		print("energ atual = " + str(GlobalValues.energyActual))
+		$Status/Energy_Bar.value = GlobalValues.energyActual
 
 func calculate_status(baseValue,numerator,denominator):
 	return (baseValue/denominator) * numerator
