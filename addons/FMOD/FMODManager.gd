@@ -1,6 +1,7 @@
 extends Node
 
-
+var iniProjetor: int = 0
+var oswaldoCruz: int = 0
 func _ready() -> void:
 	# initialize FMOD
 	# initializing with the LIVE_UPDATE flag lets you
@@ -13,23 +14,17 @@ func _ready() -> void:
 	Fmod.load_bank("res://Sounds/Master.strings.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
 	Fmod.load_bank("res://Sounds/Master.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
 	# register a listener
-	Fmod.add_listener(0, self)
-	
+
+	# SONS COM LOOP
 	# create an event instance
 	# this is a music event that has been authored in the Studio editor
-	var my_music_event = Fmod.create_event_instance("event:/Musicas/Notaveis/Oswaldo Cruz")
+	oswaldoCruz = Fmod.create_event_instance("event:/Musicas/Notaveis/Oswaldo Cruz")
+	iniProjetor = Fmod.create_event_instance("event:/SFX/Ingame/InicializandoProjetor")
 
-	pass
-	
-func _process(delta):
-	# update FMOD every tick
-	# calling system_update also updates the listener 3D position
-	# and 3D positions of any attached event instances
-	Fmod.system_update()
-	
-	
 func _input(event):
 	if event.is_action_pressed("Click"):
+		#Fmod.start_event(iniProjetor)
 		pass
 	if event.is_action_pressed("R_Click"):
+		#Fmod.stop_event(iniProjetor, Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
 		pass
