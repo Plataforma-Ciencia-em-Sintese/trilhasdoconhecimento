@@ -47,7 +47,7 @@ func _on_Area_Elevator_input_event(_camera, event, _position, _normal, _shape_id
 			$AnimationPlayer_Door.play("Open")
 			
 			player.get_node("Inventory").hide()
-			player.get_node("Pause").hide()
+			player.get_node("TabletInformation").hide()
 			player.get_node("Life").hide()
 			
 			pointer.global_transform.origin = pointerPosInside.global_transform.origin
@@ -66,7 +66,7 @@ func start_level():
 	player.get_node("States/Move").hide()
 	player.get_node("States/Talking").show()
 	player.get_node("Inventory").hide()
-	player.get_node("Pause").hide()
+	player.get_node("TabletInformation").hide()
 	player.get_node("Status").hide()
 	owner.get_node("WhiteTransition/Back").hide()
 	QuestManager.get_node("Buttons_Diary").hide()
@@ -90,7 +90,7 @@ func start_level():
 	$AnimationPlayer_Door.play("Close")
 	
 	player.get_node("Inventory").show()
-	player.get_node("Pause").show()
+	player.get_node("TabletInformation").show()
 	player.get_node("Status").show()
 	
 	if QuestManager.isInQuest:

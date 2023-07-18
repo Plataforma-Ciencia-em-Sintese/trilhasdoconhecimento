@@ -102,3 +102,6 @@ func _on_Damage_Area_area_entered(area):
 		getOwner.get_node("Enemy/Looking_Zone/Zone").get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 		area.queue_free()
 		check_life()
+
+func set_collisor_parafuso(status):
+	owner.get_node("Enemy/Root_Enemies/Parafuso/IA_01/Attack_Area_Parafuso/CollisionShape").set_deferred("disabled",status)

@@ -1,8 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Attacks/Atk2_teste.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/item_block.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Low Battery.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade Battery"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Low_Energy_Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Low_Energy_Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="ATK" type="Button" groups=["ATKButton"]]
 margin_right = 50.0
@@ -33,6 +65,25 @@ size_flags_horizontal = 3
 icon = ExtResource( 3 )
 flat = true
 expand_icon = true
+
+[node name="Low_Energy_Icon" type="Button" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.792157 )
+anchor_left = -0.08
+anchor_top = -0.044
+anchor_right = 1.38
+anchor_bottom = 1.222
+margin_top = -0.0199999
+margin_bottom = 0.00999832
+mouse_filter = 2
+size_flags_horizontal = 3
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Fade Battery" = SubResource( 1 )
+anims/RESET = SubResource( 2 )
 
 [connection signal="mouse_entered" from="." to="." method="_on_ATK_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_ATK_mouse_exited"]

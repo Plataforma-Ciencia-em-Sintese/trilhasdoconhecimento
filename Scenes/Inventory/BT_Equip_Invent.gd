@@ -72,6 +72,7 @@ func _on_BT_Equip_pressed():
 		#			if GlobalValues.weapons[nameITN][2][i][1] >= GlobalValues.levelPlayer:
 					owner.itensATKSec.append(GlobalValues.weapons[nameITN][2][i])
 					passive.iconITN = load(GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i]][1])
+					passive.costPower = GlobalValues.atkPassivesReward[GlobalValues.weapons[nameITN][2][i]][5]
 		#				break
 		#		if QuestManager.isInQuest:
 				owner.change_battle_itens()

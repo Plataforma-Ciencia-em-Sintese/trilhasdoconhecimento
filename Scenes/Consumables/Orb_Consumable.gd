@@ -13,10 +13,15 @@ func _physics_process(delta):
 			$EffekseerEmitter.effect = cleanFX
 		elif orbType == "Heal":
 			$EffekseerEmitter.effect = healFX
+			GlobalValues.lifeActual += 15
+			get_tree().get_nodes_in_group("Player")[0].change_only_bar_value("Life")
 		elif orbType == "Power":
 			$EffekseerEmitter.effect = powerFX
-
+			GlobalValues.energyActual += 10
+			get_tree().get_nodes_in_group("Player")[0].change_only_bar_value("Energy")
 		$EffekseerEmitter.play()
+		
+		
 		play = true
 
 func _on_Timer_timeout():

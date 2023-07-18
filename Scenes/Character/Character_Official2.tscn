@@ -1,8 +1,7 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/HUDs/Pause/pause.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Character/States/Movement.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Character/States/Talking.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
@@ -20,9 +19,9 @@
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste lab.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/UI/Icons/Attacks/Trocar_Arma_Icon.png" type="Texture" id=22]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://Sprites/UI/Icons/Minimap/Button_MiniMap.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/Character/MiniMap_UI.gd" type="Script" id=25]
+[ext_resource path="res://Sprites/UI/Icons/Minimap/B_MP.png" type="Texture" id=26]
 
 [sub_resource type="CapsuleShape" id=7]
 radius = 0.258477
@@ -107,7 +106,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow" ]
+node_connections = [ "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7880,10 +7879,6 @@ surfaces/0 = {
 "vertex_count": 470
 }
 
-[sub_resource type="DynamicFont" id=80]
-size = 12
-font_data = ExtResource( 23 )
-
 [sub_resource type="CapsuleShape" id=43]
 radius = 0.491932
 
@@ -7896,13 +7891,6 @@ __meta__ = {
 }
 mainChar = "Caio"
 activeCloths = "Normal"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 21 )
-expand = true
 
 [node name="States" type="Spatial" parent="."]
 
@@ -8016,7 +8004,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
+bones/9/bound_children = [  ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8121,7 +8109,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
+bones/30/bound_children = [  ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8299,7 +8287,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -1.01328e-05, -0.0120409, -0.999928, -0.042162, -0.999039, 0.0120307, -0.999109, 0.0421596, -0.000495568, -0.293121, 0.593721, 0.0452933 )
+transform = Transform( -8.10325e-05, -0.0120353, -0.999928, -0.0661577, -0.997738, 0.0120143, -0.997807, 0.0661543, -0.000713453, -0.293116, 0.593352, 0.0478028 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8362,7 +8350,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -1.0103e-05, 0.0120411, 0.999928, 0.0421621, -0.999039, 0.0120309, 0.999109, 0.0421597, -0.000495628, 0.293121, 0.593721, 0.0452933 )
+transform = Transform( -8.08835e-05, 0.0120353, 0.999928, 0.0661576, -0.997738, 0.0120142, 0.997807, 0.0661542, -0.000713587, 0.293116, 0.593352, 0.0478027 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8387,53 +8375,99 @@ layers = 2
 texture = ExtResource( 17 )
 
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="MiniMap_UI"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = -280.0
-margin_right = 300.0
-margin_bottom = -30.0
-rect_min_size = Vector2( 150, 150 )
-color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
-
-[node name="ViewportContainer" type="ViewportContainer" parent="MiniMap_UI/ColorRect"]
-anchor_left = 0.128
-anchor_top = 0.184
-anchor_right = 1.12
-anchor_bottom = 1.184
-margin_right = -6.10352e-05
-rect_min_size = Vector2( 150, 150 )
-
-[node name="Viewport" type="Viewport" parent="MiniMap_UI/ColorRect/ViewportContainer"]
-size = Vector2( 200, 200 )
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 3
-
-[node name="Camera_Minimap" type="Camera" parent="MiniMap_UI/ColorRect/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 6.30899, -10.0854 )
-projection = 1
-current = true
-size = 10.0
-script = ExtResource( 19 )
-target = NodePath("../../../../..")
+script = ExtResource( 25 )
 
 [node name="IconMap_Player" type="Sprite3D" parent="MiniMap_UI"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.70752, 0 )
 visible = false
 texture = ExtResource( 20 )
 
-[node name="TabletInformation" parent="." instance=ExtResource( 18 )]
+[node name="MiniMap_Node" type="ViewportContainer" parent="MiniMap_UI"]
 visible = false
+anchor_left = 0.019
+anchor_top = 0.769
+anchor_right = 0.136
+anchor_bottom = 0.978
+margin_left = -0.320002
+margin_top = 0.319946
+margin_right = -0.0800171
+margin_bottom = -0.160034
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Viewport" type="Viewport" parent="MiniMap_UI/MiniMap_Node"]
+size = Vector2( 150, 150 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Camera_Minimap" type="Camera" parent="MiniMap_UI/MiniMap_Node/Viewport"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 6.30899, -10.0854 )
+projection = 1
+current = true
+size = 10.0
+script = ExtResource( 19 )
+target = NodePath("../../../..")
+
+[node name="Show_MiniMap" type="Button" parent="MiniMap_UI"]
+anchor_left = 0.138
+anchor_top = 0.932
+anchor_right = 0.175
+anchor_bottom = 0.997
+margin_left = 0.359985
+margin_top = -0.0400391
+margin_right = -1.52588e-05
+margin_bottom = 0.159973
+icon = ExtResource( 24 )
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="MiniMap_UI/Show_MiniMap"]
+self_modulate = Color( 0.815686, 0.878431, 0.129412, 1 )
+anchor_left = 0.064
+anchor_top = -0.22
+anchor_right = 1.012
+anchor_bottom = 0.174
+margin_left = -0.00799346
+margin_top = 0.0200148
+margin_right = 0.0199738
+margin_bottom = -0.00642443
+text = "Mapa"
+align = 1
+valign = 1
+
+[node name="Hide_MiniMap" type="Button" parent="MiniMap_UI"]
+visible = false
+anchor_left = 0.138
+anchor_top = 0.932
+anchor_right = 0.175
+anchor_bottom = 0.997
+margin_left = 0.359985
+margin_top = -0.0400391
+margin_right = -1.52588e-05
+margin_bottom = 0.159973
+icon = ExtResource( 26 )
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="MiniMap_UI/Hide_MiniMap"]
+self_modulate = Color( 0.815686, 0.878431, 0.129412, 1 )
+anchor_left = 0.064
+anchor_top = -0.22
+anchor_right = 1.012
+anchor_bottom = 0.174
+margin_left = -0.00799346
+margin_top = 0.0200148
+margin_right = 0.0199738
+margin_bottom = -0.00642443
+text = "Mapa"
+align = 1
+valign = 1
+
+[node name="TabletInformation" parent="." instance=ExtResource( 18 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 camera = NodePath("../Base/CamAnchor")
 weaponActual = "Shield"
-
-[node name="Pause" parent="." instance=ExtResource( 3 )]
 
 [node name="Status" parent="." instance=ExtResource( 6 )]
 
@@ -8712,33 +8746,6 @@ margin_bottom = 14.0
 value = 100.0
 percent_visible = false
 
-[node name="Button" type="Button" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -85.0
-margin_top = -86.0
-margin_right = -22.0
-margin_bottom = -25.0
-icon = ExtResource( 22 )
-flat = true
-icon_align = 1
-expand_icon = true
-
-[node name="Label" type="Label" parent="Battle_UI/Button"]
-self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = -0.079
-anchor_top = 1.021
-anchor_right = 1.26
-anchor_bottom = 1.354
-margin_left = -0.0239992
-margin_top = -0.0219994
-margin_right = -0.00800323
-margin_bottom = -0.0039978
-custom_fonts/font = SubResource( 80 )
-text = "Trocar Arma"
-
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 path_desired_distance = 0.1
 avoidance_enabled = true
@@ -8751,6 +8758,8 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.68
 shape = SubResource( 43 )
 
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
+[connection signal="pressed" from="MiniMap_UI/Show_MiniMap" to="MiniMap_UI" method="_on_Show_MiniMap_pressed"]
+[connection signal="pressed" from="MiniMap_UI/Hide_MiniMap" to="MiniMap_UI" method="_on_Hide_MiniMap_pressed"]
 [connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_entered"]
 [connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_exited"]
 [connection signal="pressed" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_pressed"]

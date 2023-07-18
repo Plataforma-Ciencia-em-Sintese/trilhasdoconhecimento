@@ -16,17 +16,6 @@ func grow_lvl():
 	$XP_Bar.value = 0
 	for i in atkButtons.size():
 		atkButtons[i].check_lvl()
-#	print(player.mainGun)
-#
-#	if GlobalValues.levelPlayer <= GlobalValues.weapons[player.mainGun][2].size():
-#		invent.delete_dictionary_ATK()
-#
-#	for i in GlobalValues.weapons[player.mainGun][2].size():
-#		if GlobalValues.weapons[player.mainGun][2][i][1] >= GlobalValues.levelPlayer:
-#			invent.itensATK.append(GlobalValues.weapons[player.mainGun][2][i][0])
-#			print(GlobalValues.weapons[player.mainGun][2][i][0])
-#			break
-#	invent.change_battle_itens()
 
 func _on_XP_Bar_value_changed(value):
 	GlobalValues.xpActual = value
@@ -36,4 +25,18 @@ func _on_XP_Bar_value_changed(value):
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_select"):
 		$XP_Bar.value += 1
+
+func set_life(value):
+	GlobalValues.lifeActual += value
+	player.change_only_bar_value("Life")
 	
+	if $Life_Bar.value <= 0:
+		player.get_node("States/Move").hide()
+		player.get_node("States/Talking").show()
+		player.get_node("States/Battling").end_fight()
+		player.get_node("States/Battling").hide()
+		player.hide()
+
+func set_energy(value):
+	GlobalValues.energyActual += value
+	player.change_only_bar_value("Energy")

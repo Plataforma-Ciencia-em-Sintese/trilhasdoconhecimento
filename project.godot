@@ -111,7 +111,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Trilha Cientifica IBICT"
-run/main_scene="res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
+run/main_scene="res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -120,8 +120,8 @@ QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
 Global="*res://Global_Translation.gd"
 GlobalValues="*res://Global_Values.gd"
-EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
 Fmod="*res://addons/fmod/Fmod.tscn"
+EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
 
 [display]
 
@@ -131,7 +131,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/fmod/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/proton_trail-master/plugin.cfg" )
 
 [global]
 

@@ -4,6 +4,7 @@ export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
 export var mainGun = "Arco"
 export var secGun = "Espada"
+var  selectedGun = "Espada"
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 
 var suits = {
@@ -41,13 +42,13 @@ func _ready():
 
 	set_attributes("ATKMain")
 	set_attributes("ATKSec")
+	#Precisa chamar de novo porque caso se um valor menor seja chamado pras barras, o max value nao enche a barra se ela encolher e depois aumentou
+	$Status/Life_Bar.value = $Status/Life_Bar.max_value
+	$Status/Energy_Bar.value = $Status/Energy_Bar.max_value
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
-		print("ataque main " + str(GlobalValues.atkMain))
-		print("main gun " + mainGun + " sec gun " +secGun)
-		set_attributes("ATKMain")
-		set_attributes("ATKSec")
+		get_tree().reload_current_scene()
 
 # cria os botoes que serao necessarios a batalha
 func create_btns_battle(value):
@@ -67,6 +68,7 @@ func create_btns_battle(value):
 			ATKBtn.icon = load(GlobalValues.atkItens.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItens.values()[i][3]
 			ATKBtn.lvlToUnlock = GlobalValues.atkItens.values()[i][4]
+			ATKBtn.costPower = GlobalValues.atkItens.values()[i][5]
 			ATKBtn.check_lvl()
 			$Battle_UI/Weapon_Container.add_child(ATKBtn)
 
@@ -77,6 +79,7 @@ func create_btns_battle(value):
 			ATKBtn.icon = load(GlobalValues.atkItensSec.values()[i][1])
 			ATKBtn.followPlayer = GlobalValues.atkItensSec.values()[i][3]
 			ATKBtn.lvlToUnlock = GlobalValues.atkItensSec.values()[i][4]
+			ATKBtn.costPower = GlobalValues.atkItensSec.values()[i][5]
 			ATKBtn.check_lvl()
 			$Battle_UI/Weapon_Sec_Container.add_child(ATKBtn)
 		
@@ -157,6 +160,8 @@ func change_weapons():
 		$Base/Skeleton/BoneAttachmentR/Bow.hide()
 
 func change_weapons_in_game(weapon):
+	selectedGun = weapon
+	
 	if weapon == "Escudo":
 		$Base/Skeleton/BoneAttachmentR/Hammer.show()
 		$Base/Skeleton/BoneAttachmentL/Shield.show()
@@ -225,12 +230,7 @@ func choose_chip(value,toDo):
 		GlobalValues.speedActual -= chipScene.speedBoostRun
 		GlobalValues.xpChip -= chipScene.xpBoost
 		chipScene.queue_free()
-		
-	print("LIFEBOOST MUDADO " + str(GlobalValues.lifeActual))
-	print("ENERGY MUDADO " + str(GlobalValues.energyActual))
-	print("ATK MAIN MUDADO " + str(GlobalValues.atkMainActual))
-	print("ATK SEC MUDADO " + str(GlobalValues.atkSecActual))
-	print("SPEEDRUN MUDADO " + str(GlobalValues.speedActual) + "\n")
+
 	change_UI_status()
 		
 func set_attributes(typeAttribute):
@@ -285,8 +285,6 @@ func set_attributes(typeAttribute):
 				GlobalValues.speedActual += GlobalValues.speed + calculate_status(GlobalValues.speed,1,2)
 			else:
 				GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,2)
-			
-		print("resultado das armas prim é " + str(GlobalValues.atkMainActual))
 	elif typeAttribute == "ATKSec":
 		if secGun == "Espada":
 			GlobalValues.atkSecActual += GlobalValues.atkSec + calculate_status(GlobalValues.atkSec,1,6)
@@ -338,12 +336,7 @@ func set_attributes(typeAttribute):
 				GlobalValues.speedActual += GlobalValues.speed + calculate_status(GlobalValues.speed,1,2)
 			else:
 				GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,2)
-				
-		print("resultado das armas sec é " + str(GlobalValues.atkSecActual))
-	
-	print("vida - " + str(GlobalValues.lifeActual))
-	print("energia - " + str(GlobalValues.energyActual))
-	print("velocidade - " + str(GlobalValues.speedActual))
+			
 	change_UI_status()
 
 func clear_attributes(typeAttribute):
@@ -385,10 +378,7 @@ func clear_attributes(typeAttribute):
 		elif secGun == "Manopla":
 			GlobalValues.atkSecActual = 0
 			GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
-	
-	print("vida atualizada - " + str(GlobalValues.lifeActual))
-	print("energia atualizada - " + str(GlobalValues.energyActual))
-	print("velocidade atualizada - " + str(GlobalValues.speedActual))
+			
 	change_UI_status()
 
 func reset_attributes():
@@ -398,10 +388,8 @@ func reset_attributes():
 	GlobalValues.speedActual = 0
 	GlobalValues.energyActual = 0
 	change_UI_status()
-	print("tudo zerado")
 
 func change_UI_status():
-	print("muda barras")
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar.value = GlobalValues.speedActual
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Bar.value = $Status/Life_Bar.max_value
 	$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Bar.value = $Status/Energy_Bar.max_value
@@ -415,7 +403,6 @@ func change_UI_status():
 	else:
 		$Status/Life_Bar.max_value = GlobalValues.life
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Life/ID_Bar.text = "Saude = " + str(GlobalValues.life)
-		print("11")
 	
 	if GlobalValues.energyActual > 0:
 		$Status/Energy_Bar.max_value = GlobalValues.energyActual
@@ -423,7 +410,6 @@ func change_UI_status():
 	else:
 		$Status/Energy_Bar.max_value = GlobalValues.energy
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Energy/ID_Bar.text = "Energia = " + str(GlobalValues.energy)
-		print("22")
 		
 	if GlobalValues.speedActual > 0:
 		$States/Move.speedRun = GlobalValues.speedActual
@@ -433,7 +419,6 @@ func change_UI_status():
 		$States/Move.speedRun = GlobalValues.speed
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar.value = GlobalValues.speed
 		$Inventory/BG_Inventory/Info_BG/Status_Container/Speed_Run/ID_Bar.text = "Vel. + " + str(GlobalValues.speed)
-		print("33")
 	
 	if GlobalValues.atkMainActual > 0:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Main/ID_Bar.text = "Ataque Primario + " + str(GlobalValues.atkMainActual)
@@ -469,6 +454,13 @@ func change_UI_status():
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.self_modulate = Color.red
 	else:
 		$Inventory/BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar.self_modulate = Color.white
+
+func change_only_bar_value(bar):
+	if bar == "Life":
+		$Status/Life_Bar.value = GlobalValues.lifeActual
+	elif bar == "Energy":
+		print("energ atual = " + str(GlobalValues.energyActual))
+		$Status/Energy_Bar.value = GlobalValues.energyActual
 
 func calculate_status(baseValue,numerator,denominator):
 	return (baseValue/denominator) * numerator
