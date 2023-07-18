@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/effekseer/src/EffekseerResource.gdns"
 }, {
-"base": "Node",
+"base": "",
 "class": "FmodNative",
 "language": "NativeScript",
 "path": "res://addons/fmod/Fmod.gdns"
@@ -111,7 +111,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Trilha Cientifica IBICT"
-run/main_scene="res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
+run/main_scene="res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
 config/icon="res://icon.png"
 
 [autoload]

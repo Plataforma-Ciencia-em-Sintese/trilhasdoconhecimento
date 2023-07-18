@@ -48,10 +48,7 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
-		print("ataque main " + str(GlobalValues.atkMain))
-		print("main gun " + mainGun + " sec gun " +secGun)
-		set_attributes("ATKMain")
-		set_attributes("ATKSec")
+		get_tree().reload_current_scene()
 
 # cria os botoes que serao necessarios a batalha
 func create_btns_battle(value):

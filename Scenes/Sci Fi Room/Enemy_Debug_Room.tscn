@@ -1044,19 +1044,23 @@ enemyType = "Parafuso"
 
 [node name="Way2" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69265, 0 )
-visible = false
 curve = SubResource( 1001 )
 
 [node name="Path_Enemy" parent="Enemies/Way2" instance=ExtResource( 3 )]
 transform = Transform( 0.281048, 0, -0.289828, 0, 0.403718, 0, 0.289828, 0, 0.281048, -2.42778, 0, -7.30822 )
 offset = 7.34
 rotation_mode = 4
-enemyType = "Serra"
+enemyType = "Parafuso"
 
 [node name="Way3" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70902, 0 )
-visible = false
 curve = SubResource( 1002 )
+
+[node name="Path_Enemy2" parent="Enemies/Way3" instance=ExtResource( 3 )]
+transform = Transform( -0.210776, 0, -0.344328, 0, 0.403718, 0, 0.344328, 0, -0.210776, -3.67505, 0, 2.81152 )
+offset = 4.26
+rotation_mode = 4
+enemyType = "Parafuso"
 
 [node name="Way4" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64166, 2.79129, 0 )
