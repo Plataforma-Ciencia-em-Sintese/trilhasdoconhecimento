@@ -13,7 +13,9 @@ func _on_BT_Invent_pressed():
 
 
 func _on_BT_Diario_pressed():
-	pass # Replace with function body.
+	$Scenes/Daily/Panel_Daily.show()
+	$PanelTablet.hide()
+	
 
 
 func _on_BT_Invent3_pressed():
@@ -21,15 +23,18 @@ func _on_BT_Invent3_pressed():
 
 
 func _on_BT_Bestiario_pressed():
-	pass # Replace with function body.
+	$Scenes/BestiaryEnemy/Panel_Enemy.show()
+	$PanelTablet.hide()
 
 
 func _on_BT_Contatos_pressed():
-	pass # Replace with function body.
+	$Scenes/BestiaryNotables/Panel_Notables.show()
+	$PanelTablet.hide()
 
 
 func _on_BT_Trilhas_pressed():
-	pass # Replace with function body.
+	$Scenes/Trails/Panel_trails.show()
+	$PanelTablet.hide()
 
 
 func _on_BT_ExitTablet_pressed():
