@@ -1,15 +1,27 @@
 extends CanvasLayer
 
+onready var player = get_tree().get_nodes_in_group("Player")[0]
+
 func _ready():
- pause_mode = Node.PAUSE_MODE_PROCESS
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	$Scenes/Inventory/BT_Inventario.hide()
 
 func _on_BT_tablet_pressed():
 	$BT_tablet.hide()
 	$PanelTablet.show()
+	player.get_node("Battle_UI").hide()
+	player.get_node("MiniMap_UI").hide()
+	get_parent().get_node("Inventory/BT_Inventario").hide()
+	get_parent().get_node("Inventory").hide()
+	get_parent().get_node("Status").hide()
+	get_parent().get_node("States/Move").hide()
+	
 
 
 func _on_BT_Invent_pressed():
-	pass # Replace with function body.
+	$Scenes/Inventory/BG_Inventory.show()
+	$PanelTablet.hide()
+	
 
 
 func _on_BT_Diario_pressed():

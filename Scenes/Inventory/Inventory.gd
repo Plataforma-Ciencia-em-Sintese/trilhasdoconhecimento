@@ -10,6 +10,8 @@ export var weaponSecond = ""
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	$BG_Inventory/Description_Item.hide()
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE

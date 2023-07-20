@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Background.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Icon_Missoes.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Icon_trilhas.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -374,6 +375,8 @@ valign = 1
 [node name="Daily" parent="Scenes" instance=ExtResource( 12 )]
 
 [node name="Trails" parent="Scenes" instance=ExtResource( 13 )]
+
+[node name="Inventory" parent="Scenes" instance=ExtResource( 21 )]
 
 [node name="BT_tablet" type="Button" parent="."]
 visible = false
