@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Component 2.png-2c8687c2252f985f7499ae8b08c8f69b.stex"
+path="res://.import/Back_Telas.png-0c2b3bba583b9530dddb46f93d5e6a34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icons_Invent/Component 2.png"
-dest_files=[ "res://.import/Component 2.png-2c8687c2252f985f7499ae8b08c8f69b.stex" ]
+source_file="res://Sprites/UI/Icons/Icons_Invent/Back_Telas.png"
+dest_files=[ "res://.import/Back_Telas.png-0c2b3bba583b9530dddb46f93d5e6a34.stex" ]
 
 [params]
 

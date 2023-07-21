@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Empty.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Icons/Life/MP_Icon.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Component 2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Back_Telas.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_armas_inGame.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/slidebar.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/background_Choice.png" type="Texture" id=9]
