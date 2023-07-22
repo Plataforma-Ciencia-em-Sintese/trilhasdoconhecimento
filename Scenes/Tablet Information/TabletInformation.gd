@@ -26,6 +26,7 @@ func _on_BT_Invent_pressed():
 
 func _on_BT_Diario_pressed():
 	$Scenes/Daily/Panel_Daily.show()
+	$Scenes/Daily/exit_Daily.show()
 	$PanelTablet.hide()
 	
 
@@ -43,11 +44,13 @@ func _on_BT_Bestiario_pressed():
 
 func _on_BT_Contatos_pressed():
 	$Scenes/BestiaryNotables/Panel_Notables.show()
+	$Scenes/BestiaryNotables/exit_Notables.show()
 	$PanelTablet.hide()
 
 
 func _on_BT_Trilhas_pressed():
 	$Scenes/Trails/Panel_trails.show()
+	$Scenes/Trails/exit_Trails.show()
 	$PanelTablet.hide()
 
 

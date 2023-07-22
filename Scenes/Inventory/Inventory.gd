@@ -161,7 +161,7 @@ func _on_BT_Close_pressed():
 	$BG_Inventory.hide()
 	player.get_node("Battle_UI").show()
 	player.get_node("MiniMap_UI").show()
-	#get_parent().get_node("TabletInformation/PanelTablet").show()
+	#player.get_node("TabletInformation/PanelTablet").show()
 	get_parent().get_node("Status").show()
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()

@@ -10,3 +10,13 @@ visible = false
 self_modulate = Color( 0.0941176, 0.235294, 1, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="exit_Daily" type="Button" parent="."]
+visible = false
+anchor_right = 0.169
+anchor_bottom = 0.122
+margin_right = -0.320023
+margin_bottom = 0.159996
+text = "x"
+
+[connection signal="pressed" from="exit_Daily" to="." method="_on_exit_Daily_pressed"]
