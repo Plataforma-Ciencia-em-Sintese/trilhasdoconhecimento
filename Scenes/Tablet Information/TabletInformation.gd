@@ -36,7 +36,9 @@ func _on_BT_Invent3_pressed():
 
 func _on_BT_Bestiario_pressed():
 	$Scenes/BestiaryEnemy/Panel_Enemy.show()
+	$Scenes/BestiaryEnemy/exit_Enemy.show()
 	$PanelTablet.hide()
+	
 
 
 func _on_BT_Contatos_pressed():
