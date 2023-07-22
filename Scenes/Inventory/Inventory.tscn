@@ -830,6 +830,7 @@ custom_fonts/font = SubResource( 14 )
 text = "Inventário"
 
 [node name="BT_Inventario" type="Button" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -151.0

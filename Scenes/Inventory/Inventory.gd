@@ -8,6 +8,7 @@ export (Array,String) var itensPassive
 export var weaponActual = ""
 export var weaponSecond = ""
 onready var player = get_tree().get_nodes_in_group("Player")[0]
+var btnOpenClose
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -157,7 +158,8 @@ func _on_BT_Inventario_pressed():
 	
 func _on_BT_Close_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	$BT_Inventario.show()
+#	$BT_Inventario.show()
+	btnOpenClose.show()
 	$BG_Inventory.hide()
 	player.get_node("Battle_UI").show()
 	player.get_node("MiniMap_UI").show()
