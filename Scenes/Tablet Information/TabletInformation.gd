@@ -9,10 +9,10 @@ func _ready():
 func _on_BT_tablet_pressed():
 	$BT_tablet.hide()
 	$PanelTablet.show()
+	get_tree().paused = true
 	player.get_node("Battle_UI").hide()
 	player.get_node("MiniMap_UI").hide()
 	get_parent().get_node("Inventory/BT_Inventario").hide()
-	get_parent().get_node("Inventory").hide()
 	get_parent().get_node("Status").hide()
 	get_parent().get_node("States/Move").hide()
 	
@@ -53,3 +53,8 @@ func _on_BT_ExitTablet_pressed():
 	get_tree().paused = false
 	$BT_tablet.show()
 	$PanelTablet.hide()
+	player.get_node("Battle_UI").show()
+	player.get_node("MiniMap_UI").show()
+	get_parent().get_node("Inventory/BT_Inventario").show()
+	get_parent().get_node("Status").show()
+	get_parent().get_node("States/Move").show()

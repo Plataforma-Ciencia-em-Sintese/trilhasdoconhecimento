@@ -141,7 +141,7 @@ func _on_BT_Inventario_pressed():
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
 	cam.current = false
 	player.get_node("Base/Cam_Invent").current = true
-	player.get_node("Base/BG_Invent").show()
+	#player.get_node("Base/BG_Invent").show()
 
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
@@ -161,14 +161,14 @@ func _on_BT_Close_pressed():
 	$BG_Inventory.hide()
 	player.get_node("Battle_UI").show()
 	player.get_node("MiniMap_UI").show()
-	get_parent().get_node("TabletInformation").show()
+	#get_parent().get_node("TabletInformation/PanelTablet").show()
 	get_parent().get_node("Status").show()
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
 	cam.current = true
 	player.get_node("Base/Cam_Invent").current = false
-	player.get_node("Base/BG_Invent").hide()
+	#player.get_node("Base/BG_Invent").hide()
 
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false

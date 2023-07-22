@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/background_Invent.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
@@ -8004,7 +8003,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
+bones/9/bound_children = [  ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8109,7 +8108,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
+bones/30/bound_children = [  ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8287,7 +8286,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000825077, -0.0134786, -0.999909, -0.202118, -0.979275, 0.0130337, -0.979359, 0.202089, -0.00353031, -0.293351, 0.592986, 0.0618879 )
+transform = Transform( -0.000399381, -0.0118706, -0.99993, -0.302946, -0.95294, 0.0114338, -0.953006, 0.302929, -0.00321358, -0.293126, 0.593753, 0.0727582 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8350,7 +8349,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000825107, 0.0134788, 0.999909, 0.202118, -0.979275, 0.0130339, 0.979359, 0.202089, -0.00353037, 0.293351, 0.592986, 0.0618879 )
+transform = Transform( -0.00039959, 0.0118704, 0.99993, 0.302946, -0.95294, 0.0114338, 0.953006, 0.302929, -0.00321335, 0.293126, 0.593754, 0.0727583 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8364,15 +8363,10 @@ transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3, 3 )
 
 [node name="Cam_Invent" type="Camera" parent="Base"]
 transform = Transform( 1.28096, 0, 0, 0, 1.27619, -0.110373, 0, 0.110373, 1.27619, -0.146696, 0.942341, 5.95516 )
+visible = false
 cull_mask = 1048574
 projection = 1
 size = 4.13227
-
-[node name="BG_Invent" type="Sprite3D" parent="Base"]
-transform = Transform( 0.54, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.15, 1.5, 0 )
-visible = false
-layers = 2
-texture = ExtResource( 17 )
 
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
 script = ExtResource( 25 )

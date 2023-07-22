@@ -90,23 +90,27 @@ expand_icon = true
 
 [node name="Name_Tablet" type="Label" parent="PanelTablet/background_Tablet"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = 0.086
-anchor_top = 0.077
-anchor_right = 0.333
-anchor_bottom = 0.137
-margin_left = 0.401993
-margin_top = 0.102997
-margin_right = 0.318024
-margin_bottom = 0.322998
+anchor_left = 0.09
+anchor_top = 0.07
+anchor_right = 0.334
+anchor_bottom = 0.132
+margin_left = -0.459991
+margin_top = -0.269997
+margin_right = 0.20401
+margin_bottom = -0.251991
 custom_fonts/font = SubResource( 1 )
 text = "Tablet de Informações"
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
-margin_left = 561.0
-margin_top = 326.0
-margin_right = 1095.0
-margin_bottom = 462.0
+anchor_left = 0.47
+anchor_top = 0.493
+anchor_right = 0.917
+anchor_bottom = 0.699
+margin_left = -0.179993
+margin_top = 0.127014
+margin_right = 0.102051
+margin_bottom = -0.0390015
 custom_constants/separation = 135
 
 [node name="BT_Invent" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
@@ -173,10 +177,14 @@ custom_fonts/font = SubResource( 2 )
 text = "Inventário"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
-margin_left = 561.0
-margin_top = 464.0
-margin_right = 1095.0
-margin_bottom = 578.0
+anchor_left = 0.47
+anchor_top = 0.702
+anchor_right = 0.917
+anchor_bottom = 0.874
+margin_left = -0.179993
+margin_top = -0.0219727
+margin_right = 0.102051
+margin_bottom = 0.286072
 custom_constants/separation = 135
 
 [node name="BT_Bestiario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
@@ -245,16 +253,20 @@ text = "Contatos"
 
 [node name="Panel_Widget" type="Panel" parent="PanelTablet/background_Tablet"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 99.0
-margin_top = 127.0
-margin_right = 486.0
-margin_bottom = 594.0
+anchor_left = 0.083
+anchor_top = 0.192
+anchor_right = 0.407
+anchor_bottom = 0.899
+margin_left = -0.101997
+margin_top = 0.0880127
+margin_right = 0.0420532
+margin_bottom = -0.238953
 
 [node name="BG_Wiget" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_Widget"]
 anchor_left = 0.005
 anchor_right = 0.997
 anchor_bottom = 1.0
-margin_left = 0.0649998
+margin_left = 0.0649996
 margin_top = 2.0
 margin_right = 0.16098
 texture = ExtResource( 18 )
