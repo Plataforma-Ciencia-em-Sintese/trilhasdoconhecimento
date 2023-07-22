@@ -161,7 +161,6 @@ func change_weapons():
 
 func change_weapons_in_game(weapon):
 	selectedGun = weapon
-	
 	if weapon == "Escudo":
 		$Base/Skeleton/BoneAttachmentR/Hammer.show()
 		$Base/Skeleton/BoneAttachmentL/Shield.show()
@@ -236,7 +235,7 @@ func choose_chip(value,toDo):
 func set_attributes(typeAttribute):
 	if typeAttribute == "ATKMain":
 		if mainGun == "Espada":
-			GlobalValues.atkMainActual += GlobalValues.atkMain + calculate_status(GlobalValues.atkMain,1,6)
+			GlobalValues.atkMainActual += GlobalValues.atkMain + calculate_status(GlobalValues.atkMain,1,3)
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,3)
@@ -267,7 +266,7 @@ func set_attributes(typeAttribute):
 			else:
 				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
 		elif mainGun == "Escudo":
-			GlobalValues.atkMainActual += GlobalValues.atkMain - calculate_status(GlobalValues.atkMain,1,6) 
+			GlobalValues.atkMainActual += GlobalValues.atkMain - calculate_status(GlobalValues.atkMain,1,3) 
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,2) 
@@ -279,7 +278,7 @@ func set_attributes(typeAttribute):
 			else:
 				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,4)
 		elif mainGun == "Manopla":
-			GlobalValues.atkMainActual += GlobalValues.atkMain - calculate_status(GlobalValues.atkMain,1,6)
+			GlobalValues.atkMainActual += GlobalValues.atkMain - calculate_status(GlobalValues.atkMain,1,3)
 			#-------
 			if GlobalValues.speedActual <= 0:
 				GlobalValues.speedActual += GlobalValues.speed + calculate_status(GlobalValues.speed,1,2)
@@ -287,7 +286,7 @@ func set_attributes(typeAttribute):
 				GlobalValues.speedActual += calculate_status(GlobalValues.speed,1,2)
 	elif typeAttribute == "ATKSec":
 		if secGun == "Espada":
-			GlobalValues.atkSecActual += GlobalValues.atkSec + calculate_status(GlobalValues.atkSec,1,6)
+			GlobalValues.atkSecActual += GlobalValues.atkSec + calculate_status(GlobalValues.atkSec,1,3)
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,3)
@@ -318,7 +317,7 @@ func set_attributes(typeAttribute):
 			else:
 				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,2)
 		elif secGun == "Escudo":
-			GlobalValues.atkSecActual += GlobalValues.atkSec - calculate_status(GlobalValues.atkSec,1,6) 
+			GlobalValues.atkSecActual += GlobalValues.atkSec - calculate_status(GlobalValues.atkSec,1,3) 
 			#-------
 			if GlobalValues.lifeActual <= 0:
 				GlobalValues.lifeActual += GlobalValues.life + calculate_status(GlobalValues.life,1,2)
@@ -330,7 +329,7 @@ func set_attributes(typeAttribute):
 			else:
 				GlobalValues.speedActual -= calculate_status(GlobalValues.speed,1,4)
 		elif secGun == "Manopla":
-			GlobalValues.atkSecActual += GlobalValues.atkSec - calculate_status(GlobalValues.atkSec,1,6)
+			GlobalValues.atkSecActual += GlobalValues.atkSec - calculate_status(GlobalValues.atkSec,1,3)
 			#-------
 			if GlobalValues.speedActual <= 0:
 				GlobalValues.speedActual += GlobalValues.speed + calculate_status(GlobalValues.speed,1,2)

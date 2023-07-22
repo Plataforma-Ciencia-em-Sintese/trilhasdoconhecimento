@@ -1,11 +1,31 @@
 extends PathFollow
 
-export (String, "Parafuso", "Serra", "Golem", "Flexivel", "Bala") var enemyType
+export (String, "Furadeiro", "Laser", "Destruidor", "Reparador", "Bala") var enemyType
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 var clicked = false
 
 func _ready():
 	get_enemy(enemyType)
+	if enemyType == "Furadeiro":
+		$Viewport/BarLife.max_value = 30
+		$States/Patrol.speed = 2
+		$States/Battling.speed = 2
+	elif enemyType == "Laser":
+		$Viewport/BarLife.max_value = 49
+		$States/Patrol.speed = 4
+		$States/Battling.speed = 4
+	elif enemyType == "Destruidor":
+		$Viewport/BarLife.max_value = 40
+		$States/Patrol.speed = 3
+		$States/Battling.speed = 3
+	elif enemyType == "Reparador":
+		$Viewport/BarLife.max_value = 26
+		$States/Patrol.speed = 4
+		$States/Battling.speed = 4
+	elif enemyType == "Bala":
+		$Viewport/BarLife.max_value = 14
+		$States/Patrol.speed = 5
+		$States/Battling.speed = 5
 	
 func get_enemy(type):
 	for i in $Enemy/Root_Enemies.get_children():

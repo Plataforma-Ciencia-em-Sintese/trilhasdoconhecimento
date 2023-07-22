@@ -1,6 +1,6 @@
 extends Spatial
 
-export var speed = 1
+var speed = 1
 export var damageSword = 20
 export var damageHammer = 20
 export var damageEnergyBall = 20
@@ -35,7 +35,7 @@ func start_battle():
 		else:
 			distanceToPlayer = getOwner.get_node("Enemy").global_transform.origin.distance_to(clone.global_transform.origin) - 0.5
 			dir = clone.global_transform.origin - getOwner.get_node("Enemy").global_transform.origin
-			vel = dir * speed
+			vel = dir * speed 
 			getOwner.get_node("Enemy").look_at(clone.transform.origin,Vector3.UP)
 		
 		if distanceToPlayer <= distanceToStop:
@@ -45,7 +45,7 @@ func start_battle():
 			stop = false
 			getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayer").play("Idle")
 		#---------------------------	
-		getOwner.get_node("Enemy").move_and_slide(vel.normalized(),Vector3.UP)
+		getOwner.get_node("Enemy").move_and_slide(vel.normalized() * speed,Vector3.UP)
 	else:
 		var distanceToPatrol = getOwner.get_node("Enemy").global_transform.origin.distance_to(getOwner.get_node("LastPos").global_transform.origin) - 0.1
 		
@@ -59,7 +59,7 @@ func start_battle():
 			dir = getOwner.get_node("LastPos").global_transform.origin - getOwner.get_node("Enemy").global_transform.origin
 			vel = dir * speed
 			getOwner.get_node("Enemy").look_at(getOwner.get_node("LastPos").global_transform.origin,Vector3.UP)
-			getOwner.get_node("Enemy").move_and_slide(vel.normalized(),Vector3.UP)
+			getOwner.get_node("Enemy").move_and_slide(vel.normalized() * speed,Vector3.UP)
 
 func check_life():
 	if getOwner.get_node("Viewport/BarLife").value <= 0:
@@ -72,7 +72,12 @@ func check_life():
 
 func _on_Damage_Area_area_entered(area):
 	if area.is_in_group("Sword"):
-		getOwner.get_node("Viewport/BarLife").value -= damageSword
+		if player.selectedGun == player.mainGun:
+			getOwner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
+		elif player.selectedGun == player.secGun:
+			getOwner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
+		
+		print(getOwner.get_node("Viewport/BarLife").value)
 		getOwner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
 		var spawnHit = hit.instance()
 		owner.owner.add_child(spawnHit)
@@ -104,4 +109,4 @@ func _on_Damage_Area_area_entered(area):
 		check_life()
 
 func set_collisor_parafuso(status):
-	owner.get_node("Enemy/Root_Enemies/Parafuso/IA_01/Attack_Area_Parafuso/CollisionShape").set_deferred("disabled",status)
+	owner.get_node("Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape").set_deferred("disabled",status)

@@ -7,10 +7,11 @@ var source
 var equiped = false
 var btnOnEquiped
 var order = ""
+var marker
+var costPower
 onready var iconITN
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 onready var player = get_tree().get_nodes_in_group("Player")[0]
-var marker
 #var blockMouse = false
 
 func _ready():

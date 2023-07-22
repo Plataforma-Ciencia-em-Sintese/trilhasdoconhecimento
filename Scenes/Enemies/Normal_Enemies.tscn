@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
@@ -116,6 +116,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "Attack02"
 length = 1.875
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("IA_01/Skeleton:Corpo")
 tracks/0/interp = 1
@@ -131,8 +132,44 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, -0.205974, 0, 0, 0.066467, 0, 0.997789, 1, 1.06221, 1, 0.133333, 1, 0, -0.568384, 0, 0, 0.208555, 0, 0.978011, 1, 1.17166, 1, 0.2, 1, 0, -0.797823, 0, 0, 0.364491, 0, 0.931207, 1, 1.24095, 1, 0.266667, 1, 0, -0.81477, 0, 0, 0.477333, 0, 0.878723, 1, 1.19607, 1, 0.333333, 1, 0, -0.81477, 0, 0, 0.567033, 0, 0.823695, 1, 1.08662, 1, 0.4, 1, 0, -0.81477, 0, 0, 0.676936, 0, 0.736042, 1, 1.01024, 1, 0.466667, 1, 0, -0.629488, 0, 0, 0.819822, 0, 0.572619, 1, 1, 1, 0.533333, 1, 0, -0.0449705, 0, 0, 0.944568, 0, 0.328316, 1, 1, 1, 0.6, 1, 0, 0.629933, 0, 0, 0.996618, 0, 0.0821693, 1, 1, 1, 0.666667, 1, 0, 1.11622, 0, 0, 0.994141, 0, -0.108095, 1, 0.955039, 1, 0.733333, 1, 0, 1.3221, 0, 0, 0.972329, 0, -0.233617, 1, 0.771046, 1, 0.8, 1, 0, 1.38505, 0, 0, 0.942506, 0, -0.334191, 1, 0.603654, 1, 0.866667, 1, 0, 1.38846, 0, 0, 0.900369, 0, -0.435127, 1, 0.567686, 1, 0.933333, 1, 0, 1.38846, 0, 0, -0.839259, 0, 0.543732, 1, 0.567686, 1, 1, 1, 0, 1.38846, 0, 0, -0.761343, 0, 0.64835, 1, 0.567686, 1, 1.06667, 1, 0, 1.38945, 0, 0, -0.673828, 0, 0.738888, 1, 0.577089, 1, 1.13333, 1, 0, 1.39504, 0, 0, -0.579853, 0, 0.814721, 1, 0.629654, 1, 1.2, 1, 0, 1.40201, 0, 0, -0.474516, 0, 0.880247, 1, 0.695239, 1, 1.26667, 1, 0, 1.40442, 0, 0, -0.347853, 0, 0.937549, 1, 0.712118, 1, 1.33333, 1, 0, 1.40345, 0, 0, -0.202772, 0, 0.979226, 1, 0.66534, 1, 1.4, 1, 0, 1.39817, 0, 0, -0.0741593, 0, 0.997247, 1, 0.598308, 1, 1.46667, 1, 0, 1.37912, 0, 0, 0.00525949, 0, 0.999986, 1, 0.570107, 1, 1.53333, 1, 0, 1.25376, 0, 0, 0.0448786, 0, 0.998992, 1, 0.606075, 1, 1.6, 1, 0, 0.999007, 0, 0, 0.102854, 0, 0.994696, 1, 0.684583, 1, 1.66667, 1, 0, 0.682216, 0, 0, 0.437818, 0, 0.899064, 1, 0.783843, 1, 1.73333, 1, 0, 0.368116, 0, 0, 0.386322, 0, 0.922364, 1, 0.883102, 1, 1.8, 1, 0, 0.120662, 0, 0, 0.640958, 0, 0.767576, 1, 0.96161, 1, 1.875, 1, 0, 0, 0, 0, 0.707107, 0, 0.707107, 1, 1, 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=45]
 resource_name = "Idle"
+length = 1.66667
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("IA_01/Skeleton:Corpo")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, -0.00112677, 0.00827065, 0.0490519, 0, 0, 0.998796, 1, 1, 1, 0.133333, 1, 1.01322e-18, -0.00271988, 0.0199636, 0.118238, -2.6032e-26, -5.99553e-18, 0.992985, 1, 1, 1, 0.2, 1, 5.06608e-18, 0.0498466, 0.0190591, 0.113002, -7.28449e-25, -3.00274e-17, 0.993595, 1, 1, 1, 0.266667, 1, 5.06608e-18, 0.335773, 0.00365765, 0.0219734, -2.58556e-25, -3.00854e-17, 0.999759, 1, 1, 1, 0.333333, 1, -1.60673e-18, 0.764585, -0.00723606, -0.0424615, 4.269e-25, 9.42835e-18, 0.999098, 1, 1, 1, 0.4, 1, -1.60673e-18, 1.23376, -0.00723606, -0.0424615, 4.52773e-25, 9.42835e-18, 0.999098, 1, 1.07854, 1.00063, 0.466667, 1, -1.60673e-18, 1.75442, -0.00723606, -0.0424615, 3.75155e-25, 9.42835e-18, 0.999098, 1, 1.20378, 1.00161, 0.533333, 1, -1.60673e-18, 2.34054, -0.00723606, -0.0424615, 4.13964e-25, 9.42835e-18, 0.999098, 1, 1.28262, 1.00215, 0.6, 1, -1.60673e-18, 2.88636, -0.00723606, -0.0424615, 3.88091e-25, 9.42836e-18, 0.999098, 1, 1.3111, 1.0023, 0.666667, 1, -1.60673e-18, 3.31472, -0.00723606, -0.0424615, 4.65709e-25, 9.42835e-18, 0.999098, 1, 1.3076, 1.00226, 0.733333, 1, -1.60673e-18, 3.64025, -0.00723606, -0.0424615, 3.49282e-25, 9.42836e-18, 0.999098, 1, 1.27215, 1.00199, 0.8, 1, -1.60673e-18, 3.89598, -0.00723606, -0.0424615, 4.01027e-25, 9.42835e-18, 0.999098, 1, 1.21644, 1.00158, 0.866667, 1, -1.60673e-18, 4.08523, -0.00723606, -0.0424615, 4.269e-25, 9.42835e-18, 0.999098, 1, 1.14671, 1.00106, 0.933333, 1, -1.60673e-18, 4.21836, -0.00723606, -0.0424615, 4.269e-25, 9.42835e-18, 0.999098, 1, 1.072, 1.00052, 1, 1, -1.60673e-18, 4.30812, -0.00723606, -0.0424615, 4.269e-25, 9.42835e-18, 0.999098, 1, 1, 1, 1.06667, 1, -1.60673e-18, 4.35826, -0.00723606, -0.0424615, 4.01027e-25, 9.42836e-18, 0.999098, 1, 0.939689, 0.999583, 1.13333, 1, -1.60673e-18, 4.38388, -0.00723606, -0.0424615, 3.49282e-25, 9.42835e-18, 0.999098, 1, 0.893596, 0.999274, 1.2, 1, -1.60673e-18, 4.39205, -0.00723606, -0.0424615, 4.52773e-25, 9.42836e-18, 0.999098, 1, 0.866086, 0.999095, 1.26667, 1, -1.60673e-18, 4.35622, -0.00723606, -0.0424615, 4.52773e-25, 9.42835e-18, 0.999098, 1, 0.872667, 0.999151, 1.33333, 1, -1.60673e-18, 4.00875, -0.00723606, -0.0424615, 4.269e-25, 9.42835e-18, 0.999098, 1, 0.975953, 0.999919, 1.4, 1, -1.60673e-18, 3.03096, -0.00723606, -0.0424615, 3.62218e-25, 9.42836e-18, 0.999098, 1, 1.12396, 1.00102, 1.46667, 1, -1.60673e-18, 1.43022, -0.00686086, -0.0402613, 3.7512e-25, 9.42877e-18, 0.999189, 1, 1.1718, 1.00144, 1.53333, 1, -1.60673e-18, -0.454252, -0.00257282, -0.0151007, 4.07174e-25, 9.4303e-18, 0.999886, 1, 0.945729, 1.00054, 1.6, 1, 0, -0.913308, 0, 0, 0, 0, 1, 1, 0.848072, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("IA_01/Skeleton:Broca")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0.323702, 0, 0.946159, 1, 1, 1, 0.0666667, 1, 0, -0.000252724, 0.00827063, 0, -0.168211, 0, 0.985751, 1, 1, 1, 0.133333, 1, -1.08793e-09, -0.00167084, 0.0199636, 0, -0.725195, 0, 0.688544, 1, 1, 1, 0.2, 1, -5.43964e-09, -0.0572767, 0.0190591, 0, 0.991327, 0, -0.13142, 1, 1, 1, 0.266667, 1, -5.43964e-09, -0.342318, 0.00365764, 0, 0.8682, 0, 0.496215, 1, 1, 1, 0.333333, 1, 1.72521e-09, -0.765201, -0.00723604, 0, 0.437057, 0, 0.899434, 1, 1, 1, 0.4, 1, 1.72521e-09, -1.22085, -0.00723604, 0, -0.187096, 0, 0.982342, 1, 1.07854, 1.00063, 0.466667, 1, 1.72521e-09, -1.71851, -0.00723604, 0, -0.746716, 0, 0.665143, 1, 1.20378, 1.00161, 0.533333, 1, 1.72521e-09, -2.27724, -0.00723604, 0, 0.994928, 0, -0.100588, 1, 1.28262, 1.00215, 0.6, 1, 1.72521e-09, -2.82308, -0.00723604, 0, 0.859324, 0, 0.511432, 1, 1.3111, 1.0023, 0.666667, 1, 1.72521e-09, -3.28386, -0.00723604, 0, 0.357871, 0, 0.933771, 1, 1.3076, 1.00226, 0.733333, 1, 1.72521e-09, -3.61933, -0.00723604, 0, -0.154528, 0, 0.987988, 1, 1.27215, 1.00199, 0.8, 1, 1.72521e-09, -3.86976, -0.00723604, 0, -0.783625, 0, 0.621235, 1, 1.21644, 1.00158, 0.866667, 1, 1.72521e-09, -4.05141, -0.00723604, 0, 0.149711, 0, 0.98873, 1, 1.14671, 1.00106, 0.933333, 1, 1.72521e-09, -4.18218, -0.00723604, 0, -0.484905, 0, 0.874567, 1, 1.072, 1.00052, 1, 1, 1.72521e-09, -4.27342, -0.00723604, 0, 0.893879, 0, -0.448307, 1, 1, 1, 1.06667, 1, 1.72521e-09, -4.32763, -0.00723604, 0, 0.979494, 0, 0.201471, 1, 0.939689, 0.999583, 1.13333, 1, 1.72521e-09, -4.35786, -0.00723604, 0, 0.683963, 0, 0.729517, 1, 0.893596, 0.999274, 1.2, 1, 1.72521e-09, -4.36962, -0.00723604, 0, 0.136223, 0, 0.990678, 1, 0.866086, 0.999095, 1.26667, 1, 1.72521e-09, -4.33322, -0.00723604, 0, -0.493619, 0, 0.869678, 1, 0.872667, 0.999151, 1.33333, 1, 1.72521e-09, -3.9745, -0.00723604, 0, 0.919206, 0, -0.393777, 1, 0.975953, 0.999919, 1.4, 1, 1.72521e-09, -2.98826, -0.00723604, 0, 0.97859, 0, 0.20582, 1, 1.12396, 1.00102, 1.46667, 1, 1.72521e-09, -1.40309, -0.00686084, 0, 0.63696, 0, 0.770897, 1, 1.17179, 1.00144, 1.53333, 1, 1.72521e-09, 0.439758, -0.00257282, 0, 0.172372, 0, 0.985032, 1, 0.945729, 1.00054, 1.6, 1, 0, 0.887393, 0, 0, -0.635282, 0, 0.77228, 1, 0.848072, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../States/Battling")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_collisor_parafuso"
+}, {
+"args": [ false ],
+"method": "set_collisor_parafuso"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle(Unused)"
 length = 1.6
 loop = true
 tracks/0/type = "transform"
@@ -1581,12 +1618,12 @@ shape = SubResource( 19 )
 
 [node name="Root_Enemies" type="Spatial" parent="Enemy"]
 
-[node name="Parafuso" type="Spatial" parent="Enemy/Root_Enemies"]
+[node name="Furadeiro" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.750712, 0 )
 
-[node name="IA_01" type="Spatial" parent="Enemy/Root_Enemies/Parafuso"]
+[node name="IA_01" type="Spatial" parent="Enemy/Root_Enemies/Furadeiro"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Parafuso/IA_01"]
+[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Furadeiro/IA_01"]
 bones/0/name = "Corpo"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29685, 0 )
@@ -1598,41 +1635,42 @@ bones/1/rest = Transform( 1, 0, 2.38419e-07, 0, -1, 0, 2.38419e-07, 0, -1, 0, 2.
 bones/1/enabled = true
 bones/1/bound_children = [  ]
 
-[node name="IA 1" type="MeshInstance" parent="Enemy/Root_Enemies/Parafuso/IA_01/Skeleton"]
+[node name="IA 1" type="MeshInstance" parent="Enemy/Root_Enemies/Furadeiro/IA_01/Skeleton"]
 material_overlay = SubResource( 24 )
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 
-[node name="Attack_Area_Parafuso" type="Area" parent="Enemy/Root_Enemies/Parafuso/IA_01" groups=["Damage_Enemy_Parafuso"]]
+[node name="Attack_Area_Parafuso" type="Area" parent="Enemy/Root_Enemies/Furadeiro/IA_01" groups=["Damage_Enemy_Parafuso"]]
 
-[node name="CollisionShape" type="CollisionShape" parent="Enemy/Root_Enemies/Parafuso/IA_01/Attack_Area_Parafuso"]
+[node name="CollisionShape" type="CollisionShape" parent="Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 44 )
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Parafuso"]
-autoplay = "Idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Furadeiro"]
+autoplay = "Attack"
 playback_speed = 3.0
 anims/Attack = SubResource( 3 )
 anims/Attack02 = SubResource( 4 )
-anims/Idle = SubResource( 5 )
+anims/Idle = SubResource( 45 )
+anims/Idle(Unused) = SubResource( 5 )
 
-[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Parafuso"]
+[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Furadeiro"]
 root_node = NodePath("../IA_01")
 playback_speed = 2.0
 anims/Hit = SubResource( 25 )
 anims/RESET = SubResource( 26 )
 
-[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Parafuso"]
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Furadeiro"]
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83384e-08, 2.05775, 0.667304 )
 
-[node name="Serra" type="Spatial" parent="Enemy/Root_Enemies"]
+[node name="Laser" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 visible = false
 
-[node name="IA_02" type="Spatial" parent="Enemy/Root_Enemies/Serra"]
+[node name="IA_02" type="Spatial" parent="Enemy/Root_Enemies/Laser"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Serra/IA_02"]
+[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Laser/IA_02"]
 bones/0/name = "Corpo"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, -5.32907e-15, 2.38418e-07, 1.91145e-08, 0.996781, -0.080172, -2.37651e-07, 0.080172, 0.996781, -6.64422e-17, 1.72354, -0.188514 )
@@ -1669,31 +1707,31 @@ bones/6/rest = Transform( -0.00503004, -2.77162e-06, 0.999988, -0.999986, -0.001
 bones/6/enabled = true
 bones/6/bound_children = [  ]
 
-[node name="IA 2" type="MeshInstance" parent="Enemy/Root_Enemies/Serra/IA_02/Skeleton"]
+[node name="IA 2" type="MeshInstance" parent="Enemy/Root_Enemies/Laser/IA_02/Skeleton"]
 material_overlay = SubResource( 27 )
 mesh = SubResource( 6 )
 skin = SubResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Serra"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Laser"]
 autoplay = "Idle"
 playback_speed = 2.0
 anims/Attack = SubResource( 8 )
 anims/Idle = SubResource( 9 )
 
-[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Serra"]
+[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Laser"]
 anims/Hit = SubResource( 28 )
 anims/RESET = SubResource( 29 )
 
-[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Serra"]
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Laser"]
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
 
-[node name="Golem" type="Spatial" parent="Enemy/Root_Enemies"]
+[node name="Destruidor" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 visible = false
 
-[node name="IA_03" type="Spatial" parent="Enemy/Root_Enemies/Golem"]
+[node name="IA_03" type="Spatial" parent="Enemy/Root_Enemies/Destruidor"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Golem/IA_03"]
+[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Destruidor/IA_03"]
 bones/0/name = "Base"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96046e-08, -2.38419e-07, -5.96046e-08, 1, 0, 0.725279, 0 )
@@ -1775,31 +1813,31 @@ bones/15/rest = Transform( 1, -4.82838e-08, -3.10493e-06, 4.82842e-08, 1, 1.2852
 bones/15/enabled = true
 bones/15/bound_children = [  ]
 
-[node name="IA 3" type="MeshInstance" parent="Enemy/Root_Enemies/Golem/IA_03/Skeleton"]
+[node name="IA 3" type="MeshInstance" parent="Enemy/Root_Enemies/Destruidor/IA_03/Skeleton"]
 material_overlay = SubResource( 30 )
 mesh = SubResource( 10 )
 skin = SubResource( 11 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Golem"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Destruidor"]
 autoplay = "Idle"
 anims/Attack = SubResource( 12 )
 anims/Idle = SubResource( 13 )
 
-[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Golem"]
+[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Destruidor"]
 root_node = NodePath("../IA_03")
 anims/Hit = SubResource( 31 )
 anims/RESET = SubResource( 32 )
 
-[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Golem"]
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Destruidor"]
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83949e-08, 2.85376, 0.66795 )
 
-[node name="Flexivel" type="Spatial" parent="Enemy/Root_Enemies"]
+[node name="Reparador" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 visible = false
 
-[node name="IA_04" type="Spatial" parent="Enemy/Root_Enemies/Flexivel"]
+[node name="IA_04" type="Spatial" parent="Enemy/Root_Enemies/Reparador"]
 
-[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Flexivel/IA_04"]
+[node name="Skeleton" type="Skeleton" parent="Enemy/Root_Enemies/Reparador/IA_04"]
 bones/0/name = "Base"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.197772, 0 )
@@ -2011,22 +2049,22 @@ bones/41/rest = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
 bones/41/enabled = true
 bones/41/bound_children = [  ]
 
-[node name="IA 4" type="MeshInstance" parent="Enemy/Root_Enemies/Flexivel/IA_04/Skeleton"]
+[node name="IA 4" type="MeshInstance" parent="Enemy/Root_Enemies/Reparador/IA_04/Skeleton"]
 material_overlay = SubResource( 33 )
 mesh = SubResource( 14 )
 skin = SubResource( 15 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Flexivel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Reparador"]
 autoplay = "Idle"
 playback_speed = 2.0
 anims/Attack = SubResource( 16 )
 anims/Idle = SubResource( 17 )
 
-[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Flexivel"]
+[node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Reparador"]
 anims/Hit = SubResource( 34 )
 anims/RESET = SubResource( 35 )
 
-[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Flexivel"]
+[node name="Melee_Hit" type="Position3D" parent="Enemy/Root_Enemies/Reparador"]
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-07, 2.85376, 2.47669 )
 
 [node name="Bala" type="Spatial" parent="Enemy/Root_Enemies"]
