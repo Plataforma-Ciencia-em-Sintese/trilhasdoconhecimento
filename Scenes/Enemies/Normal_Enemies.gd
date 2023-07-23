@@ -22,23 +22,30 @@ func _ready():
 		$Viewport/BarLife.max_value = 26
 		$States/Patrol.speed = 4
 		$States/Battling.speed = 4
+		$States/Healing.speed = 4
 	elif enemyType == "Bala":
 		$Viewport/BarLife.max_value = 14
 		$States/Patrol.speed = 5
 		$States/Battling.speed = 5
-	
+
+#func _physics_process(delta):
+#	if Input.is_action_just_pressed("Click"):
+#		if player.get_node("States/Battling").goFight:
+#			player.get_node("States/Battling").goFight = false
+
 func get_enemy(type):
 	for i in $Enemy/Root_Enemies.get_children():
 		if i.name != type:
 			i.queue_free()
 			
 func _on_Looking_Zone_body_entered(body):
-	if body.is_in_group("Player") or body.is_in_group("Clone"):
-		$Wait_to_Back.stop()
-		$States/Battling.backToPatrol = false
-		$States/Battling.show()
-		$States/Patrol.hide()
-		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
+	if enemyType != "Reparador":
+		if body.is_in_group("Player") or body.is_in_group("Clone"):
+			$Wait_to_Back.stop()
+			$States/Battling.backToPatrol = false
+			$States/Battling.show()
+			$States/Patrol.hide()
+			$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 
 func _on_Looking_Zone_body_exited(body):
 	if body.is_in_group("Player") and $Viewport/BarLife.value > 0:

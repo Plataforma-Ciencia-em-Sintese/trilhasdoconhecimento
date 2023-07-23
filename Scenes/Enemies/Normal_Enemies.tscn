@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Enemies/Battling.gd" type="Script" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Enemies/Colaterals.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Enemies/Healing.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=39]
 bg_color = Color( 0.521569, 1, 0, 1 )
@@ -2234,6 +2235,10 @@ script = ExtResource( 4 )
 [node name="Battling" type="Spatial" parent="States"]
 visible = false
 script = ExtResource( 5 )
+
+[node name="Healing" type="Spatial" parent="States"]
+visible = false
+script = ExtResource( 8 )
 
 [node name="Colaterals" type="Spatial" parent="States"]
 script = ExtResource( 7 )

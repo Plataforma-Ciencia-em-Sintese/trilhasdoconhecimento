@@ -51,7 +51,6 @@ func start_fight():
 			attackType = "Projectile"
 	
 		if attackType == "Melee":
-			print(dist)
 			if dist <= 1.5:
 				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
 				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
@@ -59,12 +58,12 @@ func start_fight():
 				owner.get_node("States/Move").hide()
 				releasePointer = false
 		else:
-			if dist <= 5:
-				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
-				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
-				animator.set("parameters/move/blend_amount",0)
-				owner.get_node("States/Move").hide()
-				releasePointer = false
+#			if dist <= 5:
+			owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
+			owner.get_node("Base/Skeleton").rotation_degrees.y = 180
+			animator.set("parameters/move/blend_amount",0)
+			owner.get_node("States/Move").hide()
+#			releasePointer = false
 			
 #			if owner.mainChar == "Caio":
 #				owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = true
