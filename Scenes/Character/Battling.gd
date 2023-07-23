@@ -122,3 +122,4 @@ func _on_Damage_Zone_area_exited(area):
 		end_fight()
 		if owner.mainChar == "Caio": 
 			owner.get_node("Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail").emit = false
+

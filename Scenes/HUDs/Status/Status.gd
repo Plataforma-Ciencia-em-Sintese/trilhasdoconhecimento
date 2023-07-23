@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 onready var atkButtons
+var progressiveDamage = false
 
 func _ready():
 	$XP_Bar.value = GlobalValues.xpActual
@@ -25,6 +26,9 @@ func _on_XP_Bar_value_changed(value):
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_select"):
 		$XP_Bar.value += 1
+	
+	if progressiveDamage:
+		set_life(-2 * _delta)
 
 func set_life(value):
 	GlobalValues.lifeActual += value

@@ -8286,7 +8286,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -5.42402e-06, -0.0120208, -0.999928, -0.0166394, -0.99979, 0.0120191, -0.99986, 0.0166387, -0.000192732, -0.293119, 0.593728, 0.0426366 )
+transform = Transform( 0.000390738, -0.0125224, -0.999922, -0.104102, -0.99449, 0.0124137, -0.994565, 0.104089, -0.00169018, -0.293205, 0.593281, 0.051675 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8349,7 +8349,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -5.33462e-06, 0.0120207, 0.999928, 0.0166394, -0.99979, 0.012019, 0.99986, 0.0166387, -0.000192806, 0.293119, 0.593728, 0.0426365 )
+transform = Transform( 0.0003905, 0.0125223, 0.999922, 0.104102, -0.99449, 0.0124137, 0.994565, 0.10409, -0.00168994, 0.293205, 0.593281, 0.0516751 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8746,7 +8746,7 @@ path_desired_distance = 0.1
 avoidance_enabled = true
 neighbor_dist = 1.0
 
-[node name="Damage_Zone" type="Area" parent="."]
+[node name="Damage_Zone" type="Area" parent="." groups=["DamagePlayer"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Damage_Zone"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.683507, 2.9877e-08 )

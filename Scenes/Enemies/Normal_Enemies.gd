@@ -11,9 +11,9 @@ func _ready():
 		$States/Patrol.speed = 2
 		$States/Battling.speed = 2
 	elif enemyType == "Laser":
-		$Viewport/BarLife.max_value = 49
-		$States/Patrol.speed = 4
-		$States/Battling.speed = 4
+		$Viewport/BarLife.max_value = 24
+		$States/Patrol.speed = 2
+		$States/Battling.speed = 2
 	elif enemyType == "Destruidor":
 		$Viewport/BarLife.max_value = 40
 		$States/Patrol.speed = 3

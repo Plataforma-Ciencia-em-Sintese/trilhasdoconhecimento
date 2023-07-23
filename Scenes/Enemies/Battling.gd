@@ -15,14 +15,19 @@ var hit = load("res://Scenes/Attacks/Hit/Hit.tscn")
 var bigHit = load("res://Scenes/Attacks/Big Hit/Big Hit.tscn")
 var dir
 var vel
+var progressiveDamageToPlayer = false
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	getOwner = owner
+	owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
 
 func _physics_process(_delta):
 	if is_visible_in_tree():
 		start_battle()
+	
+	if progressiveDamageToPlayer:
+		player.get_node("Status").set_life(-2 * _delta)
 
 func start_battle():
 	if !backToPatrol:
@@ -56,6 +61,8 @@ func start_battle():
 			self.hide()
 			backToPatrol = true
 		else:
+			owner.get_node("Enemy/Root_Enemies/Laser/Laser").hide()
+			owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
 			dir = getOwner.get_node("LastPos").global_transform.origin - getOwner.get_node("Enemy").global_transform.origin
 			vel = dir * speed
 			getOwner.get_node("Enemy").look_at(getOwner.get_node("LastPos").global_transform.origin,Vector3.UP)
@@ -108,5 +115,14 @@ func _on_Damage_Area_area_entered(area):
 		area.queue_free()
 		check_life()
 
-func set_collisor_parafuso(status):
-	owner.get_node("Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape").set_deferred("disabled",status)
+func set_collisor_status(path,status):
+	owner.get_node(path).set_deferred("disabled",status)
+
+func _on_Area_Laser_area_entered(area):
+	if area.is_in_group("DamagePlayer"):
+		progressiveDamageToPlayer = true
+		
+func _on_Area_Laser_area_exited(area):
+	if area.is_in_group("DamagePlayer"):
+		progressiveDamageToPlayer = false
+		set_collisor_status("Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape",true)

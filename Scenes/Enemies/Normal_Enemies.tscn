@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Neon.material" type="Material" id=2]
@@ -160,11 +160,11 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ true ],
-"method": "set_collisor_parafuso"
+"args": [ "Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape", false ],
+"method": "set_collisor_status"
 }, {
-"args": [ false ],
-"method": "set_collisor_parafuso"
+"args": [ "Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape", true ],
+"method": "set_collisor_status"
 } ]
 }
 
@@ -274,8 +274,73 @@ bind/6/name = "Serra.002"
 bind/6/bone = -1
 bind/6/pose = Transform( -0.999993, 0.00169491, -0.00333523, -0.00169492, -0.999998, -2.11467e-08, -0.0033351, 5.74623e-06, 0.999994, -0.000644941, 1.25691, -0.288091 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="SphereMesh" id=46]
+
+[sub_resource type="CylinderMesh" id=47]
+
+[sub_resource type="CylinderShape" id=48]
+radius = 5.36772
+
+[sub_resource type="Animation" id=49]
 resource_name = "Attack"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Laser:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.7, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../../../States/Battling")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.7, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape", false ],
+"method": "set_collisor_status"
+}, {
+"args": [ "Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape", true ],
+"method": "set_collisor_status"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Attack(Unused)"
 length = 1.66667
 loop = true
 tracks/0/type = "transform"
@@ -381,6 +446,45 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = PoolRealArray( 0, 1, 1.49012e-08, 0, 5.96046e-08, -2.39392e-15, -7.10543e-15, -1.70098e-29, 1, 1, 1, 1, 0.0666667, 1, 1.49012e-08, 0, 5.96046e-08, 8.8273e-05, 0.0520445, 9.19467e-08, 0.998645, 1, 1, 1, 0.133333, 1, 1.49012e-08, 0, 5.96046e-08, 0.000289952, 0.171041, 3.45091e-08, 0.985264, 1, 1, 1, 0.2, 1, 1.49012e-08, 0, 5.96046e-08, 0.000550949, 0.325052, -5.51566e-08, 0.945696, 1, 1, 1, 0.266667, 1, 1.49012e-08, 0, 5.96046e-08, 0.000803504, 0.474047, 4.57464e-08, 0.880499, 1, 1, 1, 0.333333, 1, 1.49012e-08, 0, 5.96046e-08, 0.00101285, 0.597605, -1.88753e-09, 0.80179, 1, 1, 1, 0.4, 1, 1.49012e-08, 0, 5.96046e-08, 0.00116575, 0.687849, -1.70809e-08, 0.725853, 1, 1, 1, 0.466667, 1, 1.49012e-08, 0, 5.96046e-08, 0.00132491, 0.781734, 4.26563e-08, 0.62361, 1, 1, 1, 0.533333, 1, 1.49012e-08, 0, 5.96046e-08, 0.00155626, 0.918273, 8.23095e-08, 0.395944, 1, 1, 1, 0.6, 1, 1.49012e-08, 0, 5.96046e-08, 0.00169471, 0.999964, 3.73788e-08, 0.00827777, 1, 1, 1, 0.666667, 1, 1.49012e-08, 0, 5.96046e-08, 0.00156509, 0.923525, -1.46224e-08, -0.383535, 1, 1, 1, 0.733333, 1, 1.49012e-08, 0, 5.96046e-08, -0.00135336, -0.798623, -2.63072e-08, 0.601831, 1, 1, 1, 0.8, 1, 1.49012e-08, 0, 5.96046e-08, -0.00122014, -0.71995, 7.65731e-08, 0.694025, 1, 1, 1, 0.866667, 1, 1.49012e-08, 0, 5.96046e-08, -0.00117039, -0.690629, 5.7547e-09, 0.723209, 1, 1, 1, 0.933333, 1, 1.49012e-08, 0, 5.96046e-08, -0.000968652, -0.571661, -5.00855e-08, 0.82049, 1, 1, 1, 1, 1, 1.49012e-08, 0, 5.96046e-08, -0.000480793, -0.283827, -3.58837e-08, 0.958876, 1, 1, 1, 1.06667, 1, 1.49012e-08, 0, 5.96046e-08, 0.000291373, 0.171813, 4.55278e-08, 0.98513, 1, 1, 1, 1.13333, 1, 1.49012e-08, 0, 5.96046e-08, 0.000881858, 0.52031, 2.45379e-09, 0.853977, 1, 1, 1, 1.2, 1, 1.49012e-08, 0, 5.96046e-08, 0.00114188, 0.673732, 5.47832e-08, 0.738975, 1, 1, 1, 1.25, 1, 1.49012e-08, 0, 5.96046e-08, 0.00119843, 0.707106, 2.01679e-08, 0.707107, 1, 1, 1 )
+
+[sub_resource type="Animation" id=50]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.258878, 0.258878, 0.258878 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Laser:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "Hit"
@@ -1665,8 +1769,7 @@ anims/RESET = SubResource( 26 )
 transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83384e-08, 2.05775, 0.667304 )
 
 [node name="Laser" type="Spatial" parent="Enemy/Root_Enemies"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-visible = false
+transform = Transform( -0.970337, 0, -8.48295e-08, 0, 0.970337, 0, 8.48295e-08, 0, -0.970337, 0, -0.156869, 0 )
 
 [node name="IA_02" type="Spatial" parent="Enemy/Root_Enemies/Laser"]
 
@@ -1712,11 +1815,30 @@ material_overlay = SubResource( 27 )
 mesh = SubResource( 6 )
 skin = SubResource( 7 )
 
+[node name="Flash" type="MeshInstance" parent="Enemy/Root_Enemies/Laser"]
+transform = Transform( 0.258878, 0, 0, 0, 0.258878, 0, 0, 0, 0.258878, 0, 4.00814, 0.845491 )
+mesh = SubResource( 46 )
+
+[node name="Laser" type="MeshInstance" parent="Enemy/Root_Enemies/Laser"]
+transform = Transform( -0.119468, 9.23736e-07, 5.11718e-09, 6.66825e-10, 2.03863, -0.113217, -1.80098e-08, -6.05211, -0.0381367, -7.34547e-07, 1.99562, 6.63979 )
+visible = false
+mesh = SubResource( 47 )
+skeleton = NodePath("../../../..")
+
+[node name="Area_Laser" type="Area" parent="Enemy/Root_Enemies/Laser/Laser"]
+transform = Transform( 1, 0, 0, 1.11022e-16, 1, 4.65661e-10, -3.55271e-15, -3.8147e-06, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Enemy/Root_Enemies/Laser/Laser/Area_Laser"]
+shape = SubResource( 48 )
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Laser"]
 autoplay = "Idle"
 playback_speed = 2.0
-anims/Attack = SubResource( 8 )
+anims/Attack = SubResource( 49 )
+anims/Attack(Unused) = SubResource( 8 )
 anims/Idle = SubResource( 9 )
+anims/RESET = SubResource( 50 )
 
 [node name="AnimationPlayerHit" type="AnimationPlayer" parent="Enemy/Root_Enemies/Laser"]
 anims/Hit = SubResource( 28 )
@@ -1727,7 +1849,6 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-
 
 [node name="Destruidor" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-visible = false
 
 [node name="IA_03" type="Spatial" parent="Enemy/Root_Enemies/Destruidor"]
 
@@ -1833,7 +1954,6 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83949e
 
 [node name="Reparador" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-visible = false
 
 [node name="IA_04" type="Spatial" parent="Enemy/Root_Enemies/Reparador"]
 
@@ -2069,7 +2189,6 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -2.1652e-
 
 [node name="Bala" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-visible = false
 
 [node name="IA_05" type="MeshInstance" parent="Enemy/Root_Enemies/Bala"]
 mesh = SubResource( 18 )
@@ -2134,6 +2253,8 @@ visible = false
 mesh = SubResource( 43 )
 
 [connection signal="area_entered" from="Enemy/Damage_Area" to="States/Battling" method="_on_Damage_Area_area_entered"]
+[connection signal="area_entered" from="Enemy/Root_Enemies/Laser/Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_entered"]
+[connection signal="area_exited" from="Enemy/Root_Enemies/Laser/Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_exited"]
 [connection signal="body_entered" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_entered"]
 [connection signal="body_exited" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_exited"]
 [connection signal="input_event" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_input_event"]
