@@ -4,6 +4,7 @@ func _ready():
 	owner.get_node("Inventory").btnOpenClose = $BT_tablet
 	
 func _on_BT_tablet_pressed():
+	Fmod.play_one_shot("event:/SFX/Menu/AbrirMenuMissões", self)
 	$BT_tablet.hide()
 	$PanelTablet.show()
 	get_tree().paused = true

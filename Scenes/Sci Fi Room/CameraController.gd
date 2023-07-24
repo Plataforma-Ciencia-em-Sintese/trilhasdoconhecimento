@@ -15,6 +15,7 @@ func _ready():
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("R_Click") and !geralLerp:
 		setCam = !setCam
+		Fmod.play_one_shot("event:/SFX/Ingame/MudarLadodaCamera", self)
 	
 	if !geralLerp:
 		if setCam:

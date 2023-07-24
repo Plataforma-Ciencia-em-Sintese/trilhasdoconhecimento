@@ -24,6 +24,7 @@ func _on_BT_Equip_pressed():
 		btn.source = source
 		
 		if typeITN == "Consum":
+			Fmod.play_one_shot("event:/SFX/Menu Iventario/EquiparItemConsumivel", self)
 			owner.get_node("BG_Inventory/Title_Consum/Consum_Repo").add_child(btn)
 			
 			btn.typeITN = "Consum"
@@ -37,6 +38,7 @@ func _on_BT_Equip_pressed():
 	#		invent.get_node("BG_Inventory/Equiped_BG/Title_Combat/Combat_Repo").add_child(btn)
 	#		invent.itensATK.append(nameITN)
 		elif typeITN == "Chips":
+			Fmod.play_one_shot("event:/SFX/Menu Iventario/EquiparItemChipMelhoria", self)
 			owner.get_node("BG_Inventory/Title_Passive/Passive_Repo").add_child(btn)
 			
 			btn.typeITN = "Chips"
@@ -51,6 +53,8 @@ func _on_BT_Equip_pressed():
 			owner.change_battle_itens()
 
 		elif typeITN == "Weapons":
+			Fmod.play_one_shot("event:/SFX/Menu Iventario/EquiparItemArma", self)
+			
 			if owner.get_node("BG_Inventory/Title_Weapon/Weapons_Repo").get_child_count() > 0:
 				if owner.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Repo").get_child_count() > 0:
 					owner.get_node("BG_Inventory/Title_Weapon/Weapons_Sec_Repo").get_child(0).queue_free()
@@ -110,6 +114,8 @@ func _on_BT_Equip_pressed():
 			btn.btnOnEquiped = btnOnEquip
 			btnOnEquip.hide()
 	else:
+		Fmod.play_one_shot("event:/SFX/Menu Iventario/BotãoLimpar", self)
+		
 		if btnOnEquip.typeITN == "Weapons":
 			if btnOnEquip.order == "sec":
 				player.clear_attributes("ATKSec")

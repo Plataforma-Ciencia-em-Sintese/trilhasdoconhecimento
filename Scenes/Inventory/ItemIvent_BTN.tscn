@@ -196,5 +196,7 @@ autoplay = "Marker"
 anims/Marker = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
+[connection signal="mouse_entered" from="." to="." method="_on_ItemIvent_BTN_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_ItemIvent_BTN_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_ItemIvent_BTN_pressed"]
 [connection signal="pressed" from="UI/BG_Infos/BT_Equip" to="." method="_on_BT_Equip_pressed"]

@@ -36,10 +36,12 @@ func _physics_process(_delta):
 func _on_Area_Elevator_mouse_entered():
 	if !goToElevator: 
 		$AnimationPlayer_Door.play("Open")
+		Fmod.play_one_shot("event:/SFX/Menu/PortaAutomaticaAbrindo", self)
 		
 func _on_Area_Elevator_mouse_exited():
 	if !goToElevator:
 		$AnimationPlayer_Door.play("Close")
+		Fmod.play_one_shot("event:/SFX/Menu/PortaAutomaticaFechando", self)
 		
 func _on_Area_Elevator_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton:

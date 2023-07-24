@@ -108,6 +108,7 @@ func _on_ButtonPlay_pressed():
 		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
 
 func _on_ButtonLeft_pressed():
+	Fmod.play_one_shot("event:/SFX/Menu/Botões_EscolhadePersoangem", self)
 	if canChange:
 		if id > 0:
 			id -= 1
@@ -115,6 +116,7 @@ func _on_ButtonLeft_pressed():
 			id = 4
 
 func _on_ButtonRight_pressed():
+	Fmod.play_one_shot("event:/SFX/Menu/Botões_EscolhadePersoangem", self)
 	if canChange:
 		if id < target.size() - 1:
 			id += 1

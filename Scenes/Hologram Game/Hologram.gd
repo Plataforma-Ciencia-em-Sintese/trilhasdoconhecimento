@@ -60,6 +60,7 @@ func _physics_process(delta):
 	$Arrow.rotate_y(0.1)
 
 func talk_to_player():
+	Fmod.start_event(Fmod.get_node("FmodAtributos").iniProjetor)
 	startInteract = true
 	cam.current = true
 	mainCam.current = false
@@ -70,16 +71,20 @@ func talk_to_player():
 	player.get_node("MiniMap_UI").hide()
 	player.get_node("Battle_UI").hide()
 	player.get_node("Status").hide()
+	player.get_node("States/Move").hide()
+	player.get_node("States/Talking").show()
 	owner.get_node("WhiteTransition").hide()
 	QuestManager.get_node("Buttons_Diary").hide()
-	player.hide()
 	pointer.hide()
+	yield(get_tree().create_timer(0.05),"timeout")
+	player.hide()
 	yield(get_tree().create_timer(1),"timeout")
 	QuestManager.get_node("Buttons_Diary").hide()
 	yield(get_tree().create_timer(1.5),"timeout")
 	$Face.show()
 	$AnimationPlayer.play("Start")
 	yield(get_tree().create_timer(2),"timeout")
+	Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
 	start_dialogue()
 
 func accept_quest():
@@ -106,6 +111,7 @@ func start_dialogue():
 func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
 	if arg == "cabou" and !acceptQuest:
+		Fmod.play_one_shot("event:/SFX/Ingame/EncerrandoProjetor", self)
 		player.show()
 		cam.current = false
 		mainCam.current = true
@@ -153,7 +159,6 @@ func _on_AreaHologram_mouse_exited():
 		
 func _on_AreaHologram_body_entered(body):
 	if body.is_in_group("Player"):
-		print("Okay")
 #		for i in elevators.size():
 #			get_tree().get_nodes_in_group("Elevator")[i].owner.goToElevator = true
 			
