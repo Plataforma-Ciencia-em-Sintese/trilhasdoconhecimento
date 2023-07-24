@@ -19,13 +19,11 @@ func _on_BT_Invent_pressed():
 	owner.get_node("States/Talking").show()
 	$PanelTablet.hide()
 	
-func _on_BT_Diario_pressed():
-	$Scenes/Daily/Panel_Daily.show()
-	$Scenes/Daily/exit_Daily.show()
+func _on_BT_Config_pressed():
+	$Scenes/Config_Tablet/Panel_ConfigTablet.show()
+	$Scenes/Config_Tablet/exit_ConfigT.show()
 	$PanelTablet.hide()
 	
-func _on_BT_Invent3_pressed():
-	pass # Replace with function body.
 
 func _on_BT_Bestiario_pressed():
 	$Scenes/BestiaryEnemy/Panel_Enemy.show()
@@ -51,3 +49,7 @@ func _on_BT_ExitTablet_pressed():
 	owner.get_node("Status").show()
 	owner.get_node("States/Move").show()
 	owner.get_node("States/Talking").hide()
+
+
+func _on_BT_SairdoCS_pressed():
+	pass # Replace with function body.
