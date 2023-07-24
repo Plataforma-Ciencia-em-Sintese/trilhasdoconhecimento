@@ -2,7 +2,7 @@ extends KinematicBody
 
 export var speed = 2
 var vel = Vector3(0, 0, speed)
-var life = 2
+var life = 5
 
 func _physics_process(delta):
 	# Calculate the forward vector based on the local rotation
