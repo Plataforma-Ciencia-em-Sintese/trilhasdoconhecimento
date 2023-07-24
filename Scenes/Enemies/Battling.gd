@@ -19,7 +19,8 @@ var vel
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
-	owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
+	if owner.enemyType == "Laser":
+		owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
 
 func _physics_process(_delta):
 	if is_visible_in_tree():
@@ -60,8 +61,9 @@ func start_battle():
 			self.hide()
 			backToPatrol = true
 		else:
-			owner.get_node("Enemy/Root_Enemies/Laser/Laser").hide()
-			owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
+			if owner.enemyType == "Laser":
+				owner.get_node("Enemy/Root_Enemies/Laser/Laser").hide()
+				owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
 			dir = owner.get_node("LastPos").global_transform.origin - owner.get_node("Enemy").global_transform.origin
 			vel = dir * speed
 			owner.get_node("Enemy").look_at(owner.get_node("LastPos").global_transform.origin,Vector3.UP)
@@ -172,3 +174,8 @@ func _on_Area_Laser_area_exited(area):
 	if area.is_in_group("DamagePlayer"):
 		progressiveDamageToPlayer = false
 		set_collisor_status("Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape",true)
+		
+func _on_Attack_Area_Parafuso_area_entered(area):
+	if area.is_in_group("DamagePlayer"):
+		player.get_node("Status").set_life(-3)
+		print("player na area parafuso")

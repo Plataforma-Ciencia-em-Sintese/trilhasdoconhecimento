@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Quest Objective/Objective.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Transitions/WhiteTransition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3D/Level Design/PolygonScifiSpace_Material_01_A_001.material" type="Material" id=8]
+[ext_resource path="res://Scenes/Enemies/Bullet_Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Sci Fi Room/Elevator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationMesh" id=898]
@@ -354,6 +355,9 @@ albedo_texture = SubResource( 1005 )
 [sub_resource type="SpatialMaterial" id=999]
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="ConcavePolygonShape" id=1006]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [sub_resource type="Curve3D" id=1000]
 _data = {
@@ -1019,6 +1023,51 @@ transform = Transform( 0.838585, -2.38127e-08, 0.544771, -0.544771, -3.66557e-08
 shadow_enabled = true
 spot_range = 9.2759
 
+[node name="Wall" type="MeshInstance" parent="Reception"]
+transform = Transform( 9.63848, 0, 0, 0, 1.87316, 0, 0, 0, 0.282439, -2.80662, -1.96791, 7.00329 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="Reception/Wall"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Reception/Wall/StaticBody"]
+shape = SubResource( 1006 )
+
+[node name="Wall2" type="MeshInstance" parent="Reception"]
+transform = Transform( -4.21311e-07, 0, 0.274482, 0, 1.87316, 0, -9.91789, 0, -1.23458e-08, 6.80808, -1.96791, -2.63148 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="Reception/Wall2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Reception/Wall2/StaticBody"]
+shape = SubResource( 1006 )
+
+[node name="Wall3" type="MeshInstance" parent="Reception"]
+transform = Transform( -4.21311e-07, 0, 0.274482, 0, 1.87316, 0, -9.91789, 0, -1.23458e-08, -12.2739, -1.96791, -2.63148 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="Reception/Wall3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Reception/Wall3/StaticBody"]
+shape = SubResource( 1006 )
+
+[node name="Wall4" type="MeshInstance" parent="Reception"]
+transform = Transform( 3.27323, 0, 0, 0, 1.87316, 0, 0, 0, 0.282439, -10.1854, -1.96791, -12.2539 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="Reception/Wall4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Reception/Wall4/StaticBody"]
+shape = SubResource( 1006 )
+
+[node name="Wall5" type="MeshInstance" parent="Reception"]
+transform = Transform( 3.27323, 0, 0, 0, 1.87316, 0, 0, 0, 0.282439, 5.11636, -1.96791, -12.2539 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="Reception/Wall5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Reception/Wall5/StaticBody"]
+shape = SubResource( 1006 )
+
 [node name="Enemies" type="Spatial" parent="."]
 
 [node name="Way1" type="Path" parent="Enemies"]
@@ -1026,7 +1075,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7629, 0 )
 curve = SubResource( 1000 )
 
 [node name="Path_Enemy" parent="Enemies/Way1" instance=ExtResource( 3 )]
-transform = Transform( -0.299207, 0, -2.61575e-08, 0, 0.299207, 0, 2.61575e-08, 0, -0.299207, -9.77716, 0, -9.37589 )
+transform = Transform( -0.0015136, 0, 0.299203, 0, 0.299207, 0, -0.299203, 0, -0.0015136, -9.77716, 0, -9.37589 )
+rotation_mode = 4
 enemyType = "Laser"
 
 [node name="Way2" type="Path" parent="Enemies"]
@@ -1047,7 +1097,7 @@ curve = SubResource( 1001 )
 transform = Transform( 0.208292, 0, -0.2148, 0, 0.299207, 0, 0.2148, 0, 0.208292, 1.21126, 0, -10.837 )
 offset = 2.27
 rotation_mode = 4
-enemyType = "Reparador"
+enemyType = "Furadeiro"
 
 [node name="Objective" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87336, 1.83654, 0 )
@@ -1078,5 +1128,11 @@ transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0
 
 [node name="AnchorCam2" type="Position3D" parent="Player"]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
+
+[node name="Bullet_Enemy" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12909, 2.33967, -14.2141 )
+
+[node name="Bullet_Enemy2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.358254, 0, 0.933624, 0, 1, 0, -0.933624, 0, 0.358254, -5.10646, 2.33967, -7.07171 )
 
 [editable path="Reception/Elevator2"]

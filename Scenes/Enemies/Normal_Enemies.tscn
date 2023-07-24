@@ -106,11 +106,11 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ true ],
-"method": "set_collisor_parafuso"
+"args": [ "Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape", true ],
+"method": "set_collisor_status"
 }, {
-"args": [ false ],
-"method": "set_collisor_parafuso"
+"args": [ "Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape", false ],
+"method": "set_collisor_status"
 } ]
 }
 
@@ -2258,6 +2258,7 @@ visible = false
 mesh = SubResource( 43 )
 
 [connection signal="area_entered" from="Enemy/Damage_Area" to="States/Battling" method="_on_Damage_Area_area_entered"]
+[connection signal="area_entered" from="Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso" to="States/Battling" method="_on_Attack_Area_Parafuso_area_entered"]
 [connection signal="area_entered" from="Enemy/Root_Enemies/Laser/Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_entered"]
 [connection signal="area_exited" from="Enemy/Root_Enemies/Laser/Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_exited"]
 [connection signal="body_entered" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_entered"]

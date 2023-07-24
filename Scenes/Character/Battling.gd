@@ -110,9 +110,6 @@ func _on_Damage_Zone_area_entered(area):
 		scriptEnemy = area.owner
 		goFight = true
 		releasePointer = true
-	
-	if area.is_in_group("Damage_Enemy_Parafuso"):
-		owner.get_node("Status").set_life(-3)
 
 func _on_Damage_Zone_area_exited(area):
 	if area.is_in_group("Enemy_Area"):
