@@ -410,10 +410,14 @@ valign = 1
 
 [node name="Panel_InfoPlayer" type="Panel" parent="PanelTablet/background_Tablet"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 524.0
-margin_top = 143.0
-margin_right = 1103.0
-margin_bottom = 318.0
+anchor_left = 0.442
+anchor_top = 0.218
+anchor_right = 0.931
+anchor_bottom = 0.485
+margin_left = 0.22998
+margin_top = 0.209991
+margin_right = -0.235107
+margin_bottom = 0.324982
 
 [node name="Background" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_top = 0.011
