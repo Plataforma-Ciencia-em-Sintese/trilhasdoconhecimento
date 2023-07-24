@@ -178,4 +178,7 @@ func _on_Area_Laser_area_exited(area):
 func _on_Attack_Area_Parafuso_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
 		player.get_node("Status").set_life(-3)
-		print("player na area parafuso")
+		
+func _on_Attack_Area_Destruidor_area_entered(area):
+	if area.is_in_group("DamagePlayer"):
+		player.get_node("Status").set_life(-8)

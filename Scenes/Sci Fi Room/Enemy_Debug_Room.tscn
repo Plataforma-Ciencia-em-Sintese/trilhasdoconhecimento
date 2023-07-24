@@ -1077,7 +1077,7 @@ curve = SubResource( 1000 )
 [node name="Path_Enemy" parent="Enemies/Way1" instance=ExtResource( 3 )]
 transform = Transform( -0.0015136, 0, 0.299203, 0, 0.299207, 0, -0.299203, 0, -0.0015136, -9.77716, 0, -9.37589 )
 rotation_mode = 4
-enemyType = "Laser"
+enemyType = "Destruidor"
 
 [node name="Way2" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69265, 0 )
@@ -1091,6 +1091,7 @@ enemyType = "Reparador"
 
 [node name="Way3" type="Path" parent="Enemies"]
 transform = Transform( 0.793013, 0, -0.609204, 0, 1, 0, 0.609204, 0, 0.793013, -9.54275, 1.69265, 13.7633 )
+visible = false
 curve = SubResource( 1001 )
 
 [node name="Path_Enemy2" parent="Enemies/Way3" instance=ExtResource( 3 )]

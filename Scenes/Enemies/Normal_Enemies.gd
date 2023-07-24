@@ -1,6 +1,6 @@
 extends PathFollow
 
-export (String, "Furadeiro", "Laser", "Destruidor", "Reparador", "Bala") var enemyType
+export (String, "Furadeiro", "Laser", "Destruidor", "Reparador") var enemyType
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 var clicked = false
 
@@ -23,10 +23,6 @@ func _ready():
 		$States/Patrol.speed = 4
 		$States/Battling.speed = 4
 		$States/Healing.speed = 4
-	elif enemyType == "Bala":
-		$Viewport/BarLife.max_value = 14
-		$States/Patrol.speed = 5
-		$States/Battling.speed = 5
 
 #func _physics_process(delta):
 #	if Input.is_action_just_pressed("Click"):
