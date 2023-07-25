@@ -8,5 +8,5 @@ func _ready():
 
 func _on_exit_Daily_pressed():
 	player.get_node("TabletInformation/PanelTablet").show()
-	$exit_Daily.hide()
-	$Panel_Daily.hide()
+	$exit_ConfigT.hide()
+	$Panel_ConfigTablet.hide()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button_MiniMap.png-08eace92cf10c2067cca814a89d9b4ed.stex"
+path="res://.import/xpTablet_empty.png-d6f1a10c66560e62ebbafbdb47c21a2a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/minimap/Button_MiniMap.png"
-dest_files=[ "res://.import/Button_MiniMap.png-08eace92cf10c2067cca814a89d9b4ed.stex" ]
+source_file="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/xpTablet_empty.png"
+dest_files=[ "res://.import/xpTablet_empty.png-d6f1a10c66560e62ebbafbdb47c21a2a.stex" ]
 
 [params]
 
