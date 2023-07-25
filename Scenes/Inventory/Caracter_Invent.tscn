@@ -1,28 +1,11 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=48 format=2]
 
-[ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
-[ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Character/States/Movement.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Character/States/Talking.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Character/MainChar.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Character/Battling.gd" type="Script" id=8]
-[ext_resource path="res://addons/proton_trail-master/proton_trail.gd" type="Script" id=9]
-[ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/UI/Icons/Attacks/Laser.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/UI/Icons/Attacks/Ray Explosion.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/UI/Icons/Attacks/Speed.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
-[ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
-[ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
-[ext_resource path="res://icon.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Icons/Minimap/Button_MiniMap.png" type="Texture" id=24]
-[ext_resource path="res://Scenes/Character/MiniMap_UI.gd" type="Script" id=25]
-[ext_resource path="res://Sprites/UI/Icons/Minimap/B_MP.png" type="Texture" id=26]
+[ext_resource path="res://addons/proton_trail-master/proton_trail.gd" type="Script" id=1]
+[ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=6]
+[ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=7]
+[ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=8]
 
-[sub_resource type="CapsuleShape" id=7]
+[sub_resource type="CapsuleShape" id=79]
 radius = 0.258477
 height = 0.708608
 
@@ -77,8 +60,8 @@ animation = "Attack02"
 
 [sub_resource type="AnimationNodeBlend3" id=9]
 
-[sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -1346.91, -77.3255 )
+[sub_resource type="AnimationNodeBlendTree" id=80]
+graph_offset = Vector2( -517.385, -83.9826 )
 nodes/All_Attacks/node = SubResource( 73 )
 nodes/All_Attacks/position = Vector2( -820, 180 )
 nodes/Bow/node = SubResource( 74 )
@@ -107,9 +90,9 @@ nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
 node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks" ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=29]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=81]
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=82]
 resource_name = "Attack01"
 length = 2.08333
 loop = true
@@ -586,7 +569,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=47]
+[sub_resource type="Animation" id=83]
 resource_name = "Attack02"
 length = 3.54167
 loop = true
@@ -1060,7 +1043,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=48]
+[sub_resource type="Animation" id=84]
 resource_name = "Attack03"
 length = 2.5
 loop = true
@@ -1534,7 +1517,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=85]
 resource_name = "Attack04"
 length = 3.125
 loop = true
@@ -2011,7 +1994,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=50]
+[sub_resource type="Animation" id=86]
 resource_name = "Attack05"
 length = 3.75
 loop = true
@@ -2485,7 +2468,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=51]
+[sub_resource type="Animation" id=87]
 resource_name = "Disconect"
 length = 1.25
 tracks/0/type = "transform"
@@ -2944,7 +2927,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=52]
+[sub_resource type="Animation" id=88]
 resource_name = "Idle_01"
 length = 1.25
 loop = true
@@ -3404,7 +3387,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=89]
 resource_name = "Idle_Combat_01"
 length = 1.25
 loop = true
@@ -3864,7 +3847,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=90]
 resource_name = "Idle_Combat_02"
 length = 1.25
 loop = true
@@ -4324,7 +4307,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=91]
 resource_name = "ItemUse"
 length = 0.916667
 tracks/0/type = "transform"
@@ -4783,7 +4766,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.916667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=56]
+[sub_resource type="Animation" id=92]
 resource_name = "Respawn"
 length = 2.08333
 tracks/0/type = "transform"
@@ -5242,7 +5225,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0.0317127, 0, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0, 0.10479, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0.386068, 0, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 0, 0.426053, 0, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0, 0.430879, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0.430879, 0, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0, 0.421227, 0, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, 0, 0.366764, 0, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, 0, 0.0834182, 0, 0, 0, 0, 1, 1, 1, 1, 1.2, 1, 0, 0.018614, 0, 0, 0, 0, 1, 1, 1, 1, 1.26667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.08333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=57]
+[sub_resource type="Animation" id=93]
 resource_name = "Run_Cycle"
 length = 0.625
 loop = true
@@ -5719,7 +5702,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=58]
+[sub_resource type="Animation" id=94]
 resource_name = "TPose"
 length = 0.001
 tracks/0/type = "transform"
@@ -6178,7 +6161,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=95]
 resource_name = "TakeHit"
 length = 1.25
 tracks/0/type = "transform"
@@ -6637,7 +6620,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=96]
 resource_name = "Walk_Cycle"
 length = 1.04167
 loop = true
@@ -7114,7 +7097,7 @@ tracks/65/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=97]
 resource_name = "Win"
 length = 1.25
 loop = true
@@ -7574,7 +7557,7 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0, 0.0160047, 0, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0, 0.0604184, 0, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0, 0.34252, 0, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0, 0.385839, 0, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, 0, 0.405781, 0, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0, 0.412877, 0, 0, 0, 0, 1, 1, 1, 1, 0.866667, 1, 0, 0.404159, 0, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, 0, 0.345754, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0.23827, 0, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, 0, 0.086878, 0, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.25, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="ArrayMesh" id=44]
+[sub_resource type="ArrayMesh" id=98]
 resource_name = "Ariel_Virtual_Cube056"
 surfaces/0 = {
 "aabb": AABB( -0.842766, 0.00133853, -0.287034, 1.68553, 1.79688, 0.587358 ),
@@ -7583,13 +7566,13 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194911,
 "index_count": 12168,
-"material": ExtResource( 1 ),
+"material": ExtResource( 8 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.195006, 0.679719, -0.134374, 0.390012, 0.231787, 0.245948 ), AABB( -0.220298, 0.718325, -0.134374, 0.440595, 0.417006, 0.245948 ), AABB( -0.218566, 1.09755, -0.16966, 0.438764, 0.383025, 0.389517 ), AABB( -0.271596, 1.11694, -0.287034, 0.543192, 0.681276, 0.545063 ), AABB( -0.131253, 0.803956, -0.134374, 0.361952, 0.307646, 0.237431 ), AABB( 0.192107, 0.983812, -0.100504, 0.446444, 0.20718, 0.204164 ), AABB( 0.341462, 0.983812, -0.137083, 0.297089, 0.20718, 0.240742 ), AABB( 0.436376, 0.982653, -0.137083, 0.240781, 0.208338, 0.240742 ), AABB( 0.641756, 1.03016, -0.0761771, 0.108044, 0.0545766, 0.116511 ), AABB( 0.649392, 1.03016, -0.0832198, 0.146592, 0.0545766, 0.0663822 ), AABB( 0.741873, 1.04324, -0.086831, 0.0694619, 0.0288088, 0.0391581 ), AABB( 0.763824, 1.04324, -0.0877215, 0.0475106, 0.0278893, 0.0294324 ), AABB( 0.716548, 1.04313, -0.0743189, 0.0925222, 0.0387044, 0.0808019 ), AABB( 0.780471, 1.04266, -0.0603796, 0.04707, 0.0301173, 0.0296451 ), AABB( 0.780471, 1.0409, -0.0619392, 0.0511484, 0.0302989, 0.02956 ), AABB( 0.719236, 1.04029, -0.047674, 0.0997817, 0.04179, 0.0777745 ), AABB( 0.790408, 1.04107, -0.0251229, 0.0523577, 0.0310969, 0.0239586 ), AABB( 0.795904, 1.04107, -0.0252296, 0.0468616, 0.0285525, 0.0230427 ), AABB( 0.701296, 1.04029, -0.0212939, 0.115127, 0.0440531, 0.0700403 ), AABB( 0.788482, 1.04188, 0.0126726, 0.046814, 0.0298538, 0.0248777 ), AABB( 0.793278, 1.04188, 0.0136987, 0.0420184, 0.0273604, 0.0238678 ), AABB( 0.641986, 1.03016, -0.0397408, 0.131766, 0.0545766, 0.102439 ), AABB( 0.652999, 1.04111, 0.00513419, 0.112783, 0.0432334, 0.0655365 ), AABB( 0.718578, 1.04425, 0.0271402, 0.056684, 0.0361433, 0.047177 ), AABB( 0, 0.691027, -0.134374, 0.220298, 0.40843, 0.228258 ), AABB( -0.230699, 0.803956, -0.134374, 0.361952, 0.307646, 0.237431 ), AABB( -0.638551, 0.983812, -0.100504, 0.446444, 0.20718, 0.204164 ), AABB( -0.638551, 0.983812, -0.137083, 0.297089, 0.20718, 0.240742 ), AABB( -0.677157, 0.982653, -0.137083, 0.240781, 0.208338, 0.240742 ), AABB( -0.753084, 1.03016, -0.0761771, 0.111327, 0.0659049, 0.116511 ), AABB( -0.795984, 1.03016, -0.0832198, 0.146602, 0.0659049, 0.0773422 ), AABB( -0.811334, 1.04324, -0.086831, 0.0694619, 0.0288088, 0.0391581 ), AABB( -0.811334, 1.04324, -0.0877215, 0.0475106, 0.0278893, 0.0294324 ), AABB( -0.80907, 1.04313, -0.0743189, 0.0925222, 0.0494158, 0.0808019 ), AABB( -0.827541, 1.04266, -0.0603796, 0.04707, 0.0301173, 0.0296451 ), AABB( -0.831619, 1.0409, -0.0619392, 0.0511484, 0.0302989, 0.02956 ), AABB( -0.819018, 1.04029, -0.047674, 0.0997817, 0.0540812, 0.0777745 ), AABB( -0.842766, 1.04107, -0.0251229, 0.0523577, 0.0310969, 0.0239586 ), AABB( -0.842766, 1.04107, -0.0252296, 0.0468616, 0.0285525, 0.0230427 ), AABB( -0.816423, 1.04029, -0.0212939, 0.115127, 0.0540812, 0.0700403 ), AABB( -0.835296, 1.04188, 0.0126726, 0.046814, 0.0298538, 0.0248777 ), AABB( -0.835296, 1.04188, 0.0136987, 0.0420184, 0.0273604, 0.0238678 ), AABB( -0.773752, 1.03016, -0.0397408, 0.131766, 0.065748, 0.102439 ), AABB( -0.765783, 1.04111, 0.00513419, 0.112793, 0.0432334, 0.0655365 ), AABB( -0.775262, 1.04425, 0.0271402, 0.056684, 0.0361433, 0.047177 ), AABB( -0.220298, 0.691027, -0.134374, 0.220298, 0.40843, 0.228258 ), AABB( -0.133947, 0.679719, -0.134374, 0.354244, 0.419737, 0.237431 ), AABB( 0.0682734, 0.361514, -0.0615021, 0.108369, 0.340192, 0.127341 ), AABB( 0.0235704, 0.109344, -0.113678, 0.196521, 0.352546, 0.228838 ), AABB( 0.0210219, 0.00133853, -0.113678, 0.200328, 0.360611, 0.367281 ), AABB( 0.0210219, 0.00133853, -0.113678, 0.200328, 0.360611, 0.414001 ), AABB( -0.220298, 0.679719, -0.134374, 0.354244, 0.419737, 0.237431 ), AABB( -0.176642, 0.361514, -0.0615021, 0.108369, 0.340192, 0.127341 ), AABB( -0.220092, 0.109344, -0.113678, 0.196521, 0.352546, 0.228838 ), AABB( -0.22135, 0.00133853, -0.113678, 0.200328, 0.360611, 0.367281 ), AABB( -0.22135, 0.00133853, -0.113678, 0.200328, 0.360611, 0.414001 ) ],
 "vertex_count": 3428
 }
 
-[sub_resource type="Skin" id=45]
+[sub_resource type="Skin" id=99]
 resource_name = "Skin"
 bind_count = 65
 bind/0/name = "Root"
@@ -7788,7 +7771,7 @@ bind/64/name = "LEG_ROT.R"
 bind/64/bone = -1
 bind/64/pose = Transform( -1, 8.74228e-08, 0, 0, 0, 1, 8.74228e-08, 1, 0, -0.124506, -0.585307, -0.547408 )
 
-[sub_resource type="ArrayMesh" id=66]
+[sub_resource type="ArrayMesh" id=100]
 resource_name = "Sabre_Caio_Cube011"
 surfaces/0 = {
 "aabb": AABB( -0.839847, -0.0341825, -0.0606416, 1.04777, 0.0888596, 0.106524 ),
@@ -7797,24 +7780,24 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 780,
-"material": ExtResource( 16 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 520
 }
 
-[sub_resource type="CapsuleShape" id=64]
+[sub_resource type="CapsuleShape" id=101]
 radius = 2.0
 height = 0.002
 
-[sub_resource type="SpatialMaterial" id=65]
+[sub_resource type="SpatialMaterial" id=102]
 flags_unshaded = true
 params_use_alpha_scissor = true
 params_alpha_scissor_threshold = 0.98
 albedo_color = Color( 0, 1, 0.0392157, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 6 )
 
-[sub_resource type="ArrayMesh" id=67]
+[sub_resource type="ArrayMesh" id=103]
 resource_name = "Cetro_Bento_Cube053"
 surfaces/0 = {
 "aabb": AABB( -0.312662, -0.0708761, -0.195878, 1.35038, 0.13896, 0.300889 ),
@@ -7823,13 +7806,13 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1248,
-"material": ExtResource( 16 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 832
 }
 
-[sub_resource type="ArrayMesh" id=68]
+[sub_resource type="ArrayMesh" id=104]
 resource_name = "Arco_Yara_Plane001"
 surfaces/0 = {
 "aabb": AABB( -0.0911882, -0.0152197, -0.594988, 0.226471, 0.0280846, 1.18975 ),
@@ -7838,13 +7821,13 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 786,
-"material": ExtResource( 16 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 239
 }
 
-[sub_resource type="ArrayMesh" id=69]
+[sub_resource type="ArrayMesh" id=105]
 resource_name = "Martelo_Clara_Cube014"
 surfaces/0 = {
 "aabb": AABB( -0.0953862, -0.0762691, -0.353779, 0.264208, 0.140861, 0.635102 ),
@@ -7853,17 +7836,17 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 492,
-"material": ExtResource( 16 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 328
 }
 
-[sub_resource type="CapsuleShape" id=79]
+[sub_resource type="CapsuleShape" id=106]
 radius = 0.172519
 height = 0.678293
 
-[sub_resource type="ArrayMesh" id=70]
+[sub_resource type="ArrayMesh" id=107]
 resource_name = "Escudo_Clara_Plane"
 surfaces/0 = {
 "aabb": AABB( -0.440373, -0.11038, -0.324798, 0.858876, 0.161899, 0.651491 ),
@@ -7872,88 +7855,60 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 1056,
-"material": ExtResource( 16 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 470
 }
 
-[sub_resource type="CapsuleShape" id=43]
-radius = 0.491932
-
-[node name="Character" type="KinematicBody" groups=["Player"]]
+[node name="Caracter_Invent" type="KinematicBody" groups=["Player"]]
 pause_mode = 2
-collision_layer = 2
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_horizontal_guides_": [  ]
-}
-mainChar = "Caio"
-activeCloths = "Normal"
-
-[node name="States" type="Spatial" parent="."]
-
-[node name="Move" type="Spatial" parent="States"]
-script = ExtResource( 4 )
-__meta__ = {
-"_editor_description_": "
-"
-}
-speedWalk = 2.0
-speedRun = 4.0
-
-[node name="Talking" type="Spatial" parent="States"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 visible = false
-script = ExtResource( 5 )
 
-[node name="Battling" type="Spatial" parent="States"]
-visible = false
-script = ExtResource( 8 )
-attackType = "Melee"
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 79 )
 
-[node name="NavTimer" type="Timer" parent="."]
+[node name="NavTimer2" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.1
 autostart = true
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 12 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
+[node name="AnimationTree2" type="AnimationTree" parent="."]
+tree_root = SubResource( 80 )
+anim_player = NodePath("../AnimationPlayer2")
 process_mode = 0
 parameters/All_Attacks/current = 3
-"parameters/Idle State/playback" = SubResource( 29 )
+"parameters/Idle State/playback" = SubResource( 81 )
 parameters/Seek/seek_position = -1.0
 "parameters/States General/blend_amount" = 0.0
 parameters/TimeScale/scale = 2.0
 parameters/move/blend_amount = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack01 = SubResource( 46 )
-anims/Attack02 = SubResource( 47 )
-anims/Attack03 = SubResource( 48 )
-anims/Attack04 = SubResource( 49 )
-anims/Attack05 = SubResource( 50 )
-anims/Disconect = SubResource( 51 )
-anims/Idle_01 = SubResource( 52 )
-anims/Idle_Combat_01 = SubResource( 53 )
-anims/Idle_Combat_02 = SubResource( 54 )
-anims/ItemUse = SubResource( 55 )
-anims/Respawn = SubResource( 56 )
-anims/Run_Cycle = SubResource( 57 )
-anims/TPose = SubResource( 58 )
-anims/TakeHit = SubResource( 59 )
-anims/Walk_Cycle = SubResource( 60 )
-anims/Win = SubResource( 61 )
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/Attack01 = SubResource( 82 )
+anims/Attack02 = SubResource( 83 )
+anims/Attack03 = SubResource( 84 )
+anims/Attack04 = SubResource( 85 )
+anims/Attack05 = SubResource( 86 )
+anims/Disconect = SubResource( 87 )
+anims/Idle_01 = SubResource( 88 )
+anims/Idle_Combat_01 = SubResource( 89 )
+anims/Idle_Combat_02 = SubResource( 90 )
+anims/ItemUse = SubResource( 91 )
+anims/Respawn = SubResource( 92 )
+anims/Run_Cycle = SubResource( 93 )
+anims/TPose = SubResource( 94 )
+anims/TakeHit = SubResource( 95 )
+anims/Walk_Cycle = SubResource( 96 )
+anims/Win = SubResource( 97 )
 
-[node name="Base" type="Spatial" parent="."]
-transform = Transform( 0.780667, 0, 0, 0, 0.780667, 0, 0, 0, 0.780667, 0, 0, 0 )
+[node name="Base2" type="Spatial" parent="."]
+transform = Transform( 1.52027, 0, 0, 0, 0.780667, 0, 0, 0, 0.780667, 0, 0, 0 )
 
-[node name="Skeleton" type="Skeleton" parent="Base"]
+[node name="Skeleton" type="Skeleton" parent="Base2"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 bones/0/name = "Root"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000900567, 0 )
@@ -8003,7 +7958,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8108,7 +8063,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8280,506 +8235,91 @@ bones/64/rest = Transform( -1, 0, 8.74228e-08, 8.74228e-08, 0, 1, 0, 1, 0, -0.12
 bones/64/enabled = true
 bones/64/bound_children = [  ]
 
-[node name="Body" type="MeshInstance" parent="Base/Skeleton"]
+[node name="Body" type="MeshInstance" parent="Base2/Skeleton"]
 layers = 3
-mesh = SubResource( 44 )
-skin = SubResource( 45 )
+mesh = SubResource( 98 )
+skin = SubResource( 99 )
 
-[node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000655681, -0.0135752, -0.999908, -0.250599, -0.968005, 0.0129778, -0.968089, 0.250567, -0.00403471, -0.293386, 0.594009, 0.0670179 )
+[node name="BoneAttachmentR" type="BoneAttachment" parent="Base2/Skeleton"]
+transform = Transform( 0.0627907, -0.998027, -1.9896e-08, 1.13565e-07, -5.35401e-08, 1, -0.998025, -0.0627898, 1.1031e-07, -0.653273, 1.06254, -0.01179 )
 bone_name = "Mao.R"
 
-[node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Sword" type="MeshInstance" parent="Base2/Skeleton/BoneAttachmentR"]
 transform = Transform( 1.04918, -0.0849311, 2.56114e-09, 0.0849309, 1.04918, 7.21775e-09, -2.09548e-09, -4.88944e-09, 1.05261, -2.98023e-08, 0.0895841, 0 )
 visible = false
-mesh = SubResource( 66 )
+mesh = SubResource( 100 )
 
-[node name="Area_Sword" type="Area" parent="Base/Skeleton/BoneAttachmentR/Sword" groups=["Melee"]]
+[node name="Area_Sword" type="Area" parent="Base2/Skeleton/BoneAttachmentR/Sword" groups=["Melee"]]
 transform = Transform( -0.000877981, 0.00170361, 0.334282, 0.0187181, 0.0208474, -0.00815928, -0.0208402, 0.0186529, -0.0214116, -0.378943, 0.0120301, -0.00288972 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Base/Skeleton/BoneAttachmentR/Sword/Area_Sword"]
+[node name="CollisionShape" type="CollisionShape" parent="Base2/Skeleton/BoneAttachmentR/Sword/Area_Sword"]
 transform = Transform( 1, -2.98023e-08, 2.14577e-06, 0, 0.999999, -1.66893e-06, -1.86265e-09, -1.30385e-08, 1, -1.71661e-05, -3.00407e-05, -0.805626 )
-shape = SubResource( 64 )
+shape = SubResource( 101 )
 disabled = true
 
-[node name="ProtonTrail" type="Spatial" parent="Base/Skeleton/BoneAttachmentR/Sword"]
+[node name="ProtonTrail" type="Spatial" parent="Base2/Skeleton/BoneAttachmentR/Sword"]
 transform = Transform( 0.0188513, 0.948441, -0.0513823, 0.949831, -0.0188236, 0.00101978, 3.22761e-08, -0.0513925, -0.948629, -0.41934, 0.0188196, 0 )
 visible = false
-script = ExtResource( 9 )
-material = SubResource( 65 )
+script = ExtResource( 1 )
+material = SubResource( 102 )
 life_time = 0.5
 cast_shadow = false
 emit = false
 
-[node name="Top" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail"]
+[node name="Top" type="Position3D" parent="Base2/Skeleton/BoneAttachmentR/Sword/ProtonTrail"]
 transform = Transform( 1, 0, 0, -5.96046e-08, 1, 1.11759e-08, 0, 3.72529e-09, 1, 4.17233e-07, 0.484391, -5.96046e-08 )
 
-[node name="Bottom" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Sword/ProtonTrail"]
+[node name="Bottom" type="Position3D" parent="Base2/Skeleton/BoneAttachmentR/Sword/ProtonTrail"]
 transform = Transform( 1, 0, 0, -5.96046e-08, 1, 1.11759e-08, 0, 3.72529e-09, 1, -1.78814e-07, -0.562604, 0 )
 
-[node name="Wand" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Wand" type="MeshInstance" parent="Base2/Skeleton/BoneAttachmentR"]
 transform = Transform( 0.971396, 0.0781054, -0.224254, -0.0801468, 0.996783, -1.3411e-07, 0.223533, 0.0179733, 0.974532, -0.598506, 0.133306, -0.0439666 )
 visible = false
-mesh = SubResource( 67 )
+mesh = SubResource( 103 )
 
-[node name="Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Wand"]
+[node name="Spawner" type="Position3D" parent="Base2/Skeleton/BoneAttachmentR/Wand"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384653, -0.00227267, 0.0664852 )
 
-[node name="Bow" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Bow" type="MeshInstance" parent="Base2/Skeleton/BoneAttachmentR"]
 transform = Transform( 1.76951e-08, 2.06055e-08, 1, 0.997386, -0.0722634, -2.04891e-08, 0.0722633, 0.997386, -8.23638e-08, -5.96046e-08, -0.0177222, -0.0305532 )
 visible = false
-mesh = SubResource( 68 )
+mesh = SubResource( 104 )
 
-[node name="Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Bow"]
+[node name="Spawner" type="Position3D" parent="Base2/Skeleton/BoneAttachmentR/Bow"]
 transform = Transform( 0.99817, 2.31532e-08, 0.0604737, -2.23517e-08, 1, -1.393e-08, -0.0604737, 1.25528e-08, 0.99817, 0.220296, -3.72529e-09, 0 )
 
-[node name="Hammer" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Hammer" type="MeshInstance" parent="Base2/Skeleton/BoneAttachmentR"]
 transform = Transform( 0.268579, -0.00772736, -1.01732, 1.01428, -0.0796253, 0.268382, -0.0789567, -1.04916, -0.0128758, -0.207533, 0.0827174, -0.0444711 )
 visible = false
-mesh = SubResource( 69 )
+mesh = SubResource( 105 )
 
-[node name="Area_Hammer" type="Area" parent="Base/Skeleton/BoneAttachmentR/Hammer" groups=["Hammer"]]
+[node name="Area_Hammer" type="Area" parent="Base2/Skeleton/BoneAttachmentR/Hammer" groups=["Hammer"]]
 
-[node name="CollisionShape" type="CollisionShape" parent="Base/Skeleton/BoneAttachmentR/Hammer/Area_Hammer"]
+[node name="CollisionShape" type="CollisionShape" parent="Base2/Skeleton/BoneAttachmentR/Hammer/Area_Hammer"]
 transform = Transform( 1, 3.28873e-09, -7.45058e-09, 3.28e-08, 1, -5.58794e-09, -7.45058e-09, 0, 1, -5.36442e-07, 4.32134e-07, 0.225531 )
-shape = SubResource( 79 )
+shape = SubResource( 106 )
 disabled = true
 
-[node name="Boom_Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR"]
+[node name="Boom_Spawner" type="Position3D" parent="Base2/Skeleton/BoneAttachmentR"]
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
-[node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000655562, 0.0135756, 0.999908, 0.250599, -0.968005, 0.0129782, 0.968089, 0.250567, -0.00403461, 0.293386, 0.594009, 0.0670179 )
+[node name="BoneAttachmentL" type="BoneAttachment" parent="Base2/Skeleton"]
+transform = Transform( 0.0627907, 0.998027, 1.9896e-08, -1.13565e-07, -5.35401e-08, 1, 0.998025, -0.0627898, 1.1031e-07, 0.653273, 1.06254, -0.01179 )
 bone_name = "Mao.L"
 
-[node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
+[node name="Shield" type="MeshInstance" parent="Base2/Skeleton/BoneAttachmentL"]
 transform = Transform( 0.990986, -0.0729771, -0.112306, -0.105975, 0.0854918, -0.990686, 0.0818985, 0.993661, 0.0769874, -0.0442927, 0.0211028, 0.0397019 )
 visible = false
-mesh = SubResource( 70 )
+mesh = SubResource( 107 )
 skeleton = NodePath("")
 
-[node name="CamAnchor" type="Position3D" parent="Base"]
-transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3.4243, 3 )
+[node name="CamAnchor" type="Position3D" parent="Base2"]
+transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3, 3 )
 
-[node name="Cam_Invent" type="Camera" parent="Base"]
-transform = Transform( 1.28096, 0, 0, 0, 1.27619, -0.110373, 0, 0.110373, 1.27619, -0.146696, 0.942341, 3.76109 )
+[node name="Cam_Invent" type="Camera" parent="Base2"]
+transform = Transform( 0.328889, 1.46312e-05, 0.000674851, 8.36836e-05, 0.638145, -0.0546186, -0.00131184, 0.0546186, 0.638143, 0, 1.2, 4.437 )
 cull_mask = 1048574
 projection = 1
 current = true
-size = 4.13227
-
-[node name="MiniMap_UI" type="CanvasLayer" parent="."]
-script = ExtResource( 25 )
-
-[node name="IconMap_Player" type="Sprite3D" parent="MiniMap_UI"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.70752, 0 )
-visible = false
-texture = ExtResource( 20 )
-
-[node name="MiniMap_Node" type="ViewportContainer" parent="MiniMap_UI"]
-visible = false
-anchor_left = 0.019
-anchor_top = 0.769
-anchor_right = 0.136
-anchor_bottom = 0.978
-margin_left = -0.320002
-margin_top = 0.319946
-margin_right = -0.0800171
-margin_bottom = -0.160034
-rect_min_size = Vector2( 100, 100 )
-
-[node name="Viewport" type="Viewport" parent="MiniMap_UI/MiniMap_Node"]
-size = Vector2( 150, 150 )
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 0
-
-[node name="Camera_Minimap" type="Camera" parent="MiniMap_UI/MiniMap_Node/Viewport"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39653, 6.30899, -10.0854 )
-projection = 1
-current = true
-size = 10.0
-script = ExtResource( 19 )
-target = NodePath("../../../..")
-
-[node name="Show_MiniMap" type="Button" parent="MiniMap_UI"]
-anchor_left = 0.138
-anchor_top = 0.932
-anchor_right = 0.175
-anchor_bottom = 0.997
-margin_left = 0.359985
-margin_top = -0.0400391
-margin_right = -1.52588e-05
-margin_bottom = 0.159973
-icon = ExtResource( 24 )
-flat = true
-expand_icon = true
-
-[node name="Label" type="Label" parent="MiniMap_UI/Show_MiniMap"]
-self_modulate = Color( 0.815686, 0.878431, 0.129412, 1 )
-anchor_left = 0.064
-anchor_top = -0.22
-anchor_right = 1.012
-anchor_bottom = 0.174
-margin_left = -0.00799346
-margin_top = 0.0200148
-margin_right = 0.0199738
-margin_bottom = -0.00642443
-text = "Mapa"
-align = 1
-valign = 1
-
-[node name="Hide_MiniMap" type="Button" parent="MiniMap_UI"]
-visible = false
-anchor_left = 0.138
-anchor_top = 0.932
-anchor_right = 0.175
-anchor_bottom = 0.997
-margin_left = 0.359985
-margin_top = -0.0400391
-margin_right = -1.52588e-05
-margin_bottom = 0.159973
-icon = ExtResource( 26 )
-flat = true
-expand_icon = true
-
-[node name="Label" type="Label" parent="MiniMap_UI/Hide_MiniMap"]
-self_modulate = Color( 0.815686, 0.878431, 0.129412, 1 )
-anchor_left = 0.064
-anchor_top = -0.22
-anchor_right = 1.012
-anchor_bottom = 0.174
-margin_left = -0.00799346
-margin_top = 0.0200148
-margin_right = 0.0199738
-margin_bottom = -0.00642443
-text = "Mapa"
-align = 1
-valign = 1
-
-[node name="TabletInformation" parent="." instance=ExtResource( 18 )]
-
-[node name="Inventory" parent="." instance=ExtResource( 2 )]
-camera = NodePath("../Base/CamAnchor")
-weaponActual = "Shield"
-
-[node name="Status" parent="." instance=ExtResource( 6 )]
-
-[node name="Battle_UI" type="CanvasLayer" parent="." groups=["BattleUI"]]
-
-[node name="Container_Weapon_Main" type="Panel" parent="Battle_UI"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -164.0
-margin_top = -77.0
-margin_right = -92.0
-margin_bottom = -9.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-
-[node name="Weapon_Main" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Main"]
-self_modulate = Color( 1, 1, 1, 0.156863 )
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -71.0
-margin_top = -147.0
-margin_right = 4.0
-margin_bottom = -74.0
-rect_scale = Vector2( 1.12, 1.12 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 20
-alignment = 1
-
-[node name="Container_Weapon_Sec" type="Panel" parent="Battle_UI"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -91.0
-margin_top = -154.0
-margin_right = -16.0
-margin_bottom = -81.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-
-[node name="Weapon_Sec" type="HBoxContainer" parent="Battle_UI/Container_Weapon_Sec"]
-self_modulate = Color( 1, 1, 1, 0.156863 )
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -83.0
-margin_top = -76.0
-margin_right = -8.0
-margin_bottom = -3.0
-rect_scale = Vector2( 1.12, 1.12 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 20
-alignment = 1
-
-[node name="Weapon_Container" type="VBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -148.0
-margin_top = -309.0
-margin_right = -79.0
-margin_bottom = -152.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-alignment = 1
-
-[node name="ATK" parent="Battle_UI/Weapon_Container" instance=ExtResource( 14 )]
-margin_right = 69.0
-margin_bottom = 157.0
-
-[node name="ATK2" type="Button" parent="Battle_UI/Weapon_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 11 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK2"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK3" type="Button" parent="Battle_UI/Weapon_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 13 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK3"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK4" type="Button" parent="Battle_UI/Weapon_Container"]
-visible = false
-margin_left = 208.0
-margin_right = 288.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 12 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK4"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="Weapon_Sec_Container" type="VBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -86.0
-margin_top = -309.0
-margin_right = -17.0
-margin_bottom = -152.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 1
-alignment = 1
-
-[node name="ATK" parent="Battle_UI/Weapon_Sec_Container" instance=ExtResource( 14 )]
-margin_right = 69.0
-margin_bottom = 157.0
-
-[node name="ATK2" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 11 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK2"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK3" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 13 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK3"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK4" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
-visible = false
-margin_left = 208.0
-margin_right = 288.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 12 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK4"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="Consumable_Container" type="HBoxContainer" parent="Battle_UI"]
-self_modulate = Color( 1, 1, 1, 0.156863 )
-anchor_left = 0.822
-anchor_top = 1.0
-anchor_right = 0.822
-anchor_bottom = 1.0
-margin_left = -104.16
-margin_top = -102.0
-margin_right = 34.84
-margin_bottom = -53.0
-rect_scale = Vector2( 1.5, 1.5 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = -1
-alignment = 1
-
-[node name="ATK" parent="Battle_UI/Consumable_Container" instance=ExtResource( 14 )]
-visible = false
-margin_right = 189.0
-margin_bottom = 67.0
-
-[node name="ATK2" type="Button" parent="Battle_UI/Consumable_Container"]
-visible = false
-margin_left = 208.0
-margin_right = 288.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 11 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Consumable_Container/ATK2"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK3" type="Button" parent="Battle_UI/Consumable_Container"]
-visible = false
-margin_left = 258.0
-margin_right = 338.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 13 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Consumable_Container/ATK3"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK4" type="Button" parent="Battle_UI/Consumable_Container"]
-visible = false
-margin_left = 308.0
-margin_right = 388.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 12 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Consumable_Container/ATK4"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="NavigationAgent" type="NavigationAgent" parent="."]
-path_desired_distance = 0.1
-avoidance_enabled = true
-neighbor_dist = 1.0
-
-[node name="Damage_Zone" type="Area" parent="." groups=["DamagePlayer"]]
-
-[node name="CollisionShape" type="CollisionShape" parent="Damage_Zone"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.683507, 2.9877e-08 )
-shape = SubResource( 43 )
-
-[connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
-[connection signal="pressed" from="MiniMap_UI/Show_MiniMap" to="MiniMap_UI" method="_on_Show_MiniMap_pressed"]
-[connection signal="pressed" from="MiniMap_UI/Hide_MiniMap" to="MiniMap_UI" method="_on_Hide_MiniMap_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Consumable_Container/ATK3" to="Battle_UI/Consumable_Container/ATK3" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Consumable_Container/ATK3" to="Battle_UI/Consumable_Container/ATK3" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Consumable_Container/ATK3" to="Battle_UI/Consumable_Container/ATK3" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Consumable_Container/ATK4" to="Battle_UI/Consumable_Container/ATK4" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Consumable_Container/ATK4" to="Battle_UI/Consumable_Container/ATK4" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Consumable_Container/ATK4" to="Battle_UI/Consumable_Container/ATK4" method="_on_ATK_pressed"]
-[connection signal="area_entered" from="Damage_Zone" to="States/Battling" method="_on_Damage_Zone_area_entered"]
-[connection signal="area_exited" from="Damage_Zone" to="States/Battling" method="_on_Damage_Zone_area_exited"]
+size = 2.0
+near = 1.11
