@@ -8,8 +8,11 @@ export (Array,String) var itensPassive
 export var weaponActual = ""
 export var weaponSecond = ""
 onready var player = get_tree().get_nodes_in_group("Player")[0]
+var btnOpenClose
 
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	$BG_Inventory/Description_Item.hide()
 	camera = get_node(camera)
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -139,7 +142,7 @@ func _on_BT_Inventario_pressed():
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
 	cam.current = false
 	player.get_node("Base/Cam_Invent").current = true
-	player.get_node("Base/BG_Invent").show()
+	#player.get_node("Base/BG_Invent").show()
 
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = true
@@ -155,18 +158,19 @@ func _on_BT_Inventario_pressed():
 	
 func _on_BT_Close_pressed():
 	$Mouse_Block.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	$BT_Inventario.show()
+#	$BT_Inventario.show()
+	btnOpenClose.show()
 	$BG_Inventory.hide()
 	player.get_node("Battle_UI").show()
 	player.get_node("MiniMap_UI").show()
-	get_parent().get_node("TabletInformation").show()
+	#player.get_node("TabletInformation/PanelTablet").show()
 	get_parent().get_node("Status").show()
 	get_parent().get_node("States/Move").show()
 	get_parent().get_node("States/Talking").hide()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
 	cam.current = true
 	player.get_node("Base/Cam_Invent").current = false
-	player.get_node("Base/BG_Invent").hide()
+	#player.get_node("Base/BG_Invent").hide()
 
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 	pointer.isStopped = false
@@ -238,3 +242,11 @@ func clean_sec_weapon():
 	weaponSecond = ""
 	delete_dictionary_ATK_Sec()
 	change_battle_itens()
+
+
+func _on_BT_Voltar_pressed():
+	player.get_node("TabletInformation/PanelTablet").show()
+	$BG_Inventory/BT_Close.hide()
+	$BG_Inventory.hide()
+	get_tree().paused = true
+	

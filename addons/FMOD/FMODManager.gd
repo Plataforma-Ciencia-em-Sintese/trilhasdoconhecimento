@@ -2,6 +2,12 @@ extends Node
 
 var iniProjetor: int = 0
 var oswaldoCruz: int = 0
+var galileuGalilei: int = 0
+var isaacNewton: int = 0
+var robertBoyle: int = 0
+var marieCurie: int = 0
+var alanTuring: int = 0
+var ambience1: int = 0
 func _ready() -> void:
 	# initialize FMOD
 	# initializing with the LIVE_UPDATE flag lets you
@@ -18,9 +24,15 @@ func _ready() -> void:
 	# SONS COM LOOP
 	# create an event instance
 	# this is a music event that has been authored in the Studio editor
-	oswaldoCruz = Fmod.create_event_instance("event:/Musicas/Notaveis/Oswaldo Cruz")
 	iniProjetor = Fmod.create_event_instance("event:/SFX/Ingame/InicializandoProjetor")
-
+	oswaldoCruz = Fmod.create_event_instance("event:/Musicas/Notaveis/Oswaldo Cruz")
+	galileuGalilei = Fmod.create_event_instance("event:/Musicas/Notaveis/Galilei Galilei")
+	isaacNewton = Fmod.create_event_instance("event:/Musicas/Notaveis/Isaac Newton")
+	robertBoyle = Fmod.create_event_instance("event:/Musicas/Notaveis/Robert Boyle")
+	marieCurie = Fmod.create_event_instance("event:/Musicas/Notaveis/Marie Curie")
+	alanTuring = Fmod.create_event_instance("event:/Musicas/Notaveis/Alan Turing")
+	ambience1 = Fmod.create_event_instance("event:/SFX/Ingame/Ambience1")
+	
 func _input(event):
 	if event.is_action_pressed("Click"):
 		#Fmod.start_event(iniProjetor)

@@ -1,24 +1,47 @@
 extends PathFollow
 
-export (String, "Parafuso", "Serra", "Golem", "Flexivel", "Bala") var enemyType
+export (String, "Furadeiro", "Laser", "Destruidor", "Reparador") var enemyType
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 var clicked = false
 
 func _ready():
 	get_enemy(enemyType)
-	
+	if enemyType == "Furadeiro":
+		$Viewport/BarLife.max_value = 30
+		$States/Patrol.speed = 2
+		$States/Battling.speed = 2
+	elif enemyType == "Laser":
+		$Viewport/BarLife.max_value = 24
+		$States/Patrol.speed = 2
+		$States/Battling.speed = 2
+	elif enemyType == "Destruidor":
+		$Viewport/BarLife.max_value = 40
+		$States/Patrol.speed = 3
+		$States/Battling.speed = 3
+	elif enemyType == "Reparador":
+		$Viewport/BarLife.max_value = 26
+		$States/Patrol.speed = 4
+		$States/Battling.speed = 4
+		$States/Healing.speed = 4
+
+#func _physics_process(delta):
+#	if Input.is_action_just_pressed("Click"):
+#		if player.get_node("States/Battling").goFight:
+#			player.get_node("States/Battling").goFight = false
+
 func get_enemy(type):
 	for i in $Enemy/Root_Enemies.get_children():
 		if i.name != type:
 			i.queue_free()
 			
 func _on_Looking_Zone_body_entered(body):
-	if body.is_in_group("Player") or body.is_in_group("Clone"):
-		$Wait_to_Back.stop()
-		$States/Battling.backToPatrol = false
-		$States/Battling.show()
-		$States/Patrol.hide()
-		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
+	if enemyType != "Reparador":
+		if body.is_in_group("Player") or body.is_in_group("Clone"):
+			$Wait_to_Back.stop()
+			$States/Battling.backToPatrol = false
+			$States/Battling.show()
+			$States/Patrol.hide()
+			$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 
 func _on_Looking_Zone_body_exited(body):
 	if body.is_in_group("Player") and $Viewport/BarLife.value > 0:

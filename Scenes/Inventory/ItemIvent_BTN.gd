@@ -7,10 +7,11 @@ var source
 var equiped = false
 var btnOnEquiped
 var order = ""
+var marker
+var costPower
 onready var iconITN
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 onready var player = get_tree().get_nodes_in_group("Player")[0]
-var marker
 #var blockMouse = false
 
 func _ready():
@@ -52,6 +53,8 @@ func _on_ItemIvent_BTN_pressed():
 	print("ja o do botao equipar eh " + invent.get_node("BG_Inventory/Description_Item/BT_Equip").typeITN)
 	
 	if typeITN == "Weapons":
+		Fmod.play_one_shot("event:/SFX/Menu Iventario/EquiparItemArma", self)
+		
 		if equiped:
 			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
 		else:
@@ -60,6 +63,8 @@ func _on_ItemIvent_BTN_pressed():
 			else:
 				invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
 	elif typeITN == "Consum":
+		Fmod.play_one_shot("event:/SFX/Menu Iventario/SelecionarItemConsumivel", self)
+		
 		if equiped:
 			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
 		else:
@@ -71,6 +76,8 @@ func _on_ItemIvent_BTN_pressed():
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").show()
 		invent.get_node("BG_Inventory/Description_Item/BT_Equip/Item_Quant").text = "X " + str(GlobalValues.consumRewards[nameITN][3])
 	elif typeITN == "Chips":
+		Fmod.play_one_shot("event:/SFX/Menu Iventario/SelecionarItemChipMelhoria", self)
+		
 		if equiped:
 			invent.get_node("BG_Inventory/Description_Item/BT_Equip").disabled = false
 		else:

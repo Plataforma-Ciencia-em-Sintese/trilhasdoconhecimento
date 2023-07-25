@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Scenes/Attacks/Button Commands/ATK.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Attacks/Scripts/AttackBTN.gd" type="Script" id=15]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/background_Invent.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
@@ -106,7 +105,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
+node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -8287,7 +8286,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -8.10325e-05, -0.0120353, -0.999928, -0.0661577, -0.997738, 0.0120143, -0.997807, 0.0661543, -0.000713453, -0.293116, 0.593352, 0.0478028 )
+transform = Transform( -0.000770867, -0.0116699, -0.999932, -0.317269, -0.948269, 0.0113117, -0.948334, 0.317256, -0.00296946, -0.293128, 0.593737, 0.0743637 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8295,7 +8294,7 @@ transform = Transform( 1.04918, -0.0849311, 2.56114e-09, 0.0849309, 1.04918, 7.2
 visible = false
 mesh = SubResource( 66 )
 
-[node name="Area_Sword" type="Area" parent="Base/Skeleton/BoneAttachmentR/Sword" groups=["Sword"]]
+[node name="Area_Sword" type="Area" parent="Base/Skeleton/BoneAttachmentR/Sword" groups=["Melee"]]
 transform = Transform( -0.000877981, 0.00170361, 0.334282, 0.0187181, 0.0208474, -0.00815928, -0.0208402, 0.0186529, -0.0214116, -0.378943, 0.0120301, -0.00288972 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Base/Skeleton/BoneAttachmentR/Sword/Area_Sword"]
@@ -8350,7 +8349,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -8.08835e-05, 0.0120353, 0.999928, 0.0661576, -0.997738, 0.0120142, 0.997807, 0.0661542, -0.000713587, 0.293116, 0.593352, 0.0478027 )
+transform = Transform( -0.000771075, 0.0116698, 0.999932, 0.317269, -0.948269, 0.0113118, 0.948333, 0.317256, -0.0029694, 0.293129, 0.593737, 0.0743637 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8364,15 +8363,11 @@ transform = Transform( 1.28096, 0, 0, 0, 1.28096, 0, 0, 0, 1.28096, 0, 3, 3 )
 
 [node name="Cam_Invent" type="Camera" parent="Base"]
 transform = Transform( 1.28096, 0, 0, 0, 1.27619, -0.110373, 0, 0.110373, 1.27619, -0.146696, 0.942341, 5.95516 )
+visible = false
 cull_mask = 1048574
 projection = 1
+current = true
 size = 4.13227
-
-[node name="BG_Invent" type="Sprite3D" parent="Base"]
-transform = Transform( 0.54, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.15, 1.5, 0 )
-visible = false
-layers = 2
-texture = ExtResource( 17 )
 
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
 script = ExtResource( 25 )
@@ -8751,7 +8746,7 @@ path_desired_distance = 0.1
 avoidance_enabled = true
 neighbor_dist = 1.0
 
-[node name="Damage_Zone" type="Area" parent="."]
+[node name="Damage_Zone" type="Area" parent="." groups=["DamagePlayer"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Damage_Zone"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.683507, 2.9877e-08 )

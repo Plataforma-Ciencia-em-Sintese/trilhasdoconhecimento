@@ -5,9 +5,9 @@
 [sub_resource type="SphereShape" id=1]
 radius = 0.682471
 
-[node name="Arrow_Drill" type="Area" groups=["EnergyBall"]]
+[node name="Arrow_Drill" type="Area" groups=["Bullet"]]
 script = ExtResource( 2 )
-speed = -10
+speed = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
