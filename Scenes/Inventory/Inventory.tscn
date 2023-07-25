@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/slidebar.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/background_Choice.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Full_Life.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste invent.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/Icon_Lifes.png" type="Texture" id=12]
 [ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Black.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_armas_ choice.png" type="Texture" id=14]
@@ -29,7 +30,6 @@
 [ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
 [ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=29]
 [ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=30]
-[ext_resource path="res://Scenes/Inventory/Caracter_Invent.tscn" type="PackedScene" id=31]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -77,6 +77,13 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
 
 [node name="BG_Inventory" type="Panel" parent="."]
 visible = false
@@ -474,12 +481,10 @@ text = "Limpar"
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Consum"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.488
-anchor_bottom = 0.172
 margin_left = 2.0
 margin_top = 1.0
-margin_right = -1.94404
-margin_bottom = -0.027998
+margin_right = 102.0
+margin_bottom = 17.0
 custom_fonts/font = SubResource( 13 )
 text = "Itens   Consumíveis"
 align = 1
@@ -510,22 +515,20 @@ margin_bottom = 0.0159988
 visible = false
 anchor_left = 0.833
 anchor_top = -0.014
-anchor_right = 1.097
-anchor_bottom = 0.183
+anchor_right = 0.98
+anchor_bottom = 0.13
 margin_left = -0.03302
 margin_top = -0.068
-margin_right = -24.784
-margin_bottom = -5.293
+margin_right = 0.019989
+margin_bottom = 0.0599995
 text = "Limpar"
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Passive"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.476
-anchor_bottom = 0.178
 margin_left = 2.0
 margin_top = 2.0
-margin_right = -65.912
-margin_bottom = 0.0220051
+margin_right = 35.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 13 )
 text = "Chips  de  Melhoria"
 align = 1
@@ -553,11 +556,10 @@ expand = true
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Weapon/Armarhab_2"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.651
-anchor_bottom = 0.18
 margin_left = 2.0
 margin_top = 2.0
-margin_right = -76.972
+margin_right = 35.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 13 )
 text = "Arma 1 / Habilidades"
 align = 1
@@ -602,11 +604,10 @@ alignment = 1
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Weapon"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.651
-anchor_bottom = 0.18
 margin_left = 2.0
 margin_top = 2.0
-margin_right = -76.972
+margin_right = 35.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 13 )
 text = "Arma 1 / Habilidades"
 align = 1
@@ -640,12 +641,10 @@ custom_constants/separation = 10
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Consums"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.261
-anchor_bottom = 0.172
 margin_left = 2.0
 margin_top = 1.0
-margin_right = -2.139
-margin_bottom = -0.0279999
+margin_right = 102.0
+margin_bottom = 17.0
 custom_fonts/font = SubResource( 13 )
 text = "Itens   Consumíveis"
 align = 1
@@ -677,12 +676,10 @@ size_flags_vertical = 3
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Weapons"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.1
-anchor_bottom = 0.168
 margin_left = 2.0
 margin_top = 1.0
-margin_right = 0.0999985
-margin_bottom = 0.0319977
+margin_right = 40.0
+margin_bottom = 17.0
 custom_fonts/font = SubResource( 13 )
 text = "Armas"
 align = 1
@@ -711,12 +708,10 @@ mouse_filter = 2
 
 [node name="Name_object" type="Label" parent="BG_Inventory/Title_Passives"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_right = 0.253
-anchor_bottom = 0.105
 margin_left = 2.0
 margin_top = 2.0
-margin_right = -66.2
-margin_bottom = -0.0600033
+margin_right = 35.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 13 )
 text = "Chips  de  Melhoria"
 align = 1
@@ -847,28 +842,6 @@ margin_bottom = -0.0400085
 icon = ExtResource( 23 )
 flat = true
 expand_icon = true
-
-[node name="ViewportContainer" type="ViewportContainer" parent="BG_Inventory"]
-anchor_left = 0.408
-anchor_top = 0.214
-anchor_right = 0.64
-anchor_bottom = 0.778
-margin_left = -0.240051
-margin_top = -0.0800171
-margin_right = -0.200073
-margin_bottom = -0.160034
-rect_min_size = Vector2( 250, 250 )
-stretch = true
-
-[node name="Viewport" type="Viewport" parent="BG_Inventory/ViewportContainer"]
-size = Vector2( 297, 406 )
-size_override_stretch = true
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 0
-
-[node name="Caracter_Invent" parent="BG_Inventory/ViewportContainer/Viewport" instance=ExtResource( 31 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="BT_Inventario" type="Button" parent="."]
 visible = false
