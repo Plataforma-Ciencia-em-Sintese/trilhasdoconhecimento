@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button_MiniMap.png-08eace92cf10c2067cca814a89d9b4ed.stex"
+path="res://.import/CartaoHud-Visitante.png-4c6311ec2eaab49146607b9332134c7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/minimap/Button_MiniMap.png"
-dest_files=[ "res://.import/Button_MiniMap.png-08eace92cf10c2067cca814a89d9b4ed.stex" ]
+source_file="res://Sprites/UI/Icons/Life/XP/Cartao HUD/CartaoHud-Visitante.png"
+dest_files=[ "res://.import/CartaoHud-Visitante.png-4c6311ec2eaab49146607b9332134c7b.stex" ]
 
 [params]
 

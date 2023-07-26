@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Button_MiniMap.png-08eace92cf10c2067cca814a89d9b4ed.stex"
+path="res://.import/Vector.png-6267ba94c65b7dca88201cbd64dc6072.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/minimap/Button_MiniMap.png"
-dest_files=[ "res://.import/Button_MiniMap.png-08eace92cf10c2067cca814a89d9b4ed.stex" ]
+source_file="res://Sprites/UI/Icons/Life/Vector.png"
+dest_files=[ "res://.import/Vector.png-6267ba94c65b7dca88201cbd64dc6072.stex" ]
 
 [params]
 
