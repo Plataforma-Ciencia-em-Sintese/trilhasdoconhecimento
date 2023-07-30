@@ -16,6 +16,7 @@ var hit = load("res://Scenes/Attacks/Hit/Hit.tscn")
 var bigHit = load("res://Scenes/Attacks/Big Hit/Big Hit.tscn")
 var dir
 var vel
+var distanceToPlayer
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -31,7 +32,6 @@ func _physics_process(_delta):
 
 func start_battle():
 	if !backToPatrol:
-		var distanceToPlayer
 		if clone == null:
 			distanceToPlayer = owner.get_node("Enemy").global_transform.origin.distance_to(player.global_transform.origin) - 0.1
 			dir = player.global_transform.origin - owner.get_node("Enemy").global_transform.origin

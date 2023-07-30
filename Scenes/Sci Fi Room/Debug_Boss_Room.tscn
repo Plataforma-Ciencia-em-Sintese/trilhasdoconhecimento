@@ -29,7 +29,7 @@ data = PoolVector3Array( 0, 1, 1, 0.098, 1, 0.9952, 0, 0.6, 1, 0.098, 1, 0.9952,
 [node name="Debug_Boss_Room" type="Spatial"]
 
 [node name="Pointer" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.433654, 0, 0, 0, 0.433654, 0, 0, 0, 0.433654, -2.45071, 0.104432, 8.4081 )
+transform = Transform( 0.433654, 0, 0, 0, 0.433654, 0, 0, 0, 0.433654, -2.45071, 0.104432, 6.09021 )
 camera = NodePath("../Player/Camera")
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
@@ -72,3 +72,4 @@ transform = Transform( 2.18891, 0, 0, 0, 2.18891, 0, 0, 0, 2.18891, -17, 1.55725
 mesh = SubResource( 5 )
 
 [node name="Boss 01" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.2459 )
