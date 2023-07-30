@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Rectangle 21.png" type="Texture" id=2]
@@ -62,6 +62,9 @@ func _on_800x600_pressed():
 [sub_resource type="DynamicFont" id=4]
 size = 41
 font_data = ExtResource( 4 )
+
+[sub_resource type="ButtonGroup" id=11]
+resource_name = "checkbox_groupLanguage"
 
 [sub_resource type="DynamicFont" id=7]
 size = 30
@@ -154,10 +157,11 @@ script = SubResource( 3 )
 margin_right = 125.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 4 )
-custom_icons/checked = ExtResource( 9 )
-custom_icons/unchecked = ExtResource( 12 )
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 12 )
 shortcut_in_tooltip = false
 action_mode = 0
+group = SubResource( 11 )
 text = "  Pt"
 flat = true
 expand_icon = true
@@ -167,10 +171,11 @@ margin_left = 129.0
 margin_right = 274.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 4 )
-custom_icons/checked = ExtResource( 9 )
-custom_icons/unchecked = ExtResource( 12 )
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 12 )
 shortcut_in_tooltip = false
 action_mode = 0
+group = SubResource( 11 )
 text = " Eng"
 flat = true
 expand_icon = true
