@@ -8,7 +8,7 @@ var master_bus = AudioServer.get_bus_index("Master")
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.save3
+	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.saveVolume
 
 
 func _on_HSlider_Sound_value_changed(value):
@@ -20,8 +20,8 @@ func _on_HSlider_Sound_value_changed(value):
 
 
 func _on_BT_ExitConfig_pressed():
-	save_file.save3 = $Panel_Options/Fundo/Sound/HSlider_Sound.value
-	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.save3
+	save_file.saveVolume = $Panel_Options/Fundo/Sound/HSlider_Sound.value
+	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.saveVolume
 	SaveFile.save_data()
 	player.get_node("TabletInformation/PanelTablet").show()
 	$Panel_Options/BT_ExitConfig.hide()

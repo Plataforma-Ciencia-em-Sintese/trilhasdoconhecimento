@@ -21,8 +21,7 @@ func load_data():
 		g_data = {
 			"save1":  0,
 			"save2":  0,
-			"save3":  0,
-			"saveVolume": 0,
+			"saveVolume":  0,
 			"savePlayer": "saveplayer",
 			
 		}
