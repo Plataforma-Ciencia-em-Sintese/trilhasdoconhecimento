@@ -122,6 +122,7 @@ Global="*res://Global_Translation.gd"
 GlobalValues="*res://Global_Values.gd"
 Fmod="*res://addons/fmod/Fmod.tscn"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+SaveFile="*res://management/save_file.gd"
 
 [display]
 
