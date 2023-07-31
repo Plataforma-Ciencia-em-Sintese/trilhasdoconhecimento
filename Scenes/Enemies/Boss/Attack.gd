@@ -5,15 +5,19 @@ var atks = ["ATKEspecial_02_Boss01","ATKEspecial_03_Boss01"]
 var look = false
 var isAttacking = false
 var longRange = false
+var  progressiveDamageToPlayer = false
 var dist
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
-func _physics_process(delta):
+func _ready():
+	owner.get_node("BOSS_01/Skeleton/Hand_Pin/Laser_Area/Laser").hide()
+
+func _physics_process(_delta):
 	if look:
 		look_to_player()
 	
-	if Input.is_action_just_pressed("ui_down"):
-		owner.get_node("States/Move").show()
+	if progressiveDamageToPlayer:
+		player.get_node("Status").set_life(-5 * _delta)
 	
 	dist = owner.global_transform.origin.distance_to(player.global_transform.origin)
 	if dist < 4:
@@ -57,5 +61,22 @@ func _on_AtkTimer_timeout():
 		var chooseAtk = randi()%atks.size()
 		owner.get_node("AnimationPlayer").play(atks[chooseAtk])
 		activate_move(false)
-		print(chooseAtk)
+
+func set_collider_status(path,status):
+	owner.get_node(path).set_deferred("disabled",status)
 	
+func _on_Hand_Area_area_entered(area):
+	if area.is_in_group("DamagePlayer"):
+		player.get_node("Status").set_life(-20)
+		
+func _on_Leg_Area_area_entered(area):
+	if area.is_in_group("DamagePlayer"):
+		player.get_node("Status").set_life(-20)
+		
+func _on_Laser_Area_area_entered(area):
+	if area.is_in_group("DamagePlayer"):
+		progressiveDamageToPlayer = true
+		
+func _on_Laser_Area_area_exited(area):
+	if area.is_in_group("DamagePlayer"):
+		progressiveDamageToPlayer = false
