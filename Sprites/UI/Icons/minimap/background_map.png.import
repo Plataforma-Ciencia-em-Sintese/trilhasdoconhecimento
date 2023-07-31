@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background_map.png-6fb5ae37391e1cbb15e47e61249ab7ce.stex"
+path="res://.import/background_map.png-7739a83fe4050fbc7353df429b438b4c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Minimap/background_map.png"
-dest_files=[ "res://.import/background_map.png-6fb5ae37391e1cbb15e47e61249ab7ce.stex" ]
+source_file="res://Sprites/UI/Icons/minimap/background_map.png"
+dest_files=[ "res://.import/background_map.png-7739a83fe4050fbc7353df429b438b4c.stex" ]
 
 [params]
 
