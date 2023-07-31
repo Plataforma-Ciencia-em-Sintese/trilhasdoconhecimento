@@ -80,3 +80,16 @@ func _on_Laser_Area_area_entered(area):
 func _on_Laser_Area_area_exited(area):
 	if area.is_in_group("DamagePlayer"):
 		progressiveDamageToPlayer = false
+
+func _on_Damage_Area_area_entered(area):
+	if area.is_in_group("Melee"):
+		if player.selectedGun == player.mainGun:
+			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
+		elif player.selectedGun == player.secGun:
+			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
+	
+	if area.is_in_group("Bullet"):
+		if player.selectedGun == player.mainGun:
+			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
+		elif player.selectedGun == player.secGun:
+			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual

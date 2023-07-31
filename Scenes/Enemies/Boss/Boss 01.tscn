@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Boss/Idle.gd" type="Script" id=1]
 [ext_resource path="res://3D/Bosses/01/Atlas_Boss.material" type="Material" id=2]
@@ -3591,6 +3591,33 @@ tracks/74/keys = PoolRealArray( 0, 1, -0.1473, 1.19209e-07, 1.646, 9.60849e-11, 
 [sub_resource type="CapsuleShape" id=9]
 radius = 2.06301
 
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.521569, 1, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.00392157, 0.027451, 0, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.243137, 1, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="ViewportTexture" id=20]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="CapsuleShape" id=21]
+radius = 3.04312
+
 [node name="Boss 01" type="KinematicBody"]
 script = ExtResource( 5 )
 
@@ -3979,7 +4006,7 @@ mesh = SubResource( 1 )
 skin = SubResource( 2 )
 
 [node name="Hand_Pin" type="BoneAttachment" parent="BOSS_01/Skeleton"]
-transform = Transform( -0.0160996, 0.20006, 0.979651, 0.990975, 0.133597, -0.0109969, -0.133079, 0.970633, -0.200405, -1.05061, 3.03614, 4.21884 )
+transform = Transform( 0, -1, 0, 1, 0, -4.37114e-08, 4.37114e-08, 0, 1, -4.66974, 3.56183, -0.0358726 )
 bone_name = "HAND_IK.R"
 
 [node name="Hand_Area" type="Area" parent="BOSS_01/Skeleton/Hand_Pin"]
@@ -4046,6 +4073,32 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 500, 500 )
+transparent_bg = true
+disable_3d = true
+
+[node name="BarLife" type="ProgressBar" parent="Viewport"]
+margin_top = 50.0
+margin_right = 500.0
+margin_bottom = 450.0
+custom_styles/fg = SubResource( 18 )
+custom_styles/bg = SubResource( 19 )
+value = 100.0
+percent_visible = false
+
+[node name="Life3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.176951, 0, 0, 0, 1, 0, 6, 0 )
+billboard = 1
+texture = SubResource( 20 )
+
+[node name="Damage_Area" type="Area" parent="."]
+input_ray_pickable = false
+
+[node name="CollisionShape2" type="CollisionShape" parent="Damage_Area"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.04027, 0 )
+shape = SubResource( 21 )
+
 [connection signal="input_event" from="." to="." method="_on_Boss_01_input_event"]
 [connection signal="mouse_exited" from="." to="." method="_on_Boss_01_mouse_exited"]
 [connection signal="area_entered" from="BOSS_01/Skeleton/Hand_Pin/Hand_Area" to="States/Attack" method="_on_Hand_Area_area_entered"]
@@ -4054,3 +4107,4 @@ autostart = true
 [connection signal="area_entered" from="BOSS_01/Skeleton/Leg_Pin/Leg_Area" to="States/Attack" method="_on_Leg_Area_area_entered"]
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
 [connection signal="timeout" from="AtkTimer" to="States/Attack" method="_on_AtkTimer_timeout"]
+[connection signal="area_entered" from="Damage_Area" to="States/Attack" method="_on_Damage_Area_area_entered"]
