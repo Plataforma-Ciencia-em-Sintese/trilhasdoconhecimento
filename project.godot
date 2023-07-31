@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/effekseer/src/EffekseerResource.gdns"
 }, {
-"base": "Node",
+"base": "",
 "class": "FmodNative",
 "language": "NativeScript",
 "path": "res://addons/FMOD/Fmod.gdns"
