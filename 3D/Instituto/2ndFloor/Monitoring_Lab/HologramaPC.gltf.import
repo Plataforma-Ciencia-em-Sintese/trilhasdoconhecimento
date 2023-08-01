@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Monitor3_Monitoramento_SegundoAndar.gltf-53542d86d75ecea396c2eeaf9feb7224.scn"
+path="res://.import/HologramaPC.gltf-7baad1b4cf1f666f806a3bbaf832e33d.scn"
 
 [deps]
 
-source_file="res://3D/Instituto/2ndFloor/Monitoring_Lab/Monitor3_Monitoramento_SegundoAndar.gltf"
-dest_files=[ "res://.import/Monitor3_Monitoramento_SegundoAndar.gltf-53542d86d75ecea396c2eeaf9feb7224.scn" ]
+source_file="res://3D/Instituto/2ndFloor/Monitoring_Lab/HologramaPC.gltf"
+dest_files=[ "res://.import/HologramaPC.gltf-7baad1b4cf1f666f806a3bbaf832e33d.scn" ]
 
 [params]
 

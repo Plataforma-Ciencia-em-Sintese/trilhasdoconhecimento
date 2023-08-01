@@ -2,16 +2,16 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Monitor2_Monitoramento_SegundoAndar.gltf-7f4f7c93e2f31528b820c16560bc6003.scn"
+path="res://.import/MonitoramentoGrande.gltf-40639b8fd1fe6117152fcbd5fd0e9374.scn"
 
 [deps]
 
-source_file="res://3D/Instituto/2ndFloor/Monitoring_Lab/Monitor2_Monitoramento_SegundoAndar.gltf"
-dest_files=[ "res://.import/Monitor2_Monitoramento_SegundoAndar.gltf-7f4f7c93e2f31528b820c16560bc6003.scn" ]
+source_file="res://3D/Instituto/MonitoramentoGrande.gltf"
+dest_files=[ "res://.import/MonitoramentoGrande.gltf-40639b8fd1fe6117152fcbd5fd0e9374.scn" ]
 
 [params]
 
-nodes/root_type="MeshInstance"
+nodes/root_type="Spatial"
 nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
