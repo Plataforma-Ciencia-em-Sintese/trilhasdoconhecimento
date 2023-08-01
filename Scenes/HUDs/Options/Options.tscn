@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Rectangle 21.png" type="Texture" id=2]
@@ -63,6 +63,9 @@ func _on_800x600_pressed():
 size = 41
 font_data = ExtResource( 4 )
 
+[sub_resource type="ButtonGroup" id=11]
+resource_name = "checkbox_groupLanguage"
+
 [sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 4 )
@@ -90,32 +93,38 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="Fundo" type="TextureRect" parent="Panel_Options"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -406.0
-margin_top = -229.0
-margin_right = 414.0
-margin_bottom = 250.0
+anchor_left = 0.183
+anchor_top = 0.182
+anchor_right = 0.823
+anchor_bottom = 0.847
+margin_left = -0.240021
+margin_top = -0.0400085
+margin_right = 0.559937
+margin_bottom = 0.159973
 texture = ExtResource( 14 )
 expand = true
 
 [node name="Sound" type="TextureRect" parent="Panel_Options/Fundo"]
-margin_left = 141.0
-margin_top = 267.0
-margin_right = 355.0
-margin_bottom = 287.0
+anchor_left = 0.172
+anchor_top = 0.557
+anchor_right = 0.433
+anchor_bottom = 0.599
+margin_left = -0.0400085
+margin_top = 0.196991
+margin_right = -0.0600281
+margin_bottom = 0.0789795
 texture = ExtResource( 2 )
 expand = true
 
 [node name="HSlider_Sound" type="HSlider" parent="Panel_Options/Fundo/Sound"]
 modulate = Color( 0.00392157, 0.0156863, 0.137255, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
+anchor_top = -0.4
+anchor_right = 0.977
+anchor_bottom = 1.0
 margin_left = 1.0
-margin_top = -8.0
-margin_right = 209.0
-margin_bottom = 22.0
+margin_right = -0.0780182
+margin_bottom = 2.0
 rect_scale = Vector2( 1, 0.99323 )
 custom_styles/slider = SubResource( 10 )
 min_value = -30.0
@@ -133,10 +142,14 @@ align = 1
 valign = 1
 
 [node name="HBC_Traducao" type="HBoxContainer" parent="Panel_Options/Fundo"]
-margin_left = 144.0
-margin_top = 122.0
-margin_right = 418.0
-margin_bottom = 185.0
+anchor_left = 0.176
+anchor_top = 0.255
+anchor_right = 0.349
+anchor_bottom = 0.323
+margin_left = -0.320007
+margin_top = -0.145012
+margin_right = 131.82
+margin_bottom = 30.283
 rect_scale = Vector2( 0.52, 0.52 )
 script = SubResource( 3 )
 
@@ -144,10 +157,11 @@ script = SubResource( 3 )
 margin_right = 125.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 4 )
-custom_icons/checked = ExtResource( 9 )
-custom_icons/unchecked = ExtResource( 12 )
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 12 )
 shortcut_in_tooltip = false
 action_mode = 0
+group = SubResource( 11 )
 text = "  Pt"
 flat = true
 expand_icon = true
@@ -157,19 +171,24 @@ margin_left = 129.0
 margin_right = 274.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 4 )
-custom_icons/checked = ExtResource( 9 )
-custom_icons/unchecked = ExtResource( 12 )
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 12 )
 shortcut_in_tooltip = false
 action_mode = 0
+group = SubResource( 11 )
 text = " Eng"
 flat = true
 expand_icon = true
 
 [node name="HBC_Resolution" type="HBoxContainer" parent="Panel_Options/Fundo"]
-margin_left = 144.0
-margin_top = 192.0
-margin_right = 1074.0
-margin_bottom = 255.0
+anchor_left = 0.176
+anchor_top = 0.401
+anchor_right = 0.765
+anchor_bottom = 0.469
+margin_left = -0.320007
+margin_top = -0.07901
+margin_right = 446.7
+margin_bottom = 30.349
 rect_scale = Vector2( 0.52, 0.52 )
 script = ExtResource( 10 )
 
@@ -218,43 +237,49 @@ custom_icons/unchecked = ExtResource( 12 )
 text = "1920x1080"
 
 [node name="Icon_Traduc" type="TextureRect" parent="Panel_Options/Fundo"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 49.0
-margin_top = -123.5
-margin_right = 93.0
-margin_bottom = -78.5
+anchor_left = 0.06
+anchor_top = 0.242
+anchor_right = 0.113
+anchor_bottom = 0.336
+margin_left = -0.200001
+margin_top = 0.0819931
+margin_right = 0.339996
+margin_bottom = 0.0559845
 texture = ExtResource( 8 )
 expand = true
 
 [node name="Icon_Resolution" type="TextureRect" parent="Panel_Options/Fundo"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 49.0
-margin_top = -55.5
-margin_right = 93.0
-margin_bottom = -10.5
+anchor_left = 0.06
+anchor_top = 0.384
+anchor_right = 0.113
+anchor_bottom = 0.478
+margin_left = -0.200001
+margin_top = 0.0639954
+margin_right = 0.339996
+margin_bottom = 0.0379944
 texture = ExtResource( 3 )
 expand = true
 
 [node name="Icon_Sound" type="TextureRect" parent="Panel_Options/Fundo"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 49.0
-margin_top = 12.5
-margin_right = 93.0
-margin_bottom = 57.5
+anchor_left = 0.06
+anchor_top = 0.526
+anchor_right = 0.113
+anchor_bottom = 0.62
+margin_left = -0.200001
+margin_top = 0.04599
+margin_right = 0.339996
+margin_bottom = 0.019989
 texture = ExtResource( 6 )
 expand = true
 
-[node name="BT_Exit" type="Button" parent="Panel_Options"]
-visible = false
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -131.0
-margin_top = 48.0
-margin_right = -91.0
-margin_bottom = 97.0
+[node name="BT_ExitConfig" type="Button" parent="Panel_Options"]
+anchor_left = 0.787
+anchor_top = 0.1
+anchor_right = 0.819
+anchor_bottom = 0.168
+margin_left = 0.639893
+margin_right = -0.320068
+margin_bottom = 0.0399933
 custom_constants/hseparation = 0
 custom_fonts/font = ExtResource( 1 )
 icon = ExtResource( 5 )
@@ -268,4 +293,4 @@ expand_icon = true
 [connection signal="pressed" from="Panel_Options/Fundo/HBC_Resolution/800x600" to="Panel_Options/Fundo/HBC_Resolution" method="_on_800x600_pressed"]
 [connection signal="pressed" from="Panel_Options/Fundo/HBC_Resolution/1280x720" to="Panel_Options/Fundo/HBC_Resolution" method="_on_1280x720_pressed"]
 [connection signal="pressed" from="Panel_Options/Fundo/HBC_Resolution/1920x1080" to="Panel_Options/Fundo/HBC_Resolution" method="_on_1920x1080_pressed"]
-[connection signal="pressed" from="Panel_Options/BT_Exit" to="." method="_on_BT_Exit_pressed"]
+[connection signal="pressed" from="Panel_Options/BT_ExitConfig" to="." method="_on_BT_ExitConfig_pressed"]
