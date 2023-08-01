@@ -8,6 +8,7 @@ var robertBoyle: int = 0
 var marieCurie: int = 0
 var alanTuring: int = 0
 var ambience1: int = 0
+var mainMusic: int = 0
 func _ready() -> void:
 	# initialize FMOD
 	# initializing with the LIVE_UPDATE flag lets you
@@ -32,11 +33,12 @@ func _ready() -> void:
 	marieCurie = Fmod.create_event_instance("event:/Musicas/Notaveis/Marie Curie")
 	alanTuring = Fmod.create_event_instance("event:/Musicas/Notaveis/Alan Turing")
 	ambience1 = Fmod.create_event_instance("event:/SFX/Ingame/Ambience1")
+	mainMusic = Fmod.create_event_instance("event:/Musicas/PrimeiroNivel")
 	
 func _input(event):
 	if event.is_action_pressed("Click"):
-		#Fmod.start_event(iniProjetor)
+		#Fmod.set_global_parameter_by_name("Holo", 1)
 		pass
 	if event.is_action_pressed("R_Click"):
-		#Fmod.stop_event(iniProjetor, Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+		#Fmod.start_event(mainMusic)
 		pass

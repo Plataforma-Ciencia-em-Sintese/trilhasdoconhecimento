@@ -1,7 +1,7 @@
 extends Spatial
 
 export (String,"Projectile","Melee") var attackType
-
+var limitToAttackMelee = 1.5
 var animator
 var goFight = false
 var releasePointer = true
@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 func start_fight():
 	var dist = owner.global_transform.origin.distance_to(actualEnemy.global_transform.origin)
-	
+	print(dist)
 	if releasePointer:
 		pointer.global_transform.origin = actualEnemy.global_transform.origin
 		pointer.hide()
@@ -51,7 +51,7 @@ func start_fight():
 			attackType = "Projectile"
 	
 		if attackType == "Melee":
-			if dist <= 1.5:
+			if dist <= limitToAttackMelee:
 				owner.get_node("Base/Skeleton").rotation_degrees.y = 180
 				owner.get_node("Base").look_at(actualEnemy.global_transform.origin,Vector3.UP)
 				animator.set("parameters/move/blend_amount",0)

@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Enemies/Normal_Enemies.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemies/Normals/Normal_Enemies.tscn" type="PackedScene" id=3]
 [ext_resource path="res://3D/Level Design/Scifi Texture Ceiling 2.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Sci Fi Room/CameraController.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Quest Objective/Objective.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Transitions/WhiteTransition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3D/Level Design/PolygonScifiSpace_Material_01_A_001.material" type="Material" id=8]
-[ext_resource path="res://Scenes/Enemies/Bullet_Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Enemies/Normals/Bullet_Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Sci Fi Room/Elevator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationMesh" id=898]
@@ -1072,7 +1072,6 @@ shape = SubResource( 1006 )
 
 [node name="Way1" type="Path" parent="Enemies"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7629, 0 )
-visible = false
 curve = SubResource( 1000 )
 
 [node name="Path_Enemy" parent="Enemies/Way1" instance=ExtResource( 3 )]
@@ -1134,8 +1133,10 @@ transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.
 
 [node name="Bullet_Enemy" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12909, 2.33967, -14.2141 )
+visible = false
 
 [node name="Bullet_Enemy2" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.358254, 0, 0.933624, 0, 1, 0, -0.933624, 0, 0.358254, -5.10646, 2.33967, -7.07171 )
+visible = false
 
 [editable path="Reception/Elevator2"]

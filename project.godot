@@ -79,10 +79,10 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/effekseer/src/EffekseerResource.gdns"
 }, {
-"base": "Node",
+"base": "",
 "class": "FmodNative",
 "language": "NativeScript",
-"path": "res://addons/FMOD/Fmod.gdns"
+"path": "res://addons/fmod/Fmod.gdns"
 }, {
 "base": "PanelContainer",
 "class": "HistoryRow",
@@ -122,6 +122,7 @@ Global="*res://Global_Translation.gd"
 GlobalValues="*res://Global_Values.gd"
 Fmod="*res://addons/fmod/Fmod.tscn"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+SaveFile="*res://management/save_file.gd"
 
 [display]
 

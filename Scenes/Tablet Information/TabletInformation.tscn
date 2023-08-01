@@ -11,7 +11,6 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Trilhas.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Tablet Information/Config_Tablet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/tablet test.png" type="Texture" id=15]
@@ -33,6 +32,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/BG_xpTablet.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/xpTablet_full.png" type="Texture" id=32]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_LabPass.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/HUDs/Options/Options.tscn" type="PackedScene" id=34]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -597,9 +597,9 @@ nine_patch_stretch = true
 
 [node name="BestiaryNotables" parent="Scenes" instance=ExtResource( 11 )]
 
-[node name="Config_Tablet" parent="Scenes" instance=ExtResource( 12 )]
-
 [node name="Trails" parent="Scenes" instance=ExtResource( 13 )]
+
+[node name="Control_Options" parent="Scenes" instance=ExtResource( 34 )]
 
 [node name="BT_tablet" type="Button" parent="."]
 anchor_left = 1.0

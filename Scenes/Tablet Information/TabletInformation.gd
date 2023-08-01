@@ -21,8 +21,8 @@ func _on_BT_Invent_pressed():
 	$PanelTablet.hide()
 	
 func _on_BT_Config_pressed():
-	$Scenes/Config_Tablet/Panel_ConfigTablet.show()
-	$Scenes/Config_Tablet/exit_ConfigT.show()
+	$Scenes/Control_Options/Panel_Options.show()
+	$Scenes/Control_Options/Panel_Options/BT_ExitConfig.show()
 	$PanelTablet.hide()
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/HUDs/Status/Status.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Life/BarraCheiaMP.png" type="Texture" id=2]
@@ -9,6 +9,19 @@
 [ext_resource path="res://Sprites/UI/Icons/Life/HP.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/Icons/Life/MP.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Icons/Life/HP_Icon.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/Cartao_Visitante.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/XP_vazio.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/Cartao HUD/CartaoHud-Visitante.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/XP_Cheio.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/Cartao HUD/Button_CA.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/detalhe_XP.png" type="Texture" id=15]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Sprites/UI/Icons/Life/XP/Cartao HUD/Button_hide.png" type="Texture" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+use_filter = true
+font_data = ExtResource( 16 )
 
 [node name="Status" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -28,24 +41,6 @@ margin_right = 308.0
 margin_bottom = 78.0
 texture = ExtResource( 4 )
 expand = true
-
-[node name="XP_Bar" type="ProgressBar" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -100.0
-margin_top = 50.0
-margin_right = 101.0
-margin_bottom = 64.0
-percent_visible = false
-
-[node name="TXT_Level" type="Label" parent="XP_Bar"]
-margin_left = 50.0
-margin_top = 19.0
-margin_right = 154.0
-margin_bottom = 35.0
-text = "Level 01"
-align = 1
-valign = 1
 
 [node name="Life_Bar" type="TextureProgress" parent="."]
 margin_left = 89.0
@@ -100,4 +95,96 @@ margin_bottom = 11.0
 texture = ExtResource( 8 )
 expand = true
 
-[connection signal="value_changed" from="XP_Bar" to="." method="_on_XP_Bar_value_changed"]
+[node name="Cartao_Hud" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.012
+anchor_top = 0.035
+anchor_right = 0.114
+anchor_bottom = 0.167
+margin_left = 0.639999
+margin_top = -0.200001
+margin_right = 0.0799866
+margin_bottom = -0.240005
+texture = ExtResource( 12 )
+expand = true
+
+[node name="BT_ShowXP" type="Button" parent="Cartao_Hud"]
+anchor_left = 0.823
+anchor_top = 0.505
+anchor_right = 0.992
+anchor_bottom = 0.72
+margin_left = 0.00999451
+margin_top = 0.0349998
+margin_right = 0.0399933
+margin_bottom = 0.0400009
+icon = ExtResource( 14 )
+flat = true
+expand_icon = true
+
+[node name="Hud_XP" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 14.0
+margin_top = 23.0
+margin_right = 357.0
+margin_bottom = 122.0
+
+[node name="XP_Bar" type="TextureProgress" parent="Hud_XP"]
+anchor_left = 0.3
+anchor_top = 0.495
+anchor_right = 0.983
+anchor_bottom = 0.707
+margin_left = 0.0999985
+margin_top = -0.00500488
+margin_right = -0.169006
+margin_bottom = 0.00699615
+value = 80.0
+texture_under = ExtResource( 11 )
+texture_progress = ExtResource( 13 )
+nine_patch_stretch = true
+
+[node name="TXT_Level" type="Label" parent="Hud_XP/XP_Bar"]
+modulate = Color( 0.0196078, 0.0745098, 0.152941, 1 )
+margin_left = 13.0
+margin_top = -2.0
+margin_right = 57.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "XP 80"
+align = 1
+valign = 1
+
+[node name="Detail_XP" type="TextureRect" parent="Hud_XP"]
+margin_left = 88.0
+margin_top = 45.0
+margin_right = 340.0
+margin_bottom = 73.0
+texture = ExtResource( 15 )
+expand = true
+
+[node name="BT_HideXP" type="Button" parent="Hud_XP"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.297
+anchor_top = 0.495
+anchor_right = 0.356
+anchor_bottom = 0.707
+margin_left = -0.87101
+margin_top = -0.00500488
+margin_right = -0.108002
+margin_bottom = 0.00699615
+icon = ExtResource( 17 )
+flat = true
+expand_icon = true
+
+[node name="Cartao_Icon" type="TextureRect" parent="Hud_XP"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 92.0
+margin_bottom = 95.0
+texture = ExtResource( 10 )
+expand = true
+
+[connection signal="pressed" from="Cartao_Hud/BT_ShowXP" to="." method="_on_BT_ShowXP_pressed"]
+[connection signal="value_changed" from="Hud_XP/XP_Bar" to="." method="_on_XP_Bar_value_changed"]
+[connection signal="pressed" from="Hud_XP/BT_HideXP" to="." method="_on_BT_HideXP_pressed"]

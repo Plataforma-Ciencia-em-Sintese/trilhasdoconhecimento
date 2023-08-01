@@ -729,40 +729,40 @@ texture = ExtResource( 17 )
 expand = true
 
 [node name="Icon_Item" type="TextureRect" parent="BG_Inventory/Description_Item"]
-anchor_left = 0.135
-anchor_top = 0.387
-anchor_right = 0.135
-anchor_bottom = 0.387
-margin_left = -29.135
-margin_top = -29.474
-margin_right = 28.865
-margin_bottom = 31.526
+anchor_left = 0.062
+anchor_top = 0.098
+anchor_right = 0.207
+anchor_bottom = 0.696
+margin_left = 0.137999
+margin_top = 0.0039978
+margin_right = -0.00700378
+margin_bottom = 0.00799561
 texture = ExtResource( 26 )
 expand = true
 
 [node name="Item_Name" type="Label" parent="BG_Inventory/Description_Item/Icon_Item"]
 modulate = Color( 0, 0, 0, 1 )
-anchor_left = 0.836
-anchor_top = 1.212
-anchor_right = 0.836
-anchor_bottom = 1.212
-margin_left = -50.488
-margin_top = -10.508
-margin_right = 50.512
-margin_bottom = 4.492
+anchor_left = -0.034
+anchor_top = 1.04
+anchor_right = 1.707
+anchor_bottom = 1.286
+margin_left = -0.0279961
+margin_top = -0.0160065
+margin_right = -0.00600433
+margin_bottom = -0.0220032
 custom_fonts/font = SubResource( 9 )
 text = "Nome do Item"
 
 [node name="Item_Desc" type="Label" parent="BG_Inventory/Description_Item/Icon_Item"]
 self_modulate = Color( 0, 0, 0, 1 )
-anchor_left = 0.802
-anchor_top = 1.398
-anchor_right = 0.802
-anchor_bottom = 1.398
-margin_left = -48.516
-margin_top = -10.482
-margin_right = 48.484
-margin_bottom = 4.51798
+anchor_left = -0.034
+anchor_top = 1.226
+anchor_right = 1.638
+anchor_bottom = 1.472
+margin_left = -0.0279999
+margin_top = 0.00999451
+margin_right = -0.00400543
+margin_bottom = 0.00397491
 custom_fonts/font = SubResource( 10 )
 text = "Descriçao"
 
@@ -794,25 +794,25 @@ flat = true
 script = ExtResource( 27 )
 
 [node name="back_Quant" type="TextureRect" parent="BG_Inventory/Description_Item/BT_Equip"]
-anchor_left = -1.439
+anchor_left = -1.432
 anchor_top = 0.568
 anchor_right = -1.331
 anchor_bottom = 1.0
-margin_left = -0.0279846
-margin_top = -0.0160007
-margin_right = -0.0119781
+margin_left = -0.0640106
+margin_top = -0.0159969
+margin_right = -0.0120239
 texture = ExtResource( 18 )
 expand = true
 
 [node name="Item_Quant" type="Label" parent="BG_Inventory/Description_Item/BT_Equip"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = -1.439
+anchor_left = -1.432
 anchor_top = 0.568
-anchor_right = -1.338
+anchor_right = -1.331
 anchor_bottom = 1.0
-margin_left = -0.0280151
+margin_left = -0.0640106
 margin_top = -0.0159969
-margin_right = 1.02399
+margin_right = -0.0120087
 custom_fonts/font = SubResource( 12 )
 text = "1"
 align = 1
@@ -831,13 +831,13 @@ custom_fonts/font = SubResource( 14 )
 text = "Inventário"
 
 [node name="BT_Voltar" type="Button" parent="BG_Inventory"]
-anchor_left = 0.09
-anchor_top = 0.079
-anchor_right = 0.11
+anchor_left = 0.088
+anchor_top = 0.078
+anchor_right = 0.109
 anchor_bottom = 0.107
-margin_left = -0.200005
-margin_top = 0.119999
-margin_right = 0.199997
+margin_left = 0.359993
+margin_top = -0.16
+margin_right = 0.479996
 margin_bottom = -0.0400085
 icon = ExtResource( 23 )
 flat = true
