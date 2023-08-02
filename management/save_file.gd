@@ -19,11 +19,17 @@ func load_data():
 	var file = File.new()
 	if not file.file_exists(SAVE_FILE):
 		g_data = {
-			"save1":  0,
-			"save2":  0,
-			"saveVolume":  0,
-			"savePlayer": "saveplayer",
-			
+			"save1": 0,
+			"save2": 0,
+			"saveVolume": 0,
+			"nameChar": "",
+			"backToScene": 0,
+			"levelPlayer": "levelPlayer",
+			"speed": "speed",
+			"xpChip": "xpChip",
+			"atkMainActual": "atkMainActual",
+			"atkSecActual": "atkSecActual",
+			"speedActual": "speedActual",
 		}
 		save_data()
 	file.open(SAVE_FILE, File.READ)

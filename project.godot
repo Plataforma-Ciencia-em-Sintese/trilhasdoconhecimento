@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "",
 "class": "FmodNative",
 "language": "NativeScript",
-"path": "res://addons/fmod/Fmod.gdns"
+"path": "res://addons/FMOD/Fmod.gdns"
 }, {
 "base": "PanelContainer",
 "class": "HistoryRow",
