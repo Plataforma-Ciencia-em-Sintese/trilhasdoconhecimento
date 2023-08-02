@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/CaminhoBlocagem.gltf-31d24dde39f30cdea45d95f1aa7567f4.scn"
+path="res://.import/Caminho_Parte1_Blocagem.gltf-47171a716e314349375c72add9782f05.scn"
 
 [deps]
 
-source_file="res://3D/Cyberspace/CaminhoBlocagem.gltf"
-dest_files=[ "res://.import/CaminhoBlocagem.gltf-31d24dde39f30cdea45d95f1aa7567f4.scn" ]
+source_file="res://3D/Cyberspace/Caminho_Parte1_Blocagem.gltf"
+dest_files=[ "res://.import/Caminho_Parte1_Blocagem.gltf-47171a716e314349375c72add9782f05.scn" ]
 
 [params]
 

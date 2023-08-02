@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/CubosBlocagem.gltf-af669eb804594fdaf578d796b70c0599.scn"
+path="res://.import/Cubos_Parte1_Blocagem.gltf-0795ebe5422935c4c1e57809677458b2.scn"
 
 [deps]
 
-source_file="res://3D/Cyberspace/CubosBlocagem.gltf"
-dest_files=[ "res://.import/CubosBlocagem.gltf-af669eb804594fdaf578d796b70c0599.scn" ]
+source_file="res://3D/Cyberspace/Cubos_Parte1_Blocagem.gltf"
+dest_files=[ "res://.import/Cubos_Parte1_Blocagem.gltf-0795ebe5422935c4c1e57809677458b2.scn" ]
 
 [params]
 
