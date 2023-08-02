@@ -4,7 +4,8 @@ export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
 export var mainGun = "Arco"
 export var secGun = "Espada"
-var  selectedGun = "Espada"
+export (Array,NodePath) var nodesToHide
+var selectedGun = "Espada"
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
 
 var suits = {
@@ -463,3 +464,10 @@ func change_only_bar_value(bar):
 
 func calculate_status(baseValue,numerator,denominator):
 	return (baseValue/denominator) * numerator
+
+func hide_show_nodes(status):
+	for i in nodesToHide.size():
+		if status == "hide":
+			get_node(nodesToHide[i]).hide()
+		else:
+			get_node(nodesToHide[i]).show()

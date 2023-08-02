@@ -1,6 +1,7 @@
 extends KinematicBody
 
 onready var player = get_tree().get_nodes_in_group("Player")[0]
+onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 var clicked = false
 
 func _on_Boss_01_input_event(camera, event, position, normal, shape_idx):

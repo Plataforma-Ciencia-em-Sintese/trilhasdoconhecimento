@@ -5,7 +5,8 @@ var atks = ["ATKEspecial_02_Boss01","ATKEspecial_03_Boss01"]
 var look = false
 var isAttacking = false
 var longRange = false
-var  progressiveDamageToPlayer = false
+var progressiveDamageToPlayer = false
+var awake = true
 var dist
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
@@ -13,25 +14,29 @@ func _ready():
 	owner.get_node("BOSS_01/Skeleton/Hand_Pin/Laser_Area/Laser").hide()
 
 func _physics_process(_delta):
-	if look:
-		look_to_player()
-	
-	if progressiveDamageToPlayer:
-		player.get_node("Status").set_life(-5 * _delta)
-	
-	dist = owner.global_transform.origin.distance_to(player.global_transform.origin)
-	if dist < 4:
-		if !isAttacking:
-			owner.get_node("AnimationPlayer").play("ATKNormal_Boss01")
-		activate_move(false)
-		longRange = false
-	elif dist < 5:
-		if !isAttacking:
-			owner.get_node("AnimationPlayer").play("ATKEspecial_01_Boss01")
-		activate_move(false)
-		longRange = false
+	if is_visible_in_tree():
+		awake = true
+		if look:
+			look_to_player()
+		
+		if progressiveDamageToPlayer:
+			player.get_node("Status").set_life(-5 * _delta)
+		
+		dist = owner.global_transform.origin.distance_to(player.global_transform.origin)
+		if dist < 4:
+			if !isAttacking:
+				owner.get_node("AnimationPlayer").play("ATKNormal_Boss01")
+			activate_move(false)
+			longRange = false
+		elif dist < 5:
+			if !isAttacking:
+				owner.get_node("AnimationPlayer").play("ATKEspecial_01_Boss01")
+			activate_move(false)
+			longRange = false
+		else:
+			longRange = true
 	else:
-		longRange = true
+		awake = false
 		
 func look_to_player():
 	var target_global_pos = player.global_transform.origin
@@ -56,7 +61,7 @@ func activate_look(status):
 	look = status
 
 func _on_AtkTimer_timeout():
-	if !isAttacking and longRange:
+	if !isAttacking and longRange and awake:
 		randomize()
 		var chooseAtk = randi()%atks.size()
 		owner.get_node("AnimationPlayer").play(atks[chooseAtk])

@@ -35,6 +35,10 @@ func _physics_process(delta):
 		var look_at_position = Vector3(target_global_pos.x, self_global_pos.y, target_global_pos.z)
 
 		owner.look_at(look_at_position, Vector3.UP)
+
+#		var look = owner.global_transform.looking_at(player.global_transform.origin,Vector3.UP)
+#		var rot = look.basis
+#		owner.global_transform.basis.slerp(rot,0.001)
 	else:
 		pursuit = false
 
