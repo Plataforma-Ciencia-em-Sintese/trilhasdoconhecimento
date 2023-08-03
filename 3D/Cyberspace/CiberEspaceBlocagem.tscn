@@ -91,9 +91,9 @@ skeleton = NodePath("")
 [node name="CollisionShape" type="CollisionShape" parent="Room/CaminhoBlocagem/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="Floor Wave" type="MeshInstance" parent="."]
+[node name="Floor_Wave" type="MeshInstance" parent="."]
 transform = Transform( 145.773, 0, 0, 0, 27.3113, 0, 0, 0, 147.337, -44.0525, -28.0508, 19.1364 )
 mesh = SubResource( 13 )
 material/0 = SubResource( 15 )
 script = ExtResource( 6 )
-direction = Vector3( 0, 0.1, 0 )
+direction = Vector3( 0.1, 0.1, 0 )

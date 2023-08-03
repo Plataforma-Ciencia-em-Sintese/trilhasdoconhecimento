@@ -19,7 +19,6 @@ func _physics_process(_delta):
 
 func start_fight():
 	var dist = owner.global_transform.origin.distance_to(actualEnemy.global_transform.origin)
-	print(dist)
 	if releasePointer:
 		pointer.global_transform.origin = actualEnemy.global_transform.origin
 		pointer.hide()

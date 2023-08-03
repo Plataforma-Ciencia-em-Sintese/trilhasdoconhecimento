@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Enemies/Normals/Resource Enemy/Normal_Enemy_Attributes.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+atkValue = 5.0
+haveCooldown = false
+cooldown = 3.0
+speed = 3.0
+life = 30.0
+showPatrolArea = true
+areaRadius = 7.0
+timeToPursuitPlayer = 5.0
