@@ -8,7 +8,6 @@ export var distanceToStop = 2
 var stop = false
 var backToPatrol = false
 var progressiveDamageToPlayer = false
-var player
 var clone
 var myRepairObj
 #var explosion = load("res://Effects/Toon Explosion/Explosion.tscn")
@@ -19,7 +18,6 @@ var vel
 var distanceToPlayer
 
 func _ready():
-	player = get_tree().get_nodes_in_group("Player")[0]
 	if owner.enemyType == "Laser":
 		owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
 
@@ -28,15 +26,15 @@ func _physics_process(_delta):
 		start_battle()
 	
 	if progressiveDamageToPlayer:
-		player.get_node("Status").set_life(-2 * _delta)
+		owner.player.get_node("Status").set_life(-2 * _delta)
 
 func start_battle():
 	if !backToPatrol:
 		if clone == null:
-			distanceToPlayer = owner.get_node("Enemy").global_transform.origin.distance_to(player.global_transform.origin) - 0.1
-			dir = player.global_transform.origin - owner.get_node("Enemy").global_transform.origin
+			distanceToPlayer = owner.get_node("Enemy").global_transform.origin.distance_to(owner.player.global_transform.origin) - 0.1
+			dir = owner.player.global_transform.origin - owner.get_node("Enemy").global_transform.origin
 			vel = dir * speed
-			owner.get_node("Enemy").look_at(player.transform.origin,Vector3.UP)
+			owner.get_node("Enemy").look_at(owner.player.transform.origin,Vector3.UP)
 		else:
 			distanceToPlayer = owner.get_node("Enemy").global_transform.origin.distance_to(clone.global_transform.origin) - 0.5
 			dir = clone.global_transform.origin - owner.get_node("Enemy").global_transform.origin
@@ -82,8 +80,8 @@ func check_life():
 				myRepairObj = getRepair[i]
 				break
 	if owner.get_node("Viewport/BarLife").value <= 0:
-		player.get_node("States/Battling").actualEnemy = null
-		player.get_node("States/Battling").end_fight()
+		owner.player.get_node("States/Battling").actualEnemy = null
+		owner.player.get_node("States/Battling").end_fight()
 #		var spawnExplosion = explosion.instance()
 #		owner.owner.add_child(spawnExplosion)
 #		spawnExplosion.global_transform.origin = Vector3(owner.get_node("Enemy").global_transform.origin.x,spawnExplosion.global_transform.origin.y,owner.get_node("Enemy").global_transform.origin.z)
@@ -92,10 +90,10 @@ func check_life():
 		owner.queue_free()
 
 func _on_Damage_Area_area_entered(area):
-	if area.is_in_group("Melee"):
-		if player.selectedGun == player.mainGun:
+	if area.is_in_group("Attack_Player"):
+		if owner.player.selectedGun == owner.player.mainGun:
 			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
-		elif player.selectedGun == player.secGun:
+		elif owner.player.selectedGun == owner.player.secGun:
 			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
 		
 		owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
@@ -111,58 +109,6 @@ func _on_Damage_Area_area_entered(area):
 		owner.get_node("Enemy/Looking_Zone/Zone").get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 		check_life()
 		
-	if area.is_in_group("Bullet"):
-		if player.selectedGun == player.mainGun:
-			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
-		elif player.selectedGun == player.secGun:
-			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
-		
-		owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
-		var spawnHit = hit.instance()
-		owner.owner.add_child(spawnHit)
-		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
-		
-		if owner.enemyType != "Reparador":
-			owner.get_node("Wait_to_Back").stop()
-			owner.get_node("States/Battling").backToPatrol = false
-			owner.get_node("States/Battling").show()
-			owner.get_node("States/Patrol").hide()
-		owner.get_node("Enemy/Looking_Zone/Zone").get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
-		area.queue_free()
-		check_life()
-		
-#	if area.is_in_group("Sword"):
-#		owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
-#		var spawnHit = hit.instance()
-#		owner.owner.add_child(spawnHit)
-#		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
-#		check_life()
-#
-#	if area.is_in_group("Hammer"):
-#		owner.get_node("Viewport/BarLife").value -= damageHammer
-#		owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
-#		var spawnHit = bigHit.instance()
-#		owner.owner.add_child(spawnHit)
-#		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
-#		check_life()
-#
-#	if area.is_in_group("EnergyBall"):
-#		owner.get_node("Viewport/BarLife").value -= damageEnergyBall
-#		owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("AnimationPlayerHit").play("Hit")
-#
-#		var spawnHit = bigHit.instance()
-#		owner.owner.add_child(spawnHit)
-#		spawnHit.global_transform = owner.get_node("Enemy/Root_Enemies").get_child(0).get_node("Melee_Hit").global_transform
-#
-#		if owner.enemyType != "Reparador":
-#			owner.get_node("Wait_to_Back").stop()
-#			owner.get_node("States/Battling").backToPatrol = false
-#			owner.get_node("States/Battling").show()
-#			owner.get_node("States/Patrol").hide()
-#			owner.get_node("Enemy/Looking_Zone/Zone").get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
-#			area.queue_free()
-#			check_life()
-
 func set_collisor_status(path,status):
 	owner.get_node(path).set_deferred("disabled",status)
 
@@ -177,8 +123,8 @@ func _on_Area_Laser_area_exited(area):
 		
 func _on_Attack_Area_Parafuso_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		player.get_node("Status").set_life(-3)
+		owner.player.get_node("Status").set_life(-3)
 		
 func _on_Attack_Area_Destruidor_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		player.get_node("Status").set_life(-8)
+		owner.player.get_node("Status").set_life(-8)

@@ -4042,7 +4042,6 @@ disabled = true
 [node name="States" type="Spatial" parent="."]
 
 [node name="Idle" type="Spatial" parent="States"]
-visible = false
 script = ExtResource( 1 )
 
 [node name="Attack" type="Spatial" parent="States"]

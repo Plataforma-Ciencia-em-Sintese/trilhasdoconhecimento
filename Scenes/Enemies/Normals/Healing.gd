@@ -34,10 +34,7 @@ func start_battle():
 
 		var target_global_pos = ally.global_transform.origin
 		var self_global_pos = owner.get_node("Enemy").global_transform.origin
-
-		var y_distance = target_global_pos.y - self_global_pos.y
 		var look_at_position = Vector3(target_global_pos.x, self_global_pos.y, target_global_pos.z)
-
 		owner.get_node("Enemy").look_at(look_at_position, Vector3.UP)
 		
 		if distanceToAlly <= distanceToStop:

@@ -5,7 +5,7 @@
 [sub_resource type="SphereShape" id=1]
 radius = 0.682471
 
-[node name="Arrow_Drill" type="Area" groups=["Bullet"]]
+[node name="Arrow_Drill" type="Area" groups=["Attack_Player"]]
 script = ExtResource( 2 )
 speed = 20
 

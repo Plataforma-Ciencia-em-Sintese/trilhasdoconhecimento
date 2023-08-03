@@ -3,7 +3,6 @@ extends Spatial
 var SPEED = 100.0
 var path = []
 var map
-onready var player = get_tree().get_nodes_in_group("Player")[0]
 var pursuit = false
 
 func _ready():
@@ -20,7 +19,7 @@ func _physics_process(delta):
 			var dest = path[0]
 			dir = dest - owner.global_transform.origin
 		else:
-			dir = player.global_transform.origin
+			dir = owner.player.global_transform.origin
 		
 		if step_size > dir.length():
 			step_size = dir.length()
@@ -28,13 +27,14 @@ func _physics_process(delta):
 		
 		owner.move_and_slide(dir.normalized() * step_size)
 	#-----------------------------
-		var target_global_pos = player.global_transform.origin
+		var target_global_pos = owner.player.global_transform.origin
 		var self_global_pos = owner.global_transform.origin
-
-		var y_distance = target_global_pos.y - self_global_pos.y
 		var look_at_position = Vector3(target_global_pos.x, self_global_pos.y, target_global_pos.z)
-
 		owner.look_at(look_at_position, Vector3.UP)
+
+#		var look = owner.global_transform.looking_at(player.global_transform.origin,Vector3.UP)
+#		var rot = look.basis
+#		owner.global_transform.basis.slerp(rot,0.001)
 	else:
 		pursuit = false
 
@@ -55,6 +55,6 @@ func setup_navserver():
 
 func _on_NavTimer_timeout():
 	if pursuit:
-		var targetPoint = NavigationServer.map_get_closest_point_to_segment(map,owner.global_transform.origin,player.global_transform.origin)
+		var targetPoint = NavigationServer.map_get_closest_point_to_segment(map,owner.global_transform.origin,owner.player.global_transform.origin)
 		path = NavigationServer.map_get_path(map,owner.global_transform.origin,targetPoint,true)
 		
