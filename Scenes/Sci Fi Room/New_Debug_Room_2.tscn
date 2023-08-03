@@ -6152,7 +6152,6 @@ transform = Transform( 1, 0, 0, 0, 0.913163, 0, 0, 0, 1, -4.39795, 2.21696, -9.8
 
 [node name="Video_Monitor2" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 0.393932, 0.902164, 0, -0.823823, 0.431393, 3.35957, 2.21696, -11.1347 )
-speed = 0.0
 
 [editable path="NPC_Root/Path_Quest_NPC_1/Path_NPC"]
 [editable path="NPC_Root/Path_Quest_NPC_2/Path_NPC"]

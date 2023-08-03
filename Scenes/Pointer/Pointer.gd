@@ -8,12 +8,14 @@ var rayEnd: Vector3
 var insideAHider: bool = false
 var isStopped: bool = false
 var outInterface: bool = true
-onready var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
+export var getCineCam: bool = false
 
 func _ready():
 	# Identifica quem é a camera do cenario
 	camera = get_node(camera)
-	cineCamera.connect("camera_activated",self,"cinematic_mode")
+	if getCineCam:
+		var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
+		cineCamera.connect("camera_activated",self,"cinematic_mode")
 
 func _physics_process(_delta):
 	# Rotaciona o objeto Arrow
