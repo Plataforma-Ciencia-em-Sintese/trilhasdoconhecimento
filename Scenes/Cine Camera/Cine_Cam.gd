@@ -5,15 +5,14 @@ export (Dictionary) var infos
 var targetToLook
 var posToLook
 var actualPos = 0
-var firstMeet = true
 onready var descriptionTxt = $CanvasLayer/BG_Text/Desc
-onready var player = get_tree().get_nodes_in_group("Player")[0]
-onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
+onready var cameraMain = get_tree().get_nodes_in_group("Camera")[0]
+signal camera_activated(status)
 
 func _ready():
-	player.hide_show_nodes("hide")
-	pointer.isStopped = true
-	
+	emit_signal("camera_activated","started")
+	cameraMain.current = false
+	current = true
 	targetToLook = get_node(infos[actualPos][0])
 	posToLook = get_node(infos[actualPos][1])
 	descriptionTxt.text = infos[actualPos][5]
@@ -45,6 +44,10 @@ func _on_Timer_timeout():
 			posToLook = get_node(infos[actualPos][1])
 		if infos[actualPos][5] != "":
 			descriptionTxt.text = infos[actualPos][5]
+	else:
+		emit_signal("camera_activated","ended")
+		cameraMain.current = true
+		queue_free()
 			
 func _on_BTN_Continue_pressed():
 	if actualPos < infos.size()-1:
@@ -55,3 +58,7 @@ func _on_BTN_Continue_pressed():
 			posToLook = get_node(infos[actualPos][1])
 		if infos[actualPos][5] != "":
 			descriptionTxt.text = infos[actualPos][5]
+	else:
+		emit_signal("camera_activated","ended")
+		cameraMain.current = true
+		queue_free()

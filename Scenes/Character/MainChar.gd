@@ -7,6 +7,7 @@ export var secGun = "Espada"
 export (Array,NodePath) var nodesToHide
 var selectedGun = "Espada"
 onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
+onready var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
 
 var suits = {
 	"Ariel": ["res://3D/Character Oficial/Ariel/Ariel Normal.tres","res://3D/Character Oficial/Ariel/Ariel Armadura.tres"],
@@ -46,6 +47,8 @@ func _ready():
 	#Precisa chamar de novo porque caso se um valor menor seja chamado pras barras, o max value nao enche a barra se ela encolher e depois aumentou
 	$Status/Life_Bar.value = $Status/Life_Bar.max_value
 	$Status/Energy_Bar.value = $Status/Energy_Bar.max_value
+	
+	cineCamera.connect("camera_activated",self,"cinematic_mode")
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
@@ -465,9 +468,10 @@ func change_only_bar_value(bar):
 func calculate_status(baseValue,numerator,denominator):
 	return (baseValue/denominator) * numerator
 
-func hide_show_nodes(status):
-	for i in nodesToHide.size():
-		if status == "hide":
+func cinematic_mode(status):
+	if status == "started":
+		for i in nodesToHide.size():
 			get_node(nodesToHide[i]).hide()
-		else:
+	else:
+		for i in nodesToHide.size():
 			get_node(nodesToHide[i]).show()

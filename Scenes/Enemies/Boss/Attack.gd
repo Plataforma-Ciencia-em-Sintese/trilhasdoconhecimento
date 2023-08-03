@@ -8,7 +8,6 @@ var longRange = false
 var progressiveDamageToPlayer = false
 var awake = true
 var dist
-onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	owner.get_node("BOSS_01/Skeleton/Hand_Pin/Laser_Area/Laser").hide()
@@ -20,9 +19,9 @@ func _physics_process(_delta):
 			look_to_player()
 		
 		if progressiveDamageToPlayer:
-			player.get_node("Status").set_life(-5 * _delta)
+			owner.player.get_node("Status").set_life(-5 * _delta)
 		
-		dist = owner.global_transform.origin.distance_to(player.global_transform.origin)
+		dist = owner.global_transform.origin.distance_to(owner.player.global_transform.origin)
 		if dist < 4:
 			if !isAttacking:
 				owner.get_node("AnimationPlayer").play("ATKNormal_Boss01")
@@ -39,12 +38,9 @@ func _physics_process(_delta):
 		awake = false
 		
 func look_to_player():
-	var target_global_pos = player.global_transform.origin
+	var target_global_pos = owner.player.global_transform.origin
 	var self_global_pos = owner.global_transform.origin
-
-	var y_distance = target_global_pos.y - self_global_pos.y
 	var look_at_position = Vector3(target_global_pos.x, self_global_pos.y, target_global_pos.z)
-
 	owner.look_at(look_at_position, Vector3.UP)
 
 func activate_move(status):
@@ -72,11 +68,11 @@ func set_collider_status(path,status):
 	
 func _on_Hand_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		player.get_node("Status").set_life(-20)
+		owner.player.get_node("Status").set_life(-20)
 		
 func _on_Leg_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		player.get_node("Status").set_life(-20)
+		owner.player.get_node("Status").set_life(-20)
 		
 func _on_Laser_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
@@ -87,14 +83,13 @@ func _on_Laser_Area_area_exited(area):
 		progressiveDamageToPlayer = false
 
 func _on_Damage_Area_area_entered(area):
-	if area.is_in_group("Melee"):
-		if player.selectedGun == player.mainGun:
+	if area.is_in_group("Attack_Player"):
+		if owner.player.selectedGun == owner.player.mainGun:
 			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
-		elif player.selectedGun == player.secGun:
+		elif owner.player.selectedGun == owner.player.secGun:
 			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
-	
-	if area.is_in_group("Bullet"):
-		if player.selectedGun == player.mainGun:
-			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
-		elif player.selectedGun == player.secGun:
-			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
+		
+		if owner.get_node("Viewport/BarLife").value <= 0:
+			owner.player.get_node("States/Battling").actualEnemy = null
+			owner.player.get_node("States/Battling").end_fight()
+			owner.queue_free()

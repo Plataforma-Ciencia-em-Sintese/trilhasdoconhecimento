@@ -2,20 +2,16 @@ extends Spatial
 
 export (String,"Projectile","Melee") var attackType
 var limitToAttackMelee = 1.5
-var animator
 var goFight = false
 var releasePointer = true
 var actualEnemy
 var scriptEnemy
-var pointer
 var energyBall = load("res://Scenes/Attacks/Projectiles/Energy_Ball.tscn")
 var arrowDrill = load("res://Scenes/Attacks/Projectiles/Arrow_Drill.tscn")
 var impactBoom = load("res://Scenes/Attacks/Projectiles/ImpactBoom.tscn")
 onready var player = get_tree().get_nodes_in_group("Player")[0]
-
-func _ready():
-	animator = owner.get_node("AnimationTree")
-	pointer = get_tree().get_nodes_in_group("Pointer")[0]
+onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
+onready var animator = owner.get_node("AnimationTree")
 
 func _physics_process(_delta):
 	if goFight:

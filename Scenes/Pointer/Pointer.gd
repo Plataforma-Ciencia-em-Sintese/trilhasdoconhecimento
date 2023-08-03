@@ -8,11 +8,12 @@ var rayEnd: Vector3
 var insideAHider: bool = false
 var isStopped: bool = false
 var outInterface: bool = true
+onready var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
 
 func _ready():
 	# Identifica quem é a camera do cenario
 	camera = get_node(camera)
-#	change_position()
+	cineCamera.connect("camera_activated",self,"cinematic_mode")
 
 func _physics_process(_delta):
 	# Rotaciona o objeto Arrow
@@ -54,3 +55,9 @@ func _on_Pointer_body_exited(body):
 
 func change_position():
 	global_transform.origin = get_tree().get_nodes_in_group("Player")[0].global_transform.origin
+
+func cinematic_mode(status):
+	if status == "started":
+		isStopped = true
+	else:
+		isStopped = false
