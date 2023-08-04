@@ -124,10 +124,10 @@ config/icon="res://icon.png"
 
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
-GlobalValues="*res://Global_Values.gd"
+GlobalValues="*res://Management/Global_Values.gd"
 Fmod="*res://addons/fmod/Fmod.tscn"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
-SaveFile="*res://management/save_file.gd"
+SaveFile="*res://Management/save_file.gd"
 
 [display]
 

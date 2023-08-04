@@ -1,8 +1,8 @@
 extends Spatial
 
 export (String,"Projectile","Melee") var attackType
-var limitToAttackMelee = 1.5
-var limitToAttackBullet = 5
+export var limitToAttackMelee = 1.5
+export var limitToAttackBullet = 5
 var goFight = false
 var releasePointer = true
 var actualEnemy

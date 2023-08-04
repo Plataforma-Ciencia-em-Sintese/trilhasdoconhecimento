@@ -4,9 +4,9 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Backgrond_Tablet.png" type="Texture" id=3]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Contatos.png" type="Texture" id=6]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Config.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Trilhas.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.tscn" type="PackedScene" id=10]
@@ -26,13 +26,14 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/Info_tablet_BG.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/Vida_tablet.png" type="Texture" id=26]
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres" type="DynamicFont" id=27]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=28]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=28]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/Cartao_visitante.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/xpTablet_empty.png" type="Texture" id=30]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/BG_xpTablet.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/xpTablet_full.png" type="Texture" id=32]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_LabPass.png" type="Texture" id=33]
 [ext_resource path="res://Scenes/HUDs/Options/Options.tscn" type="PackedScene" id=34]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 24

@@ -7913,6 +7913,7 @@ script = ExtResource( 5 )
 visible = false
 script = ExtResource( 8 )
 attackType = "Melee"
+limitToAttackMelee = 2.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.6, 0 )
@@ -8289,7 +8290,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 8.79169e-07, -0.0119897, -0.999928, -0.00578338, -0.999912, 0.0119895, -0.999981, 0.00578341, -6.83367e-05, -0.293115, 0.593741, 0.0415015 )
+transform = Transform( 1.63913e-07, -0.0119911, -0.999929, -0.0149186, -0.999817, 0.0119899, -0.999887, 0.014918, -0.000176996, -0.293115, 0.59374, 0.042453 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8360,7 +8361,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 8.79169e-07, 0.0119896, 0.999928, 0.00578406, -0.999912, 0.0119894, 0.999981, 0.00578407, -6.82324e-05, 0.293115, 0.593741, 0.0415015 )
+transform = Transform( -1.49012e-08, 0.0119911, 0.999928, 0.0149187, -0.999817, 0.0119898, 0.999887, 0.0149182, -0.000176817, 0.293115, 0.59374, 0.0424531 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]

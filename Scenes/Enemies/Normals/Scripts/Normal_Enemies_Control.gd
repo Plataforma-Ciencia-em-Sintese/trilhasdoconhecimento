@@ -1,9 +1,10 @@
 extends PathFollow
 
 export (String, "Furadeiro", "Laser", "Destruidor", "Reparador") var enemyType
+
 var enemyResource
-onready var player = get_tree().get_nodes_in_group("Player")[0]
 var clicked = false
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	get_enemy(enemyType)
@@ -14,13 +15,40 @@ func _ready():
 	$States/Battling.speed = enemyResource.speed
 	$States/Healing.speed = enemyResource.speed
 	$States/Move.speed = enemyResource.speed
-	$Enemy/Looking_Zone/CollisionShape.shape.radius = enemyResource.areaRadius
-	$Enemy/Looking_Zone/Zone.scale = Vector3(enemyResource.areaRadius,0,enemyResource.areaRadius)
+	$States/Battling.distanceToStop = enemyResource.distanceToStop
 	
-	if enemyResource.showPatrolArea:
-		$Enemy/Looking_Zone/Zone.show()
-	else:
-		$Enemy/Looking_Zone/Zone.hide()
+	$Enemy/Looking_Zone/CollisionShape.shape.radius = enemyResource.lookingArea
+	$Enemy/Looking_Zone/Zone.scale = Vector3(enemyResource.lookingArea,0,enemyResource.lookingArea)
+	
+	if enemyType == "Furadeiro":
+		$Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape.shape.radius = enemyResource.hitboxSize
+		$Enemy/Hitbox.scale = Vector3(enemyResource.hitboxSize,enemyResource.hitboxSize,enemyResource.hitboxSize)
+	elif enemyType == "Laser":
+		$Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape.shape.height = enemyResource.hitboxSize
+		$Enemy/Laser_Hitbox.scale = Vector3($Enemy/Laser_Hitbox.scale.x,enemyResource.hitboxSize,$Enemy/Laser_Hitbox.scale.z)
+	elif enemyType == "Destruidor":
+		$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/CollisionShape.shape.radius = enemyResource.hitboxSize
+		$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/Hitbox.scale = Vector3(enemyResource.hitboxSize,enemyResource.hitboxSize,enemyResource.hitboxSize)
+		if enemyResource.showHitbox:
+			$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/Hitbox.show()
+		else:
+			$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/Hitbox.hide()
+		
+#	if enemyResource.showPatrolArea:
+#		$Enemy/Looking_Zone/Zone.show()
+#	else:
+#		$Enemy/Looking_Zone/Zone.hide()
+#
+#	if enemyResource.showHitbox:
+#		if enemyType != "Laser":
+#			$Enemy/Hitbox.show()
+#			$Enemy/Laser_Hitbox.hide()
+#		else:
+#			$Enemy/Hitbox.hide()
+#			$Enemy/Laser_Hitbox.show()
+#	else:
+#		$Enemy/Hitbox.hide()
+#		$Enemy/Laser_Hitbox.hide()
 	
 	$States/Patrol.show()
 	$States/Move.hide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Normals/Scripts/Patrol.gd" type="Script" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=2]
@@ -30,6 +30,13 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="CylinderMesh" id=60]
+
+[sub_resource type="SpatialMaterial" id=59]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.470588, 0.0392157, 0.0392157, 0.486275 )
 
 [sub_resource type="CapsuleShape" id=19]
 radius = 0.758224
@@ -264,7 +271,7 @@ bind/6/pose = Transform( -0.999993, 0.00169491, -0.00333523, -0.00169492, -0.999
 [sub_resource type="CylinderMesh" id=47]
 
 [sub_resource type="CylinderShape" id=48]
-height = 1.79678
+height = 1.83845
 radius = 2.21737
 
 [sub_resource type="Animation" id=49]
@@ -1706,6 +1713,13 @@ percent_visible = false
 [node name="Enemy" type="KinematicBody" parent="."]
 input_ray_pickable = false
 
+[node name="Laser_Hitbox" type="MeshInstance" parent="Enemy"]
+transform = Transform( 0.115373, 0, 0, 0, -0.942752, 0.122802, 0, -2.70615, -0.042781, 0, 0.76466, -3.28662 )
+visible = false
+mesh = SubResource( 60 )
+skeleton = NodePath("../Damage_Area")
+material/0 = SubResource( 59 )
+
 [node name="Damage_Area" type="Area" parent="Enemy"]
 input_ray_pickable = false
 
@@ -1952,6 +1966,13 @@ transform = Transform( 1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -5.83949e
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06859, 0 )
 shape = SubResource( 51 )
 disabled = true
+
+[node name="Hitbox" type="MeshInstance" parent="Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor"]
+transform = Transform( -3.45737, 0, 3.40679e-07, 0, 1.01743, 0, -3.02252e-07, 0, -3.89692, 1.18877e-14, 0.596766, -1.3598e-07 )
+visible = false
+mesh = SubResource( 60 )
+skeleton = NodePath("../../../../Damage_Area")
+material/0 = SubResource( 59 )
 
 [node name="Reparador" type="Spatial" parent="Enemy/Root_Enemies"]
 transform = Transform( -0.36297, 0, -3.17318e-08, 0, 0.36297, 0, 3.17318e-08, 0, -0.36297, 0, 0.224241, 0 )
