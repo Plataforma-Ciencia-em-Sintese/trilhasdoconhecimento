@@ -16,7 +16,6 @@ var vel
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
-	owner = owner
 
 func _physics_process(_delta):
 	if is_visible_in_tree():

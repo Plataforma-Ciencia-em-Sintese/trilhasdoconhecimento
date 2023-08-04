@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=2]
@@ -78,7 +78,7 @@ animation = "Attack02"
 [sub_resource type="AnimationNodeBlend3" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=12]
-graph_offset = Vector2( -1346.91, -77.3255 )
+graph_offset = Vector2( -286, 0 )
 nodes/All_Attacks/node = SubResource( 73 )
 nodes/All_Attacks/position = Vector2( -820, 180 )
 nodes/Bow/node = SubResource( 74 )
@@ -105,7 +105,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -7844,6 +7844,8 @@ surfaces/0 = {
 "vertex_count": 239
 }
 
+[sub_resource type="CapsuleMesh" id=80]
+
 [sub_resource type="ArrayMesh" id=69]
 resource_name = "Martelo_Clara_Cube014"
 surfaces/0 = {
@@ -8004,7 +8006,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
+bones/9/bound_children = [  ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8109,7 +8111,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
+bones/30/bound_children = [  ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -8287,7 +8289,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000118017, -0.0118832, -0.99993, -0.0917495, -0.995712, 0.011844, -0.99578, 0.0917448, -0.000970855, -0.293094, 0.593036, 0.0504543 )
+transform = Transform( 8.79169e-07, -0.0119897, -0.999928, -0.00578338, -0.999912, 0.0119895, -0.999981, 0.00578341, -6.83367e-05, -0.293115, 0.593741, 0.0415015 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8295,7 +8297,7 @@ transform = Transform( 1.04918, -0.0849311, 2.56114e-09, 0.0849309, 1.04918, 7.2
 visible = false
 mesh = SubResource( 66 )
 
-[node name="Area_Sword" type="Area" parent="Base/Skeleton/BoneAttachmentR/Sword" groups=["Attack_Player"]]
+[node name="Area_Sword" type="Area" parent="Base/Skeleton/BoneAttachmentR/Sword" groups=["Melee"]]
 transform = Transform( -0.000877981, 0.00170361, 0.334282, 0.0187181, 0.0208474, -0.00815928, -0.0208402, 0.0186529, -0.0214116, -0.378943, 0.0120301, -0.00288972 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Base/Skeleton/BoneAttachmentR/Sword/Area_Sword"]
@@ -8332,7 +8334,15 @@ visible = false
 mesh = SubResource( 68 )
 
 [node name="Spawner" type="Position3D" parent="Base/Skeleton/BoneAttachmentR/Bow"]
-transform = Transform( 0.99817, 2.31532e-08, 0.0604737, -2.23517e-08, 1, -1.393e-08, -0.0604737, 1.25528e-08, 0.99817, 0.220296, -3.72529e-09, 0 )
+transform = Transform( -0.0827039, -9.31323e-10, 0.996575, 3.72529e-09, 1, -1.86265e-09, -0.996574, 3.72529e-09, -0.082704, 0.220296, 2.98023e-08, -5.96046e-08 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR/Bow/Spawner"]
+transform = Transform( 0.0151288, -1.60071e-10, 1.86265e-09, 2.18279e-10, 0.0151288, 1.62981e-09, 0, -4.07454e-10, 0.064316, -2.98023e-08, 0, 0 )
+mesh = SubResource( 80 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR/Bow/Spawner"]
+transform = Transform( -0.000531681, -2.47383e-10, 0.0642763, -4.36557e-10, 0.0151288, -1.16415e-10, -0.0151194, -4.07454e-10, -0.0022603, -2.98023e-08, 0, 0 )
+mesh = SubResource( 80 )
 
 [node name="Hammer" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
 transform = Transform( 0.268579, -0.00772736, -1.01732, 1.01428, -0.0796253, 0.268382, -0.0789567, -1.04916, -0.0128758, -0.207533, 0.0827174, -0.0444711 )
@@ -8350,7 +8360,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000117958, 0.0118834, 0.99993, 0.0917495, -0.995712, 0.0118442, 0.99578, 0.0917448, -0.00097093, 0.293094, 0.593036, 0.0504543 )
+transform = Transform( 8.79169e-07, 0.0119896, 0.999928, 0.00578406, -0.999912, 0.0119894, 0.999981, 0.00578407, -6.82324e-05, 0.293115, 0.593741, 0.0415015 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8544,59 +8554,6 @@ alignment = 1
 margin_right = 69.0
 margin_bottom = 157.0
 
-[node name="ATK2" type="Button" parent="Battle_UI/Weapon_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 11 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK2"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK3" type="Button" parent="Battle_UI/Weapon_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 13 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK3"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK4" type="Button" parent="Battle_UI/Weapon_Container"]
-visible = false
-margin_left = 208.0
-margin_right = 288.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 12 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Container/ATK4"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
 [node name="Weapon_Sec_Container" type="VBoxContainer" parent="Battle_UI"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -8614,59 +8571,6 @@ alignment = 1
 [node name="ATK" parent="Battle_UI/Weapon_Sec_Container" instance=ExtResource( 14 )]
 margin_right = 69.0
 margin_bottom = 157.0
-
-[node name="ATK2" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 11 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK2"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK3" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
-visible = false
-margin_left = 158.0
-margin_right = 238.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 13 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-followPlayer = true
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK3"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
-
-[node name="ATK4" type="Button" parent="Battle_UI/Weapon_Sec_Container"]
-visible = false
-margin_left = 208.0
-margin_right = 288.0
-margin_bottom = 103.0
-rect_min_size = Vector2( 80, 95 )
-icon = ExtResource( 12 )
-flat = true
-expand_icon = true
-script = ExtResource( 15 )
-
-[node name="CoolDown" type="ProgressBar" parent="Battle_UI/Weapon_Sec_Container/ATK4"]
-margin_right = 80.0
-margin_bottom = 14.0
-value = 100.0
-percent_visible = false
 
 [node name="Consumable_Container" type="HBoxContainer" parent="Battle_UI"]
 self_modulate = Color( 1, 1, 1, 0.156863 )
@@ -8756,24 +8660,6 @@ shape = SubResource( 43 )
 [connection signal="timeout" from="NavTimer" to="States/Move" method="_on_NavTimer_timeout"]
 [connection signal="pressed" from="MiniMap_UI/Show_MiniMap" to="MiniMap_UI" method="_on_Show_MiniMap_pressed"]
 [connection signal="pressed" from="MiniMap_UI/Hide_MiniMap" to="MiniMap_UI" method="_on_Hide_MiniMap_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK2" to="Battle_UI/Weapon_Container/ATK2" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK3" to="Battle_UI/Weapon_Container/ATK3" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Container/ATK4" to="Battle_UI/Weapon_Container/ATK4" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK2" to="Battle_UI/Weapon_Sec_Container/ATK2" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK3" to="Battle_UI/Weapon_Sec_Container/ATK3" method="_on_ATK_pressed"]
-[connection signal="mouse_entered" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_mouse_entered"]
-[connection signal="mouse_exited" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_mouse_exited"]
-[connection signal="pressed" from="Battle_UI/Weapon_Sec_Container/ATK4" to="Battle_UI/Weapon_Sec_Container/ATK4" method="_on_ATK_pressed"]
 [connection signal="mouse_entered" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_mouse_entered"]
 [connection signal="mouse_exited" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_mouse_exited"]
 [connection signal="pressed" from="Battle_UI/Consumable_Container/ATK2" to="Battle_UI/Consumable_Container/ATK2" method="_on_ATK_pressed"]

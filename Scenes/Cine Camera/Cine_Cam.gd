@@ -2,6 +2,7 @@ extends Camera
 
 export (String, "Automatic","Trigger") var camMovement
 export (Dictionary) var infos
+export (bool) var deactivated = false
 var targetToLook
 var posToLook
 var actualPos = 0
@@ -10,21 +11,28 @@ onready var cameraMain = get_tree().get_nodes_in_group("Camera")[0]
 signal camera_activated(status)
 
 func _ready():
-	emit_signal("camera_activated","started")
-	cameraMain.current = false
-	current = true
-	targetToLook = get_node(infos[actualPos][0])
-	posToLook = get_node(infos[actualPos][1])
-	descriptionTxt.text = infos[actualPos][5]
-
-	if camMovement == "Automatic":
-		$Timer.start(infos[actualPos][2])
-		$CanvasLayer/BG_Text/BTN_Continue.hide()
+	if !deactivated:
+		emit_signal("camera_activated","started")
+		$CanvasLayer.show()
+		cameraMain.current = false
+		current = true
+		targetToLook = get_node(infos[actualPos][0])
+		posToLook = get_node(infos[actualPos][1])
+		descriptionTxt.text = infos[actualPos][5]
+		
+		if camMovement == "Automatic":
+			$Timer.start(infos[actualPos][2])
+			$CanvasLayer/BG_Text/BTN_Continue.hide()
+		else:
+			$CanvasLayer/BG_Text/BTN_Continue.show()
 	else:
-		$CanvasLayer/BG_Text/BTN_Continue.show()
+		$CanvasLayer.hide()
+		cameraMain.current = true
+		current = false
 
 func _physics_process(delta):
-	cine_camera(targetToLook,posToLook)
+	if !deactivated:
+		cine_camera(targetToLook,posToLook)
 
 func cine_camera(target,pos):
 #	rotation.y = lerp_angle(rotation.y,atan2(-target.global_transform.origin.x,-target.global_transform.origin.z),0.01)

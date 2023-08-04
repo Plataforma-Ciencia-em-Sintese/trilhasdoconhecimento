@@ -18,19 +18,24 @@ func _physics_process(delta):
 		if path.size() > 0:
 			var dest = path[0]
 			dir = dest - owner.global_transform.origin
+			
+			if step_size > dir.length():
+				step_size = dir.length()
+				path.remove(0)
 		else:
 			dir = owner.player.global_transform.origin
 		
-		if step_size > dir.length():
-			step_size = dir.length()
-			path.remove(0)
-		
 		owner.move_and_slide(dir.normalized() * step_size)
+		
+		if path.size() > 0:
+			var look = owner.global_transform.looking_at(path[0],Vector3.UP)
+			var rot = look.basis
+			owner.global_transform.basis = owner.global_transform.basis.slerp(rot,0.1)
 	#-----------------------------
-		var target_global_pos = owner.player.global_transform.origin
-		var self_global_pos = owner.global_transform.origin
-		var look_at_position = Vector3(target_global_pos.x, self_global_pos.y, target_global_pos.z)
-		owner.look_at(look_at_position, Vector3.UP)
+#		var target_global_pos = owner.player.global_transform.origin
+#		var self_global_pos = owner.global_transform.origin
+#		var look_at_position = Vector3(target_global_pos.x, self_global_pos.y, target_global_pos.z)
+#		owner.look_at(look_at_position, Vector3.UP)
 
 #		var look = owner.global_transform.looking_at(player.global_transform.origin,Vector3.UP)
 #		var rot = look.basis

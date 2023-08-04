@@ -9,15 +9,23 @@ func _ready():
 	get_enemy(enemyType)
 	enemyResource = load("res://Scenes/Enemies/Normals/Resource Enemy/" + enemyType + ".tres")
 	$Viewport/BarLife.max_value = enemyResource.life
+	$Viewport/BarLife.value = enemyResource.life
 	$States/Patrol.speed = enemyResource.speed
 	$States/Battling.speed = enemyResource.speed
 	$States/Healing.speed = enemyResource.speed
+	$States/Move.speed = enemyResource.speed
 	$Enemy/Looking_Zone/CollisionShape.shape.radius = enemyResource.areaRadius
 	$Enemy/Looking_Zone/Zone.scale = Vector3(enemyResource.areaRadius,0,enemyResource.areaRadius)
+	
 	if enemyResource.showPatrolArea:
 		$Enemy/Looking_Zone/Zone.show()
 	else:
 		$Enemy/Looking_Zone/Zone.hide()
+	
+	$States/Patrol.show()
+	$States/Move.hide()
+	$States/Battling.hide()
+	$States/Healing.hide()
 		
 func get_enemy(type):
 	for i in $Enemy/Root_Enemies.get_children():
@@ -35,8 +43,7 @@ func _on_Looking_Zone_body_entered(body):
 
 func _on_Looking_Zone_body_exited(body):
 	if body.is_in_group("Player") and $Viewport/BarLife.value > 0:
-		$Wait_to_Back.start(enemyResource.timeToPursuitPlayer)
-		$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color( 0.956863, 0.643137, 0.376471, 0.05)
+		back_to_patrol()
 
 func disable_looking_collision():
 	$Enemy/Looking_Zone/CollisionShape.set_deferred("disabled",true)
@@ -60,3 +67,6 @@ func _on_Wait_to_Back_timeout():
 	$States/Battling.backToPatrol = true
 	$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color(0, 1, 0, 0.01)
 
+func back_to_patrol():
+	$Wait_to_Back.start(enemyResource.timeToPursuitPlayer)
+	$Enemy/Looking_Zone/Zone.get_surface_material(0).albedo_color = Color( 0.956863, 0.643137, 0.376471, 0.05)
