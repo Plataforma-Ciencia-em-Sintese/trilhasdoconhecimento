@@ -6,5 +6,5 @@ viewport_path = NodePath("Monitors/Viewport")
 [resource]
 resource_local_to_scene = true
 flags_transparent = true
-albedo_color = Color( 1, 1, 1, 0.717647 )
+albedo_color = Color( 0.94902, 0.94902, 0.94902, 0.6 )
 albedo_texture = SubResource( 86 )

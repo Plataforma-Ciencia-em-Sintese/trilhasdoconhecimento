@@ -12,7 +12,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Full_Life.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/teste invent.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/Icon_Lifes.png" type="Texture" id=12]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Black.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Black.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_armas_ choice.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/Back_Button.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/back_itens_ choice.png" type="Texture" id=16]
@@ -24,12 +24,13 @@
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BoldItalic.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Icon_voltar.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/UI/Icons/Select_Player/Speed_Icon.png" type="Texture" id=24]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://icon.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/Inventory/BT_Equip_Invent.gd" type="Script" id=27]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=29]
-[ext_resource path="res://Fontes/fonte Poppins/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=30]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=29]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=30]
+
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
