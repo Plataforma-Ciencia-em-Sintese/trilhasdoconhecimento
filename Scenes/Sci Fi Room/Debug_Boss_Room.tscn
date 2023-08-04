@@ -95,5 +95,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318161, 0 )
 curve = SubResource( 6 )
 
 [node name="Path_Enemy" parent="Way1" instance=ExtResource( 7 )]
-transform = Transform( -0.00505871, 0, 0.999982, 0, 1, 0, -0.999987, 0, -0.00505868, -9.77716, 0, -9.37589 )
+transform = Transform( -0.00505871, 0, 0.999981, 0, 1, 0, -0.999987, 0, -0.00505868, -9.77716, 0, -9.37589 )
 enemyType = "Destruidor"
+
+[node name="Way2" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4507, 0.318161, 0 )
+curve = SubResource( 6 )
+
+[node name="Path_Enemy" parent="Way2" instance=ExtResource( 7 )]
+transform = Transform( -0.00505871, 0, 0.999981, 0, 1, 0, -0.999987, 0, -0.00505868, -9.77716, 0, -9.37589 )
+enemyType = "Reparador"

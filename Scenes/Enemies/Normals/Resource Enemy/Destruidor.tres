@@ -12,6 +12,6 @@ life = 30.0
 timeToPursuitPlayer = 5.0
 distanceToStop = 5.0
 showPatrolArea = true
-lookingArea = 3.0
+lookingArea = 5.0
 showHitbox = true
 hitboxSize = 4.0

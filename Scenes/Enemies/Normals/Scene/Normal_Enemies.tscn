@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Normals/Scripts/Patrol.gd" type="Script" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=2]
@@ -30,13 +30,6 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
-
-[sub_resource type="CylinderMesh" id=60]
-
-[sub_resource type="SpatialMaterial" id=59]
-flags_transparent = true
-flags_unshaded = true
-albedo_color = Color( 0.470588, 0.0392157, 0.0392157, 0.486275 )
 
 [sub_resource type="CapsuleShape" id=19]
 radius = 0.758224
@@ -85,6 +78,13 @@ bind/1/pose = Transform( 1, 0, 2.38419e-07, 0, -1, 0, 2.38419e-07, 0, -1, 0, 2.1
 
 [sub_resource type="CylinderShape" id=44]
 radius = 2.78794
+
+[sub_resource type="CylinderMesh" id=60]
+
+[sub_resource type="SpatialMaterial" id=59]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.470588, 0.0392157, 0.0392157, 0.486275 )
 
 [sub_resource type="Animation" id=54]
 resource_name = "Attack"
@@ -268,10 +268,12 @@ bind/6/pose = Transform( -0.999993, 0.00169491, -0.00333523, -0.00169492, -0.999
 
 [sub_resource type="SphereMesh" id=46]
 
+[sub_resource type="CylinderMesh" id=61]
+
 [sub_resource type="CylinderMesh" id=47]
 
 [sub_resource type="CylinderShape" id=48]
-height = 1.83845
+height = 1.83919
 radius = 2.21737
 
 [sub_resource type="Animation" id=49]
@@ -291,7 +293,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0.258878, 0.258878, 0.258878 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Laser:visible")
+tracks/1/path = NodePath("Anchor_Laser/Laser:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -324,13 +326,13 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1.7, 8.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
-"args": [ "Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape", true ],
+"args": [ "Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser/CollisionShape", true ],
 "method": "set_collisor_status"
 }, {
-"args": [ "Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape", false ],
+"args": [ "Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser/CollisionShape", false ],
 "method": "set_collisor_status"
 }, {
-"args": [ "Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape", true ],
+"args": [ "Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser/CollisionShape", true ],
 "method": "set_collisor_status"
 } ]
 }
@@ -458,7 +460,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0.258878, 0.258878, 0.258878 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Laser:visible")
+tracks/1/path = NodePath("Anchor_Laser/Laser:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1713,13 +1715,6 @@ percent_visible = false
 [node name="Enemy" type="KinematicBody" parent="."]
 input_ray_pickable = false
 
-[node name="Laser_Hitbox" type="MeshInstance" parent="Enemy"]
-transform = Transform( 0.115373, 0, 0, 0, -0.942752, 0.122802, 0, -2.70615, -0.042781, 0, 0.76466, -3.28662 )
-visible = false
-mesh = SubResource( 60 )
-skeleton = NodePath("../Damage_Area")
-material/0 = SubResource( 59 )
-
 [node name="Damage_Area" type="Area" parent="Enemy"]
 input_ray_pickable = false
 
@@ -1757,6 +1752,13 @@ skin = SubResource( 53 )
 transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 1.17962, 0 )
 shape = SubResource( 44 )
 disabled = true
+
+[node name="Hitbox" type="MeshInstance" parent="Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso"]
+transform = Transform( -3.21548, 0, 3.16845e-07, 0, 0.94625, 0, -2.81106e-07, 0, -3.62428, 1.1056e-14, 0.850009, -1.26466e-07 )
+visible = false
+mesh = SubResource( 60 )
+skeleton = NodePath("../../../../../Damage_Area")
+material/0 = SubResource( 59 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Root_Enemies/Furadeiro"]
 autoplay = "Attack"
@@ -1826,17 +1828,27 @@ skin = SubResource( 7 )
 transform = Transform( 0.258878, 0, 0, 0, 0.258878, 0, 0, 0, 0.258878, 0, 4.00814, 0.845491 )
 mesh = SubResource( 46 )
 
-[node name="Laser" type="MeshInstance" parent="Enemy/Root_Enemies/Laser"]
-transform = Transform( -0.119468, 9.23736e-07, 5.11718e-09, 6.66825e-10, 2.03863, -0.113217, -1.80098e-08, -6.05211, -0.0381367, -7.34547e-07, 1.99562, 6.63979 )
+[node name="Anchor_Laser" type="Position3D" parent="Enemy/Root_Enemies/Laser"]
+transform = Transform( -0.119468, 9.23736e-07, 5.11718e-09, 6.66826e-10, 2.03863, -0.113217, -1.80098e-08, -6.05211, -0.0381367, 1.02957e-07, 3.84394, 1.15264 )
+
+[node name="Hitbox" type="MeshInstance" parent="Enemy/Root_Enemies/Laser/Anchor_Laser"]
+transform = Transform( 1.97515, 0.000201859, 1.72674e-07, 1.552e-07, -0.899115, -0.000381237, 8.70805e-08, 0.495925, -1.97506, 4.1767e-05, -0.879313, 0.541492 )
+visible = false
+mesh = SubResource( 61 )
+skeleton = NodePath("../../../../Damage_Area")
+material/0 = SubResource( 59 )
+
+[node name="Laser" type="MeshInstance" parent="Enemy/Root_Enemies/Laser/Anchor_Laser"]
+transform = Transform( 1, 9.09495e-13, 5.32907e-15, -1.11022e-16, 1, -4.65661e-10, 3.55271e-15, 0, 1, -1.20508e-11, -0.963425, -1.90735e-06 )
 visible = false
 mesh = SubResource( 47 )
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="Area_Laser" type="Area" parent="Enemy/Root_Enemies/Laser/Laser"]
-transform = Transform( 1, -9.09495e-13, -1.77636e-15, 1.11022e-16, 1, 9.31323e-10, -3.55271e-15, -3.8147e-06, 1, 7.95808e-12, 0.663316, -3.8147e-06 )
+[node name="Area_Laser" type="Area" parent="Enemy/Root_Enemies/Laser/Anchor_Laser"]
+transform = Transform( 1, 6.82121e-13, 5.32907e-15, 1.11022e-16, 1, 4.65661e-10, 0, -3.8147e-06, 1, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Enemy/Root_Enemies/Laser/Laser/Area_Laser"]
-transform = Transform( 1, 0, 0, 1.11022e-16, 1, 0, 1.77636e-15, 0, 1, -8.18545e-12, -0.655588, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser"]
+transform = Transform( 1, -9.09495e-13, -1.77636e-15, 0, 1, 0, 5.32907e-15, 5.72205e-06, 1, -1.11413e-11, -0.902709, -5.72205e-06 )
 shape = SubResource( 48 )
 disabled = true
 
@@ -2284,8 +2296,8 @@ mesh = SubResource( 57 )
 
 [connection signal="area_entered" from="Enemy/Damage_Area" to="States/Battling" method="_on_Damage_Area_area_entered"]
 [connection signal="area_entered" from="Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso" to="States/Battling" method="_on_Attack_Area_entered"]
-[connection signal="area_entered" from="Enemy/Root_Enemies/Laser/Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_entered"]
-[connection signal="area_exited" from="Enemy/Root_Enemies/Laser/Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_exited"]
+[connection signal="area_entered" from="Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_entered"]
+[connection signal="area_exited" from="Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser" to="States/Battling" method="_on_Area_Laser_area_exited"]
 [connection signal="area_entered" from="Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor" to="States/Battling" method="_on_Attack_Area_entered"]
 [connection signal="body_entered" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_entered"]
 [connection signal="body_exited" from="Enemy/Looking_Zone" to="." method="_on_Looking_Zone_body_exited"]

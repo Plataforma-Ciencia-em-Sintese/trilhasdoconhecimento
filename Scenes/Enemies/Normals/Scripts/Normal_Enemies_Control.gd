@@ -22,10 +22,17 @@ func _ready():
 	
 	if enemyType == "Furadeiro":
 		$Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/CollisionShape.shape.radius = enemyResource.hitboxSize
-		$Enemy/Hitbox.scale = Vector3(enemyResource.hitboxSize,enemyResource.hitboxSize,enemyResource.hitboxSize)
+		$Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/Hitbox.scale = Vector3(enemyResource.hitboxSize,enemyResource.hitboxSize,enemyResource.hitboxSize)
+		if enemyResource.showHitbox:
+			$Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/Hitbox.show()
+		else:
+			$Enemy/Root_Enemies/Furadeiro/IA_01/Attack_Area_Parafuso/Hitbox.hide()
 	elif enemyType == "Laser":
-		$Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape.shape.height = enemyResource.hitboxSize
-		$Enemy/Laser_Hitbox.scale = Vector3($Enemy/Laser_Hitbox.scale.x,enemyResource.hitboxSize,$Enemy/Laser_Hitbox.scale.z)
+		$Enemy/Root_Enemies/Laser/Anchor_Laser.scale = Vector3($Enemy/Root_Enemies/Laser/Anchor_Laser.scale.x,enemyResource.hitboxSize,$Enemy/Root_Enemies/Laser/Anchor_Laser.scale.z)
+		if enemyResource.showHitbox:
+			$Enemy/Root_Enemies/Laser/Anchor_Laser/Hitbox.show()
+		else:
+			$Enemy/Root_Enemies/Laser/Anchor_Laser/Hitbox.hide()
 	elif enemyType == "Destruidor":
 		$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/CollisionShape.shape.radius = enemyResource.hitboxSize
 		$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/Hitbox.scale = Vector3(enemyResource.hitboxSize,enemyResource.hitboxSize,enemyResource.hitboxSize)
@@ -33,22 +40,6 @@ func _ready():
 			$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/Hitbox.show()
 		else:
 			$Enemy/Root_Enemies/Destruidor/Attack_Area_Destruidor/Hitbox.hide()
-		
-#	if enemyResource.showPatrolArea:
-#		$Enemy/Looking_Zone/Zone.show()
-#	else:
-#		$Enemy/Looking_Zone/Zone.hide()
-#
-#	if enemyResource.showHitbox:
-#		if enemyType != "Laser":
-#			$Enemy/Hitbox.show()
-#			$Enemy/Laser_Hitbox.hide()
-#		else:
-#			$Enemy/Hitbox.hide()
-#			$Enemy/Laser_Hitbox.show()
-#	else:
-#		$Enemy/Hitbox.hide()
-#		$Enemy/Laser_Hitbox.hide()
 	
 	$States/Patrol.show()
 	$States/Move.hide()

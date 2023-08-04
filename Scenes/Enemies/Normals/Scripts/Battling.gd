@@ -84,11 +84,12 @@ func start_battle():
 			owner.get_node("States/Patrol").show()
 			owner.get_node("States/Battling").hide()
 			owner.get_node("States/Move").hide()
+			owner.get_node("Enemy").rotation = Vector3.ZERO
 			backToPatrol = true
 		else:
 			if owner.enemyType == "Laser":
-				owner.get_node("Enemy/Root_Enemies/Laser/Laser").hide()
-				owner.get_node("Enemy/Root_Enemies/Laser/Flash").hide()
+				owner.get_node("Enemy/Root_Enemies/Laser/Anchor_Laser/Laser").hide()
+				owner.get_node("Enemy/Root_Enemies/Laser/Anchor_Laser/Hitbox").hide()
 			
 			owner.get_node("States/Move").target = owner.get_node("LastPos")
 			owner.get_node("States/Move").show()
@@ -170,7 +171,7 @@ func _on_Area_Laser_area_entered(area):
 func _on_Area_Laser_area_exited(area):
 	if area.is_in_group("DamagePlayer"):
 		progressiveDamageToPlayer = false
-		set_collisor_status("Enemy/Root_Enemies/Laser/Laser/Area_Laser/CollisionShape",true)
+		set_collisor_status("Enemy/Root_Enemies/Laser/Anchor_Laser/Area_Laser/CollisionShape",true)
 		
 func _on_Attack_Area_entered(area):
 	if area.is_in_group("DamagePlayer"):
