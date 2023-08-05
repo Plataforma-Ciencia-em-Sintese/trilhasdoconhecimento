@@ -1,5 +1,8 @@
 extends Node
 
+# Sistema de save 
+onready var save_file = SaveFile.g_data
+
 # Seleção de personagens
 var nameChar = "Yara"
 var skinChar = "Armadura"
@@ -89,3 +92,12 @@ var weapons = {
 	"Varinha": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
 	"Arco": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/arco_arma.png","Lança flechas nos inimigos",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]]
 }
+
+
+## Sistema de save 
+func _ready():
+	save_file.save1 = atkMainActual
+
+func _SaveInfos():
+	save_file.save1 = atkMainActual
+	SaveFile.save_data()

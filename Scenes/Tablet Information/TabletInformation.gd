@@ -54,3 +54,14 @@ func _on_BT_ExitTablet_pressed():
 
 func _on_BT_SairdoCS_pressed():
 	pass # Replace with function body.
+
+
+func _on_Panel_exit_pressed():
+	get_tree().paused = false
+	$BT_tablet.show()
+	$PanelTablet.hide()
+	owner.get_node("Battle_UI").show()
+	owner.get_node("MiniMap_UI").show()
+	owner.get_node("Status").show()
+	owner.get_node("States/Move").show()
+	owner.get_node("States/Talking").hide()

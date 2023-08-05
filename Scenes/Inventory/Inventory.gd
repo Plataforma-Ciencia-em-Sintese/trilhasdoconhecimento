@@ -250,3 +250,10 @@ func _on_BT_Voltar_pressed():
 	$BG_Inventory.hide()
 	get_tree().paused = true
 	
+
+
+func _on_Panel_exit_pressed():
+	player.get_node("TabletInformation/PanelTablet").show()
+	$BG_Inventory/BT_Close.hide()
+	$BG_Inventory.hide()
+	get_tree().paused = true
