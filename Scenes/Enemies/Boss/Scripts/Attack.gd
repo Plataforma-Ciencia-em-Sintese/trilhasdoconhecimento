@@ -19,7 +19,7 @@ func _physics_process(_delta):
 			look_to_player()
 		
 		if progressiveDamageToPlayer:
-			owner.player.get_node("Status").set_life(-5 * _delta)
+			owner.player.get_node("Status").set_life(-owner.bossResource.atk * _delta)
 		
 		dist = owner.global_transform.origin.distance_to(owner.player.global_transform.origin)
 		if dist < 4:
@@ -68,11 +68,11 @@ func set_collider_status(path,status):
 	
 func _on_Hand_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		owner.player.get_node("Status").set_life(-20)
+		owner.player.get_node("Status").set_life(-owner.bossResource.atk)
 		
 func _on_Leg_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		owner.player.get_node("Status").set_life(-20)
+		owner.player.get_node("Status").set_life(-owner.bossResource.atk)
 		
 func _on_Laser_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
@@ -85,9 +85,9 @@ func _on_Laser_Area_area_exited(area):
 func _on_Damage_Area_area_entered(area):
 	if area.is_in_group("Attack_Player"):
 		if owner.player.selectedGun == owner.player.mainGun:
-			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
+			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual - owner.bossResource.def
 		elif owner.player.selectedGun == owner.player.secGun:
-			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual
+			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkSecActual - owner.bossResource.def
 		
 		if owner.get_node("Viewport/BarLife").value <= 0:
 			owner.player.get_node("States/Battling").actualEnemy = null

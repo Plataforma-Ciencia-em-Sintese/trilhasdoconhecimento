@@ -1,6 +1,6 @@
 extends Spatial
 
-var SPEED = 100.0
+var speed = 100.0
 var path = []
 var map
 var pursuit = false
@@ -13,7 +13,7 @@ func _physics_process(delta):
 		pursuit = true
 		owner.get_node("AnimationPlayer").play("WalkCycle_Boss01")
 		var dir = Vector3()
-		var step_size = delta * SPEED
+		var step_size = delta * speed
 		
 		if path.size() > 0:
 			var dest = path[0]

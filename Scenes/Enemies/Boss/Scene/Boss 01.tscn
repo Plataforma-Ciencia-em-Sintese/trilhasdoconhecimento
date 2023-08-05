@@ -3618,8 +3618,9 @@ viewport_path = NodePath("Viewport")
 [sub_resource type="CapsuleShape" id=21]
 radius = 3.04312
 
-[node name="Boss 01" type="KinematicBody"]
+[node name="Boss_01" type="KinematicBody"]
 script = ExtResource( 5 )
+bossName = "Boss_01"
 
 [node name="BOSS_01" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )

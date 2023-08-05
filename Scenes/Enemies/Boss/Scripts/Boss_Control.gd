@@ -5,9 +5,16 @@ onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 var cineCamera
 var clicked = false
 var hasStarted = false
-export var getCineCam = false
+var bossResource
+export (bool) var getCineCam = false
+export (String, "Boss_01", "Boss_02", "Boss_03", "Boss_04") var bossName
 
 func _ready():
+	bossResource = load("res://Scenes/Enemies/Boss/Resource Boss/" + bossName + ".tres")
+	$States/Move.speed = bossResource.speed * 100
+	$Viewport/BarLife.max_value = bossResource.life
+	$Viewport/BarLife.value = bossResource.life
+	
 	if getCineCam:
 		cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
 		cineCamera.connect("camera_activated",self,"cinematic_mode")

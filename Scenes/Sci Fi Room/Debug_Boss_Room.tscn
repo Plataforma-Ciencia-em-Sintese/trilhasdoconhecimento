@@ -83,15 +83,15 @@ mesh = SubResource( 5 )
 
 [node name="Boss 01" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.2459 )
-visible = false
+getCineCam = true
 
 [node name="Cine_Cam" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.999011, -0.0444738, 0, 0.0444738, 0.999011, 0, 0, 0, 1, -0.719825, 3.35538, 12.8711 )
 visible = false
-deactivated = true
 
 [node name="Way1" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318161, 0 )
+visible = false
 curve = SubResource( 6 )
 
 [node name="Path_Enemy" parent="Way1" instance=ExtResource( 7 )]
@@ -100,6 +100,7 @@ enemyType = "Destruidor"
 
 [node name="Way2" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4507, 0.318161, 0 )
+visible = false
 curve = SubResource( 6 )
 
 [node name="Path_Enemy" parent="Way2" instance=ExtResource( 7 )]
