@@ -2,7 +2,7 @@ extends KinematicBody
 
 export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
-export var mainGun = "Arco"
+export var mainGun = "Varinha"
 export var secGun = "Espada"
 export (Array,NodePath) var nodesToHide
 var selectedGun = "Espada"
@@ -42,8 +42,8 @@ func _ready():
 #	create_btns_battle("ATK")
 	create_btns_battle("Consum")
 
-	set_attributes("ATKMain")
-	set_attributes("ATKSec")
+#	set_attributes("ATKMain")
+#	set_attributes("ATKSec")
 	#Precisa chamar de novo porque caso se um valor menor seja chamado pras barras, o max value nao enche a barra se ela encolher e depois aumentou
 	$Status/Life_Bar.value = $Status/Life_Bar.max_value
 	$Status/Energy_Bar.value = $Status/Energy_Bar.max_value
@@ -115,17 +115,18 @@ func create_btns_battle(value):
 
 	elif value == "Consum":
 		#destruir botoes
-		for i in $Battle_UI/Consumable_Container.get_child_count():
-			$Battle_UI/Consumable_Container.get_child(i).queue_free()
-			
-		#adicionar itens
-		var consumButtonScene = load("res://Scenes/Consumables/Button Commands/Consumable.tscn")
-		for i in GlobalValues.consumItens.size():
-			var ConsumBtn = consumButtonScene.instance()
-			ConsumBtn.icon = load(GlobalValues.consumItens.values()[i][1])
-			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
-			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
-			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
+#		for i in $Battle_UI/Consumable_Container.get_child_count():
+#			$Battle_UI/Consumable_Container.get_child(i).queue_free()
+#
+#		#adicionar itens
+#		var consumButtonScene = load("res://Scenes/Consumables/Button Commands/Consumable.tscn")
+#		for i in GlobalValues.consumItens.size():
+#			var ConsumBtn = consumButtonScene.instance()
+#			ConsumBtn.icon = load(GlobalValues.consumItens.values()[i][1])
+#			ConsumBtn.orbType = GlobalValues.consumItens.values()[i][0]
+#			ConsumBtn.keyName = GlobalValues.consumItens.keys()[i]
+#			$Battle_UI/Consumable_Container.add_child(ConsumBtn)
+		pass
 			
 func change_weapons():
 	if mainGun == "Escudo" or secGun == "Escudo":

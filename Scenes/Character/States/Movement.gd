@@ -106,4 +106,5 @@ func _on_NavTimer_timeout():
 	navAgent.set_target_location(target.global_transform.origin)
 
 func step_sound():
-	Fmod.play_one_shot("event:/SFX/Personagem/Passos", self)
+#	Fmod.play_one_shot("event:/SFX/Personagem/Passos", self)
+	pass

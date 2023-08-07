@@ -86,6 +86,7 @@ var weapons = {
 	"Escudo": ["res://Sprites/UI/Icons/Weapons/Shield.png","Escudo do personagem",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
 	"Espada": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/espada_arma.png","Espada laser star wars",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]],
 	"Manopla": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/manopola_arma.png","Manopla do Thanos",["Escudo de Energia","Clone","Espada Giratoria"]],
-	"Varinha": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],
+	"Varinha": ["res://Scenes/Inventory/Resource Inventory/Weapons/Varinha.tres"],
 	"Arco": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/arco_arma.png","Lança flechas nos inimigos",["Laser Cibernetico","Raio Paralizante","Multiplas Balas"]]
 }
+#"Varinha": ["res://Sprites/UI/Icons/Icons_Invent/armas_icons/varinha_arma.png","Varinha com poder supremo",["Escudo de Energia","Ataque Meteoro","Aumento de velocidade"]],

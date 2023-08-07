@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Weapon_Skill_Attributes.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+icon = ExtResource( 2 )
+sceneSkill = ""
+levelToUnlock = 0.0
+numBoost = 0
+denBoost = 0
+energyCost = 0.0
+cooldown = 0.0
+duration = 0.0

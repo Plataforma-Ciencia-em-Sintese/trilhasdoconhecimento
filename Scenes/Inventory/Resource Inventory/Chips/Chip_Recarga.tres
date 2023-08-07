@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Chips/Chip_Attributes.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+icon = ExtResource( 1 )
+name = "Chip de Recarga"
+description = "Descriçao do item aqui"
+atkBoost = 0.0
+energyBoost = 6.0
+lifeBoost = 0.0
+speedBoost = 0.0
+xpBoost = 0.0

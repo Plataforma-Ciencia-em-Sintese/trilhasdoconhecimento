@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/UI/Icons/Weapons/Shield.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Consums/Consum_Attributes.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+icon = ExtResource( 1 )
+name = "Orbe de Escudo"
+description = "Consumivel que aumenta +5 a velocidade por 10 seg."
+quant = 10
+atkBoost = 0.0
+energyBoost = 0.0
+lifeBoost = 0.0
+speedBoost = 0.0
+haveTimer = true
+timeToDestroy = 8.0
+haveVFX = true
+VFXPath = "res://Scenes/Consumables/Shield.tscn"

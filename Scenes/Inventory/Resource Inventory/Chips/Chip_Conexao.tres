@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/UI/Icons/Chips/Chip.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Chips/Chip_Attributes.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+icon = ExtResource( 1 )
+name = "Chip de Conexão"
+description = "Aumenta em +4 a vida e a energia quando equipado."
+atkBoost = 0.0
+energyBoost = 4.0
+lifeBoost = 4.0
+speedBoost = 0.0
+xpBoost = 0.0

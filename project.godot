@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Enemies/Boss/Resource Boss/Boss_Attributes.gd"
 }, {
+"base": "Resource",
+"class": "ChipValues",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Chips/Chip_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "ConsumValues",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Consums/Consum_Attributes.gd"
+}, {
 "base": "Reference",
 "class": "DTS",
 "language": "GDScript",
@@ -98,9 +108,21 @@ _global_script_classes=[ {
 "class": "NormalEnemyValues",
 "language": "GDScript",
 "path": "res://Scenes/Enemies/Normals/Resource Enemy/Normal_Enemy_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "Weapon_Skill",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Skills Weapons/Weapon_Skill_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "WeaponsValues",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Weapons/Weapons_Attributes.gd"
 } ]
 _global_script_class_icons={
 "BossValues": "",
+"ChipValues": "",
+"ConsumValues": "",
 "DTS": "",
 "Dialogic": "",
 "DialogicAnimaPropertiesHelper": "",
@@ -117,7 +139,9 @@ _global_script_class_icons={
 "EffekseerResource": "res://addons/effekseer/icon16.png",
 "FmodNative": "",
 "HistoryRow": "",
-"NormalEnemyValues": ""
+"NormalEnemyValues": "",
+"Weapon_Skill": "",
+"WeaponsValues": ""
 }
 
 [application]
@@ -131,9 +155,9 @@ config/icon="res://icon.png"
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
 GlobalValues="*res://Management/Global_Values.gd"
-Fmod="*res://addons/fmod/Fmod.tscn"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
 SaveFile="*res://Management/save_file.gd"
+Fmod="*res://addons/fmod/Fmod.tscn"
 
 [display]
 
@@ -143,7 +167,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/proton_trail-master/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/proton_trail-master/plugin.cfg" )
 
 [global]
 

@@ -60,7 +60,7 @@ func _physics_process(delta):
 	$Arrow.rotate_y(0.1)
 
 func talk_to_player():
-	Fmod.start_event(Fmod.get_node("FmodAtributos").iniProjetor)
+#	Fmod.start_event(Fmod.get_node("FmodAtributos").iniProjetor)
 	startInteract = true
 	cam.current = true
 	mainCam.current = false
@@ -84,7 +84,7 @@ func talk_to_player():
 	$Face.show()
 	$AnimationPlayer.play("Start")
 	yield(get_tree().create_timer(2),"timeout")
-	Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
+#	Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
 	start_dialogue()
 
 func accept_quest():
@@ -111,7 +111,7 @@ func start_dialogue():
 func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
 	if arg == "cabou" and !acceptQuest:
-		Fmod.play_one_shot("event:/SFX/Ingame/EncerrandoProjetor", self)
+#		Fmod.play_one_shot("event:/SFX/Ingame/EncerrandoProjetor", self)
 		player.show()
 		cam.current = false
 		mainCam.current = true
