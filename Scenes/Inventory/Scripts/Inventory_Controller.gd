@@ -47,6 +47,11 @@ onready var previewBarATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK
 onready var previewTxtATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/ATKSec_Txt
 onready var previewBarSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Preview_Bar
 onready var previewTxtSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/Speed_Txt
+onready var officialBarLife : Node = $BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Bar
+onready var officialBarEnergy : Node = $BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Bar
+onready var officialBarATKMain : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar
+onready var officialBarATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar
+onready var officialBarSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar
 
 # identifica os scripts de valores dos itens
 # todas devem ficar na pasta do caminho especificado alem do mesmo nome das armas
@@ -258,11 +263,21 @@ func _on_BT_Equip_pressed():
 	
 	# Preseta os valores pro script global
 	# Todos veem prontos independente da operacao remover ou add novo item
-	GlobalValues.lifeActual = tempLife
-	GlobalValues.energyActual = tempEnergy
-	GlobalValues.speedActual = tempSpeed
-	GlobalValues.atkMainActual = tempATKMain
-	GlobalValues.atkSecActual = tempATKSec
+	# Se for diferente de zero, o valor é aplicado na variavel global
+	if tempLife != 0:
+		GlobalValues.lifeActual = tempLife
+	
+	if tempEnergy != 0:
+		GlobalValues.energyActual = tempEnergy
+	
+	if tempSpeed != 0:
+		GlobalValues.speedActual = tempSpeed
+		
+	if tempATKMain != 0:
+		GlobalValues.atkMainActual = tempATKMain
+	
+	if tempATKSec != 0:
+		GlobalValues.atkSecActual = tempATKSec
 
 	show_or_hide_informations("Life","Hide")
 	show_or_hide_informations("Energy","Hide")
@@ -495,13 +510,13 @@ func get_chips_calculation(operation):
 		else:
 			# Ou soma extra se ja tiver algo equipado
 			tempEnergy = GlobalValues.energyActual + (resourceFromButton.energyBoost * operation)
-#
+
 	if resourceFromButton.lifeBoost > 0:
 		if GlobalValues.lifeActual <= 0:
 			tempLife = (GlobalValues.life + resourceFromButton.lifeBoost) * operation
 		else:
 			tempLife = GlobalValues.lifeActual + (resourceFromButton.lifeBoost * operation)
-	
+
 	if resourceFromButton.speedBoost > 0:
 		if GlobalValues.speedActual <= 0:
 			tempSpeed = (GlobalValues.speed + resourceFromButton.speedBoost) * operation
@@ -518,7 +533,7 @@ func get_chips_calculation(operation):
 			tempATKSec = (GlobalValues.atkSec + resourceFromButton.atkBoost) * operation
 		else:
 			tempATKSec = GlobalValues.atkSecActual + (resourceFromButton.atkBoost * operation)
-		
+
 func calculate_status(baseValue,numerator,denominator):
 	return (baseValue/denominator) * numerator
 
@@ -528,6 +543,7 @@ func show_or_hide_informations(info,status):
 		if status == "Show":
 			previewBarLife.show()
 			previewBarLife.value = tempLife
+			officialBarLife.value = tempLife
 			previewTxtLife.text = "Vida | " + str(tempLife)
 			
 			if GlobalValues.lifeActual <= 0:
@@ -550,12 +566,15 @@ func show_or_hide_informations(info,status):
 			
 			if GlobalValues.lifeActual <= 0:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.life)
+				officialBarLife.value = GlobalValues.life
 			else:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.lifeActual)
+				officialBarLife.value = GlobalValues.lifeActual
 	elif info == "Energy":
 		if status == "Show":
 			previewBarEnergy.show()
 			previewBarEnergy.value = tempEnergy
+			officialBarEnergy.value = tempEnergy
 			previewTxtEnergy.text = "Energia | " + str(tempEnergy)
 			
 			if GlobalValues.energyActual <= 0:
@@ -578,12 +597,15 @@ func show_or_hide_informations(info,status):
 			
 			if GlobalValues.energyActual <= 0:
 				previewTxtEnergy.text = "Energia | " + str(GlobalValues.energy)
+				officialBarEnergy.value = GlobalValues.energy
 			else:
 				previewTxtEnergy.text = "Energia | " + str(GlobalValues.energyActual)
+				officialBarEnergy.value = GlobalValues.energyActual
 	elif info == "Speed":
 		if status == "Show":
 			previewBarSpeed.show()
 			previewBarSpeed.value = tempSpeed
+			officialBarSpeed.value = tempSpeed
 			previewTxtSpeed.text = "Veloc. | " + str(tempSpeed)
 			
 			if GlobalValues.speedActual <= 0:
@@ -606,12 +628,15 @@ func show_or_hide_informations(info,status):
 			
 			if GlobalValues.speedActual <= 0:
 				previewTxtSpeed.text = "Veloc. | " + str(GlobalValues.speed)
+				officialBarSpeed.value = GlobalValues.speed
 			else:
 				previewTxtSpeed.text = "Veloc. | " + str(GlobalValues.speedActual)
+				officialBarSpeed.value = GlobalValues.speedActual
 	elif info == "ATKMain":
 		if status == "Show":
 			previewBarATKMain.show()
 			previewBarATKMain.value = tempATKMain
+			officialBarATKMain.value = tempATKMain
 			previewTxtATKMain.text = "ATK Main | " + str(tempATKMain)
 			
 			if GlobalValues.atkMainActual <= 0:
@@ -634,12 +659,15 @@ func show_or_hide_informations(info,status):
 			
 			if GlobalValues.atkMainActual <= 0:
 				previewTxtATKMain.text = "ATK Main | " + str(GlobalValues.atkMain)
+				officialBarATKMain.value = GlobalValues.atkMain
 			else:
 				previewTxtATKMain.text = "ATK Main | " + str(GlobalValues.atkMainActual)
+				officialBarATKMain.value = GlobalValues.atkMainActual
 	elif info == "ATKSec":
 		if status == "Show":
 			previewBarATKSec.show()
 			previewBarATKSec.value = tempATKSec
+			officialBarATKSec.value = tempATKSec
 			previewTxtATKSec.text = "ATK Sec | " + str(tempATKSec)
 			
 			if GlobalValues.atkSecActual <= 0:
@@ -662,8 +690,10 @@ func show_or_hide_informations(info,status):
 			
 			if GlobalValues.atkSecActual <= 0:
 				previewTxtATKSec.text = "ATK Sec | " + str(GlobalValues.atkSec)
+				officialBarATKSec.value = GlobalValues.atkSec
 			else:
 				previewTxtATKSec.text = "ATK Sec | " + str(GlobalValues.atkSecActual)
+				officialBarATKSec.value = GlobalValues.atkSecActual
 
 func hide_show_item_desc(status):
 	if status:
