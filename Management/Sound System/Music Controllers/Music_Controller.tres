@@ -5,8 +5,12 @@
 [resource]
 script = ExtResource( 1 )
 music = {
+"Alan": "alanTuring",
 "Ambience1": "ambience1",
 "Galileu": "galileuGalilei",
+"Isaac": "isaacNewton",
+"Marie": "marieCurie",
 "Oswaldo": "oswaldoCruz",
-"PrimeiroNivel": "mainMusic"
+"PrimeiroNivel": "mainMusic",
+"Robert": "robertBoyle"
 }
