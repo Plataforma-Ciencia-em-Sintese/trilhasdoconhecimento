@@ -11,6 +11,9 @@ export var secGun : String = "Espada"
 # Armazena os nodes da cena Player para esconder quando for necessario
 export (Array,NodePath) var nodesToHide
 
+# Resource de som do jogador
+export (Resource) var soundResource
+
 # Identifica qual arma esta atualmente sendo usada
 var selectedGun : String = "Espada"
 

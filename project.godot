@@ -110,6 +110,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/Enemies/Normals/Resource Enemy/Normal_Enemy_Attributes.gd"
 }, {
 "base": "Resource",
+"class": "SFXController",
+"language": "GDScript",
+"path": "res://Management/Sound System/Script/Sound_System.gd"
+}, {
+"base": "Resource",
 "class": "Weapon_Skill",
 "language": "GDScript",
 "path": "res://Scenes/Inventory/Resource Inventory/Skills Weapons/Weapon_Skill_Attributes.gd"
@@ -118,6 +123,11 @@ _global_script_classes=[ {
 "class": "WeaponsValues",
 "language": "GDScript",
 "path": "res://Scenes/Inventory/Resource Inventory/Weapons/Weapons_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "musicController",
+"language": "GDScript",
+"path": "res://Management/Sound System/Script/Music_System.gd"
 } ]
 _global_script_class_icons={
 "BossValues": "",
@@ -140,8 +150,10 @@ _global_script_class_icons={
 "FmodNative": "",
 "HistoryRow": "",
 "NormalEnemyValues": "",
+"SFXController": "",
 "Weapon_Skill": "",
-"WeaponsValues": ""
+"WeaponsValues": "",
+"musicController": ""
 }
 
 [application]
@@ -154,7 +166,7 @@ config/icon="res://icon.png"
 
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
-GlobalValues="*res://Management/Global_Values.gd"
+GlobalValues="*res://Management/Global Scripts/Global_Values.gd"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
 SaveFile="*res://Management/save_file.gd"
 Fmod="*res://addons/fmod/Fmod.tscn"
@@ -167,7 +179,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/proton_trail-master/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/FMOD/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/effekseer/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/proton_trail-master/plugin.cfg" )
 
 [global]
 

@@ -21,8 +21,9 @@ var base: Spatial
 # Declara quem e o alvo a ser seguido (no caso o marcador de posicao)
 var target: Object
 
-var animationType = 0
-var clickCount = 2
+# Serve para saber se o player anda com 1 click e 2 correr
+var animationType : int = 0
+var clickCount : int = 2
 
 func _ready():
 	# Identifica quem é o alvo a ser seguido
@@ -106,5 +107,7 @@ func _on_NavTimer_timeout():
 	navAgent.set_target_location(target.global_transform.origin)
 
 func step_sound():
-#	Fmod.play_one_shot("event:/SFX/Personagem/Passos", self)
-	pass
+	# Verifica se ha resource de som para tocar o som de acordo com a chave do dicionario
+	if owner.soundResource != null:
+		Fmod.play_one_shot(owner.soundResource.sfxSingleStream["Passos"] ,self)
+	
