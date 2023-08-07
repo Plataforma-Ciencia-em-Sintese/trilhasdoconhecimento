@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Icon_voltar.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Notables/teste notaveis.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Notables/BG_Notables.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Notables/BG_nameNotables.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -69,6 +70,93 @@ margin_top = -1.762
 margin_right = 0.493988
 margin_bottom = -0.281998
 icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel_Notables"]
+anchor_left = 0.072
+anchor_top = 0.126
+anchor_right = 0.292
+anchor_bottom = 0.861
+margin_left = -0.160004
+margin_top = 0.279999
+margin_right = 0.23996
+margin_bottom = 0.0799561
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Notables/ScrollContainer"]
+margin_right = 282.0
+margin_bottom = 546.0
+rect_min_size = Vector2( 282, 500 )
+custom_constants/separation = -2
+
+[node name="Button_Galileu" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_right = 282.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Boyle" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 282.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Newton" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 282.0
+margin_bottom = 206.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Curie" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 282.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Turing" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 272.0
+margin_right = 282.0
+margin_bottom = 342.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Wortley" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 340.0
+margin_right = 282.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Jenner" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 408.0
+margin_right = 282.0
+margin_bottom = 478.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="Button_Pasteur" type="Button" parent="Panel_Notables/ScrollContainer/VBoxContainer"]
+margin_top = 476.0
+margin_right = 282.0
+margin_bottom = 546.0
+rect_min_size = Vector2( 282, 70 )
+icon = ExtResource( 7 )
 flat = true
 expand_icon = true
 
