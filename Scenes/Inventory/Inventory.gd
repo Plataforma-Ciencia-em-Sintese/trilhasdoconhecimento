@@ -141,7 +141,7 @@ func _on_BT_Inventario_pressed():
 	get_parent().get_node("States/Talking").show()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
 	cam.current = false
-	player.get_node("Base/Cam_Invent").current = true
+	#player.get_node("Base/Cam_Invent").current = true
 	#player.get_node("Base/BG_Invent").show()
 
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]
@@ -169,7 +169,7 @@ func _on_BT_Close_pressed():
 	get_parent().get_node("States/Talking").hide()
 	var cam = get_tree().get_nodes_in_group("Camera")[0]
 	cam.current = true
-	player.get_node("Base/Cam_Invent").current = false
+	#player.get_node("Base/Cam_Invent").current = false
 	#player.get_node("Base/BG_Invent").hide()
 
 	var pointer = get_tree().get_nodes_in_group("Pointer")[0]

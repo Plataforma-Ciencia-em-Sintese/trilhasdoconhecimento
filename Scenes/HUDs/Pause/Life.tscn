@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/HUDs/Status/Status.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Life/BarraCheiaMP.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/UI/Icons/Life/BarraCheiaHP.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/Icons/Life/BackgrondLife_icon.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Icons/Life/Barravazia_Icon.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Icons/Life/MP_Icon.png" type="Texture" id=6]
@@ -50,7 +49,7 @@ margin_bottom = 38.0
 max_value = 30.0
 value = 30.0
 texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
 nine_patch_stretch = true
 
 [node name="TXT_Life" type="TextureRect" parent="Life_Bar"]

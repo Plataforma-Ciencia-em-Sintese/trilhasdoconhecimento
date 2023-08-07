@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background_Choice.png-20592c0a5c12b945a4b2e3b584eb2716.stex"
+path="res://.import/background_Info.png-e795c41ad9baf4d1a446552f1f48ef55.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/background_Choice.png"
-dest_files=[ "res://.import/background_Choice.png-20592c0a5c12b945a4b2e3b584eb2716.stex" ]
+source_file="res://Sprites/UI/Icons/Icons_Invent/Background_Itens/background_Info.png"
+dest_files=[ "res://.import/background_Info.png-e795c41ad9baf4d1a446552f1f48ef55.stex" ]
 
 [params]
 
