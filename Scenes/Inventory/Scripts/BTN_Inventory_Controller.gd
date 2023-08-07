@@ -1,7 +1,7 @@
 extends Button
 
 # Cria um signal para quando qualquer botao for pressionado, o inventario altera os valores
-signal change_item(itemType,res)
+signal change_item(item)
 # Identifica a resource dos valores
 var buttonResource : Resource
 # Verifica se esse item ja esta equipado para ser deletado

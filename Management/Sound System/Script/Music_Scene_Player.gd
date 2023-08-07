@@ -5,7 +5,15 @@ extends Node
 export (Array,String) var musicName
 export (Resource) var musicResource
 
+# Recebe todos os objetos que são NPCs para tocar o audio
+var npcs : Array 
+
 func _ready():
+	# Coleta e conecta o signal da funcao mudar de musica para todos os npcs
+	npcs = get_tree().get_nodes_in_group("NPC")
+	for i in npcs.size():
+		npcs[i].connect("set_music",self,"set_music_mode")
+	
 	# Se tem resource, busca a musica dentro do FMOD Manager pela string da array
 	if musicResource != null:
 		for i in musicName.size():

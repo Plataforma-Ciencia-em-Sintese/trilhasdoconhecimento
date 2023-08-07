@@ -2,29 +2,43 @@ extends KinematicBody
 
 # Identifica os dialogos feitos no Dialogic
 export(String, "TimelineDropdown") var timeline: String
+
 # Adiciona um canvas direto do Dialogic
 export(bool) var add_canvas = true
+
 # Controla se o NPC deve ter zoom no dialogo
 export(bool) var zoom_camera = false
+
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
+
 # Customizacao NPC
 export (String, "Moreno", "Loiro", "Amarelo") var corpo
 export (String, "Feminino", "Masculino") var cabelo
 export (String, "Longa", "Curta") var mangas
+
+export (String) var npcName
+
+# Controle de interacao com o player
 var clickedOnMe: bool = false
 var touchingNPC: bool = false
-var player
-var mainCam
-var pointer
-var mat
+
+# Nodes da cena
+var player : Node
+onready var talkingState : Node = $States/Talking
+onready var normalState : Node = $States/Normal
+onready var arrow : Node = $Arrow
+onready var skeletonBaseNpc : Node = $Base
+onready var baseCam : Node = $Base/Camera
+onready var mainCam : Node = get_tree().get_nodes_in_group("Camera")[0]
+onready var pointer : Node = get_tree().get_nodes_in_group("Pointer")[0]
+onready var mat : Material = $Base/Cientistas/Skeleton/NPC_Body.get_surface_material(0).next_pass
+
+signal set_music
 
 func _ready():
-	mainCam = get_tree().get_nodes_in_group("Camera")[0]
-	pointer = get_tree().get_nodes_in_group("Pointer")[0]
-	mat = $Base/Cientistas/Skeleton/NPC_Body.get_surface_material(0).next_pass
 	mat.set_shader_param("enable", false)
-	$Arrow.hide()
+	arrow.hide()
 	
 	get_node("Base/Cientistas/Skeleton/Cabeca").get_node(corpo).show()
 	get_node("Base/Cientistas/Skeleton/Cabelo").get_node(cabelo).get_node(corpo).show()
@@ -37,15 +51,15 @@ func _physics_process(_delta):
 			clickedOnMe = true
 #			pointer.isStopped = true
 		else:
-			$Arrow.hide()
+			arrow.hide()
 			mat.set_shader_param("enable", false)
 			
-	$Arrow.rotate_y(0.1)
+	arrow.rotate_y(0.1)
 
 func start_dialogue():
 	# Se o zoom estiver ativo, ativa a camera NPC e esconde o jogador 
 	if zoom_camera:
-		$Base/Camera.current = true
+		baseCam.current = true
 		mainCam.current = false
 		player.hide()
 	
@@ -57,16 +71,20 @@ func start_dialogue():
 	# Ativa o state Talking do personagem pra ele ficar parado
 	player.get_node("States/Talking").visible = true
 	# Gira o NPC pra posiçao do player
-	$Base.look_at(global_transform.origin + player.global_transform.origin.direction_to(global_transform.origin),Vector3.UP)
+	skeletonBaseNpc.look_at(global_transform.origin + player.global_transform.origin.direction_to(global_transform.origin),Vector3.UP)
 	# Offset de rotação no eixo x para NPC ficar em pé
-	$Base.rotation_degrees.x += 10
+	skeletonBaseNpc.rotation_degrees.x += 10
 	yield(get_tree().create_timer(0.1),"timeout")
 	# Gira o player pra posicao do NPC
 	player.get_node("Base").look_at(player.global_transform.origin + global_transform.origin.direction_to(player.transform.origin),Vector3.UP)
 	# Esconde o ponteiro da cena e o balao da cabeca do NPC
 	pointer.hide()
 	pointer.global_transform.origin = player.global_transform.origin
-	$Arrow.hide()
+	arrow.hide()
+	
+	if npcName != "":
+		play_music("SetMainMusicVol",1)
+		play_music("PlayNPCMusic",npcName)
 	
 func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
@@ -75,9 +93,9 @@ func dialogic_signal(arg):
 		if zoom_camera:
 			player.show()
 			mainCam.current = true
-			$Base/Camera.current = false
+			baseCam.current = false
 			
-		$Arrow.hide()
+		arrow.hide()
 		mat.set_shader_param("enable", false)
 		# Desabilita os controladores do dialogo
 		canTalk = false
@@ -86,10 +104,14 @@ func dialogic_signal(arg):
 		player.get_node("States/Talking").visible = false
 		player.get_node("States/Move").visible = true
 		#Reativa o npc para o estado que estava e reseta a rotação
-		$States/Normal.state_npc($States/Normal.states)
-		$Base.rotation_degrees = Vector3.ZERO
+		normalState.state_npc(normalState.states)
+		skeletonBaseNpc.rotation_degrees = Vector3.ZERO
 		yield(get_tree().create_timer(0.1),"timeout")
 		pointer.isStopped = false
+		
+		if npcName != "":
+			play_music("SetMainMusicVol",0)
+			play_music("StopNPCMusic",npcName)
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
@@ -99,8 +121,8 @@ func _on_Area_body_entered(body):
 		# Se o jogador colidir pela primeira vez no NPC o dialogo dispara sozinho
 		if clickedOnMe:
 			start_dialogue()
-			$States/Talking.idle()
-			$States/Normal/Timer.stop()
+			talkingState.idle()
+			normalState.get_node("Timer").stop()
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("Player"):
@@ -112,12 +134,15 @@ func _on_Area_mouse_entered():
 	# Se o mouse tocar no NPC e ele ja nao estiver em colisão, habilita o dialogo
 	if !touchingNPC:
 		canTalk = true
-		$Arrow.show()
+		arrow.show()
 		mat.set_shader_param("enable", true)
 
 func _on_Area_mouse_exited():
 	# Quando o mouse sair do NPC e ele nao estiver em dialogo, desativa a interação
-	$Arrow.hide()
+	arrow.hide()
 	if !clickedOnMe:
 		canTalk = false
 		mat.set_shader_param("enable", false)
+
+func play_music(mode,value):
+	emit_signal("set_music",mode,value)

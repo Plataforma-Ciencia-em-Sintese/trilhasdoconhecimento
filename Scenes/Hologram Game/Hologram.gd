@@ -18,6 +18,11 @@ var startInteract = false
 export(String, "TimelineDropdown") var timeline: String
 # Adiciona um canvas direto do Dialogic
 export(bool) var add_canvas = true
+
+export (String) var npcName
+export (Resource) var sfxResource
+signal set_music
+
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
 var clickedOnMe: bool = false
@@ -76,9 +81,15 @@ func talk_to_player():
 	owner.get_node("WhiteTransition").hide()
 	QuestManager.get_node("Buttons_Diary").hide()
 	pointer.hide()
+	
+	if npcName != "":
+		play_music("SetMainMusicVol",1)
+		play_music("PlayNPCMusic",npcName)
+		
 	yield(get_tree().create_timer(0.05),"timeout")
 	player.hide()
 	yield(get_tree().create_timer(1),"timeout")
+#	play_sfx("start_event",Fmod.get_node("FmodAtributos").get(sfxResource.sfx["InicializandoProjetor"]))
 	QuestManager.get_node("Buttons_Diary").hide()
 	yield(get_tree().create_timer(1.5),"timeout")
 	$Face.show()
@@ -111,7 +122,11 @@ func start_dialogue():
 func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
 	if arg == "cabou" and !acceptQuest:
-#		Fmod.play_one_shot("event:/SFX/Ingame/EncerrandoProjetor", self)
+		if npcName != "":
+			play_music("SetMainMusicVol",0)
+			play_music("StopNPCMusic",npcName)
+		
+		play_sfx("stop_event",Fmod.get_node("FmodAtributos").get(sfxResource.sfx["InicializandoProjetor"]))
 		player.show()
 		cam.current = false
 		mainCam.current = true
@@ -142,6 +157,7 @@ func dialogic_signal(arg):
 		pointer.isStopped = false
 		yield(get_tree().create_timer(2),"timeout")
 		startInteract = false
+		Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
 		
 func _on_AreaHologram_mouse_entered():
 	# Se o mouse tocar no NPC e ele ja nao estiver em colisão, habilita o dialogo
@@ -190,3 +206,13 @@ func show_rewards():
 	$Reward_Screen.show()
 	$Reward_Screen.set_reward()
 
+func play_music(mode,value):
+	emit_signal("set_music",mode,value)
+
+func play_sfx(mode,value):
+	if mode == "start_event":
+		Fmod.start_event(value)
+	elif mode == "stop_event":
+		Fmod.stop_event(value,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
+	elif mode == "play_one_shot":
+		Fmod.play_one_shot(value,self)  

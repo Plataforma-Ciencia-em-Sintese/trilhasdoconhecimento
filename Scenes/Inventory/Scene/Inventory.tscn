@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Scripts/Inventory_Controller.gd" type="Script" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Select_Player/Speed_Icon.png" type="Texture" id=24]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://icon.png" type="Texture" id=26]
+[ext_resource path="res://Management/Sound System/SFX Controllers/Inventory_SFXs.tres" type="Resource" id=27]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=29]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=30]
@@ -136,6 +137,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -23.0 ]
 }
+sfxResource = ExtResource( 27 )
 
 [node name="Mouse_Block" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )

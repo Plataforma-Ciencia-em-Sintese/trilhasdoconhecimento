@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource( 1 )
-sfxSingleStream = {
-"Passos": "event:/SFX/Personagem/Passos"
-}
-sfxDoubleStream = {
+sfx = {
+"InicializandoProjetor": "iniProjetor"
 }
