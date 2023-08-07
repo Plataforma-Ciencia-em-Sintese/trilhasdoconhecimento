@@ -2,12 +2,21 @@ extends Area
 
 # Declara o node camera de onde surgira o raycast
 export (NodePath) var camera
+
 # Declara os valores de inicio e fim do raycast
 var rayOrigin: Vector3
 var rayEnd: Vector3
+
+# Verifica se esta em algo que esconde pra nao mostrar o cursor
 var insideAHider: bool = false
+
+# Verifica se o jogador pode seguir ou nao o pointer
 var isStopped: bool = false
+
+# Informa se o mouse esta dentro ou fora da interface do jogo
 var outInterface: bool = true
+
+# Checa se tem alguma camera cinematica na cena
 export var getCineCam: bool = false
 
 func _ready():
@@ -55,10 +64,12 @@ func _on_Pointer_body_exited(body):
 	if body.is_in_group("NPC"):
 		insideAHider = false
 
+# Muda para a mesma posicao do jogador
 func change_position():
 	global_transform.origin = get_tree().get_nodes_in_group("Player")[0].global_transform.origin
 
 func cinematic_mode(status):
+	# Se o signal vindo da camera e iniciar ou terminar
 	if status == "started":
 		isStopped = true
 	else:

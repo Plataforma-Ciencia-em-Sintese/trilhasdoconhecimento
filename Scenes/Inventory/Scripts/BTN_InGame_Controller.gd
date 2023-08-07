@@ -16,8 +16,11 @@ func _ready():
 	icon = buttonResource.icon
 
 func _on_BTN_In_Game_pressed():
+	# Se esse botao e uma arma, chama a funcao de troca arma do player
 	if buttonResource.type == "Weapon":
-		player.change_weapons_in_game(buttonResource.name)
+		player.change_weapons(buttonResource.name)
+	
+	# O outInterface faz o player nao andar quando ele estiver tocando em um botao na tela
 	pointer.outInterface = false
 
 func _on_BTN_In_Game_mouse_entered():

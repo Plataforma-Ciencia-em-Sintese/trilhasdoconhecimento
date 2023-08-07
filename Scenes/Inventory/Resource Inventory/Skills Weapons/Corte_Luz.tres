@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Weapon_Skill_Attributes.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/consum_icon_vazio.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+icon = ExtResource( 2 )
+sceneSkill = "Corte de Luz"
+levelToUnlock = 1.0
+numBoost = 4
+denBoost = 2
+energyCost = 10.0
+cooldown = 10.0
+duration = 1.0

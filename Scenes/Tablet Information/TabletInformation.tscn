@@ -34,7 +34,6 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_LabPass.png" type="Texture" id=33]
 [ext_resource path="res://Scenes/HUDs/Options/Options.tscn" type="PackedScene" id=34]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 24
 use_filter = true

@@ -27,6 +27,9 @@ onready var rootSecWeaponInGame: Node = owner.get_node("Battle_UI/Sec_Container/
 onready var rootMainSkillsInGame: Node = owner.get_node("Battle_UI/Main_Container/Skills_Main")
 onready var rootSecSkillsInGame: Node = owner.get_node("Battle_UI/Sec_Container/Skills_Sec")
 
+#Coleta o node tablet no jogo
+onready var tabletInfo : Node = owner.get_node("TabletInformation/PanelTablet")
+
 # itens de descricao do inventario
 onready var nameItemTXT: Node = $BG_Inventory/Description_Item/Icon_Item/Item_Name
 onready var equipBTN: Node = $BG_Inventory/Description_Item/BT_Equip
@@ -34,16 +37,16 @@ onready var descripionItemTXT: Node = $BG_Inventory/Description_Item/Icon_Item/I
 onready var iconItem: Node = $BG_Inventory/Description_Item/Icon_Item
 
 # Coleta a  barra e texto dos indicadores para mostrar valores ao jogador
-onready var previewBarLife = $BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Preview_Bar
-onready var previewTxtLife = $BG_Inventory/Info_BG/Status_Container/Life/Life_Txt
-onready var previewBarEnergy= $BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Preview_Bar
-onready var previewTxtEnergy = $BG_Inventory/Info_BG/Status_Container/Energy/Energy_Txt
-onready var previewBarATKMain= $BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Preview_Bar
-onready var previewTxtATKMain = $BG_Inventory/Info_BG/Status_Container/ATK_Main/ATKMain_Txt
-onready var previewBarATKSec = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Preview_Bar
-onready var previewTxtATKSec = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/ATKSec_Txt
-onready var previewBarSpeed = $BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Preview_Bar
-onready var previewTxtSpeed = $BG_Inventory/Info_BG/Status_Container/Speed_Run/Speed_Txt
+onready var previewBarLife : Node = $BG_Inventory/Info_BG/Status_Container/Life/BG_Bar/Preview_Bar
+onready var previewTxtLife : Node = $BG_Inventory/Info_BG/Status_Container/Life/Life_Txt
+onready var previewBarEnergy : Node = $BG_Inventory/Info_BG/Status_Container/Energy/BG_Bar/Preview_Bar
+onready var previewTxtEnergy : Node = $BG_Inventory/Info_BG/Status_Container/Energy/Energy_Txt
+onready var previewBarATKMain : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Preview_Bar
+onready var previewTxtATKMain : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Main/ATKMain_Txt
+onready var previewBarATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Preview_Bar
+onready var previewTxtATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/ATKSec_Txt
+onready var previewBarSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Preview_Bar
+onready var previewTxtSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/Speed_Txt
 
 # identifica os scripts de valores dos itens
 # todas devem ficar na pasta do caminho especificado alem do mesmo nome das armas
@@ -259,12 +262,6 @@ func _on_BT_Equip_pressed():
 	show_or_hide_informations("Speed","Hide")
 	show_or_hide_informations("ATKMain","Hide")
 	show_or_hide_informations("ATKSec","Hide")
-	
-#	tempLife = 0
-#	tempEnergy = 0
-#	tempSpeed = 0
-#	tempATKMain = 0
-#	tempATKSec = 0
 
 func set_itens():
 	# Add botao inventario
@@ -285,6 +282,8 @@ func set_itens():
 		inGameBTN.buttonResource = resourceFromButton
 		# O novo botao recebe sua referencia no inventario
 		itemBTN.btnLinked = objectButton
+		# Altera a arma da mao do jogador
+		player.change_weapons(resourceFromButton.name)
 		#---------------------------
 		# Se nao tem arma main
 		if rootMainWeapon.get_child_count() <= 0:
@@ -408,7 +407,8 @@ func delete_itens():
 			rootConsumsInGame.get_child(i).queue_free()
 
 func _on_BT_Close_pressed():
-	hide()
+	$BG_Inventory.hide()
+	tabletInfo.show()
 
 func get_weapons_calculation(type,operation):
 	# Realiza os calculos de fracao de acordo com os valores dados pela Resource da arma

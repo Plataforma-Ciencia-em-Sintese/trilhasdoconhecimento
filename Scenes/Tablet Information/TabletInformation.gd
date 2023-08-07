@@ -1,8 +1,4 @@
 extends CanvasLayer
-
-func _ready():
-#	owner.get_node("Inventory").btnOpenClose = $BT_tablet
-	pass
 	
 func _on_BT_tablet_pressed():
 #	Fmod.play_one_shot("event:/SFX/Menu/AbrirMenuMissões", self)

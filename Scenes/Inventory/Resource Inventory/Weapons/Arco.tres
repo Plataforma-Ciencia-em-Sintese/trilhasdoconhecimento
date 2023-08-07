@@ -22,4 +22,4 @@ denSpeed = 0
 atkOperation = "+"
 numATK = 1
 denATK = 2
-skillsInOrder = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ) ]
+skillsInOrder = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 4 ) ]
