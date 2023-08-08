@@ -26,3 +26,12 @@ func _on_BT_ExitConfig_pressed():
 	player.get_node("TabletInformation/PanelTablet").show()
 	$Panel_Options/BT_ExitConfig.hide()
 	$Panel_Options.hide()
+
+
+func _on_Panel_exit_pressed():
+	save_file.saveVolume = $Panel_Options/Fundo/Sound/HSlider_Sound.value
+	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.saveVolume
+	SaveFile.save_data()
+	player.get_node("TabletInformation/PanelTablet").show()
+	$Panel_Options/BT_ExitConfig.hide()
+	$Panel_Options.hide()

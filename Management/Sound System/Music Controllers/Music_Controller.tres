@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Management/Sound System/Script/Music_System.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+music = {
+"Alan": "alanTuring",
+"Ambience1": "ambience1",
+"Galileu": "galileuGalilei",
+"InicializandoProjetor": "iniProjetor",
+"Isaac": "isaacNewton",
+"Marie": "marieCurie",
+"Oswaldo": "oswaldoCruz",
+"PrimeiroNivel": "mainMusic",
+"Robert": "robertBoyle"
+}

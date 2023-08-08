@@ -10,3 +10,9 @@ func _on_exit_Trails_pressed():
 	player.get_node("TabletInformation/PanelTablet").show()
 	$exit_Trails.hide()
 	$Panel_trails.hide()
+
+
+func _on_Panel_exit_pressed():
+	player.get_node("TabletInformation/PanelTablet").show()
+	$exit_Trails.hide()
+	$Panel_trails.hide()

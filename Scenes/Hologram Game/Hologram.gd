@@ -18,6 +18,9 @@ var startInteract = false
 export(String, "TimelineDropdown") var timeline: String
 # Adiciona um canvas direto do Dialogic
 export(bool) var add_canvas = true
+
+export (String) var npcName
+
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
 var clickedOnMe: bool = false
@@ -60,7 +63,7 @@ func _physics_process(delta):
 	$Arrow.rotate_y(0.1)
 
 func talk_to_player():
-	Fmod.start_event(Fmod.get_node("FmodAtributos").iniProjetor)
+#	Fmod.start_event(Fmod.get_node("FmodAtributos").iniProjetor)
 	startInteract = true
 	cam.current = true
 	mainCam.current = false
@@ -76,15 +79,20 @@ func talk_to_player():
 	owner.get_node("WhiteTransition").hide()
 	QuestManager.get_node("Buttons_Diary").hide()
 	pointer.hide()
+	
+	if npcName != "":
+		GlobalMusicPlayer.play_sound("set_global",1)
+		GlobalMusicPlayer.play_sound("start_event",npcName)
+		
 	yield(get_tree().create_timer(0.05),"timeout")
 	player.hide()
 	yield(get_tree().create_timer(1),"timeout")
+	GlobalMusicPlayer.play_sound("start_event","InicializandoProjetor")
 	QuestManager.get_node("Buttons_Diary").hide()
 	yield(get_tree().create_timer(1.5),"timeout")
 	$Face.show()
 	$AnimationPlayer.play("Start")
 	yield(get_tree().create_timer(2),"timeout")
-	Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
 	start_dialogue()
 
 func accept_quest():
@@ -111,7 +119,11 @@ func start_dialogue():
 func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
 	if arg == "cabou" and !acceptQuest:
-		Fmod.play_one_shot("event:/SFX/Ingame/EncerrandoProjetor", self)
+		if npcName != "":
+			GlobalMusicPlayer.play_sound("set_global",0)
+			GlobalMusicPlayer.play_sound("stop_event",npcName)
+		
+		GlobalMusicPlayer.play_sound("stop_event","InicializandoProjetor")
 		player.show()
 		cam.current = false
 		mainCam.current = true
@@ -142,6 +154,7 @@ func dialogic_signal(arg):
 		pointer.isStopped = false
 		yield(get_tree().create_timer(2),"timeout")
 		startInteract = false
+		Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
 		
 func _on_AreaHologram_mouse_entered():
 	# Se o mouse tocar no NPC e ele ja nao estiver em colisão, habilita o dialogo
@@ -189,4 +202,3 @@ func end_quest():
 func show_rewards():
 	$Reward_Screen.show()
 	$Reward_Screen.set_reward()
-

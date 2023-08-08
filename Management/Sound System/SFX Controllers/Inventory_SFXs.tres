@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Management/Sound System/Script/Sound_System.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sfx = {
+"BotaoLimpar": "event:/SFX/Menu Iventario/BotãoLimpar",
+"EquiparItemArma": "event:/SFX/Menu Iventario/EquiparItemArma",
+"EquiparItemChipMelhoria": "event:/SFX/Menu Iventario/EquiparItemChipMelhoria",
+"EquiparItemConsumivel": "event:/SFX/Menu Iventario/EquiparItemConsumivel",
+"SelecionarItemArma": "event:/SFX/Menu Iventario/SelecionarItemArma",
+"SelecionarItemChipMelhoria": "event:/SFX/Menu Iventario/SelecionarItemChipMelhoria",
+"SelecionarItemConsumivel": "event:/SFX/Menu Iventario/SelecionarItemConsumivel"
+}

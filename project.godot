@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "BossValues",
+"language": "GDScript",
+"path": "res://Scenes/Enemies/Boss/Resource Boss/Boss_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "ChipValues",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Chips/Chip_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "ConsumValues",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Consums/Consum_Attributes.gd"
+}, {
 "base": "Reference",
 "class": "DTS",
 "language": "GDScript",
@@ -82,14 +97,42 @@ _global_script_classes=[ {
 "base": "",
 "class": "FmodNative",
 "language": "NativeScript",
-"path": "res://addons/fmod/Fmod.gdns"
+"path": "res://addons/FMOD/Fmod.gdns"
 }, {
 "base": "PanelContainer",
 "class": "HistoryRow",
 "language": "GDScript",
 "path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
+}, {
+"base": "Resource",
+"class": "NormalEnemyValues",
+"language": "GDScript",
+"path": "res://Scenes/Enemies/Normals/Resource Enemy/Normal_Enemy_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "SFXController",
+"language": "GDScript",
+"path": "res://Management/Sound System/Script/Sound_System.gd"
+}, {
+"base": "Resource",
+"class": "Weapon_Skill",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Skills Weapons/Weapon_Skill_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "WeaponsValues",
+"language": "GDScript",
+"path": "res://Scenes/Inventory/Resource Inventory/Weapons/Weapons_Attributes.gd"
+}, {
+"base": "Resource",
+"class": "musicController",
+"language": "GDScript",
+"path": "res://Management/Sound System/Script/Music_System.gd"
 } ]
 _global_script_class_icons={
+"BossValues": "",
+"ChipValues": "",
+"ConsumValues": "",
 "DTS": "",
 "Dialogic": "",
 "DialogicAnimaPropertiesHelper": "",
@@ -105,7 +148,12 @@ _global_script_class_icons={
 "EffekseerEmitter2D": "res://addons/effekseer/icon16.png",
 "EffekseerResource": "res://addons/effekseer/icon16.png",
 "FmodNative": "",
-"HistoryRow": ""
+"HistoryRow": "",
+"NormalEnemyValues": "",
+"SFXController": "",
+"Weapon_Skill": "",
+"WeaponsValues": "",
+"musicController": ""
 }
 
 [application]
@@ -118,11 +166,11 @@ config/icon="res://icon.png"
 
 QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
 StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
-Global="*res://Global_Translation.gd"
-GlobalValues="*res://Global_Values.gd"
-Fmod="*res://addons/fmod/Fmod.tscn"
+GlobalValues="*res://Management/Global Scripts/Global_Values.gd"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
-SaveFile="*res://management/save_file.gd"
+SaveFile="*res://Management/save_file.gd"
+Fmod="*res://addons/fmod/Fmod.tscn"
+GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 
 [display]
 

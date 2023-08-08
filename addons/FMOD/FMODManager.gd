@@ -9,6 +9,7 @@ var marieCurie: int = 0
 var alanTuring: int = 0
 var ambience1: int = 0
 var mainMusic: int = 0
+var csAmbience: int = 0
 func _ready() -> void:
 	# initialize FMOD
 	# initializing with the LIVE_UPDATE flag lets you
@@ -34,6 +35,7 @@ func _ready() -> void:
 	alanTuring = Fmod.create_event_instance("event:/Musicas/Notaveis/Alan Turing")
 	ambience1 = Fmod.create_event_instance("event:/SFX/Ingame/Ambience1")
 	mainMusic = Fmod.create_event_instance("event:/Musicas/PrimeiroNivel")
+	csAmbience = Fmod.create_event_instance("event:/SFX/Ingame/CSAmbience")
 	
 func _input(event):
 	if event.is_action_pressed("Click"):

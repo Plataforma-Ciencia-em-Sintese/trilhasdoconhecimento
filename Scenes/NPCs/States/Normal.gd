@@ -1,14 +1,11 @@
 extends Spatial
 
 export (NodePath) var animationTree
-export var speed = 1
+export (float) var speed = 1
 export (String, "idle", "walk","moving around") var states
-var start = true
-var changeAnimMvgAround = 0
+var start : bool = true
+var changeAnimMvgAround : int = 0
 
-func _ready():
-	pass
-	
 func _physics_process(delta):
 	if is_visible_in_tree():
 		owner.offset += speed * delta
