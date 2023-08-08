@@ -1,13 +1,14 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Character/Character_Official.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Hologram Game/Hologram.tscn" type="PackedScene" id=3]
 [ext_resource path="res://3D/Level Design/Scifi Texture Ceiling 2.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Sci Fi Room/CameraController.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/NPCs/NPC Original.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Transitions/WhiteTransition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3D/Level Design/PolygonScifiSpace_Material_01_A_001.material" type="Material" id=8]
+[ext_resource path="res://Management/Sound System/Script/Music_Scene_Player.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Sci Fi Room/Elevator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationMesh" id=898]
@@ -5413,6 +5414,8 @@ flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0 )
 
 [node name="Scifi_Stage" type="Spatial" groups=["nivel"]]
+script = ExtResource( 9 )
+musicName = [ "", "" ]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.17772, 0.984081, 0, -0.984081, -0.17772, 0, 14.3384, 0 )
