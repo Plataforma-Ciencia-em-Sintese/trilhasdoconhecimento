@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Weapons/Weapons_Attributes.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Tres_Flechas.tres" type="Resource" id=2]
+[ext_resource path="res://Sprites/UI/Icons/Attacks/Sword Spin.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Corte_Luz.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+icon = ExtResource( 3 )
+name = "Espada"
+description = "Espada muito forte!"
+lifeOperation = "-"
+numLife = 1
+denLife = 3
+energyOperation = "-"
+numEnergy = 1
+denEnergy = 3
+speedOperation = "N/D"
+numSpeed = 0
+denSpeed = 0
+atkOperation = "+"
+numATK = 1
+denATK = 2
+skillsInOrder = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ) ]

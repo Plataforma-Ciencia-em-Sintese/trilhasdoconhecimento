@@ -34,8 +34,6 @@ onready var mainCam : Node = get_tree().get_nodes_in_group("Camera")[0]
 onready var pointer : Node = get_tree().get_nodes_in_group("Pointer")[0]
 onready var mat : Material = $Base/Cientistas/Skeleton/NPC_Body.get_surface_material(0).next_pass
 
-signal set_music
-
 func _ready():
 	mat.set_shader_param("enable", false)
 	arrow.hide()
@@ -57,6 +55,10 @@ func _physics_process(_delta):
 	arrow.rotate_y(0.1)
 
 func start_dialogue():
+	if npcName != "":
+		GlobalMusicPlayer.play_sound("set_global",1)
+		GlobalMusicPlayer.play_sound("start_event",npcName)
+	
 	# Se o zoom estiver ativo, ativa a camera NPC e esconde o jogador 
 	if zoom_camera:
 		baseCam.current = true
@@ -82,10 +84,6 @@ func start_dialogue():
 	pointer.global_transform.origin = player.global_transform.origin
 	arrow.hide()
 	
-	if npcName != "":
-		play_music("SetMainMusicVol",1)
-		play_music("PlayNPCMusic",npcName)
-	
 func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
 	if arg == "cabou":
@@ -110,8 +108,8 @@ func dialogic_signal(arg):
 		pointer.isStopped = false
 		
 		if npcName != "":
-			play_music("SetMainMusicVol",0)
-			play_music("StopNPCMusic",npcName)
+			GlobalMusicPlayer.play_sound("set_global",0)
+			GlobalMusicPlayer.play_sound("stop_event",npcName)
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
@@ -143,6 +141,3 @@ func _on_Area_mouse_exited():
 	if !clickedOnMe:
 		canTalk = false
 		mat.set_shader_param("enable", false)
-
-func play_music(mode,value):
-	emit_signal("set_music",mode,value)

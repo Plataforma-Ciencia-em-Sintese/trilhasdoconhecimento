@@ -170,6 +170,7 @@ GlobalValues="*res://Management/Global Scripts/Global_Values.gd"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
 SaveFile="*res://Management/save_file.gd"
 Fmod="*res://addons/fmod/Fmod.tscn"
+GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 
 [display]
 

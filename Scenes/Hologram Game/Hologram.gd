@@ -20,8 +20,6 @@ export(String, "TimelineDropdown") var timeline: String
 export(bool) var add_canvas = true
 
 export (String) var npcName
-export (Resource) var sfxResource
-signal set_music
 
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
@@ -83,19 +81,18 @@ func talk_to_player():
 	pointer.hide()
 	
 	if npcName != "":
-		play_music("SetMainMusicVol",1)
-		play_music("PlayNPCMusic",npcName)
+		GlobalMusicPlayer.play_sound("set_global",1)
+		GlobalMusicPlayer.play_sound("start_event",npcName)
 		
 	yield(get_tree().create_timer(0.05),"timeout")
 	player.hide()
 	yield(get_tree().create_timer(1),"timeout")
-#	play_sfx("start_event",Fmod.get_node("FmodAtributos").get(sfxResource.sfx["InicializandoProjetor"]))
+	GlobalMusicPlayer.play_sound("start_event","InicializandoProjetor")
 	QuestManager.get_node("Buttons_Diary").hide()
 	yield(get_tree().create_timer(1.5),"timeout")
 	$Face.show()
 	$AnimationPlayer.play("Start")
 	yield(get_tree().create_timer(2),"timeout")
-#	Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
 	start_dialogue()
 
 func accept_quest():
@@ -123,10 +120,10 @@ func dialogic_signal(arg):
 	# Quando o signal for emitido ao final do dialogo
 	if arg == "cabou" and !acceptQuest:
 		if npcName != "":
-			play_music("SetMainMusicVol",0)
-			play_music("StopNPCMusic",npcName)
+			GlobalMusicPlayer.play_sound("set_global",0)
+			GlobalMusicPlayer.play_sound("stop_event",npcName)
 		
-		play_sfx("stop_event",Fmod.get_node("FmodAtributos").get(sfxResource.sfx["InicializandoProjetor"]))
+		GlobalMusicPlayer.play_sound("stop_event","InicializandoProjetor")
 		player.show()
 		cam.current = false
 		mainCam.current = true
@@ -205,14 +202,3 @@ func end_quest():
 func show_rewards():
 	$Reward_Screen.show()
 	$Reward_Screen.set_reward()
-
-func play_music(mode,value):
-	emit_signal("set_music",mode,value)
-
-func play_sfx(mode,value):
-	if mode == "start_event":
-		Fmod.start_event(value)
-	elif mode == "stop_event":
-		Fmod.stop_event(value,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
-	elif mode == "play_one_shot":
-		Fmod.play_one_shot(value,self)  
