@@ -11,3 +11,9 @@ func _on_exit_Enemy_pressed():
 	player.get_node("TabletInformation/PanelTablet").show()
 	$exit_Enemy.hide()
 	$Panel_Enemy.hide()
+
+
+func _on_Panel_exit_pressed():
+	player.get_node("TabletInformation/PanelTablet").show()
+	$exit_Enemy.hide()
+	$Panel_Enemy.hide()

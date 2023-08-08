@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Icon_Speed.png-0b99e7d6b8aa0809ca8adb27069d05d6.stex"
+path="res://.import/BG_nameNotables.png-36e3a7331ce32da64658a4457214e03c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Icons/Icons_Invent/armas_icons/Icon_Speed.png"
-dest_files=[ "res://.import/Icon_Speed.png-0b99e7d6b8aa0809ca8adb27069d05d6.stex" ]
+source_file="res://Sprites/UI/Icons/Icons_Notables/BG_nameNotables.png"
+dest_files=[ "res://.import/BG_nameNotables.png-36e3a7331ce32da64658a4457214e03c.stex" ]
 
 [params]
 
