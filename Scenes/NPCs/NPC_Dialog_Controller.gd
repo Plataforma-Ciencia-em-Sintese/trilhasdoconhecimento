@@ -12,7 +12,7 @@ export (String, "Longa", "Curta") var mangas
 export (String) var npcName
 
 # Diretorio de onde ficam os controladores de quest
-export (String) var questDir = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
+var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
 
 # Se o npc tiver musica propria
 export (bool) var haveMusicTheme

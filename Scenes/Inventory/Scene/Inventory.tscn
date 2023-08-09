@@ -131,6 +131,7 @@ use_filter = true
 font_data = ExtResource( 25 )
 
 [node name="Inventory" type="CanvasLayer" groups=["Inventory"]]
+pause_mode = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -23.0 ]

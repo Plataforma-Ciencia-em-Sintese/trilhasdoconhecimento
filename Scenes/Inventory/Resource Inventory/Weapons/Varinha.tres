@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
+unlocked = false
 icon = ExtResource( 3 )
 name = "Varinha"
 description = "Varinha super forte destruidora de tudo!!"

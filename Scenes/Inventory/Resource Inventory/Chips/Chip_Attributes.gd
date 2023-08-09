@@ -1,6 +1,7 @@
 extends Resource
 class_name ChipValues
 
+export (bool) var unlocked
 var type = "Chip"
 export (Texture) var icon
 export (String) var name

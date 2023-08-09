@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
+unlocked = false
 icon = ExtResource( 3 )
 name = "Arco"
 description = "Arco longo feito para atirar a longa distancia e explodir todo o universo observável."

@@ -6,6 +6,7 @@
 pause_mode = 2
 layer = 99
 script = ExtResource( 1 )
+musicName = "InfoPanel"
 
 [node name="BG" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.501961 )

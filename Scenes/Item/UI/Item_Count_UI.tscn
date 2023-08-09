@@ -9,7 +9,8 @@ script = ExtResource( 1 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -180.0
-margin_bottom = 72.0
+margin_top = 112.0
+margin_bottom = 184.0
 color = Color( 0, 0, 0, 0.423529 )
 
 [node name="Title" type="Label" parent="BG"]

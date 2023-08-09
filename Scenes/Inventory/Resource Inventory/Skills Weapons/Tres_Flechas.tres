@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource( 1 )
+unlocked = false
 icon = ExtResource( 2 )
 sceneSkill = ""
 levelToUnlock = 0.0

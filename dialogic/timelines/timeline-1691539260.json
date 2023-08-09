@@ -105,6 +105,22 @@
 			"text": "Então a Maria está ainda fazendo a pesquisa?\nMas não entendo a demora.\nO jeito é esperar né? Mas obrigado pela ajuda.\nPelo seu bom trabalho irei te dar um item."
 		},
 		{
+			"emit_signal": "give_reward",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "next_quest",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.1
+		},
+		{
 			"event_id": "dialogic_013"
 		}
 	],

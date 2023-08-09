@@ -100,6 +100,18 @@
 			"text": "AHAHA!\nAchou todos bro! Maneiro demais...\nTome, isso é seu por me ajudar valeu?"
 		},
 		{
+			"emit_signal": "give_reward",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.1
+		},
+		{
 			"event_id": "dialogic_013"
 		},
 		{

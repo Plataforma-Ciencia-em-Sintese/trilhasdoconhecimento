@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Reward Screen/Base_Reward_Icon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Reward Screen/Reward_Controller.gd" type="Script" id=3]
+
+[node name="Reward_UI" type="CanvasLayer"]
+pause_mode = 2
+layer = 128
+script = ExtResource( 3 )
+baseUI = ExtResource( 2 )
+musicName = "MissionCompleted"
+
+[node name="BG" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.462745 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.0
+margin_top = -287.0
+margin_right = 187.0
+margin_bottom = 287.0
+
+[node name="Title" type="Label" parent="BG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_right = -1.0
+margin_bottom = 49.0
+rect_scale = Vector2( 2, 2 )
+text = "SUAS RECOMPENSAS"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="BG"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -42.0
+margin_bottom = 31.0
+text = "X"
+
+[node name="Base_Reward_Icon" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Container_Rewards" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -163.0
+margin_top = -180.0
+margin_right = 170.0
+margin_bottom = -66.0
+rect_min_size = Vector2( 333, 114 )
+
+[connection signal="pressed" from="BG/Button" to="." method="_on_Button_pressed"]

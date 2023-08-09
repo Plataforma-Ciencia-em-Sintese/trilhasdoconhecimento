@@ -13,10 +13,9 @@ func _ready():
 
 func _on_Item_Quest_body_entered(body):
 	if body.is_in_group("Player"):
-		print("touch")
+		GlobalMusicPlayer.play_sound("play_one","event:/SFX/Menu Iventario/SelecionarItemConsumivel")
 		emit_signal("change_value",questVarValue)
 		queue_free()
-		
 
 func set_item(name):
 	for i in get_child_count():

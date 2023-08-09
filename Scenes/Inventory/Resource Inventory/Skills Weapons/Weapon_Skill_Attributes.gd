@@ -1,6 +1,7 @@
 extends Resource
 class_name Weapon_Skill
 
+export (bool) var unlocked
 var type = "Skill"
 export (Texture) var icon
 export (String) var sceneSkill = ""

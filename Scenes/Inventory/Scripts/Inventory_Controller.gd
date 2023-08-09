@@ -86,54 +86,10 @@ var tempATKSec : float = 0
 var tempSpeed : float = 0
 
 func _ready():
-	# Deleta os itens quando iniciar uma nova cena
-	delete_itens()
 	# Esconde a descriçao do item
 	hide_show_item_desc(false)
-	# Acessa a pasta contendo os arquivos de valores .tres
-	# Com o loop para cada arquivo, sera criado um botao com as informacoes do item
-	var allWeapons = get_files_in_directory(weaponsResourcePath)
-	for i in allWeapons.size():
-		# Cria uma nova instancia
-		var weaponBTN = btnInventory.instance()
-		# Acessa a resource da variavel
-		var weaponResource = allWeapons[i]
-		# Passa a resource para o botao trabalhar com os valores quando clicado
-		weaponBTN.buttonResource = weaponResource
-		weaponBTN.connect("change_item",self,"preview_item")
-		# Carrega o icone no botao
-		weaponBTN.icon = weaponResource.icon
-		# Add no root node do item
-		rootWeaponsInventory.add_child(weaponBTN)
-	
-	var allChips = get_files_in_directory(chipsResourcePath)
-	for i in allChips.size():
-		# Cria uma nova instancia
-		var chipBTN = btnInventory.instance()
-		# Acessa a resource da variavel
-		var chipResource = allChips[i]
-		# Passa a resource para o botao trabalhar com os valores quando clicado
-		chipBTN.buttonResource = chipResource
-		chipBTN.connect("change_item",self,"preview_item")
-		# Carrega o icone no botao
-		chipBTN.icon = chipResource.icon
-		# Add no root node do item
-		rootChipsInventory.add_child(chipBTN)
-	
-	var allConsums = get_files_in_directory(consumsResourcePath)
-	for i in allConsums.size():
-		if allConsums[i].quant > 0:
-			# Cria uma nova instancia
-			var consumBTN = btnInventory.instance()
-			# Acessa a resource da variavel
-			var consumResource = allConsums[i]
-			# Passa a resource para o botao trabalhar com os valores quando clicado
-			consumBTN.buttonResource = consumResource
-			consumBTN.connect("change_item",self,"preview_item")
-			# Carrega o icone no botao
-			consumBTN.icon = consumResource.icon
-			# Add no root node do item
-			rootConsumsInventory.add_child(consumBTN)
+	# Limpa o inventario e add os itens ja desbloqueados
+	start_inventory()
 
 func get_files_in_directory(path):
 	# funcao que acessa a pasta especificada e coleta todos os .tres ja carregados
@@ -284,6 +240,8 @@ func _on_BT_Equip_pressed():
 	show_or_hide_informations("Speed","Hide")
 	show_or_hide_informations("ATKMain","Hide")
 	show_or_hide_informations("ATKSec","Hide")
+	
+	resourceFromButton = null
 
 func set_itens():
 	# Add botao inventario
@@ -404,6 +362,9 @@ func delete_itens():
 		for i in rootMainWeaponInGame.get_child_count():
 			rootMainWeaponInGame.get_child(0).queue_free()
 		
+		for i in rootWeaponsInventory.get_child_count():
+			rootWeaponsInventory.get_child(i).queue_free()
+		
 		for i in rootSecWeapon.get_child_count():
 			rootSecWeapon.get_child(0).queue_free()
 		
@@ -433,8 +394,12 @@ func delete_itens():
 			
 		for i in rootConsumsInGame.get_child_count():
 			rootConsumsInGame.get_child(i).queue_free()
+		
+		for i in rootConsumsInventory.get_child_count():
+			rootConsumsInventory.get_child(i).queue_free()
 
 func _on_BT_Close_pressed():
+	resourceFromButton = null
 	$BG_Inventory.hide()
 	tabletInfo.show()
 
@@ -719,7 +684,64 @@ func _on_Background_Invent_gui_input(event):
 			show_or_hide_informations("Energy","Hide")
 			show_or_hide_informations("Speed","Hide")
 			hide_show_item_desc(false)
+			resourceFromButton = null
 
 func play_sfx(event,name):
 	if name:
 		GlobalMusicPlayer.play_sound(event,name)
+
+func insert_itens_invent(type):
+	# Acessa a pasta contendo os arquivos de valores .tres
+	# Com o loop para cada arquivo, sera criado um botao com as informacoes do item
+	if type == "Weapon":
+		var allWeapons = get_files_in_directory(weaponsResourcePath)
+		for i in allWeapons.size():
+			if allWeapons[i].unlocked:
+				# Cria uma nova instancia
+				var weaponBTN = btnInventory.instance()
+				# Acessa a resource da variavel
+				var weaponResource = allWeapons[i]
+				# Passa a resource para o botao trabalhar com os valores quando clicado
+				weaponBTN.buttonResource = weaponResource
+				weaponBTN.connect("change_item",self,"preview_item")
+				# Carrega o icone no botao
+				weaponBTN.icon = weaponResource.icon
+				# Add no root node do item
+				rootWeaponsInventory.add_child(weaponBTN)
+	elif type == "Chip":
+		var allChips = get_files_in_directory(chipsResourcePath)
+		for i in allChips.size():
+			if allChips[i].unlocked:
+				# Cria uma nova instancia
+				var chipBTN = btnInventory.instance()
+				# Acessa a resource da variavel
+				var chipResource = allChips[i]
+				# Passa a resource para o botao trabalhar com os valores quando clicado
+				chipBTN.buttonResource = chipResource
+				chipBTN.connect("change_item",self,"preview_item")
+				# Carrega o icone no botao
+				chipBTN.icon = chipResource.icon
+				# Add no root node do item
+				rootChipsInventory.add_child(chipBTN)
+	elif type == "Consum":
+		var allConsums = get_files_in_directory(consumsResourcePath)
+		for i in allConsums.size():
+			if allConsums[i].unlocked:
+				if allConsums[i].quant > 0:
+					# Cria uma nova instancia
+					var consumBTN = btnInventory.instance()
+					# Acessa a resource da variavel
+					var consumResource = allConsums[i]
+					# Passa a resource para o botao trabalhar com os valores quando clicado
+					consumBTN.buttonResource = consumResource
+					consumBTN.connect("change_item",self,"preview_item")
+					# Carrega o icone no botao
+					consumBTN.icon = consumResource.icon
+					# Add no root node do item
+					rootConsumsInventory.add_child(consumBTN)
+
+func start_inventory():
+	delete_itens()
+	insert_itens_invent("Weapon")
+	insert_itens_invent("Chip")
+	insert_itens_invent("Consum")

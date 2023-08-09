@@ -1,6 +1,7 @@
 extends Resource
 class_name WeaponsValues
 
+export (bool) var unlocked
 var type = "Weapon"
 export(Texture) var icon
 export(String) var name = ""
