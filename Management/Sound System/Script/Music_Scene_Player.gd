@@ -4,5 +4,8 @@ extends Node
 export (Array,String) var musicName
 
 func _ready():
+	GlobalQuest.localScene = self
+	GlobalQuest.spawn_item_quest(self)
+	
 	for i in musicName.size():
-			GlobalMusicPlayer.play_sound("start_event",musicName[i])
+		GlobalMusicPlayer.play_sound("start_event",musicName[i])

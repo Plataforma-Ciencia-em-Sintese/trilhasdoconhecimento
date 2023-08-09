@@ -5471,11 +5471,6 @@ curve = SubResource( 938 )
 [node name="Path_NPC" parent="NPC_Root/Path_Quest_NPC_1" instance=ExtResource( 6 )]
 transform = Transform( 0.435953, 0, 0.00637862, 0, 0.436, 0, -0.00637862, 0, 0.435953, 9.85262, 0, -6.13744 )
 
-[node name="NPC" parent="NPC_Root/Path_Quest_NPC_1/Path_NPC" index="0"]
-timeline = "timeline-1666579409.json"
-corpo = "Loiro"
-cabelo = "Feminino"
-
 [node name="AnimationTree" parent="NPC_Root/Path_Quest_NPC_1/Path_NPC/NPC" index="1"]
 parameters/moving/playback = SubResource( 1001 )
 
@@ -5498,10 +5493,11 @@ curve = SubResource( 938 )
 
 [node name="Path_NPC" parent="NPC_Root/Path_Quest_NPC_2" instance=ExtResource( 6 )]
 transform = Transform( 0.435953, 0, 0.00637862, 0, 0.436, 0, -0.00637862, 0, 0.435953, 9.85262, 0, -6.13744 )
-
-[node name="NPC" parent="NPC_Root/Path_Quest_NPC_2/Path_NPC" index="0"]
-timeline = "timeline-1666666161.json"
-zoom_camera = true
+zoomCamera = true
+corpo = "Loiro"
+cabelo = "Masculino"
+mangas = "Longa"
+npcName = "Daniel"
 
 [node name="AnimationTree" parent="NPC_Root/Path_Quest_NPC_2/Path_NPC/NPC" index="1"]
 parameters/moving/playback = SubResource( 1000 )

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Quest Manager/Script/Quest_Controller.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+title = "Explorador de mundos"
+description = "Aqui é onde o pau tora!"
+actors = {
+"Jorge": "Quest_01_Jorge",
+"Maria": "Quest_01_Maria"
+}
+rewards = [  ]

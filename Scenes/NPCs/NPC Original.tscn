@@ -5539,14 +5539,11 @@ tracks/64/imported = false
 tracks/64/enabled = true
 tracks/64/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[node name="Path_NPC" type="PathFollow"]
+[node name="Path_NPC" type="PathFollow" groups=["NPC"]]
 rotation_mode = 4
-
-[node name="NPC" type="KinematicBody" parent="." groups=["NPC", "Walkable"]]
 script = ExtResource( 3 )
-corpo = "Moreno"
-cabelo = "Masculino"
-mangas = "Curta"
+
+[node name="NPC" type="KinematicBody" parent="." groups=["Walkable"]]
 
 [node name="States" type="Spatial" parent="NPC"]
 
@@ -6055,7 +6052,7 @@ anims/WalkCycle_NPC_Worried = SubResource( 29 )
 transform = Transform( 0.653979, -0.000591228, -0.0182833, 0, 0.653893, -0.021145, 0.0182928, 0.0211367, 0.653637, 0.0299071, 1.17701, 2.85728 )
 
 [connection signal="timeout" from="NPC/States/Normal/Timer" to="NPC/States/Normal" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="NPC/Area" to="NPC" method="_on_Area_body_entered"]
-[connection signal="body_exited" from="NPC/Area" to="NPC" method="_on_Area_body_exited"]
-[connection signal="mouse_entered" from="NPC/Area" to="NPC" method="_on_Area_mouse_entered"]
-[connection signal="mouse_exited" from="NPC/Area" to="NPC" method="_on_Area_mouse_exited"]
+[connection signal="body_entered" from="NPC/Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="NPC/Area" to="." method="_on_Area_body_exited"]
+[connection signal="mouse_entered" from="NPC/Area" to="." method="_on_Area_mouse_entered"]
+[connection signal="mouse_exited" from="NPC/Area" to="." method="_on_Area_mouse_exited"]

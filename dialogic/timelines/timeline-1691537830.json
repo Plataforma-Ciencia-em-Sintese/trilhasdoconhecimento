@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "É fascinante o mundo da ciencia sabia?\nMe tornei pesquisadora para descobrir mais sobre o mundo que nos cerca.\nExistem tantos segredos lá fora...Estou animada em estudar!"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691537830.json",
+		"name": "Maria"
+	}
+}

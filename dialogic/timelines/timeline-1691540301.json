@@ -1,0 +1,63 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "active"
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "O que? O Jorge quer a minha pesquisa?\nPuxa acabei me esquecendo disso devido a minha empolgação.\nCom certeza ele nao vai gostar, mas avise a ele que vou terminar ainda.\nE se ele perguntar onde estou, diga que fui ver as horas no relógio de Londres e vou demorar."
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "completed"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmm...Espero que o Jorge não fique zangado com isso sabe?\nUps! Estou pensando alto, desculpe."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691540301.json",
+		"name": "Quest_01_Maria"
+	}
+}

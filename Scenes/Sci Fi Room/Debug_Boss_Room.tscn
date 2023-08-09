@@ -119,5 +119,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318, 0 )
 curve = SubResource( 10 )
 
 [node name="Path_Enemy" parent="Way3" instance=ExtResource( 7 )]
-transform = Transform( 0.999463, 0, 0.032777, 0, 1, 0, -0.032777, 0, 0.999463, 13.4747, 0, 0.0930376 )
+transform = Transform( 0.999463, 0, 0.0327818, 0, 1, 0, -0.0327818, 0, 0.999463, 13.4747, 0, 0.0930376 )
 enemyType = "Furadeiro"

@@ -1,0 +1,116 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": ""
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah então voce quer fazer uma quest né?\nTudo bem,então olha só:"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Preciso que voce converse com a Maria e diga que estou aguardando a pesquisa dela ok?"
+		},
+		{
+			"choice": "Sim",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Obrigado! Estarei esperando aqui quando falar com ela."
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "active"
+		},
+		{
+			"choice": "Não",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Puxa que pena...Mas tudo bem, faça o que quiser."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "!=",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "completed"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "E ai ja falou com ela?\nAinda não? Agiliza isso rapaz!"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "completed"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Então a Maria está ainda fazendo a pesquisa?\nMas não entendo a demora.\nO jeito é esperar né? Mas obrigado pela ajuda.\nPelo seu bom trabalho irei te dar um item."
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691539260.json",
+		"name": "Quest_01_Jorge"
+	}
+}
