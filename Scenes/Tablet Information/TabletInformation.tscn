@@ -86,6 +86,7 @@ texture = ExtResource( 15 )
 expand = true
 
 [node name="PanelTablet" type="Panel" parent="."]
+visible = false
 self_modulate = Color( 0.952941, 0.952941, 0.952941, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -137,19 +138,20 @@ valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
-anchor_top = 0.493
+anchor_top = 0.521
 anchor_right = 0.917
-anchor_bottom = 0.699
-margin_left = -0.179993
-margin_top = 0.127014
-margin_right = 0.102051
-margin_bottom = -0.0390015
+anchor_bottom = 0.727
+margin_left = -0.490784
+margin_top = 0.0654907
+margin_right = -0.0958252
+margin_bottom = -0.350098
+rect_min_size = Vector2( 794, 202 )
 custom_constants/separation = 135
 alignment = 1
 
 [node name="BT_Invent" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 134.0
-margin_right = 219.0
+margin_left = 135.0
+margin_right = 220.0
 margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 17 )
@@ -169,8 +171,8 @@ custom_fonts/font = SubResource( 2 )
 text = "Inventário"
 
 [node name="BT_Config" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 354.0
-margin_right = 439.0
+margin_left = 355.0
+margin_right = 440.0
 margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 8 )
@@ -191,8 +193,8 @@ text = "Configuração"
 align = 1
 
 [node name="BT_Contatos" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 574.0
-margin_right = 659.0
+margin_left = 575.0
+margin_right = 660.0
 margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 6 )
@@ -213,20 +215,21 @@ text = "Contatos"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
-anchor_top = 0.702
+anchor_top = 0.682
 anchor_right = 0.917
-anchor_bottom = 0.874
-margin_left = -0.179993
-margin_top = -0.0219727
-margin_right = 0.102051
-margin_bottom = 0.286072
+anchor_bottom = 0.887
+margin_left = -0.490784
+margin_top = -0.370117
+margin_right = -0.208618
+margin_bottom = 0.19696
+rect_min_size = Vector2( 794, 202 )
 custom_constants/separation = 135
 alignment = 1
 
 [node name="BT_Bestiario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
 margin_left = 134.0
 margin_right = 219.0
-margin_bottom = 169.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 16 )
 flat = true
@@ -248,7 +251,7 @@ align = 1
 [node name="BT_Trilhas" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
 margin_left = 354.0
 margin_right = 439.0
-margin_bottom = 169.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 9 )
 flat = true
@@ -270,7 +273,7 @@ align = 1
 [node name="BT_SairdoCS" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
 margin_left = 574.0
 margin_right = 659.0
-margin_bottom = 169.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 33 )
 flat = true
