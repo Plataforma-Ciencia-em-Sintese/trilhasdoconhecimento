@@ -86,7 +86,6 @@ texture = ExtResource( 15 )
 expand = true
 
 [node name="PanelTablet" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 0.952941, 0.952941, 0.952941, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -146,10 +145,12 @@ margin_top = 0.127014
 margin_right = 0.102051
 margin_bottom = -0.0390015
 custom_constants/separation = 135
+alignment = 1
 
 [node name="BT_Invent" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_right = 85.0
-margin_bottom = 134.0
+margin_left = 134.0
+margin_right = 219.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 17 )
 flat = true
@@ -168,9 +169,9 @@ custom_fonts/font = SubResource( 2 )
 text = "Inventário"
 
 [node name="BT_Config" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 220.0
-margin_right = 305.0
-margin_bottom = 134.0
+margin_left = 354.0
+margin_right = 439.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 8 )
 flat = true
@@ -190,9 +191,9 @@ text = "Configuração"
 align = 1
 
 [node name="BT_Contatos" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 440.0
-margin_right = 525.0
-margin_bottom = 134.0
+margin_left = 574.0
+margin_right = 659.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 6 )
 flat = true
@@ -220,10 +221,12 @@ margin_top = -0.0219727
 margin_right = 0.102051
 margin_bottom = 0.286072
 custom_constants/separation = 135
+alignment = 1
 
 [node name="BT_Bestiario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_right = 85.0
-margin_bottom = 112.0
+margin_left = 134.0
+margin_right = 219.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 16 )
 flat = true
@@ -243,9 +246,9 @@ text = "Bestiário"
 align = 1
 
 [node name="BT_Trilhas" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 220.0
-margin_right = 305.0
-margin_bottom = 112.0
+margin_left = 354.0
+margin_right = 439.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 9 )
 flat = true
@@ -265,9 +268,9 @@ text = "Trilhas"
 align = 1
 
 [node name="BT_SairdoCS" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 440.0
-margin_right = 525.0
-margin_bottom = 112.0
+margin_left = 574.0
+margin_right = 659.0
+margin_bottom = 169.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 33 )
 flat = true
