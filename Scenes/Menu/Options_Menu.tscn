@@ -1,0 +1,302 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://addons/dialogic/Documentation/Theme/DocumentationH4.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Rectangle 21.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 5.png" type="Texture" id=3]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 7.png" type="Texture" id=6]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BoldItalic.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 6.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 4.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/HUDs/Options/HBC_Resolution.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Menu/Options_Menu.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/VectorIcons_config.png" type="Texture" id=14]
+
+[sub_resource type="StyleBoxTexture" id=10]
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 7 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Control
+
+onready var current_language = (TranslationServer.get_locale())
+
+var playerDir = 0
+var player : Spatial
+
+func _ready():
+	
+	#$Button_resolution.text = \"Button_resolution\"
+	
+	# conecta os botões dos idiomas 
+	for btn in get_tree().get_nodes_in_group(\"language_btn\"):
+		btn.connect(\"toggled\", self, \"_on_language_toggled\", [btn.name])
+		# marca o botão com o idioma atual
+		btn.pressed = true if btn.name == current_language else false
+
+func _on_language_toggled(button_pressed, language):
+	if button_pressed:
+		TranslationServer.set_locale(language)
+		current_language = language
+
+   # Seleção de Personagem
+func instance_node(node, location, pararent):
+	var node_instance = node.instance()
+	pararent.add_child(node_instance)
+	node_instance.global_position = location
+	return node_instance
+
+
+func _on_Window_pressed():
+	pass # Replace with function body.
+
+
+func _on_800x600_pressed():
+	pass # Replace with function body.
+"
+
+[sub_resource type="DynamicFont" id=4]
+size = 41
+font_data = ExtResource( 4 )
+
+[sub_resource type="ButtonGroup" id=11]
+resource_name = "checkbox_groupLanguage"
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 4 )
+
+[node name="Control_Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 11 )
+
+[node name="Panel_Options" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 0 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Panel_exit" type="Button" parent="Panel_Options"]
+self_modulate = Color( 0.470588, 0.470588, 0.470588, 0.819608 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Fundo" type="TextureRect" parent="Panel_Options"]
+anchor_left = 0.183
+anchor_top = 0.182
+anchor_right = 0.823
+anchor_bottom = 0.847
+margin_left = -0.240021
+margin_top = -0.0400085
+margin_right = 0.559937
+margin_bottom = 0.159973
+texture = ExtResource( 14 )
+expand = true
+
+[node name="Sound" type="TextureRect" parent="Panel_Options/Fundo"]
+anchor_left = 0.172
+anchor_top = 0.557
+anchor_right = 0.433
+anchor_bottom = 0.599
+margin_left = -0.0400085
+margin_top = 0.196991
+margin_right = -0.0600281
+margin_bottom = 0.0789795
+texture = ExtResource( 2 )
+expand = true
+
+[node name="HSlider_Sound" type="HSlider" parent="Panel_Options/Fundo/Sound"]
+modulate = Color( 0.00392157, 0.0156863, 0.137255, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_top = -0.4
+anchor_right = 0.977
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = -0.0780182
+margin_bottom = 2.0
+rect_scale = Vector2( 1, 0.99323 )
+custom_styles/slider = SubResource( 10 )
+min_value = -30.0
+max_value = 0.0
+
+[node name="Label_Config" type="Label" parent="Panel_Options/Fundo"]
+modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+margin_left = 27.0
+margin_top = 14.0
+margin_right = 143.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 2 )
+text = "Configuração"
+align = 1
+valign = 1
+
+[node name="HBC_Traducao" type="HBoxContainer" parent="Panel_Options/Fundo"]
+anchor_left = 0.176
+anchor_top = 0.255
+anchor_right = 0.349
+anchor_bottom = 0.323
+margin_left = -0.320007
+margin_top = -0.145012
+margin_right = 131.82
+margin_bottom = 30.283
+rect_scale = Vector2( 0.52, 0.52 )
+script = SubResource( 3 )
+
+[node name="pt_BR" type="CheckBox" parent="Panel_Options/Fundo/HBC_Traducao" groups=["language_btn"]]
+margin_right = 125.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 4 )
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 12 )
+shortcut_in_tooltip = false
+action_mode = 0
+group = SubResource( 11 )
+text = "  Pt"
+flat = true
+expand_icon = true
+
+[node name="en_US" type="CheckBox" parent="Panel_Options/Fundo/HBC_Traducao" groups=["language_btn"]]
+margin_left = 129.0
+margin_right = 274.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 4 )
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 12 )
+shortcut_in_tooltip = false
+action_mode = 0
+group = SubResource( 11 )
+text = " Eng"
+flat = true
+expand_icon = true
+
+[node name="HBC_Resolution" type="HBoxContainer" parent="Panel_Options/Fundo"]
+anchor_left = 0.176
+anchor_top = 0.401
+anchor_right = 0.765
+anchor_bottom = 0.469
+margin_left = -0.320007
+margin_top = -0.07901
+margin_right = 446.7
+margin_bottom = 30.349
+rect_scale = Vector2( 0.52, 0.52 )
+script = ExtResource( 10 )
+
+[node name="Window" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
+margin_right = 189.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 7 )
+custom_icons/checked = ExtResource( 9 )
+custom_icons/unchecked = ExtResource( 12 )
+text = "  Window"
+
+[node name="Full" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
+margin_left = 193.0
+margin_right = 318.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 8 )
+custom_icons/checked = ExtResource( 9 )
+custom_icons/unchecked = ExtResource( 12 )
+text = "  Full"
+
+[node name="800x600" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
+margin_left = 322.0
+margin_right = 505.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 9 )
+custom_icons/checked = ExtResource( 9 )
+custom_icons/unchecked = ExtResource( 12 )
+text = "800x600"
+
+[node name="1280x720" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
+margin_left = 509.0
+margin_right = 709.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 9 )
+custom_icons/checked = ExtResource( 9 )
+custom_icons/unchecked = ExtResource( 12 )
+text = "1280x720"
+
+[node name="1920x1080" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
+margin_left = 713.0
+margin_right = 930.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 9 )
+custom_icons/checked = ExtResource( 9 )
+custom_icons/unchecked = ExtResource( 12 )
+text = "1920x1080"
+
+[node name="Icon_Traduc" type="TextureRect" parent="Panel_Options/Fundo"]
+anchor_left = 0.06
+anchor_top = 0.242
+anchor_right = 0.113
+anchor_bottom = 0.336
+margin_left = -0.200001
+margin_top = 0.0819931
+margin_right = 0.339996
+margin_bottom = 0.0559845
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Icon_Resolution" type="TextureRect" parent="Panel_Options/Fundo"]
+anchor_left = 0.06
+anchor_top = 0.384
+anchor_right = 0.113
+anchor_bottom = 0.478
+margin_left = -0.200001
+margin_top = 0.0639954
+margin_right = 0.339996
+margin_bottom = 0.0379944
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Icon_Sound" type="TextureRect" parent="Panel_Options/Fundo"]
+anchor_left = 0.06
+anchor_top = 0.526
+anchor_right = 0.113
+anchor_bottom = 0.62
+margin_left = -0.200001
+margin_top = 0.04599
+margin_right = 0.339996
+margin_bottom = 0.019989
+texture = ExtResource( 6 )
+expand = true
+
+[node name="BT_ExitConfig" type="Button" parent="Panel_Options"]
+anchor_left = 0.787
+anchor_top = 0.1
+anchor_right = 0.819
+anchor_bottom = 0.168
+margin_left = 0.639893
+margin_right = -0.320068
+margin_bottom = 0.0399933
+custom_constants/hseparation = 0
+custom_fonts/font = ExtResource( 1 )
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="Panel_Options/Panel_exit" to="." method="_on_Panel_exit_pressed"]
+[connection signal="value_changed" from="Panel_Options/Fundo/Sound/HSlider_Sound" to="." method="_on_HSlider_Sound_value_changed"]
+[connection signal="toggled" from="Panel_Options/Fundo/HBC_Resolution/Window" to="Panel_Options/Fundo/HBC_Resolution" method="_on_Window_toggled"]
+[connection signal="toggled" from="Panel_Options/Fundo/HBC_Resolution/Full" to="Panel_Options/Fundo/HBC_Resolution" method="_on_Full_toggled"]
+[connection signal="pressed" from="Panel_Options/Fundo/HBC_Resolution/800x600" to="Panel_Options/Fundo/HBC_Resolution" method="_on_800x600_pressed"]
+[connection signal="pressed" from="Panel_Options/Fundo/HBC_Resolution/1280x720" to="Panel_Options/Fundo/HBC_Resolution" method="_on_1280x720_pressed"]
+[connection signal="pressed" from="Panel_Options/Fundo/HBC_Resolution/1920x1080" to="Panel_Options/Fundo/HBC_Resolution" method="_on_1920x1080_pressed"]
+[connection signal="pressed" from="Panel_Options/BT_ExitConfig" to="." method="_on_BT_ExitConfig_pressed"]
