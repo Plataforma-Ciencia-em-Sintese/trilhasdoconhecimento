@@ -893,28 +893,30 @@ custom_fonts/font = SubResource( 11 )
 text = "Equipar"
 flat = true
 
-[node name="back_Quant" type="TextureRect" parent="BG_Inventory/Description_Item/BT_Equip"]
-anchor_left = -1.432
-anchor_top = 0.568
-anchor_right = -1.331
-anchor_bottom = 1.0
-margin_left = -0.0640106
-margin_top = -0.0159969
-margin_right = -0.0120239
+[node name="BG_Quant" type="TextureRect" parent="BG_Inventory/Description_Item"]
+anchor_left = 0.062
+anchor_top = 0.539
+anchor_right = 0.157
+anchor_bottom = 0.689
+margin_left = 0.138
+margin_top = 0.0219955
+margin_right = 0.0430031
+margin_bottom = 0.722
 texture = ExtResource( 18 )
 expand = true
 
-[node name="Item_Quant" type="Label" parent="BG_Inventory/Description_Item/BT_Equip"]
+[node name="Item_Quant" type="Label" parent="BG_Inventory/Description_Item/BG_Quant"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = -1.432
-anchor_top = 0.568
-anchor_right = -1.331
-anchor_bottom = 1.0
-margin_left = -0.0640106
-margin_top = -0.0159969
-margin_right = -0.0120087
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 18.0
+margin_bottom = 9.0
 custom_fonts/font = SubResource( 12 )
-text = "1"
+text = "x10"
 align = 1
 
 [node name="Inventario" type="Label" parent="BG_Inventory"]

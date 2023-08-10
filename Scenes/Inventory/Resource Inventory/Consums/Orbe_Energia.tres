@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource( 2 )
-unlocked = false
+unlocked = true
 icon = ExtResource( 1 )
 name = "Orbe de Energia"
 description = "Consumivel que pode dar +10 de energia."
-quant = 1
+quant = 5
 atkBoost = 0.0
 energyBoost = 10.0
 lifeBoost = 0.0

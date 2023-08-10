@@ -53,6 +53,9 @@ onready var officialBarATKMain : Node = $BG_Inventory/Info_BG/Status_Container/A
 onready var officialBarATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar
 onready var officialBarSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar
 
+# Identifica o root do texto contador de consumiveis
+onready var itemQuantBG : Node = $BG_Inventory/Description_Item/BG_Quant
+
 # identifica os scripts de valores dos itens
 # todas devem ficar na pasta do caminho especificado alem do mesmo nome das armas
 export (String) var weaponsResourcePath = "res://Scenes/Inventory/Resource Inventory/Weapons"
@@ -88,6 +91,8 @@ var tempSpeed : float = 0
 func _ready():
 	# Esconde a descriçao do item
 	hide_show_item_desc(false)
+	# Esconde o contador de itens
+	itemQuantBG.hide()
 	# Limpa o inventario e add os itens ja desbloqueados
 	# Yield e para dar tempo do node player ser criado e depois a arma ser criada
 	yield(get_tree().create_timer(0.1),"timeout")
@@ -131,6 +136,7 @@ func preview_item(obj):
 	
 	# Compara o tipo da resource
 	if resourceFromButton.type == "Weapon":
+		itemQuantBG.hide()
 		play_sfx("play_one",sfxResource.sfx["SelecionarItemArma"])
 		if !obj.isEquiped:
 			# Realiza o calculo da arma e informa se e primaria ou secundaria
@@ -173,6 +179,7 @@ func preview_item(obj):
 		else:
 			show_or_hide_informations("Speed","Hide")
 	elif resourceFromButton.type == "Chip":
+		itemQuantBG.hide()
 		play_sfx("play_one",sfxResource.sfx["SelecionarItemChipMelhoria"])
 		# Se o chip estiver equipado soma, senao subtrai o valor
 		if !obj.isEquiped:
@@ -203,6 +210,8 @@ func preview_item(obj):
 		else:
 			show_or_hide_informations("Speed","Hide")
 	elif resourceFromButton.type == "Consum":
+		itemQuantBG.show()
+		itemQuantBG.get_node("Item_Quant").text = "X" + str(resourceFromButton.quant)
 		play_sfx("play_one",sfxResource.sfx["SelecionarItemConsumivel"])
 		show_or_hide_informations("ATKMain","Hide")
 		show_or_hide_informations("ATKSec","Hide")
@@ -252,6 +261,7 @@ func _on_BT_Equip_pressed():
 	show_or_hide_informations("ATKSec","Hide")
 	
 	resourceFromButton = null
+	itemQuantBG.hide()
 
 func set_itens(res):
 	# Add botao inventario

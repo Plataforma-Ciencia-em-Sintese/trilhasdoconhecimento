@@ -177,6 +177,7 @@ GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 GlobalQuest="*res://Scenes/Quest Manager/Script/Global_Quest.gd"
 GlobalXp="*res://Management/Global Scripts/Global_XP.gd"
 EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+GlobalAdmItens="*res://Scenes/Inventory/Scripts/Global_ADM_Itens.gd"
 
 [display]
 

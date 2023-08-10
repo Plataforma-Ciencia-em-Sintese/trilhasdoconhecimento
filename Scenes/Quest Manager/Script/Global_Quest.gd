@@ -82,6 +82,7 @@ func spawn_item_quest(scene):
 				# Para cada item, conecta o signal de quando o player toca nele pro painel de contagem
 				for i in item.get_child_count():
 					item.get_child(i).connect("change_value",uiCount,"change_ui")
+					item.get_child(i).isInQuest = true
 				# Seta as variaveis pro script dos itens UI
 				uiCount.questVariable = "Quest_02_Values"
 				uiCount.alertPanel = panelAlert

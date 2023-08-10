@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource( 2 )
-unlocked = false
+unlocked = true
 icon = ExtResource( 1 )
 name = "Orbe de Escudo"
 description = "Consumivel que aumenta +5 a velocidade por 10 seg."

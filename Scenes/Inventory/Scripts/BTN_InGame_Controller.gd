@@ -21,19 +21,25 @@ func _ready():
 		GlobalXp.connect("lvl",self,"unlock_skill_weapon")
 		if GlobalValues.levelPlayer < buttonResource.levelToUnlock and !buttonResource.unlocked:
 			hide()
-
-#func _physics_process(delta):
-#	if buttonResource.type == "Skill":
-#		if buttonResource.levelToUnlock > GlobalValues.levelPlayer:
-#			hide()
-#			print("a")
-#		print("aa")
+	elif buttonResource.type == "Consum":
+		GlobalAdmItens.connect("consumGived",self,"update_consum_text")
+		$BG_Quant.show()
+		$BG_Quant/Quant_Txt.text = "X" + str(buttonResource.quant)
+	else:
+		$BG_Quant.hide()
 
 func _on_BTN_In_Game_pressed():
 	# Se esse botao e uma arma, chama a funcao de troca arma do player
 	if buttonResource.type == "Weapon":
 		player.change_weapons(buttonResource.name)
-	
+	elif buttonResource.type == "Consum":
+		if buttonResource.quant > 0:
+			buttonResource.quant -= 1
+			$BG_Quant/Quant_Txt.text = "X" + str(buttonResource.quant)
+			if buttonResource.quant <= 0:
+				btnRefConsum.hide()
+				queue_free()
+
 	# O outInterface faz o player nao andar quando ele estiver tocando em um botao na tela
 	pointer.outInterface = false
 
@@ -48,3 +54,7 @@ func unlock_skill_weapon():
 		show()
 		btnRefSkill.show()
 		print("desbloqueado skill " + buttonResource.name)
+
+func update_consum_text():
+	# O signal do adm de itens chama essa funcao qunado coletado algum item consumivel
+	$BG_Quant/Quant_Txt.text = "X" + str(buttonResource.quant)
