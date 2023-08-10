@@ -14,7 +14,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/VectorIcons_config.png" type="Texture" id=14]
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 21
@@ -78,10 +78,7 @@ font_data = ExtResource( 4 )
 size = 30
 font_data = ExtResource( 4 )
 
-[node name="Control_Options" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
+[node name="Control_Options" type="CanvasLayer"]
 script = ExtResource( 11 )
 
 [node name="Panel_Options" type="Panel" parent="."]
@@ -122,18 +119,18 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="HSlider_Sound" type="HSlider" parent="Panel_Options/Fundo/Sound"]
-modulate = Color( 0.00392157, 0.0156863, 0.137255, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-anchor_top = -0.4
-anchor_right = 0.977
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = -0.0780182
-margin_bottom = 2.0
+anchor_left = 0.003
+anchor_top = -0.299
+anchor_right = 0.994
+anchor_bottom = 1.055
+margin_left = 0.0372832
+margin_top = -0.0136204
+margin_right = 0.0198364
+margin_bottom = 0.292206
 rect_scale = Vector2( 1, 0.99323 )
-custom_styles/slider = SubResource( 10 )
-min_value = -30.0
-max_value = 0.0
+custom_styles/slider = SubResource( 12 )
+max_value = 30.0
 
 [node name="Label_Config" type="Label" parent="Panel_Options/Fundo"]
 modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
@@ -160,7 +157,7 @@ script = SubResource( 3 )
 
 [node name="pt_BR" type="CheckBox" parent="Panel_Options/Fundo/HBC_Traducao" groups=["language_btn"]]
 margin_right = 125.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 4 )
 custom_icons/radio_checked = ExtResource( 9 )
 custom_icons/radio_unchecked = ExtResource( 12 )
@@ -174,7 +171,7 @@ expand_icon = true
 [node name="en_US" type="CheckBox" parent="Panel_Options/Fundo/HBC_Traducao" groups=["language_btn"]]
 margin_left = 129.0
 margin_right = 274.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 4 )
 custom_icons/radio_checked = ExtResource( 9 )
 custom_icons/radio_unchecked = ExtResource( 12 )
@@ -199,7 +196,7 @@ script = ExtResource( 10 )
 
 [node name="Window" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_right = 189.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 7 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -208,7 +205,7 @@ text = "  Window"
 [node name="Full" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 193.0
 margin_right = 318.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 8 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -217,7 +214,7 @@ text = "  Full"
 [node name="800x600" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 322.0
 margin_right = 505.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 9 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -226,7 +223,7 @@ text = "800x600"
 [node name="1280x720" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 509.0
 margin_right = 709.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 9 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -235,7 +232,7 @@ text = "1280x720"
 [node name="1920x1080" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 713.0
 margin_right = 930.0
-margin_bottom = 63.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 9 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )

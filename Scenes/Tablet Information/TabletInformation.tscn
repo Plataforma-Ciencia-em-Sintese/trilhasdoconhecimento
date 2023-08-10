@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Trilhas.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tablet Information/Panel_InfoPlayer_ TB.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/tablet test.png" type="Texture" id=15]
@@ -138,18 +139,21 @@ valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
-anchor_top = 0.493
+anchor_top = 0.521
 anchor_right = 0.917
-anchor_bottom = 0.699
-margin_left = -0.179993
-margin_top = 0.127014
-margin_right = 0.102051
-margin_bottom = -0.0390015
+anchor_bottom = 0.727
+margin_left = -0.490784
+margin_top = 0.0654907
+margin_right = -0.0958252
+margin_bottom = -0.350098
+rect_min_size = Vector2( 794, 202 )
 custom_constants/separation = 135
+alignment = 1
 
 [node name="BT_Invent" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_right = 85.0
-margin_bottom = 134.0
+margin_left = 135.0
+margin_right = 220.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 17 )
 flat = true
@@ -168,9 +172,9 @@ custom_fonts/font = SubResource( 2 )
 text = "Inventário"
 
 [node name="BT_Config" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 220.0
-margin_right = 305.0
-margin_bottom = 134.0
+margin_left = 355.0
+margin_right = 440.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 8 )
 flat = true
@@ -190,9 +194,9 @@ text = "Configuração"
 align = 1
 
 [node name="BT_Contatos" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 440.0
-margin_right = 525.0
-margin_bottom = 134.0
+margin_left = 575.0
+margin_right = 660.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 6 )
 flat = true
@@ -212,18 +216,21 @@ text = "Contatos"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
-anchor_top = 0.702
+anchor_top = 0.682
 anchor_right = 0.917
-anchor_bottom = 0.874
-margin_left = -0.179993
-margin_top = -0.0219727
-margin_right = 0.102051
-margin_bottom = 0.286072
+anchor_bottom = 0.887
+margin_left = -0.490784
+margin_top = -0.370117
+margin_right = -0.208618
+margin_bottom = 0.19696
+rect_min_size = Vector2( 794, 202 )
 custom_constants/separation = 135
+alignment = 1
 
 [node name="BT_Bestiario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_right = 85.0
-margin_bottom = 112.0
+margin_left = 134.0
+margin_right = 219.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 16 )
 flat = true
@@ -243,9 +250,9 @@ text = "Bestiário"
 align = 1
 
 [node name="BT_Trilhas" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 220.0
-margin_right = 305.0
-margin_bottom = 112.0
+margin_left = 354.0
+margin_right = 439.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 9 )
 flat = true
@@ -265,9 +272,9 @@ text = "Trilhas"
 align = 1
 
 [node name="BT_SairdoCS" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 440.0
-margin_right = 525.0
-margin_bottom = 112.0
+margin_left = 574.0
+margin_right = 659.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 33 )
 flat = true
@@ -419,18 +426,19 @@ anchor_left = 0.442
 anchor_top = 0.218
 anchor_right = 0.931
 anchor_bottom = 0.485
-margin_left = 0.22998
-margin_top = 0.209991
-margin_right = -0.235107
-margin_bottom = 0.324982
+margin_left = 0.283142
+margin_top = -0.206757
+margin_right = 0.0172119
+margin_bottom = 6.43909
+script = ExtResource( 12 )
 
 [node name="Background" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_top = 0.011
 anchor_right = 0.995
-anchor_bottom = 1.046
-margin_top = 0.0749998
-margin_right = -0.105042
-margin_bottom = -0.0500031
+anchor_bottom = 1.022
+margin_top = 0.0410001
+margin_right = 0.344971
+margin_bottom = 0.0819702
 texture = ExtResource( 25 )
 expand = true
 
@@ -441,11 +449,12 @@ anchor_right = 0.454
 anchor_bottom = 0.674
 margin_left = 0.243988
 margin_top = -0.0250015
-margin_right = 0.133972
-margin_bottom = 0.0499954
-value = 100.0
+margin_right = 0.133942
+margin_bottom = 0.0499878
+max_value = 30.0
+value = 30.0
 texture_progress = ExtResource( 22 )
-fill_mode = 4
+fill_mode = 5
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/TP_life"]
@@ -469,9 +478,10 @@ margin_left = -0.238007
 margin_top = -0.0250015
 margin_right = -0.0320129
 margin_bottom = -0.0750046
-value = 100.0
+max_value = 30.0
+value = 30.0
 texture_progress = ExtResource( 22 )
-fill_mode = 4
+fill_mode = 5
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/TP_Energy"]

@@ -11,7 +11,7 @@ func _ready():
 
 func _physics_process(delta):
 #	$Cam_Pivot.look_at(get_node(target[id]).global_transform.origin,Vector3.UP)
-	$Cam_Pivot.rotation.y = (lerp_angle($Cam_Pivot.rotation.y, get_node(target[id]).rotation.y + offsetLook,0.2))
+	$ControlButtons/ViewportContainer/Viewport/Cam_Pivot.rotation.y = (lerp_angle($ControlButtons/ViewportContainer/Viewport/Cam_Pivot.rotation.y, get_node(target[id]).rotation.y + offsetLook,0.2))
 	
 	if id == 0:
 		offsetLook = 1.85
