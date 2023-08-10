@@ -78,10 +78,7 @@ font_data = ExtResource( 4 )
 size = 30
 font_data = ExtResource( 4 )
 
-[node name="Control_Options" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
+[node name="Control_Options" type="CanvasLayer"]
 script = ExtResource( 11 )
 
 [node name="Panel_Options" type="Panel" parent="."]
@@ -122,7 +119,6 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="HSlider_Sound" type="HSlider" parent="Panel_Options/Fundo/Sound"]
-modulate = Color( 0.00392157, 0.0156863, 0.137255, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
 anchor_top = -0.4
 anchor_right = 0.977
@@ -132,8 +128,7 @@ margin_right = -0.0780182
 margin_bottom = 2.0
 rect_scale = Vector2( 1, 0.99323 )
 custom_styles/slider = SubResource( 10 )
-min_value = -30.0
-max_value = 0.0
+max_value = 30.0
 
 [node name="Label_Config" type="Label" parent="Panel_Options/Fundo"]
 modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )

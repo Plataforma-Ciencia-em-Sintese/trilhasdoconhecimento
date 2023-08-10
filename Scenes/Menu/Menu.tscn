@@ -135,8 +135,6 @@ flat = true
 icon_align = 1
 
 [node name="Control_Options" parent="." instance=ExtResource( 6 )]
-margin_top = 2.0
-margin_bottom = 2.0
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]

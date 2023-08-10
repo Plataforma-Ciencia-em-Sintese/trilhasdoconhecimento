@@ -1,23 +1,27 @@
-extends Control
+extends CanvasLayer
 
 onready var save_file = SaveFile.g_data
 
-var master_bus = AudioServer.get_bus_index("Master")
 
 onready var menu = get_tree().get_nodes_in_group("Menu")[0]
 
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
+	
+	Fmod.set_bus_volume(GlobalValues.bus_path_Master, 10)
+	$Panel_Options/Fundo/Sound/HSlider_Sound.value = 10
+	
 	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.saveVolume
 
-
 func _on_HSlider_Sound_value_changed(value):
-	AudioServer.set_bus_volume_db(master_bus, value)
-	if value == -30:
-		AudioServer.set_bus_mute(master_bus,true) 
+	
+	
+	if value == 0:
+		Fmod.set_bus_mute(GlobalValues.bus_path_Master, true)
 	else:
-		AudioServer.set_bus_mute(master_bus,false)
+		Fmod.set_bus_mute(GlobalValues.bus_path_Master, false)
+		Fmod.set_bus_volume(GlobalValues.bus_path_Master, value)
 
 
 func _on_BT_ExitConfig_pressed():

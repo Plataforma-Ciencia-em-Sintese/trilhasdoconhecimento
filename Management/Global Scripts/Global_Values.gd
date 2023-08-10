@@ -27,3 +27,15 @@ var atkSecActual : float = 0.0
 var speedActual : float = 0.0
 var lifeActual : float = 0.0
 var energyActual : float = 0.0
+
+# Controle de Som
+var bus_path_Master: String = "bus:/"
+var busMaster: AudioBusLayout
+
+var bus_path_Music: String = "bus:/Music"
+var busMusic: AudioBusLayout
+
+var bus_path_SFX: String = "bus:/SFX"
+var busSFX: AudioBusLayout
+
+

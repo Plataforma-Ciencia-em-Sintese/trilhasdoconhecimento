@@ -17,14 +17,14 @@ var busSFX: AudioBusLayout
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	
+	Fmod.set_bus_volume(GlobalValues.bus_path_Master, 10)
 	$Panel_Options/Fundo/Sound/HSlider_Sound.value = 10
-	Fmod.set_bus_volume(bus_path_Master, 10)
 	
 	#Parte de Save 
 	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.saveVolume
 
 func _on_HSlider_Sound_value_changed(value):
+	
 	if value == 0:
 		Fmod.set_bus_mute(bus_path_Master, true)
 	else:

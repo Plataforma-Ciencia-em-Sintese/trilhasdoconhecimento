@@ -14,7 +14,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Component 2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/VectorIcons_config.png" type="Texture" id=14]
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 21
@@ -119,16 +119,17 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="HSlider_Sound" type="HSlider" parent="Panel_Options/Fundo/Sound"]
-modulate = Color( 0.00392157, 0.0156863, 0.137255, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-anchor_top = -0.4
-anchor_right = 0.977
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = -0.0780182
-margin_bottom = 2.0
+anchor_left = 0.003
+anchor_top = -0.299
+anchor_right = 0.994
+anchor_bottom = 1.055
+margin_left = 0.0372832
+margin_top = -0.0136204
+margin_right = 0.0198364
+margin_bottom = 0.292206
 rect_scale = Vector2( 1, 0.99323 )
-custom_styles/slider = SubResource( 10 )
+custom_styles/slider = SubResource( 12 )
 max_value = 30.0
 
 [node name="Label_Config" type="Label" parent="Panel_Options/Fundo"]
