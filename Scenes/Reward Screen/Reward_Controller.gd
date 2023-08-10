@@ -25,6 +25,7 @@ func _ready():
 		resourcesToShow[i].unlocked = true
 	
 	# Pede pro inventario recriar os itens atualizados
+	inventory.delete_itens_to_rewards()
 	inventory.start_inventory()
 	
 func _on_Button_pressed():

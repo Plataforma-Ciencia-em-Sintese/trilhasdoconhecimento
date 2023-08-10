@@ -92,6 +92,7 @@ func _ready():
 	# Yield e para dar tempo do node player ser criado e depois a arma ser criada
 	yield(get_tree().create_timer(0.1),"timeout")
 	# Cria os itens do inventario
+	delete_itens()
 	start_inventory()
 	# Seta as informacoes presentes na UI do inventario
 	show_or_hide_informations("Life","Hide")
@@ -380,6 +381,7 @@ func delete_itens():
 			$BG_Inventory/BT_Close.hide()
 	else:
 		# Se a funcao e chamada sozinha, destroi todos os childs dos roots
+		# Usada no inicio do jogo apenas
 		for i in rootMainWeapon.get_child_count():
 			rootMainWeapon.get_child(0).queue_free()
 		
@@ -421,6 +423,18 @@ func delete_itens():
 		
 		for i in rootConsumsInventory.get_child_count():
 			rootConsumsInventory.get_child(i).queue_free()
+			
+func delete_itens_to_rewards():
+	# Essa funçao e chamada apenas quando recebe um item
+	# Deleta apenas os itens de mostruario e mantem os que o player ja equipou
+	for i in rootWeaponsInventory.get_child_count():
+		rootWeaponsInventory.get_child(i).queue_free()
+	
+	for i in rootChipsInventory.get_child_count():
+		rootChipsInventory.get_child(i).queue_free()
+	
+	for i in rootConsumsInventory.get_child_count():
+		rootConsumsInventory.get_child(i).queue_free()
 
 func _on_BT_Close_pressed():
 	resourceFromButton = null
@@ -742,7 +756,16 @@ func insert_itens_invent(type):
 					objectButton = weaponBTN
 					resourceFromButton =  allWeapons[i]
 					get_weapons_calculation("Main",1)
-					set_itens(allWeapons[i])
+					
+					# Se o jogador nao tem arma equipada quando for receber uma recompensa, cria novos itens pra ele
+					if player.mainGun == "":
+						set_itens(allWeapons[i])
+					# Mas se ele ja tem uma arma main equipada, apenas relinka a nova referencia criada ao botao da arma ja equipada
+					else:
+						if allWeapons[i].name == rootMainWeapon.get_child(0).buttonResource.name:
+							rootMainWeapon.get_child(0).btnLinked = weaponBTN
+							weaponBTN.hide()
+							
 					# Preseta as variaveis de status de acordo com o resultado da funcao get_weapons_calculation
 					GlobalValues.lifeActual = tempLife
 					GlobalValues.energyActual = tempEnergy
@@ -753,7 +776,14 @@ func insert_itens_invent(type):
 					objectButton = weaponBTN
 					resourceFromButton =  allWeapons[i]
 					get_weapons_calculation("Sec",1)
-					set_itens(allWeapons[i])
+					
+					if player.secGun == "":
+						set_itens(allWeapons[i])
+					else:
+						if allWeapons[i].name == rootSecWeapon.get_child(0).buttonResource.name:
+							rootSecWeapon.get_child(0).btnLinked = weaponBTN
+							weaponBTN.hide()
+							
 					GlobalValues.lifeActual = tempLife
 					GlobalValues.energyActual = tempEnergy
 					GlobalValues.speedActual = tempSpeed
@@ -774,6 +804,12 @@ func insert_itens_invent(type):
 				chipBTN.icon = chipResource.icon
 				# Add no root node do item
 				rootChipsInventory.add_child(chipBTN)
+				
+				# Se existe algum chip equipado, busca em cada um deles qual e a referencia desse novo botao criado e relinka no botao existente
+				for j in rootChipsEquiped.get_child_count():
+					if rootChipsEquiped.get_child(j).buttonResource.name == allChips[i].name:
+						rootChipsEquiped.get_child(j).btnLinked = chipBTN
+						chipBTN.hide()
 	elif type == "Consum":
 		var allConsums = get_files_in_directory(consumsResourcePath)
 		for i in allConsums.size():
@@ -790,9 +826,14 @@ func insert_itens_invent(type):
 					consumBTN.icon = consumResource.icon
 					# Add no root node do item
 					rootConsumsInventory.add_child(consumBTN)
+					
+					# Se existe algum consumivel equipado, busca em cada um deles qual e a referencia desse novo botao criado e relinka no botao existente
+					for j in rootConsumsEquiped.get_child_count():
+						if rootConsumsEquiped.get_child(j).buttonResource.name == allConsums[i].name:
+							rootConsumsEquiped.get_child(j).btnLinked = consumBTN
+							consumBTN.hide()
 
 func start_inventory():
-	delete_itens()
 	insert_itens_invent("Weapon")
 	insert_itens_invent("Chip")
 	insert_itens_invent("Consum")
