@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 onready var save_file = SaveFile.g_data
 

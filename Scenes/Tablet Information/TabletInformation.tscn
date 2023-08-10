@@ -449,11 +449,12 @@ anchor_right = 0.454
 anchor_bottom = 0.674
 margin_left = 0.243988
 margin_top = -0.0250015
-margin_right = 0.133972
-margin_bottom = 0.0499954
-value = 100.0
+margin_right = 0.133942
+margin_bottom = 0.0499878
+max_value = 30.0
+value = 30.0
 texture_progress = ExtResource( 22 )
-fill_mode = 4
+fill_mode = 5
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/TP_life"]
@@ -477,9 +478,10 @@ margin_left = -0.238007
 margin_top = -0.0250015
 margin_right = -0.0320129
 margin_bottom = -0.0750046
-value = 100.0
+max_value = 30.0
+value = 30.0
 texture_progress = ExtResource( 22 )
-fill_mode = 4
+fill_mode = 5
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/TP_Energy"]

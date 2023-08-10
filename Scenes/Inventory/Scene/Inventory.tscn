@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Scripts/Inventory_Controller.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Empty.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Empty_Life.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/Icon_Speed.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/Bar_Full.png" type="Texture" id=6]
@@ -407,7 +407,8 @@ margin_left = -170.454
 margin_top = -5.304
 margin_right = 170.454
 margin_bottom = 5.304
-value = 100.0
+max_value = 30.0
+value = 30.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 10 )
 nine_patch_stretch = true
@@ -482,7 +483,8 @@ margin_left = -170.454
 margin_top = -5.304
 margin_right = 170.454
 margin_bottom = 5.304
-value = 100.0
+max_value = 30.0
+value = 30.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 10 )
 nine_patch_stretch = true
