@@ -45,7 +45,6 @@ func _on_BTN_In_Game_mouse_exited():
 
 func unlock_skill_weapon():
 	if GlobalValues.levelPlayer >= buttonResource.levelToUnlock:
-		buttonResource.unlocked = true
 		show()
 		btnRefSkill.show()
 		print("desbloqueado skill " + buttonResource.name)

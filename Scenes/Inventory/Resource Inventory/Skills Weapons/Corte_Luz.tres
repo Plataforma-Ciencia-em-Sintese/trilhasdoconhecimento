@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 unlocked = false
+hasShowed = false
 name = "Corte Luz"
 icon = ExtResource( 2 )
 sceneSkill = "Corte de Luz"

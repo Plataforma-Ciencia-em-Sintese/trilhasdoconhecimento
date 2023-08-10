@@ -58,6 +58,9 @@ func dialogic_signal(arg):
 			for i in questResource.rewards.size():
 				reward.resourcesToShow.append(questResource.rewards[i])
 		 
+		# Da o xp da quest ao jogador
+		GlobalXp.set_xp(questResource.xpQuest)
+		reward.xpQuest = questResource.xpQuest
 		# Add o painel na cena
 		localScene.add_child(reward)
 	elif arg == "next_quest":

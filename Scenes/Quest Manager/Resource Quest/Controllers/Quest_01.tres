@@ -14,5 +14,6 @@ actors = {
 "Maria": "Quest_01_Maria"
 }
 rewards = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ]
+xpQuest = 15.0
 itemConfigs = "PRESETE AS CONFIGS DO ITEM APENAS SE NESSA QUEST DEVE SER PEGO ITENS. QUEM CONTROLA QUANDO O O ITEM SERÁ CRIADO É O SCRIPT GLOBAL_QUEST COM O SCRIPT LOCAL DA CENA."
 winTxtToItem = ""

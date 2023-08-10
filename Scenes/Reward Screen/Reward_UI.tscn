@@ -26,9 +26,22 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -142.0
 margin_right = -1.0
-margin_bottom = 49.0
+margin_bottom = 37.0
 rect_scale = Vector2( 2, 2 )
 text = "SUAS RECOMPENSAS"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="XP_Txt" type="Label" parent="BG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -142.0
+margin_top = 75.0
+margin_right = -1.0
+margin_bottom = 112.0
+rect_scale = Vector2( 2, 2 )
+text = "XP GANHO: 10"
 align = 1
 valign = 1
 autowrap = true
@@ -40,18 +53,15 @@ margin_left = -42.0
 margin_bottom = 31.0
 text = "X"
 
-[node name="Base_Reward_Icon" parent="." instance=ExtResource( 2 )]
-visible = false
-
 [node name="Container_Rewards" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -163.0
-margin_top = -180.0
+margin_top = -118.0
 margin_right = 170.0
-margin_bottom = -66.0
+margin_bottom = -4.0
 rect_min_size = Vector2( 333, 114 )
 
 [connection signal="pressed" from="BG/Button" to="." method="_on_Button_pressed"]

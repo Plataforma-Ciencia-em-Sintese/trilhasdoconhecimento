@@ -49,3 +49,4 @@ func set_xp(value):
 	
 	print("lvl - " + str(GlobalValues.levelPlayer))
 	print("xp - " + str(GlobalValues.xpActual))
+
