@@ -48,7 +48,7 @@ mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = SubResource( 2 )
 script = ExtResource( 10 )
-direction = Vector3( 0.15, 0, 0 )
+direction = Vector3( 0.15, 0.15, 0.15 )
 
 [node name="Camera" type="Camera" parent="ViewportContainer/Viewport/MeshInstance"]
 transform = Transform( 0.417783, 0, 0, 0, -3.08099e-08, 1, 0, -0.704848, -4.37114e-08, 0, 1.89459, -8.28151e-08 )

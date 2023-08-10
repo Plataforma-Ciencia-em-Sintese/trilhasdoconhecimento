@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Trilhas.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryEnemy_Tablet.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Tablet Information/BestiaryNotables_Tablet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Tablet Information/Panel_InfoPlayer_ TB.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/tablet test.png" type="Texture" id=15]
@@ -425,18 +426,19 @@ anchor_left = 0.442
 anchor_top = 0.218
 anchor_right = 0.931
 anchor_bottom = 0.485
-margin_left = 0.22998
-margin_top = 0.209991
-margin_right = -0.235107
-margin_bottom = 0.324982
+margin_left = 0.283142
+margin_top = -0.206757
+margin_right = 0.0172119
+margin_bottom = 6.43909
+script = ExtResource( 12 )
 
 [node name="Background" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_top = 0.011
 anchor_right = 0.995
-anchor_bottom = 1.046
-margin_top = 0.0749998
-margin_right = -0.105042
-margin_bottom = -0.0500031
+anchor_bottom = 1.022
+margin_top = 0.0410001
+margin_right = 0.344971
+margin_bottom = 0.0819702
 texture = ExtResource( 25 )
 expand = true
 
