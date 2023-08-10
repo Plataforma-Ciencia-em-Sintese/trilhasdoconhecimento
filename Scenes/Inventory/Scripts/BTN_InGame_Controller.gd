@@ -18,6 +18,7 @@ func _ready():
 	icon = buttonResource.icon
 	
 	if buttonResource.type == "Skill":
+		$BG_Quant.hide()
 		GlobalXp.connect("lvl",self,"unlock_skill_weapon")
 		if GlobalValues.levelPlayer < buttonResource.levelToUnlock and !buttonResource.unlocked:
 			hide()
