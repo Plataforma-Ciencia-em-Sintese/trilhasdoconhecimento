@@ -81,11 +81,15 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="BG_Inventory" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="Panel_exit" type="Button" parent="BG_Inventory"]
+self_modulate = Color( 0.470588, 0.470588, 0.470588, 0.819608 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="Background_Invent" type="TextureRect" parent="BG_Inventory"]
 anchor_left = 0.015
@@ -934,7 +938,7 @@ stretch = true
 size = Vector2( 430, 557 )
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 0
+render_target_update_mode = 3
 
 [node name="Spatial" parent="BG_Inventory/ViewportContainer/Viewport" instance=ExtResource( 31 )]
 
@@ -951,6 +955,7 @@ flat = true
 icon_align = 1
 expand_icon = true
 
+[connection signal="pressed" from="BG_Inventory/Panel_exit" to="." method="_on_Panel_exit_pressed"]
 [connection signal="gui_input" from="BG_Inventory/Background_Invent" to="." method="_on_Background_Invent_gui_input"]
 [connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
 [connection signal="pressed" from="BG_Inventory/Description_Item/BT_Equip" to="." method="_on_BT_Equip_pressed"]
