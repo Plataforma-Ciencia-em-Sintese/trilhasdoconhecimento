@@ -41,6 +41,14 @@ margin_bottom = 78.0
 texture = ExtResource( 4 )
 expand = true
 
+[node name="background_XP" type="TextureRect" parent="."]
+margin_left = 51.0
+margin_top = 94.0
+margin_right = 308.0
+margin_bottom = 114.0
+texture = ExtResource( 4 )
+expand = true
+
 [node name="Life_Bar" type="TextureProgress" parent="."]
 margin_left = 89.0
 margin_top = 29.0
@@ -93,6 +101,24 @@ margin_right = -45.0
 margin_bottom = 11.0
 texture = ExtResource( 8 )
 expand = true
+
+[node name="XP_Bar" type="TextureProgress" parent="."]
+margin_left = 61.0
+margin_top = 99.0
+margin_right = 300.0
+margin_bottom = 108.0
+max_value = 30.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 2 )
+nine_patch_stretch = true
+
+[node name="XP_Txt" type="Label" parent="XP_Bar"]
+margin_left = 80.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 34.0
+rect_scale = Vector2( 2, 2 )
+text = "LVL | 0"
 
 [node name="Cartao_Hud" type="TextureRect" parent="."]
 visible = false

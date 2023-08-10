@@ -1,35 +1,15 @@
 extends CanvasLayer
 
-onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
-onready var player = get_tree().get_nodes_in_group("Player")[0]
-onready var atkButtons
-var progressiveDamage = false
+onready var invent : Node = get_tree().get_nodes_in_group("Inventory")[0]
+onready var player : Node = get_tree().get_nodes_in_group("Player")[0]
+var progressiveDamage : bool = false
 
 func _ready():
-	$Hud_XP/XP_Bar.value = GlobalValues.xpActual
-	$Hud_XP/XP_Bar/TXT_Level.text = "Level " + str(GlobalValues.levelPlayer)
-	atkButtons = get_tree().get_nodes_in_group("ATKButton")
+	# Conecta ao signal do script global do xp
+	GlobalXp.connect("xp",self,"set_xp")
+	$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
 
-func grow_lvl():
-	atkButtons = get_tree().get_nodes_in_group("ATKButton")
-	GlobalValues.levelPlayer += 1
-	$Hud_XP/XP_Bar/TXT_Level.text = "Level " + str(GlobalValues.levelPlayer)
-	$Hud_XP/XP_Bar.value = 0
-	for i in atkButtons.size():
-		atkButtons[i].check_lvl()
-
-func _on_XP_Bar_value_changed(value):
-	GlobalValues.xpActual = value
-	if value >= 100:
-		grow_lvl()
-
-func _physics_process(_delta):
-	if Input.is_action_pressed("ui_select"):
-		$Hud_XP/XP_Bar.value += 1
-	
-	if progressiveDamage:
-		set_life(-2 * _delta)
-
+# Preseta a vida do jogador vindo de danos em geral
 func set_life(value):
 	GlobalValues.lifeActual += value
 	player.change_only_bar_value("Life")
@@ -41,16 +21,29 @@ func set_life(value):
 		player.get_node("States/Battling").hide()
 		player.hide()
 
+# Preseta a energia do jogador vindo de consumiveis
 func set_energy(value):
 	GlobalValues.energyActual += value
 	player.change_only_bar_value("Energy")
 
-
-func _on_BT_HideXP_pressed():
-	$Cartao_Hud.show()
-	$Hud_XP.hide()
-
-
-func _on_BT_ShowXP_pressed():
-	$Hud_XP.show()
-	$Cartao_Hud.hide()
+# Seta o xp geral 
+# Signal vem do script global chamado por qlqr objeto
+func set_xp(value):
+	var remain = GlobalValues.xpActual + value
+	if remain > $XP_Bar.max_value:
+		var result = remain - $XP_Bar.max_value
+		GlobalValues.xpActual = result
+		GlobalValues.levelPlayer += 1
+		$XP_Bar.value = result
+		$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
+	elif remain == $XP_Bar.max_value:
+		GlobalValues.xpActual = 0
+		GlobalValues.levelPlayer += 1
+		$XP_Bar.value = 0
+		$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
+	elif remain < $XP_Bar.max_value:
+		GlobalValues.xpActual += value
+		$XP_Bar.value = GlobalValues.xpActual
+	
+	print("lvl - " + str(GlobalValues.levelPlayer))
+	print("xp - " + str(GlobalValues.xpActual))

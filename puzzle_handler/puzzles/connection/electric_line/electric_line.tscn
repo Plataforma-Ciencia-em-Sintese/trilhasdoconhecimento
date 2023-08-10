@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/electric_line_yellow.tres" type="Material" id=1]
+[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/electric_line.gd" type="Script" id=2]
+[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/sphere_blue.tres" type="Texture" id=3]
+[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/sphere_yellow.tres" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.435754 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ElectricLine" type="Line2D"]
+visible = false
+material = ExtResource( 1 )
+points = PoolVector2Array( 1152, 320, 128, 320 )
+width = 200.0
+texture_mode = 1
+antialiased = true
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="StartParticles" type="CPUParticles2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2( 128, 320 )
+amount = 50
+lifetime = 0.2
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+initial_velocity = 256.88
+initial_velocity_random = 1.0
+angular_velocity = 184.95
+angular_velocity_random = 0.45
+tangential_accel = 12.84
+tangential_accel_random = 0.17
+scale_amount = 4.0
+scale_amount_random = 1.0
+color = Color( 0.803922, 0.909804, 0.913725, 1 )
+color_initial_ramp = SubResource( 1 )
+hue_variation = 1.0
+
+[node name="StartPolygon" type="Polygon2D" parent="CanvasLayer/StartParticles"]
+unique_name_in_owner = true
+position = Vector2( -281, -702 )
+scale = Vector2( 2.1875, 2.1875 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 120, 312, 136, 312, 136, 328, 120, 328 )
+uv = PoolVector2Array( 0, 0, 60, 0, 60, 60, 0, 60 )
+
+[node name="EndParticles" type="CPUParticles2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2( 1153, 319 )
+amount = 50
+lifetime = 0.2
+explosiveness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+initial_velocity = 256.88
+initial_velocity_random = 1.0
+angular_velocity = 184.95
+angular_velocity_random = 0.45
+tangential_accel = 12.84
+tangential_accel_random = 0.17
+scale_amount = 4.0
+scale_amount_random = 1.0
+color_initial_ramp = SubResource( 1 )
+hue_variation = 1.0
+
+[node name="EndPolygon" type="Polygon2D" parent="CanvasLayer/EndParticles"]
+unique_name_in_owner = true
+position = Vector2( -281, -701 )
+scale = Vector2( 2.1875, 2.1875 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 120, 312, 136, 312, 136, 328, 120, 328 )
+uv = PoolVector2Array( 0, 0, 60, 0, 60, 60, 0, 60 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_ElectricLine_visibility_changed"]

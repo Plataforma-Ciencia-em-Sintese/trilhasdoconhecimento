@@ -94,7 +94,12 @@ getCineCam = true
 
 [node name="Cine_Cam" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.999011, -0.0444738, 0, 0.0444738, 0.999011, 0, 0, 0, 1, -0.719825, 3.35538, 12.8711 )
-visible = false
+infos = {
+0: [ NodePath("../Boss 01"), NodePath("Anchors/0"), 0.0, 1.0, 1.0, "Iniciando sistema..." ],
+1: [ NodePath(""), NodePath("Anchors/1"), 2.0, 0.01, 0.01, "Boss 01: CODENOME BIG-R" ],
+2: [ NodePath(""), NodePath("Anchors/2"), 2.0, 0.1, 0.01, "Ele possui uma bazzoka acoplada em seu braço, o que o torna um caçador a longa distância." ],
+3: [ NodePath("../Player"), NodePath("Anchors/3"), 7.0, 0.01, 0.01, "Seu ponto fraco é alguma parte de seu corpo gigantesco...Aproxime-se dele e descubra suas fraquezas." ]
+}
 
 [node name="Way1" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318161, 0 )
@@ -121,3 +126,5 @@ curve = SubResource( 10 )
 [node name="Path_Enemy" parent="Way3" instance=ExtResource( 7 )]
 transform = Transform( 0.999463, 0, 0.0327818, 0, 1, 0, -0.0327818, 0, 0.999463, 13.4747, 0, 0.0930376 )
 enemyType = "Furadeiro"
+
+[editable path="Cine_Cam"]

@@ -89,7 +89,16 @@ func _ready():
 	# Esconde a descriçao do item
 	hide_show_item_desc(false)
 	# Limpa o inventario e add os itens ja desbloqueados
+	# Yield e para dar tempo do node player ser criado e depois a arma ser criada
+	yield(get_tree().create_timer(0.1),"timeout")
+	# Cria os itens do inventario
 	start_inventory()
+	# Seta as informacoes presentes na UI do inventario
+	show_or_hide_informations("Life","Hide")
+	show_or_hide_informations("Energy","Hide")
+	show_or_hide_informations("Speed","Hide")
+	show_or_hide_informations("ATKMain","Hide")
+	show_or_hide_informations("ATKSec","Hide")
 
 func get_files_in_directory(path):
 	# funcao que acessa a pasta especificada e coleta todos os .tres ja carregados
@@ -212,7 +221,7 @@ func _on_BT_Equip_pressed():
 	# Esconde a descriçao dos itens
 	hide_show_item_desc(false)
 	if deleteOrAddButton == "Equipar":
-		set_itens()
+		set_itens(resourceFromButton)
 	else:
 		delete_itens()
 		play_sfx("play_one",sfxResource.sfx["BotaoLimpar"])
@@ -243,32 +252,36 @@ func _on_BT_Equip_pressed():
 	
 	resourceFromButton = null
 
-func set_itens():
+func set_itens(res):
 	# Add botao inventario
 	# Passa as informacoes padrao do item como icone e resource
 	# Conecta o mesmo signal de quando foi criado para o inventario receber resposta
 	var itemBTN = btnInventory.instance()
-	itemBTN.buttonResource = resourceFromButton
-	itemBTN.icon = resourceFromButton.icon
+	itemBTN.buttonResource = res
+	itemBTN.icon = res.icon
 	itemBTN.isEquiped = true
 	itemBTN.connect("change_item",self,"preview_item")
 	# Esconde o botao do inventario
 	objectButton.hide()
 	# Classifica os itens e executa a acao de acordo com o tipo
-	if resourceFromButton.type == "Weapon":
+	if res.type == "Weapon":
+		# Ativa o botao de fechar novamente
+		$BG_Inventory/BT_Close.show()
 		# Add botao ingame
 		# O proprio botao le e preseta as informacoes como icone
 		var inGameBTN = btnInGame.instance()
-		inGameBTN.buttonResource = resourceFromButton
+		inGameBTN.buttonResource = res
 		# O novo botao recebe sua referencia no inventario
 		itemBTN.btnLinked = objectButton
 		# Altera a arma da mao do jogador
-		player.change_weapons(resourceFromButton.name)
+		player.change_weapons(res.name)
 		# Toca o sfx correspondente
 		play_sfx("play_one",sfxResource.sfx["EquiparItemArma"])
 		#---------------------------
 		# Se nao tem arma main
 		if rootMainWeapon.get_child_count() <= 0:
+			# Main gun setada
+			player.mainGun = res.name
 			# Ordem da arma
 			itemBTN.weaponOrder = "Main"
 			# Arma equipada invent
@@ -276,19 +289,21 @@ func set_itens():
 			# Arma equipada in game
 			rootMainWeaponInGame.add_child(inGameBTN)
 			# Cria uma nova imagem dinamicamente para representar as skills das armas
-			for i in resourceFromButton.skillsInOrder.size():
+			for i in res.skillsInOrder.size():
 				# Add imagem pro inventario
 				var img = TextureRect.new()
-				img.texture = resourceFromButton.skillsInOrder[i].icon
+				img.texture = res.skillsInOrder[i].icon
 				img.expand = true
 				img.size_flags_horizontal += TextureRect.SIZE_EXPAND
 				img.size_flags_vertical += TextureRect.SIZE_EXPAND
 				rootSkillMain.add_child(img)
 				# Add botao na cena In game
 				var btn = btnInGame.instance()
-				btn.buttonResource = resourceFromButton.skillsInOrder[i]
+				btn.buttonResource = res.skillsInOrder[i]
 				rootMainSkillsInGame.add_child(btn)
 		else:
+			# Sec gun setada
+			player.secGun = res.name
 			# Ordem da arma
 			itemBTN.weaponOrder = "Sec"
 			# Arma equipada invent
@@ -296,28 +311,28 @@ func set_itens():
 			# Arma equipada in game
 			rootSecWeaponInGame.add_child(inGameBTN)
 			# Cria uma nova imagem dinamicamente para representar as skills das armas
-			for i in resourceFromButton.skillsInOrder.size():
+			for i in res.skillsInOrder.size():
 				# Add imagem pro inventario
 				var img = TextureRect.new()
-				img.texture = resourceFromButton.skillsInOrder[i].icon
+				img.texture = res.skillsInOrder[i].icon
 				img.expand = true
 				img.size_flags_horizontal += TextureRect.SIZE_EXPAND
 				img.size_flags_vertical += TextureRect.SIZE_EXPAND
 				rootSkillSec.add_child(img)
 				# Add botao na cena In game
 				var btn = btnInGame.instance()
-				btn.buttonResource = resourceFromButton.skillsInOrder[i]
+				btn.buttonResource = res.skillsInOrder[i]
 				rootSecSkillsInGame.add_child(btn)
-	elif resourceFromButton.type == "Chip":
+	elif res.type == "Chip":
 		itemBTN.btnLinked = objectButton
 		rootChipsEquiped.add_child(itemBTN)
 		# Toca o sfx correspondente
 		play_sfx("play_one",sfxResource.sfx["EquiparItemChipMelhoria"])
-	elif resourceFromButton.type == "Consum":
+	elif res.type == "Consum":
 		# Add botao ingame
 		# O proprio botao le e preseta as informacoes como icone
 		var inGameBTN = btnInGame.instance()
-		inGameBTN.buttonResource = resourceFromButton
+		inGameBTN.buttonResource = res
 		# O novo botao recebe sua referencia no inventario
 		itemBTN.btnLinked = objectButton
 		itemBTN.btnConsumLinked = inGameBTN
@@ -326,6 +341,8 @@ func set_itens():
 		rootConsumsInGame.add_child(inGameBTN)
 		# Toca o sfx correspondente
 		play_sfx("play_one",sfxResource.sfx["EquiparItemConsumivel"])
+	
+	resourceFromButton = null
 		
 func delete_itens():
 	# Se a funcao e chamada de algum botao
@@ -342,6 +359,8 @@ func delete_itens():
 				for i in rootSkillMain.get_child_count():
 					rootSkillMain.get_child(i).queue_free()
 					rootMainSkillsInGame.get_child(i).queue_free()
+					
+					player.mainGun = ""
 			else:
 				rootSecWeapon.get_child(0).queue_free()
 				rootSecWeaponInGame.get_child(0).queue_free()
@@ -349,11 +368,16 @@ func delete_itens():
 				for i in rootSkillSec.get_child_count():
 					rootSkillSec.get_child(i).queue_free()
 					rootSecSkillsInGame.get_child(i).queue_free()
+				
+				player.secGun = ""
 		elif resourceFromButton.type == "Chip":
 			objectButton.queue_free()
 		elif resourceFromButton.type == "Consum":
 			objectButton.btnConsumLinked.queue_free()
 			objectButton.queue_free()
+		
+		if player.mainGun == "" and player.secGun == "":
+			$BG_Inventory/BT_Close.hide()
 	else:
 		# Se a funcao e chamada sozinha, destroi todos os childs dos roots
 		for i in rootMainWeapon.get_child_count():
@@ -695,6 +719,7 @@ func insert_itens_invent(type):
 	# Com o loop para cada arquivo, sera criado um botao com as informacoes do item
 	if type == "Weapon":
 		var allWeapons = get_files_in_directory(weaponsResourcePath)
+		print(allWeapons)
 		for i in allWeapons.size():
 			if allWeapons[i].unlocked:
 				# Cria uma nova instancia
@@ -708,6 +733,32 @@ func insert_itens_invent(type):
 				weaponBTN.icon = weaponResource.icon
 				# Add no root node do item
 				rootWeaponsInventory.add_child(weaponBTN)
+				
+				# Aqui e onde as armas sao equipadas pra ui principal
+				# Lembrando que a arma deve estar desbloqueada na resource
+				if allWeapons[i].name == player.mainGun:
+					# Seta a resource e o objeto pra chamar as funcoes
+					# get_weapons_calculation e set_itens
+					objectButton = weaponBTN
+					resourceFromButton =  allWeapons[i]
+					get_weapons_calculation("Main",1)
+					set_itens(allWeapons[i])
+					# Preseta as variaveis de status de acordo com o resultado da funcao get_weapons_calculation
+					GlobalValues.lifeActual = tempLife
+					GlobalValues.energyActual = tempEnergy
+					GlobalValues.speedActual = tempSpeed
+					GlobalValues.atkMainActual = tempATKMain
+					GlobalValues.atkSecActual = tempATKSec
+				elif allWeapons[i].name == player.secGun:
+					objectButton = weaponBTN
+					resourceFromButton =  allWeapons[i]
+					get_weapons_calculation("Sec",1)
+					set_itens(allWeapons[i])
+					GlobalValues.lifeActual = tempLife
+					GlobalValues.energyActual = tempEnergy
+					GlobalValues.speedActual = tempSpeed
+					GlobalValues.atkMainActual = tempATKMain
+					GlobalValues.atkSecActual = tempATKSec
 	elif type == "Chip":
 		var allChips = get_files_in_directory(chipsResourcePath)
 		for i in allChips.size():

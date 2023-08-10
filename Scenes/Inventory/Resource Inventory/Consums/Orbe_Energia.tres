@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource( 2 )
+unlocked = false
 icon = ExtResource( 1 )
 name = "Orbe de Energia"
 description = "Consumivel que pode dar +10 de energia."

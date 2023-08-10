@@ -171,7 +171,3 @@ anims/RESET = SubResource( 1008 )
 autoplay = "Fade_Icon"
 anims/Fade_Icon = SubResource( 1009 )
 anims/RESET = SubResource( 1010 )
-
-[connection signal="input_event" from="Area_Elevator" to="." method="_on_Area_Elevator_input_event"]
-[connection signal="mouse_entered" from="Area_Elevator" to="." method="_on_Area_Elevator_mouse_entered"]
-[connection signal="mouse_exited" from="Area_Elevator" to="." method="_on_Area_Elevator_mouse_exited"]

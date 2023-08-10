@@ -9,8 +9,6 @@ func _on_Back_pressed():
 	$AnimationPlayer.play("FadeIn")
 	GlobalValues.backToScene = backTo
 	GlobalValues.skinChar = skinType
-	QuestManager.get_node("Buttons_Diary").hide()
-	QuestManager.get_node("UI").hide()
 	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://Scenes/Hologram Game/Teleport.tscn")
 	

@@ -5,8 +5,8 @@ export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
 
 # Armazena as armas atuais
-export var mainGun : String = "Varinha"
-export var secGun : String = "Espada"
+export var mainGun : String = ""
+export var secGun : String = ""
 
 # Armazena os nodes da cena Player para esconder quando for necessario
 export (Array,NodePath) var nodesToHide
@@ -15,7 +15,7 @@ export (Array,NodePath) var nodesToHide
 export (Resource) var soundResource
 
 # Identifica qual arma esta atualmente sendo usada
-var selectedGun : String = "Espada"
+var selectedGun : String = ""
 
 # Coleta o inventario
 onready var invent : Node = $Inventory
@@ -59,9 +59,6 @@ func _ready():
 
 	if GlobalValues.whiteScreen:
 		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
-	
-	if QuestManager.isInQuest:
-		QuestManager.player = self
 	
 	# Identifica a camera cinematica da fase caso seja necessario e inicia o modo cutscene
 	if getCineCam:
@@ -109,7 +106,7 @@ func change_weapons(weapon):
 	else:
 		hammerWeapon.hide()
 		shieldWeapon.hide()
-		swordWeapon.show()
+		swordWeapon.hide()
 		wandWeapon.hide()
 		bowWeapon.hide()
 

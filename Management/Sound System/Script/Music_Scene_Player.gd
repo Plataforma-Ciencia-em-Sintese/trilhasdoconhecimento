@@ -2,6 +2,7 @@ extends Node
 
 # Cada nome da array deve ter o mesmo nome da chave da musica na resource
 export (Array,String) var musicName
+onready var puzzle_handler = $"%PuzzleHandler"
 
 func _ready():
 	GlobalQuest.localScene = self
@@ -10,7 +11,10 @@ func _ready():
 	for i in musicName.size():
 		GlobalMusicPlayer.play_sound("start_event",musicName[i])
 
-# SOMENTE PARA TESTES COM AS QUESTS -------------
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_down"):
-		GlobalQuest.change_quest("next_quest")
+#	puzzle_handler.init_puzzle("res://puzzle_handler/puzzles/connection/connection.tscn")
+
+func _on_PuzzleHandler_puzzle_finished(result):
+	if result:
+		print("passou")
+	else:
+		print("faleceu")

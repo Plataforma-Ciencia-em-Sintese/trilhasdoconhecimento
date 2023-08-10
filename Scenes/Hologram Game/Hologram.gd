@@ -77,7 +77,6 @@ func talk_to_player():
 	player.get_node("States/Move").hide()
 	player.get_node("States/Talking").show()
 	owner.get_node("WhiteTransition").hide()
-	QuestManager.get_node("Buttons_Diary").hide()
 	pointer.hide()
 	
 	if npcName != "":
@@ -88,21 +87,11 @@ func talk_to_player():
 	player.hide()
 	yield(get_tree().create_timer(1),"timeout")
 	GlobalMusicPlayer.play_sound("start_event","InicializandoProjetor")
-	QuestManager.get_node("Buttons_Diary").hide()
 	yield(get_tree().create_timer(1.5),"timeout")
 	$Face.show()
 	$AnimationPlayer.play("Start")
 	yield(get_tree().create_timer(2),"timeout")
 	start_dialogue()
-
-func accept_quest():
-	acceptQuest = true
-	$AnimationPlayerUI.play("FadeIn")
-	GlobalValues.skinChar = "Armadura"
-	GlobalValues.whiteScreen = true
-	GlobalValues.backToScene = sceneToBattle
-	GlobalValues.sceneNameToQuestMNG = sceneNameOnly
-	set_quest()
 
 func start_dialogue():
 	# Adiciona o dialogo na cena
@@ -147,9 +136,6 @@ func dialogic_signal(arg):
 		for i in elevators.size():
 			get_tree().get_nodes_in_group("Elevator")[i].owner.goToElevator = false
 		
-		if QuestManager.isInQuest:
-			QuestManager.get_node("Buttons_Diary").show()
-		
 		yield(get_tree().create_timer(0.1),"timeout")
 		pointer.isStopped = false
 		yield(get_tree().create_timer(2),"timeout")
@@ -190,14 +176,6 @@ func _on_AreaHologram_body_exited(body):
 
 func _on_AnimationPlayerUI_animation_finished(_anim_name):
 	get_tree().change_scene("res://Scenes/Hologram Game/Teleport.tscn")
-
-func set_quest():
-	QuestManager.start_quest(missionName,missionDesc,steps)
-
-func end_quest():
-	owner.get_node("WhiteTransition/Back").hide()
-	QuestManager.get_node("Buttons_Diary").hide()
-	QuestManager.get_node("UI").hide()
 
 func show_rewards():
 	$Reward_Screen.show()

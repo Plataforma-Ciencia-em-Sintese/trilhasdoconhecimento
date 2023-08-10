@@ -20,6 +20,11 @@ var localScene : Node
 # Diretorio de onde ficam os controladores de quest
 var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
 
+# SOMENTE PARA TESTES COM AS QUESTS -------------
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_down"):
+		change_quest("next_quest")
+		
 # chamada do dialogic
 func start_dialogue(dial):
 	var d = Dialogic.start(dial, '', "res://addons/dialogic/Nodes/DialogNode.tscn", true)
