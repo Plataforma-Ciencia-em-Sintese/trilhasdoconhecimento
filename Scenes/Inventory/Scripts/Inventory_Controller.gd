@@ -89,6 +89,8 @@ var tempATKSec : float = 0
 var tempSpeed : float = 0
 
 func _ready():
+	# Passa a info de quem e o inventario quando essa cena for carregada
+	GlobalAdmItens.inventoryNode = self
 	# Esconde a descriçao do item
 	hide_show_item_desc(false)
 	# Esconde o contador de itens

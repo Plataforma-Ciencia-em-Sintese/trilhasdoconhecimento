@@ -101,7 +101,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "output", 0, "move" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -8286,7 +8286,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000770867, -0.0116699, -0.999932, -0.317269, -0.948269, 0.0113117, -0.948334, 0.317256, -0.00296946, -0.293128, 0.593737, 0.0743637 )
+transform = Transform( -4.73857e-06, -0.0119998, -0.999928, -0.360055, -0.932865, 0.0111969, -0.932929, 0.360029, -0.00431412, -0.293116, 0.594696, 0.078953 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8357,7 +8357,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -0.000771075, 0.0116698, 0.999932, 0.317269, -0.948269, 0.0113118, 0.948333, 0.317256, -0.0029694, 0.293129, 0.593737, 0.0743637 )
+transform = Transform( -4.91738e-06, 0.0120014, 0.999928, 0.360055, -0.932864, 0.0111983, 0.932929, 0.360029, -0.00431466, 0.293116, 0.594696, 0.0789529 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]

@@ -1,7 +1,7 @@
 extends Node
 
 var consumItensPath : String = "res://Scenes/Inventory/Resource Inventory/Consums/"
-onready var inventoryNode : Node = get_tree().get_nodes_in_group("Inventory")[0]
+onready var inventoryNode : Node
 # Signal criado para informar a interface in game quando um consumivel foi pego e atualizar seu texto com quantidade
 signal consumGived
 

@@ -105,6 +105,7 @@ margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0
 margin_bottom = 300.0
+script = null
 
 [node name="BT_Exit" type="Button" parent="Control_Options"]
 visible = false
