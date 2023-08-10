@@ -81,6 +81,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="BG_Inventory" type="Panel" parent="."]
+visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -938,7 +939,7 @@ stretch = true
 size = Vector2( 430, 557 )
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="Spatial" parent="BG_Inventory/ViewportContainer/Viewport" instance=ExtResource( 31 )]
 

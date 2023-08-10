@@ -29,12 +29,14 @@ font_data = ExtResource( 4 )
 [node name="Menu" type="Control" groups=["Menu"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 3 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 1280, 720 )
+mouse_filter = 1
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
@@ -52,12 +54,6 @@ direction = Vector3( 0.15, 0.15, 0.15 )
 
 [node name="Camera" type="Camera" parent="ViewportContainer/Viewport/MeshInstance"]
 transform = Transform( 0.417783, 0, 0, 0, -3.08099e-08, 1, 0, -0.704848, -4.37114e-08, 0, 1.89459, -8.28151e-08 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.529412, 0.533333, 0.552941, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -96,24 +92,24 @@ margin_left = -133.0
 margin_top = -183.0
 margin_right = 315.0
 margin_bottom = 34.0
+rect_min_size = Vector2( 440, 220 )
 rect_scale = Vector2( 0.6, 0.6 )
+custom_constants/separation = 21
 alignment = 1
 
 [node name="Play" type="Button" parent="Buttons"]
-margin_left = 91.0
-margin_right = 218.0
-margin_bottom = 217.0
-focus_mode = 0
+margin_left = 9.0
+margin_right = 136.0
+margin_bottom = 220.0
 custom_fonts/font = ExtResource( 1 )
-enabled_focus_mode = 0
 icon = ExtResource( 8 )
 flat = true
 icon_align = 1
 
 [node name="Configure" type="Button" parent="Buttons"]
-margin_left = 222.0
-margin_right = 356.0
-margin_bottom = 217.0
+margin_left = 157.0
+margin_right = 291.0
+margin_bottom = 220.0
 rect_min_size = Vector2( 0.051, 0 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
@@ -123,10 +119,9 @@ flat = true
 icon_align = 1
 
 [node name="Quit" type="Button" parent="Buttons"]
-visible = false
-margin_left = 269.0
-margin_right = 396.0
-margin_bottom = 155.0
+margin_left = 312.0
+margin_right = 439.0
+margin_bottom = 220.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0

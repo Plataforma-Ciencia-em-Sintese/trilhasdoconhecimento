@@ -87,7 +87,7 @@ self_modulate = Color( 0, 0, 0, 0 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="Panel_exit" type="Button" parent="Panel_Options"]
 self_modulate = Color( 0.470588, 0.470588, 0.470588, 0.819608 )
