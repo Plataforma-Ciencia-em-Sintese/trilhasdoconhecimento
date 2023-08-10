@@ -34,11 +34,13 @@ func set_xp(value):
 		var result = remain - $XP_Bar.max_value
 		GlobalValues.xpActual = result
 		GlobalValues.levelPlayer += 1
+		GlobalXp.unlock_skill()
 		$XP_Bar.value = result
 		$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
 	elif remain == $XP_Bar.max_value:
 		GlobalValues.xpActual = 0
 		GlobalValues.levelPlayer += 1
+		GlobalXp.unlock_skill()
 		$XP_Bar.value = 0
 		$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
 	elif remain < $XP_Bar.max_value:

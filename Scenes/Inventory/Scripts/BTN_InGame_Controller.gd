@@ -6,6 +6,8 @@ var buttonResource : Resource
 var level : int
 # Referencia desse botao no invetario caso ele seja um consumivel
 var btnRefConsum : Node
+# Referencia desse botao no invetario caso ele seja uma skill
+var btnRefSkill : Node
 
 # Identifica o player e o pointer para executar as acoes
 onready var player = get_tree().get_nodes_in_group("Player")[0]
@@ -14,6 +16,18 @@ onready var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 func _ready():
 	# Preseta o icone do botao
 	icon = buttonResource.icon
+	
+	if buttonResource.type == "Skill":
+		GlobalXp.connect("lvl",self,"unlock_skill_weapon")
+		if GlobalValues.levelPlayer < buttonResource.levelToUnlock and !buttonResource.unlocked:
+			hide()
+
+#func _physics_process(delta):
+#	if buttonResource.type == "Skill":
+#		if buttonResource.levelToUnlock > GlobalValues.levelPlayer:
+#			hide()
+#			print("a")
+#		print("aa")
 
 func _on_BTN_In_Game_pressed():
 	# Se esse botao e uma arma, chama a funcao de troca arma do player
@@ -28,3 +42,10 @@ func _on_BTN_In_Game_mouse_entered():
 
 func _on_BTN_In_Game_mouse_exited():
 	pointer.outInterface = true
+
+func unlock_skill_weapon():
+	if GlobalValues.levelPlayer >= buttonResource.levelToUnlock:
+		buttonResource.unlocked = true
+		show()
+		btnRefSkill.show()
+		print("desbloqueado skill " + buttonResource.name)

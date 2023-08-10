@@ -295,6 +295,7 @@ func set_itens(res):
 				var img = TextureRect.new()
 				img.texture = res.skillsInOrder[i].icon
 				img.expand = true
+				img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 				img.size_flags_horizontal += TextureRect.SIZE_EXPAND
 				img.size_flags_vertical += TextureRect.SIZE_EXPAND
 				rootSkillMain.add_child(img)
@@ -302,6 +303,9 @@ func set_itens(res):
 				var btn = btnInGame.instance()
 				btn.buttonResource = res.skillsInOrder[i]
 				rootMainSkillsInGame.add_child(btn)
+				btn.btnRefSkill = img
+				if GlobalValues.levelPlayer < res.skillsInOrder[i].levelToUnlock:
+					img.hide()
 		else:
 			# Sec gun setada
 			player.secGun = res.name
@@ -317,6 +321,7 @@ func set_itens(res):
 				var img = TextureRect.new()
 				img.texture = res.skillsInOrder[i].icon
 				img.expand = true
+				img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 				img.size_flags_horizontal += TextureRect.SIZE_EXPAND
 				img.size_flags_vertical += TextureRect.SIZE_EXPAND
 				rootSkillSec.add_child(img)
@@ -324,6 +329,9 @@ func set_itens(res):
 				var btn = btnInGame.instance()
 				btn.buttonResource = res.skillsInOrder[i]
 				rootSecSkillsInGame.add_child(btn)
+				btn.btnRefSkill = img
+				if GlobalValues.levelPlayer < res.skillsInOrder[i].levelToUnlock:
+					img.hide()
 	elif res.type == "Chip":
 		itemBTN.btnLinked = objectButton
 		rootChipsEquiped.add_child(itemBTN)
@@ -344,7 +352,7 @@ func set_itens(res):
 		play_sfx("play_one",sfxResource.sfx["EquiparItemConsumivel"])
 	
 	resourceFromButton = null
-		
+
 func delete_itens():
 	# Se a funcao e chamada de algum botao
 	if resourceFromButton != null:
@@ -423,7 +431,7 @@ func delete_itens():
 		
 		for i in rootConsumsInventory.get_child_count():
 			rootConsumsInventory.get_child(i).queue_free()
-			
+
 func delete_itens_to_rewards():
 	# Essa funçao e chamada apenas quando recebe um item
 	# Deleta apenas os itens de mostruario e mantem os que o player ja equipou

@@ -3,6 +3,7 @@ extends Node
 # Signal global
 # Todos os objetos que precisam checar o xp devem possuir esse signal conectado
 signal xp(val)
+signal lvl()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
@@ -14,3 +15,5 @@ func set_xp(value):
 	# Manda o signal com o valor do xp para a ui Status
 	emit_signal("xp",value)
 
+func unlock_skill():
+	emit_signal("lvl")

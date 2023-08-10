@@ -101,7 +101,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "TimeScale", 0, "All_Attacks", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -8286,7 +8286,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000390649, -0.0125222, -0.999922, -0.1041, -0.99449, 0.0124135, -0.994565, 0.104087, -0.0016901, -0.293205, 0.593281, 0.0516748 )
+transform = Transform( 0.000604928, -0.0132291, -0.999912, -0.236712, -0.971497, 0.01271, -0.971578, 0.236683, -0.00371721, -0.293306, 0.593234, 0.0655683 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8357,7 +8357,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( 0.000390559, 0.0125222, 0.999922, 0.1041, -0.99449, 0.0124135, 0.994565, 0.104087, -0.00169, 0.293205, 0.593281, 0.0516749 )
+transform = Transform( 0.000604808, 0.0132292, 0.999912, 0.236712, -0.971497, 0.0127101, 0.971578, 0.236683, -0.00371718, 0.293306, 0.593234, 0.0655683 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8486,6 +8486,7 @@ margin_top = -335.0
 margin_right = -141.0
 margin_bottom = -48.0
 custom_constants/separation = 21
+alignment = 2
 
 [node name="Skills_Main" type="VBoxContainer" parent="Battle_UI/Main_Container"]
 margin_right = 64.0
@@ -8550,6 +8551,7 @@ margin_top = -335.0
 margin_right = -55.0
 margin_bottom = -48.0
 custom_constants/separation = 21
+alignment = 2
 
 [node name="Skills_Sec" type="VBoxContainer" parent="Battle_UI/Sec_Container"]
 margin_right = 64.0
