@@ -129,8 +129,7 @@ margin_right = -0.0780182
 margin_bottom = 2.0
 rect_scale = Vector2( 1, 0.99323 )
 custom_styles/slider = SubResource( 10 )
-min_value = -30.0
-max_value = 0.0
+max_value = 30.0
 
 [node name="Label_Config" type="Label" parent="Panel_Options/Fundo"]
 modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
