@@ -723,3 +723,7 @@ func _on_Background_Invent_gui_input(event):
 func play_sfx(event,name):
 	if name:
 		GlobalMusicPlayer.play_sound(event,name)
+
+
+func _on_Panel_exit_pressed():
+	pass # Replace with function body.
