@@ -1,5 +1,15 @@
 extends CanvasLayer
 	
+func _ready():
+	# Conecta ao signal global de quest para sempre ter a descriçao da quest atual
+	GlobalQuest.connect("QuestInfos",self,"update_quest_main")
+	# Esconde ou mostra o inventario de acordo com a fase Cyberspaço
+	yield(get_tree().create_timer(0.5),"timeout")
+	if GlobalQuest.localScene.stageName == "New_Debug_Room_2":
+		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.hide()
+	else:
+		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.show()
+
 func _on_BT_tablet_pressed():
 #	Fmod.play_one_shot("event:/SFX/Menu/AbrirMenuMissões", self)
 	$BT_tablet.hide()
@@ -12,7 +22,7 @@ func _on_BT_tablet_pressed():
 	owner.get_node("States/Talking").show()
 	
 func _on_BT_Invent_pressed():
-
+	owner.get_node("Inventory/BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory").show()
 	owner.get_node("Inventory/BG_Inventory").show()
 	owner.get_node("States/Move").hide()
 	owner.get_node("States/Talking").show()
@@ -67,3 +77,7 @@ func _on_Panel_exit_pressed():
 	owner.get_node("Status").show()
 	owner.get_node("States/Move").show()
 	owner.get_node("States/Talking").hide()
+
+func update_quest_main(title,desc):
+	$PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Icon_Main_Quest/Main_Quest_Title.text = title
+	$PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Main_Quest_Description.text = desc

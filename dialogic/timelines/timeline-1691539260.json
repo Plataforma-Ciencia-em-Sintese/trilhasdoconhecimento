@@ -35,6 +35,10 @@
 			"text": "Obrigado! Estarei esperando aqui quando falar com ela."
 		},
 		{
+			"emit_signal": "start_quest_normal",
+			"event_id": "dialogic_040"
+		},
+		{
 			"definition": "1691541665-648",
 			"event_id": "dialogic_014",
 			"operation": "=",

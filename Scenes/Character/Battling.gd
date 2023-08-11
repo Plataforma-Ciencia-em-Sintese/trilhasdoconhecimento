@@ -50,15 +50,15 @@ func start_fight():
 			if dist <= limitToAttackMelee:
 				animator.set("parameters/move/blend_amount",0)
 				owner.get_node("States/Move").hide()
-				owner.get_node("Battle_UI/Container_Weapon_Main").hide()
-				owner.get_node("Battle_UI/Container_Weapon_Sec").hide()
+				owner.get_node("Battle_UI/Main_Container").hide()
+				owner.get_node("Battle_UI/Sec_Container").hide()
 				releasePointer = false
 		else:
 			if dist <= limitToAttackBullet:
 				animator.set("parameters/move/blend_amount",0)
 				owner.get_node("States/Move").hide()
-				owner.get_node("Battle_UI/Container_Weapon_Main").hide()
-				owner.get_node("Battle_UI/Container_Weapon_Sec").hide()
+				owner.get_node("Battle_UI/Main_Container").hide()
+				owner.get_node("Battle_UI/Sec_Container").hide()
 				releasePointer = false
 			
 #			if owner.mainChar == "Caio":
@@ -77,8 +77,8 @@ func start_fight():
 			releasePointer = true
 
 func end_fight():
-	owner.get_node("Battle_UI/Container_Weapon_Main").show()
-	owner.get_node("Battle_UI/Container_Weapon_Sec").show()
+	owner.get_node("Battle_UI/Main_Container").show()
+	owner.get_node("Battle_UI/Sec_Container").show()
 	pointer.show()
 	animator.set("parameters/States General/blend_amount",0)
 	animator.set("parameters/Seek/seek_position",0)

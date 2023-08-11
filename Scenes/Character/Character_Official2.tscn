@@ -1,15 +1,17 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Scene/Inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Management/Sound System/SFX Controllers/Player_SFXs.tres" type="Resource" id=3]
 [ext_resource path="res://Scenes/Character/States/Movement.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Character/States/Talking.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/HUDs/Pause/Life.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/HUDs/Pause/Status.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Character/MainChar.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Character/Battling.gd" type="Script" id=8]
 [ext_resource path="res://addons/proton_trail-master/proton_trail.gd" type="Script" id=9]
 [ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Battle_UI/Battle_UI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Battle_UI/Battle_UI.gd" type="Script" id=12]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
@@ -8286,7 +8288,7 @@ mesh = SubResource( 44 )
 skin = SubResource( 45 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -4.73857e-06, -0.0119998, -0.999928, -0.360055, -0.932865, 0.0111969, -0.932929, 0.360029, -0.00431412, -0.293116, 0.594696, 0.078953 )
+transform = Transform( 8.9407e-08, -0.0119912, -0.999928, -0.0149168, -0.999818, 0.0119898, -0.999887, 0.0149161, -0.000176996, -0.293115, 0.59374, 0.0424528 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8357,7 +8359,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -4.91738e-06, 0.0120014, 0.999928, 0.360055, -0.932864, 0.0111983, 0.932929, 0.360029, -0.00431466, 0.293116, 0.594696, 0.0789529 )
+transform = Transform( -8.9407e-08, 0.0119911, 0.999928, 0.0149169, -0.999818, 0.0119897, 0.999887, 0.0149163, -0.000176847, 0.293115, 0.59374, 0.0424529 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
@@ -8378,6 +8380,7 @@ size = 1.7
 near = 0.01
 
 [node name="MiniMap_UI" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource( 25 )
 
 [node name="IconMap_Player" type="Sprite3D" parent="MiniMap_UI"]
@@ -8412,6 +8415,7 @@ script = ExtResource( 19 )
 target = NodePath("../../../..")
 
 [node name="Show_MiniMap" type="Button" parent="MiniMap_UI"]
+visible = false
 anchor_left = 0.138
 anchor_top = 0.932
 anchor_right = 0.175
@@ -8467,163 +8471,14 @@ align = 1
 valign = 1
 
 [node name="TabletInformation" parent="." instance=ExtResource( 18 )]
-pause_mode = 2
 
 [node name="Inventory" parent="." instance=ExtResource( 2 )]
 layer = 3
 
 [node name="Status" parent="." instance=ExtResource( 6 )]
 
-[node name="Battle_UI" type="CanvasLayer" parent="." groups=["BattleUI"]]
-
-[node name="Main_Container" type="VBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -205.0
-margin_top = -335.0
-margin_right = -141.0
-margin_bottom = -48.0
-custom_constants/separation = 21
-alignment = 2
-
-[node name="Skills_Main" type="VBoxContainer" parent="Battle_UI/Main_Container"]
-margin_right = 64.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 64, 64 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 5
-alignment = 1
-
-[node name="Button2" type="Button" parent="Battle_UI/Main_Container/Skills_Main"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Button3" type="Button" parent="Battle_UI/Main_Container/Skills_Main"]
-margin_top = 69.0
-margin_right = 64.0
-margin_bottom = 133.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Button4" type="Button" parent="Battle_UI/Main_Container/Skills_Main"]
-margin_top = 138.0
-margin_right = 64.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Weapon_Main" type="HBoxContainer" parent="Battle_UI/Main_Container"]
-self_modulate = Color( 1, 1, 1, 0.156863 )
-margin_top = 223.0
-margin_right = 64.0
-margin_bottom = 287.0
-rect_min_size = Vector2( 64, 64 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 20
-alignment = 1
-
-[node name="Button" type="Button" parent="Battle_UI/Main_Container/Weapon_Main"]
-margin_right = 64.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Sec_Container" type="VBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -119.0
-margin_top = -335.0
-margin_right = -55.0
-margin_bottom = -48.0
-custom_constants/separation = 21
-alignment = 2
-
-[node name="Skills_Sec" type="VBoxContainer" parent="Battle_UI/Sec_Container"]
-margin_right = 64.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 64, 64 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 5
-alignment = 1
-
-[node name="Button2" type="Button" parent="Battle_UI/Sec_Container/Skills_Sec"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Button3" type="Button" parent="Battle_UI/Sec_Container/Skills_Sec"]
-margin_top = 69.0
-margin_right = 64.0
-margin_bottom = 133.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Button4" type="Button" parent="Battle_UI/Sec_Container/Skills_Sec"]
-margin_top = 138.0
-margin_right = 64.0
-margin_bottom = 202.0
-rect_min_size = Vector2( 64, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Weapon_Sec" type="HBoxContainer" parent="Battle_UI/Sec_Container"]
-self_modulate = Color( 1, 1, 1, 0.156863 )
-margin_top = 223.0
-margin_right = 64.0
-margin_bottom = 287.0
-rect_min_size = Vector2( 64, 64 )
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-custom_constants/separation = 20
-alignment = 1
-
-[node name="Button" type="Button" parent="Battle_UI/Sec_Container/Weapon_Sec"]
-margin_right = 64.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand_icon = true
-
-[node name="Skill_Container" type="HBoxContainer" parent="Battle_UI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -283.0
-margin_top = -112.0
-margin_right = -219.0
-margin_bottom = -48.0
-grow_horizontal = 0
-rect_min_size = Vector2( 64, 64 )
-alignment = 1
-
-[node name="Button2" type="Button" parent="Battle_UI/Skill_Container"]
-margin_right = 64.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-expand_icon = true
+[node name="Battle_UI" parent="." instance=ExtResource( 11 )]
+script = ExtResource( 12 )
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
 path_desired_distance = 0.1

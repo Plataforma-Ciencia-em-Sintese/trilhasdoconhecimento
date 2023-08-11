@@ -19,6 +19,10 @@ var panelReward : String = "res://Scenes/Reward Screen/Reward_UI.tscn"
 var localScene : Node
 # Diretorio de onde ficam os controladores de quest
 var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
+# Resource da quest para ser comparado com as cenas locais se pode criar itens ou nao
+var questResource : Resource
+# Avisa ao tablet de infos que a quest iniciou com as informacoes basicas
+signal QuestInfos(title,desc)
 
 # SOMENTE PARA TESTES COM AS QUESTS -------------
 func _physics_process(delta):
@@ -42,16 +46,26 @@ func dialogic_signal(arg):
 		# Libera para ser criado uma nova interface na proxima quest caso haja coleta de itens
 		hasCountUI = false
 		startedAQuest = false
+		questResource = null
 	# Quando a quest inicia e tem itens pra pegar ----
 	elif arg == "start_quest_with_item":
 		# Pra nao spawnar itens antes mesmo de começar a quest
 		startedAQuest = true
-		spawn_item_quest(localScene)
+		# Armazena o resource da quest aceita
+		questResource = get_files_in_directory(questDir)[0]
+		# Compara se na cena atual e onde deve criar os itens
+		if localScene.stageName == questResource.sceneToCreateItem:
+			spawn_item_quest(localScene)
+		# Emite o sinal para o tablet de infos
+		emit_signal("QuestInfos",questResource.title,questResource.description)
+	elif arg == "start_quest_normal":
+		questResource = get_files_in_directory(questDir)[0]
+		# Emite o sinal para o tablet de infos
+		emit_signal("QuestInfos",questResource.title,questResource.description)
 	# Quando o jogador ganha recompensas ----
 	elif arg == "give_reward":
 		# Carrega o painel de vitoria e a resource da quest atual
 		var reward = load(panelReward).instance()
-		var questResource = get_files_in_directory(questDir)[0]
 		
 		# Se tiver recompensas, manda pro painel
 		if questResource.rewards.size() > 0:
@@ -72,10 +86,8 @@ func spawn_item_quest(scene):
 	# Checa se a missao esta ativa
 	if actualQuest == "Quest_02" and startedAQuest:
 		if Dialogic.get_variable("Quest_02_Status") == "active":
-			# Carrega o arquivo resource da quest atual
-			var resInfos = get_files_in_directory(questDir)[0]
 			# Carrega a cena dos itens pre setados alem da interface de contagem
-			var item = resInfos.itemToGetScene.instance()
+			var item = questResource.itemToGetScene.instance()
 			# Se ele nao tiver uma interface, cria uma nova
 			if !hasCountUI:
 				var uiCount = load(itemCountUI).instance()
@@ -86,7 +98,7 @@ func spawn_item_quest(scene):
 				# Seta as variaveis pro script dos itens UI
 				uiCount.questVariable = "Quest_02_Values"
 				uiCount.alertPanel = panelAlert
-				uiCount.msg = resInfos.winTxtToItem
+				uiCount.msg = questResource.winTxtToItem
 				
 				# O item add na cena, mas o painel fica no global pois evita das informacoes
 				# serem resetadas quando mudar de cena
@@ -135,5 +147,6 @@ func change_quest(quest):
 			actualQuest = "Quest_0" + str(newValue)
 		else:
 			actualQuest = "Quest_" + str(newValue)
-			
+		
+		emit_signal("QuestInfos","Inicie a próxima quest","O quadro de informações irá atualizar assim que uma nova quest se iniciar.")
 		print(actualQuest)

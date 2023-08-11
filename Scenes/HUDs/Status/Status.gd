@@ -7,13 +7,13 @@ var progressiveDamage : bool = false
 func _ready():
 	# Conecta ao signal do script global do xp
 	GlobalXp.connect("xp",self,"set_xp")
+	GlobalAdmLifeEnergy.connect("setLife",self,"set_life")
+	GlobalAdmLifeEnergy.connect("setEnergy",self,"set_energy")
 	$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
 
 # Preseta a vida do jogador vindo de danos em geral
 func set_life(value):
-	GlobalValues.lifeActual += value
-	player.change_only_bar_value("Life")
-	
+	$Life_Bar.value += value
 	if $Life_Bar.value <= 0:
 		player.get_node("States/Move").hide()
 		player.get_node("States/Talking").show()
@@ -23,8 +23,7 @@ func set_life(value):
 
 # Preseta a energia do jogador vindo de consumiveis
 func set_energy(value):
-	GlobalValues.energyActual += value
-	player.change_only_bar_value("Energy")
+	$Energy_Bar.value += value
 
 # Seta o xp geral 
 # Signal vem do script global chamado por qlqr objeto
@@ -49,4 +48,3 @@ func set_xp(value):
 	
 	print("lvl - " + str(GlobalValues.levelPlayer))
 	print("xp - " + str(GlobalValues.xpActual))
-

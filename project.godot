@@ -165,24 +165,28 @@ _global_script_class_icons={
 [application]
 
 config/name="Trilha Cientifica IBICT"
-run/main_scene="res://Scenes/Menu/Menu.tscn"
+run/main_scene="res://3D/Cyberspace/Scene/Cyberespace1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalValues="*res://Management/Global Scripts/Global_Values.gd"
-SaveFile="*res://Management/save_file.gd"
-Fmod="*res://addons/fmod/Fmod.tscn"
-GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 GlobalQuest="*res://Scenes/Quest Manager/Script/Global_Quest.gd"
 GlobalXp="*res://Management/Global Scripts/Global_XP.gd"
-EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 GlobalAdmItens="*res://Scenes/Inventory/Scripts/Global_ADM_Itens.gd"
+SaveFile="*res://Management/save_file.gd"
+Fmod="*res://addons/fmod/Fmod.tscn"
+GlobalAdmLifeEnergy="*res://Management/Global Scripts/Global_ADM_Life_Energy.gd"
+
+[debug]
+
+gdscript/warnings/enable=false
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1280
+window/size/height=720
 window/stretch/aspect="keep_width"
 
 [editor_plugins]

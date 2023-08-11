@@ -26,7 +26,7 @@ func _physics_process(_delta):
 		start_battle()
 	
 	if progressiveDamageToPlayer:
-		owner.player.get_node("Status").set_life(-owner.enemyResource.atkValue * _delta)
+		GlobalAdmLifeEnergy.life_changer(-owner.enemyResource.atkValue * _delta)
 
 func start_battle():
 	if !backToPatrol:
@@ -175,7 +175,7 @@ func _on_Area_Laser_area_exited(area):
 		
 func _on_Attack_Area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		owner.player.get_node("Status").set_life(-owner.enemyResource.atkValue)
+		GlobalAdmLifeEnergy.life_changer(-owner.enemyResource.atkValue)
 
 func _on_CoolDown_timeout():
 	coolDown = !coolDown

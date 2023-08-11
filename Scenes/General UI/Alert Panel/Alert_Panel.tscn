@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/General UI/Alert Panel/Alert_Panel.gd" type="Script" id=1]
+[ext_resource path="res://addons/blunt_background/blunt_background.tscn" type="PackedScene" id=2]
 
 [node name="Alert_Panel" type="CanvasLayer"]
 pause_mode = 2
 layer = 99
 script = ExtResource( 1 )
 musicName = "InfoPanel"
+
+[node name="BluntBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="BG" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.501961 )

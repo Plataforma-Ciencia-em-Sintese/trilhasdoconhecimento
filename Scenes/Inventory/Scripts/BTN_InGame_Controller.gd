@@ -34,10 +34,17 @@ func _on_BTN_In_Game_pressed():
 	if buttonResource.type == "Weapon":
 		player.change_weapons(buttonResource.name)
 	elif buttonResource.type == "Consum":
+		# Se tem quantiade ainda, aplica o atributo usando o controle global
+		# A cena status recebe esse valor e modifica a barra
 		if buttonResource.quant > 0:
+			if buttonResource.energyBoost > 0:
+				GlobalAdmLifeEnergy.energy_changer(buttonResource.energyBoost)
+			if buttonResource.lifeBoost > 0:
+				GlobalAdmLifeEnergy.life_changer(buttonResource.lifeBoost)
 			buttonResource.quant -= 1
 			$BG_Quant/Quant_Txt.text = "X" + str(buttonResource.quant)
 			if buttonResource.quant <= 0:
+				# Se acabou, desliga o botao no inventario referente e destroi esse
 				btnRefConsum.hide()
 				queue_free()
 

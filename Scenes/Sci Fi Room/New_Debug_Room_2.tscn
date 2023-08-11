@@ -360,7 +360,7 @@ albedo_texture = SubResource( 1013 )
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0 )
 
-[node name="Scifi_Stage" type="Spatial" groups=["nivel"]]
+[node name="New_Debug_Room_2" type="Spatial" groups=["nivel"]]
 script = ExtResource( 9 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]

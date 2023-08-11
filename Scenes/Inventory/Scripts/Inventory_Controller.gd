@@ -27,6 +27,10 @@ onready var rootSecWeaponInGame: Node = owner.get_node("Battle_UI/Sec_Container/
 onready var rootMainSkillsInGame: Node = owner.get_node("Battle_UI/Main_Container/Skills_Main")
 onready var rootSecSkillsInGame: Node = owner.get_node("Battle_UI/Sec_Container/Skills_Sec")
 
+# Barras de vida e energia do jogo
+onready var energyBarGame : Node = owner.get_node("Status/Energy_Bar")
+onready var lifeBarGame : Node = owner.get_node("Status/Life_Bar")
+
 #Coleta o node tablet no jogo
 onready var tabletInfo : Node = owner.get_node("TabletInformation/PanelTablet")
 
@@ -460,6 +464,7 @@ func _on_BT_Close_pressed():
 	resourceFromButton = null
 	$BG_Inventory.hide()
 	tabletInfo.show()
+	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
 
 func get_weapons_calculation(type,operation):
 	# Realiza os calculos de fracao de acordo com os valores dados pela Resource da arma
@@ -567,22 +572,27 @@ func show_or_hide_informations(info,status):
 			previewBarLife.show()
 			previewBarLife.value = tempLife
 			officialBarLife.value = tempLife
+			lifeBarGame.max_value = tempLife
 			previewTxtLife.text = "Vida | " + str(tempLife)
 			
 			if GlobalValues.lifeActual <= 0:
 				if tempLife < GlobalValues.life:
 					previewTxtLife.modulate = Color.red
-					previewBarLife.get("custom_styles/fg").bg_color = Color.red
+					previewBarLife.modulate = Color.red
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtLife.modulate = Color.green
-					previewBarLife.get("custom_styles/fg").bg_color = Color.green
+					previewBarLife.modulate = Color.green
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempLife < GlobalValues.lifeActual:
 					previewTxtLife.modulate = Color.red
-					previewBarLife.get("custom_styles/fg").bg_color = Color.red
+					previewBarLife.modulate = Color.red
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtLife.modulate = Color.green
-					previewBarLife.get("custom_styles/fg").bg_color = Color.green
+					previewBarLife.modulate = Color.green
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarLife.hide()
 			previewTxtLife.modulate = Color.white
@@ -598,22 +608,27 @@ func show_or_hide_informations(info,status):
 			previewBarEnergy.show()
 			previewBarEnergy.value = tempEnergy
 			officialBarEnergy.value = tempEnergy
+			energyBarGame.max_value = tempEnergy
 			previewTxtEnergy.text = "Energia | " + str(tempEnergy)
 			
 			if GlobalValues.energyActual <= 0:
 				if tempEnergy < GlobalValues.energy:
 					previewTxtEnergy.modulate = Color.red
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
+					previewBarEnergy.modulate = Color.red
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtEnergy.modulate = Color.green
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
+					previewBarEnergy.modulate = Color.green
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempEnergy < GlobalValues.energyActual:
 					previewTxtEnergy.modulate = Color.red
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
+					previewBarEnergy.modulate = Color.red
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtEnergy.modulate = Color.green
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
+					previewBarEnergy.modulate = Color.green
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarEnergy.hide()
 			previewTxtEnergy.modulate = Color.white
@@ -634,17 +649,21 @@ func show_or_hide_informations(info,status):
 			if GlobalValues.speedActual <= 0:
 				if tempSpeed < GlobalValues.speed:
 					previewTxtSpeed.modulate = Color.red
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
+					previewBarSpeed.modulate = Color.red
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtSpeed.modulate = Color.green
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
+					previewBarSpeed.modulate = Color.green
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempSpeed < GlobalValues.speedActual:
 					previewTxtSpeed.modulate = Color.red
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
+					previewBarSpeed.modulate = Color.red
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtSpeed.modulate = Color.green
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
+					previewBarSpeed.modulate = Color.green
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarSpeed.hide()
 			previewTxtSpeed.modulate = Color.white
@@ -665,17 +684,21 @@ func show_or_hide_informations(info,status):
 			if GlobalValues.atkMainActual <= 0:
 				if tempATKMain < GlobalValues.atkMain:
 					previewTxtATKMain.modulate = Color.red
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKMain.modulate = Color.red
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKMain.modulate = Color.green
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKMain.modulate = Color.green
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempATKMain < GlobalValues.atkMainActual:
 					previewTxtATKMain.modulate = Color.red
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKMain.modulate = Color.red
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKMain.modulate = Color.green
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKMain.modulate = Color.green
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarATKMain.hide()
 			previewTxtATKMain.modulate = Color.white
@@ -696,17 +719,21 @@ func show_or_hide_informations(info,status):
 			if GlobalValues.atkSecActual <= 0:
 				if tempATKSec < GlobalValues.atkMain:
 					previewTxtATKSec.modulate = Color.red
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKSec.modulate = Color.red
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKSec.modulate = Color.green
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKSec.modulate = Color.green
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempATKSec < GlobalValues.atkSecActual:
 					previewTxtATKSec.modulate = Color.red
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKSec.modulate = Color.red
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKSec.modulate = Color.green
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKSec.modulate = Color.green
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarATKSec.hide()
 			previewTxtATKSec.modulate = Color.white
