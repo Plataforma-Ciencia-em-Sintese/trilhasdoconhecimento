@@ -19,7 +19,7 @@ func _physics_process(_delta):
 			look_to_player()
 		
 		if progressiveDamageToPlayer:
-			owner.player.get_node("Status").set_life(-owner.bossResource.atk * _delta)
+			GlobalAdmLifeEnergy.life_changer(-owner.bossResource.atk * _delta)
 		
 		dist = owner.global_transform.origin.distance_to(owner.player.global_transform.origin)
 		if dist < 4:
@@ -68,11 +68,11 @@ func set_collider_status(path,status):
 	
 func _on_Hand_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		owner.player.get_node("Status").set_life(-owner.bossResource.atk)
+		GlobalAdmLifeEnergy.life_changer(-owner.bossResource.atk)
 		
 func _on_Leg_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		owner.player.get_node("Status").set_life(-owner.bossResource.atk)
+		GlobalAdmLifeEnergy.life_changer(-owner.bossResource.atk)
 		
 func _on_Laser_Area_area_entered(area):
 	if area.is_in_group("DamagePlayer"):

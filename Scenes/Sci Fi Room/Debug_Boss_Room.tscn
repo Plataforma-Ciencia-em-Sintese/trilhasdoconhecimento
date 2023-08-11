@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Sci Fi Room/CameraController.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemies/Boss/Scene/Boss_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Cine Camera/Cine_Cam.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Cine Camera/Cine_Cam.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Enemies/Normals/Scene/Normal_Enemies.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Management/Sound System/Script/Music_Scene_Player.gd" type="Script" id=8]
 
 [sub_resource type="NavigationMesh" id=7]
 vertices = PoolVector3Array( -24.7955, -0.23166, -34.7955, -34.7955, -0.23166, -34.7955, -34.7955, -0.23166, -26.4955, -34.7955, -0.23166, -1.4955, -21.1955, -0.23166, -1.4955, -21.1955, -0.23166, -2.2955, -34.7955, -0.23166, -1.4955, -21.1955, -0.23166, -2.2955, -20.5955, -0.23166, -3.4955, -34.7955, -0.23166, -9.8955, -34.7955, -0.23166, -1.4955, -20.5955, -0.23166, -3.4955, -19.2955, -0.23166, -4.1955, -34.7955, -0.23166, -9.8955, -19.2955, -0.23166, -4.1955, -14.7955, -0.23166, -4.1955, -14.7955, -0.23166, -34.7955, -24.7955, -0.23166, -34.7955, -34.7955, -0.23166, -18.1955, -24.7955, -0.23166, -34.7955, -34.7955, -0.23166, -26.4955, -34.7955, -0.23166, -18.1955, 34.8045, -0.23166, -26.4955, 34.8045, -0.23166, -34.7955, 28.6045, -0.23166, -34.7955, 34.8045, -0.23166, -26.4955, 28.6045, -0.23166, -34.7955, 22.4045, -0.23166, -34.7955, 34.8045, -0.23166, -26.4955, 22.4045, -0.23166, -34.7955, 16.2045, -0.23166, -34.7955, 34.8045, -0.23166, -18.1955, 34.8045, -0.23166, -9.8955, 10.0045, -0.23166, -34.7955, 3.8045, -0.23166, -34.7955, -12.7955, -0.23166, -1.4955, 34.8045, -0.23166, -1.4955, 34.8045, -0.23166, -18.1955, 16.2045, -0.23166, -34.7955, 10.0045, -0.23166, -34.7955, 34.8045, -0.23166, -9.8955, -8.5955, -0.23166, -34.7955, -14.7955, -0.23166, -34.7955, -14.7955, -0.23166, -4.1955, -13.3955, -0.23166, -3.4955, 3.8045, -0.23166, -34.7955, -2.3955, -0.23166, -34.7955, -12.7955, -0.23166, -1.4955, -8.5955, -0.23166, -34.7955, -13.3955, -0.23166, -3.4955, -12.7955, -0.23166, -2.2955, -8.5955, -0.23166, -34.7955, -12.7955, -0.23166, -2.2955, -12.7955, -0.23166, -1.4955, -2.3955, -0.23166, -34.7955, -34.7955, -0.23166, 1.5045, -21.1955, -0.23166, 1.5045, -21.1955, -0.23166, -1.4955, -34.7955, -0.23166, -1.4955, -12.7955, -0.23166, 1.5045, 34.8045, -0.23166, 1.5045, 34.8045, -0.23166, -1.4955, -12.7955, -0.23166, -1.4955, -17.1955, 3.86834, -0.195499, -17.1955, 3.86834, 0.204498, -16.7955, 3.86834, 0.204498, -16.7955, 3.86834, -0.195499, -17.0955, -0.23166, -0.0955009, -17.0955, -0.23166, 0.1045, -16.8955, -0.23166, 0.1045, -16.8955, -0.23166, -0.0955009, -34.7955, -0.23166, 26.4045, -34.7955, -0.23166, 34.8045, -24.7955, -0.23166, 34.8045, -21.1955, -0.23166, 2.3045, -21.1955, -0.23166, 1.5045, -34.7955, -0.23166, 1.5045, -20.5955, -0.23166, 3.5045, -21.1955, -0.23166, 2.3045, -34.7955, -0.23166, 1.5045, -20.5955, -0.23166, 3.5045, -34.7955, -0.23166, 1.5045, -34.7955, -0.23166, 9.8045, -19.2955, -0.23166, 4.2045, -14.7955, -0.23166, 4.2045, -19.2955, -0.23166, 4.2045, -34.7955, -0.23166, 9.8045, -34.7955, -0.23166, 18.1045, -24.7955, -0.23166, 34.8045, -14.7955, -0.23166, 34.8045, -34.7955, -0.23166, 18.1045, -34.7955, -0.23166, 26.4045, -24.7955, -0.23166, 34.8045, 28.6045, -0.23166, 34.8045, 34.8045, -0.23166, 34.8045, 34.8045, -0.23166, 26.4045, 22.4045, -0.23166, 34.8045, 28.6045, -0.23166, 34.8045, 34.8045, -0.23166, 26.4045, 16.2045, -0.23166, 34.8045, 22.4045, -0.23166, 34.8045, 34.8045, -0.23166, 26.4045, 16.2045, -0.23166, 34.8045, 34.8045, -0.23166, 26.4045, 34.8045, -0.23166, 18.1045, 10.0045, -0.23166, 34.8045, -12.7955, -0.23166, 1.5045, -2.3955, -0.23166, 34.8045, 3.8045, -0.23166, 34.8045, 34.8045, -0.23166, 9.8045, 34.8045, -0.23166, 1.5045, -14.7955, -0.23166, 4.2045, -14.7955, -0.23166, 34.8045, -8.5955, -0.23166, 34.8045, -13.3955, -0.23166, 3.5045, 3.8045, -0.23166, 34.8045, 10.0045, -0.23166, 34.8045, 34.8045, -0.23166, 18.1045, 34.8045, -0.23166, 9.8045, -12.7955, -0.23166, 2.3045, -13.3955, -0.23166, 3.5045, -8.5955, -0.23166, 34.8045, -12.7955, -0.23166, 1.5045, -12.7955, -0.23166, 2.3045, -8.5955, -0.23166, 34.8045, -2.3955, -0.23166, 34.8045 )
@@ -28,7 +29,9 @@ data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0,
 
 [sub_resource type="CubeMesh" id=5]
 
-[sub_resource type="Curve3D" id=6]
+[sub_resource type="SphereMesh" id=6]
+
+[sub_resource type="Curve3D" id=11]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -9.77716, 0, -9.37589, 0, 0, 0, 0, 0, 0, 2.75489, 0, -9.43934, 0, 0, 0, 0, 0, 0, 2.85007, 0, 2.74372, 0, 0, 0, 0, 0, 0, -9.74543, 0, 2.87062, 0, 0, 0, 0, 0, 0, -9.77716, 0, -9.37589 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
@@ -42,6 +45,7 @@ _data = {
 
 [node name="Debug_Boss_Room" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.680834, 1.90735e-06, -0.895332 )
+script = ExtResource( 8 )
 
 [node name="Pointer" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.433654, 0, 0, 0, 0.433654, 0, 0, 0, 0.433654, -0.041996, -0.440745, 4.60452 )
@@ -92,19 +96,80 @@ mesh = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.2459 )
 getCineCam = true
 
-[node name="Cine_Cam" parent="." instance=ExtResource( 6 )]
+[node name="Cine_Cam" type="Camera" parent="." groups=["CineCamera"]]
 transform = Transform( 0.999011, -0.0444738, 0, 0.0444738, 0.999011, 0, 0, 0, 1, -0.719825, 3.35538, 12.8711 )
+cull_mask = 1
+current = true
+script = ExtResource( 6 )
+camMovement = "Automatic"
 infos = {
-0: [ NodePath("../Boss 01"), NodePath("Anchors/0"), 0.0, 1.0, 1.0, "Iniciando sistema..." ],
-1: [ NodePath(""), NodePath("Anchors/1"), 2.0, 0.01, 0.01, "Boss 01: CODENOME BIG-R" ],
-2: [ NodePath(""), NodePath("Anchors/2"), 2.0, 0.1, 0.01, "Ele possui uma bazzoka acoplada em seu braço, o que o torna um caçador a longa distância." ],
+0: [ NodePath("../Boss 01"), NodePath("Anchors/0"), 1.0, 1.0, 1.0, "Iniciando sistema..." ],
+1: [ NodePath(""), NodePath("Anchors/1"), 4.0, 0.01, 0.01, "Boss 01: CODENOME BIG-R" ],
+2: [ NodePath(""), NodePath("Anchors/2"), 6.0, 0.01, 0.01, "Ele possui uma bazzoka acoplada em seu braço, o que o torna um caçador a longa distância." ],
 3: [ NodePath("../Player"), NodePath("Anchors/3"), 7.0, 0.01, 0.01, "Seu ponto fraco é alguma parte de seu corpo gigantesco...Aproxime-se dele e descubra suas fraquezas." ]
 }
+
+[node name="Timer" type="Timer" parent="Cine_Cam"]
+one_shot = true
+
+[node name="Anchors" type="Node" parent="Cine_Cam"]
+
+[node name="0" type="MeshInstance" parent="Cine_Cam/Anchors"]
+transform = Transform( 0.238191, 0, 0, 0, 0.238191, 0, 0, 0, 0.238191, 0, 0.877585, 14.3283 )
+layers = 2
+mesh = SubResource( 6 )
+
+[node name="1" type="MeshInstance" parent="Cine_Cam/Anchors"]
+transform = Transform( 0.238191, 0, 0, 0, 0.238191, 0, 0, 0, 0.238191, 0, 5.59427, 12.2525 )
+layers = 2
+mesh = SubResource( 6 )
+
+[node name="2" type="MeshInstance" parent="Cine_Cam/Anchors"]
+transform = Transform( 0.238191, 0, 0, 0, 0.238191, 0, 0, 0, 0.238191, 8.14593, 4.78477, 13.2869 )
+layers = 2
+mesh = SubResource( 6 )
+
+[node name="3" type="MeshInstance" parent="Cine_Cam/Anchors"]
+transform = Transform( 0.238191, 0, 0, 0, 0.238191, 0, 0, 0, 0.238191, 0.0842233, 2.10652, -1.82349 )
+layers = 2
+mesh = SubResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Cine_Cam"]
+
+[node name="BG_Text" type="Panel" parent="Cine_Cam/CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0.898039 )
+anchor_top = 0.746
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.120056
+
+[node name="Desc" type="Label" parent="Cine_Cam/CanvasLayer/BG_Text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -91.5
+margin_bottom = -1.5
+rect_scale = Vector2( 2, 2 )
+text = "Texto de apresentação de alguma coisa"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BTN_Continue" type="Button" parent="Cine_Cam/CanvasLayer/BG_Text"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -126.0
+margin_top = -44.0
+text = ">>>"
 
 [node name="Way1" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318161, 0 )
 visible = false
-curve = SubResource( 6 )
+curve = SubResource( 11 )
 
 [node name="Path_Enemy" parent="Way1" instance=ExtResource( 7 )]
 transform = Transform( -0.00505871, 0, 0.999981, 0, 1, 0, -0.999987, 0, -0.00505868, -9.77716, 0, -9.37589 )
@@ -113,7 +178,7 @@ enemyType = "Destruidor"
 [node name="Way2" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4507, 0.318161, 0 )
 visible = false
-curve = SubResource( 6 )
+curve = SubResource( 11 )
 
 [node name="Path_Enemy" parent="Way2" instance=ExtResource( 7 )]
 transform = Transform( -0.00505871, 0, 0.999981, 0, 1, 0, -0.999987, 0, -0.00505868, -9.77716, 0, -9.37589 )
@@ -127,4 +192,5 @@ curve = SubResource( 10 )
 transform = Transform( 0.999463, 0, 0.0327818, 0, 1, 0, -0.0327818, 0, 0.999463, 13.4747, 0, 0.0930376 )
 enemyType = "Furadeiro"
 
-[editable path="Cine_Cam"]
+[connection signal="timeout" from="Cine_Cam/Timer" to="Cine_Cam" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Cine_Cam/CanvasLayer/BG_Text/BTN_Continue" to="Cine_Cam" method="_on_BTN_Continue_pressed"]
