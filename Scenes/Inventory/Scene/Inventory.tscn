@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Inventory.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Scripts/Inventory_Controller.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-BoldItalic.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Icon_voltar.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/UI/Icons/Select_Player/Speed_Icon.png" type="Texture" id=24]
+[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://icon.png" type="Texture" id=26]
 [ext_resource path="res://Management/Sound System/SFX Controllers/Inventory_SFXs.tres" type="Resource" id=27]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Italic.ttf" type="DynamicFontData" id=28]
@@ -35,8 +36,6 @@
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=34]
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=35]
 [ext_resource path="res://addons/blunt_background/blunt_background.tscn" type="PackedScene" id=36]
-[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=37]
-[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=38]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -57,30 +56,28 @@ extra_spacing_char = -1
 font_data = ExtResource( 30 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 12
+size = 14
 use_filter = true
-font_data = ExtResource( 38 )
+font_data = ExtResource( 30 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 10
 font_data = ExtResource( 28 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 14
+size = 19
 use_filter = true
-extra_spacing_char = -1
 font_data = ExtResource( 29 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 10
-use_filter = true
+size = 11
 font_data = ExtResource( 30 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 28
+size = 33
+outline_size = 1
 use_filter = true
-extra_spacing_char = -1
-font_data = ExtResource( 37 )
+font_data = ExtResource( 25 )
 
 [sub_resource type="CapsuleShape" id=79]
 radius = 0.258477
@@ -165,7 +162,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 110 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "TimeScale", 0, "All_Attacks", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run" ]
+node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=111]
 
@@ -7941,7 +7938,8 @@ anchor_right = 0.974
 anchor_bottom = 0.7
 margin_left = 0.0780001
 margin_right = -0.0780029
-value = 100.0
+max_value = 6.0
+value = 6.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 6 )
 nine_patch_stretch = true
@@ -8014,7 +8012,8 @@ anchor_bottom = 0.7
 margin_left = 0.0780001
 margin_right = -0.0780029
 rect_min_size = Vector2( 234, 6 )
-value = 100.0
+max_value = 6.0
+value = 6.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 6 )
 nine_patch_stretch = true
@@ -8087,7 +8086,8 @@ anchor_bottom = 0.7
 margin_left = 0.0780001
 margin_right = -0.0780029
 rect_min_size = Vector2( 234, 6 )
-value = 100.0
+max_value = 4.0
+value = 4.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 6 )
 nine_patch_stretch = true
@@ -8175,7 +8175,8 @@ anchor_bottom = 0.7
 margin_left = 0.0780001
 margin_right = -0.0780029
 rect_min_size = Vector2( 234, 6 )
-value = 50.0
+max_value = 30.0
+value = 30.0
 texture_progress = ExtResource( 10 )
 nine_patch_stretch = true
 
@@ -9076,7 +9077,7 @@ mesh = SubResource( 98 )
 skin = SubResource( 99 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( -2.61068e-05, -0.0119971, -0.999928, -0.359055, -0.93325, 0.0112067, -0.933315, 0.359029, -0.00428136, -0.293117, 0.594695, 0.078844 )
+transform = Transform( -1.27256e-05, -0.0120131, -0.999928, -0.288682, -0.957357, 0.0115054, -0.957423, 0.288661, -0.00345379, -0.293117, 0.593783, 0.0711578 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentR"]
@@ -9139,7 +9140,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( -2.61366e-05, 0.0119988, 0.999928, 0.359055, -0.93325, 0.0112083, 0.933315, 0.35903, -0.00428171, 0.293117, 0.594695, 0.078844 )
+transform = Transform( -1.2964e-05, 0.0120129, 0.999928, 0.288682, -0.957356, 0.0115053, 0.957423, 0.288661, -0.00345337, 0.293117, 0.593783, 0.0711579 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentL"]

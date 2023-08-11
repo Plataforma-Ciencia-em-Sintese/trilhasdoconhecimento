@@ -130,6 +130,11 @@ func get_files_in_directory(path):
 	return files
 
 func preview_item(obj):
+	tempLife = 0
+	tempEnergy = 0
+	tempSpeed = 0
+	tempATKMain = 0
+	tempATKSec = 0
 	# Quando algum botao for pressionado,o sistema armazena antes os valores pra depois aplicar
 	objectButton = obj
 	resourceFromButton = obj.buttonResource
@@ -576,9 +581,26 @@ func show_or_hide_informations(info,status):
 	if info == "Life":
 		if status == "Show":
 			previewBarLife.show()
-			previewBarLife.value = tempLife
-			officialBarLife.value = tempLife
+			officialBarLife.hide()
 			lifeBarGame.max_value = tempLife
+			
+			#----
+			if GlobalValues.lifeActual >= GlobalValues.life:
+				previewBarLife.max_value = GlobalValues.lifeActual
+				officialBarLife.max_value = GlobalValues.lifeActual
+			else:
+				previewBarLife.max_value = GlobalValues.life
+				officialBarLife.max_value = GlobalValues.life
+			#-----
+			if tempLife > officialBarLife.max_value:
+				previewBarLife.max_value = tempLife
+				officialBarLife.max_value = tempLife
+				previewBarLife.value = tempLife
+				officialBarLife.value = tempLife
+			else:
+				previewBarLife.value = tempLife
+				officialBarLife.value = tempLife
+			
 			previewTxtLife.text = "Vida | " + str(tempLife)
 			
 			if GlobalValues.lifeActual <= 0:
@@ -601,20 +623,46 @@ func show_or_hide_informations(info,status):
 #					previewBarLife.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarLife.hide()
+			officialBarLife.show()
 			previewTxtLife.modulate = Color.white
 			
 			if GlobalValues.lifeActual <= 0:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.life)
 				officialBarLife.value = GlobalValues.life
+				previewBarLife.max_value = GlobalValues.life
+				officialBarLife.max_value = GlobalValues.life
 			else:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.lifeActual)
 				officialBarLife.value = GlobalValues.lifeActual
+				if GlobalValues.lifeActual >= GlobalValues.life:
+					previewBarLife.max_value = GlobalValues.lifeActual
+					officialBarLife.max_value = GlobalValues.lifeActual
+				else:
+					previewBarLife.max_value = GlobalValues.life
+					officialBarLife.max_value = GlobalValues.life
 	elif info == "Energy":
 		if status == "Show":
 			previewBarEnergy.show()
-			previewBarEnergy.value = tempEnergy
-			officialBarEnergy.value = tempEnergy
+			officialBarEnergy.hide()
 			energyBarGame.max_value = tempEnergy
+			
+			#---
+			if GlobalValues.energyActual >= GlobalValues.energy:
+				previewBarEnergy.max_value = GlobalValues.energyActual
+				officialBarEnergy.max_value = GlobalValues.energyActual
+			else:
+				previewBarEnergy.max_value = GlobalValues.energy
+				officialBarEnergy.max_value = GlobalValues.energy
+			#----
+			if tempEnergy > officialBarEnergy.max_value:
+				previewBarEnergy.max_value = tempEnergy
+				officialBarEnergy.max_value = tempEnergy
+				previewBarEnergy.value = tempEnergy
+				officialBarEnergy.value = tempEnergy
+			else:
+				previewBarEnergy.value = tempEnergy
+				officialBarEnergy.value = tempEnergy
+			
 			previewTxtEnergy.text = "Energia | " + str(tempEnergy)
 			
 			if GlobalValues.energyActual <= 0:
@@ -637,19 +685,46 @@ func show_or_hide_informations(info,status):
 #					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarEnergy.hide()
+			officialBarEnergy.show()
 			previewTxtEnergy.modulate = Color.white
 			
 			if GlobalValues.energyActual <= 0:
 				previewTxtEnergy.text = "Energia | " + str(GlobalValues.energy)
 				officialBarEnergy.value = GlobalValues.energy
+				previewBarEnergy.max_value = GlobalValues.energy
+				officialBarEnergy.max_value = GlobalValues.energy
 			else:
 				previewTxtEnergy.text = "Energia | " + str(GlobalValues.energyActual)
 				officialBarEnergy.value = GlobalValues.energyActual
+				if GlobalValues.energyActual >= GlobalValues.energy:
+					previewBarEnergy.max_value = GlobalValues.energyActual
+					officialBarEnergy.max_value = GlobalValues.energyActual
+				else:
+					previewBarEnergy.max_value = GlobalValues.energy
+					officialBarEnergy.max_value = GlobalValues.energy
 	elif info == "Speed":
 		if status == "Show":
 			previewBarSpeed.show()
-			previewBarSpeed.value = tempSpeed
+			officialBarSpeed.hide()
 			officialBarSpeed.value = tempSpeed
+			
+			#----
+			if GlobalValues.speedActual >= GlobalValues.speed:
+				previewBarSpeed.max_value = GlobalValues.speedActual
+				officialBarSpeed.max_value = GlobalValues.speedActual
+			else:
+				previewBarSpeed.max_value = GlobalValues.speed
+				officialBarSpeed.max_value = GlobalValues.speed
+			#----
+			if tempSpeed > officialBarSpeed.max_value:
+				previewBarSpeed.max_value = tempSpeed
+				officialBarSpeed.max_value = tempSpeed
+				previewBarSpeed.value = tempSpeed
+				officialBarSpeed.value = tempSpeed
+			else:
+				previewBarSpeed.value = tempSpeed
+				officialBarSpeed.value = tempSpeed
+				
 			previewTxtSpeed.text = "Veloc. | " + str(tempSpeed)
 			
 			if GlobalValues.speedActual <= 0:
@@ -672,19 +747,46 @@ func show_or_hide_informations(info,status):
 #					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarSpeed.hide()
+			officialBarSpeed.show()
 			previewTxtSpeed.modulate = Color.white
 			
 			if GlobalValues.speedActual <= 0:
 				previewTxtSpeed.text = "Veloc. | " + str(GlobalValues.speed)
 				officialBarSpeed.value = GlobalValues.speed
+				previewBarSpeed.max_value = GlobalValues.speed
+				officialBarSpeed.max_value = GlobalValues.speed
 			else:
 				previewTxtSpeed.text = "Veloc. | " + str(GlobalValues.speedActual)
 				officialBarSpeed.value = GlobalValues.speedActual
+				if GlobalValues.speedActual >= GlobalValues.speed:
+					previewBarSpeed.max_value = GlobalValues.speedActual
+					officialBarSpeed.max_value = GlobalValues.speedActual
+				else:
+					previewBarSpeed.max_value = GlobalValues.speed
+					officialBarSpeed.max_value = GlobalValues.speed
 	elif info == "ATKMain":
 		if status == "Show":
 			previewBarATKMain.show()
-			previewBarATKMain.value = tempATKMain
+			officialBarATKMain.hide()
 			officialBarATKMain.value = tempATKMain
+			
+			#---
+			if GlobalValues.atkMainActual >= GlobalValues.atkMain:
+				previewBarATKMain.max_value = GlobalValues.atkMainActual
+				officialBarATKMain.max_value = GlobalValues.atkMainActual
+			else:
+				previewBarATKMain.max_value = GlobalValues.atkMain
+				officialBarATKMain.max_value = GlobalValues.atkMain
+			#---
+			if tempATKMain > officialBarATKMain.max_value:
+				previewBarATKMain.max_value = tempATKMain
+				officialBarATKMain.max_value = tempATKMain
+				previewBarATKMain.value = tempATKMain
+				officialBarATKMain.value = tempATKMain
+			else:
+				previewBarATKMain.value = tempATKMain
+				officialBarATKMain.value = tempATKMain
+			
 			previewTxtATKMain.text = "ATK Main | " + str(tempATKMain)
 			
 			if GlobalValues.atkMainActual <= 0:
@@ -707,23 +809,50 @@ func show_or_hide_informations(info,status):
 #					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarATKMain.hide()
+			officialBarATKMain.show()
 			previewTxtATKMain.modulate = Color.white
 			
 			if GlobalValues.atkMainActual <= 0:
 				previewTxtATKMain.text = "ATK Main | " + str(GlobalValues.atkMain)
 				officialBarATKMain.value = GlobalValues.atkMain
+				previewBarATKMain.max_value = GlobalValues.atkMain
+				officialBarATKMain.max_value = GlobalValues.atkMain
 			else:
 				previewTxtATKMain.text = "ATK Main | " + str(GlobalValues.atkMainActual)
 				officialBarATKMain.value = GlobalValues.atkMainActual
+				if GlobalValues.atkMainActual >= GlobalValues.atkMain:
+					previewBarATKMain.max_value = GlobalValues.atkMainActual
+					officialBarATKMain.max_value = GlobalValues.atkMainActual
+				else:
+					previewBarATKMain.max_value = GlobalValues.atkMain
+					officialBarATKMain.max_value = GlobalValues.atkMain
 	elif info == "ATKSec":
 		if status == "Show":
 			previewBarATKSec.show()
-			previewBarATKSec.value = tempATKSec
+			officialBarATKSec.hide()
 			officialBarATKSec.value = tempATKSec
+			
+			#---
+			if GlobalValues.atkSecActual >= GlobalValues.atkSec:
+				previewBarATKSec.max_value = GlobalValues.atkSecActual
+				officialBarATKSec.max_value = GlobalValues.atkSecActual
+			else:
+				previewBarATKSec.max_value = GlobalValues.atkSec
+				officialBarATKSec.max_value = GlobalValues.atkSec
+			#----
+			if tempATKSec > officialBarATKSec.max_value:
+				previewBarATKSec.max_value = tempATKSec
+				officialBarATKSec.max_value = tempATKSec
+				previewBarATKSec.value = tempATKSec
+				officialBarATKSec.value = tempATKSec
+			else:
+				previewBarATKSec.value = tempATKSec
+				officialBarATKSec.value = tempATKSec
+			
 			previewTxtATKSec.text = "ATK Sec | " + str(tempATKSec)
 			
 			if GlobalValues.atkSecActual <= 0:
-				if tempATKSec < GlobalValues.atkMain:
+				if tempATKSec < GlobalValues.atkSec:
 					previewTxtATKSec.modulate = Color.red
 					previewBarATKSec.modulate = Color.red
 #					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
@@ -742,14 +871,23 @@ func show_or_hide_informations(info,status):
 #					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarATKSec.hide()
+			officialBarATKSec.show()
 			previewTxtATKSec.modulate = Color.white
 			
 			if GlobalValues.atkSecActual <= 0:
 				previewTxtATKSec.text = "ATK Sec | " + str(GlobalValues.atkSec)
 				officialBarATKSec.value = GlobalValues.atkSec
+				previewBarATKSec.max_value = GlobalValues.atkSec
+				officialBarATKSec.max_value = GlobalValues.atkSec
 			else:
 				previewTxtATKSec.text = "ATK Sec | " + str(GlobalValues.atkSecActual)
 				officialBarATKSec.value = GlobalValues.atkSecActual
+				if GlobalValues.atkSecActual >= GlobalValues.atkSec:
+					previewBarATKSec.max_value = GlobalValues.atkSecActual
+					officialBarATKSec.max_value = GlobalValues.atkSecActual
+				else:
+					previewBarATKSec.max_value = GlobalValues.atkSec
+					officialBarATKSec.max_value = GlobalValues.atkSec
 
 func hide_show_item_desc(status):
 	if status:
