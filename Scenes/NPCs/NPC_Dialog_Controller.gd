@@ -127,6 +127,7 @@ func _on_Area_body_entered(body):
 			GlobalQuest.whoIsTalking = self
 			talkingState.idle()
 			normalState.get_node("Timer").stop()
+			start_dialogue()
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("Player"):

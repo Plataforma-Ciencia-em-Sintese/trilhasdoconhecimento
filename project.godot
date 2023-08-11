@@ -179,6 +179,9 @@ GlobalAdmLifeEnergy="*res://Management/Global Scripts/Global_ADM_Life_Energy.gd"
 GlobalPuzzleController="*res://Management/Global Scripts/Global_Puzzle_Controller.gd"
 Fmod="*res://addons/fmod/Fmod.tscn"
 SaveFile="*res://Management/save_file.gd"
+QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
+StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
+EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
 
 [debug]
 

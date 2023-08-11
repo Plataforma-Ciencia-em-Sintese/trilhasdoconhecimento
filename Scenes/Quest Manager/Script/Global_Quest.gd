@@ -121,6 +121,7 @@ func spawn_item_quest(scene):
 					
 				for i in item.get_child_count():
 					item.get_child(i).connect("change_value",get_tree().root.get_node("Item_Count"),"change_ui")
+					item.get_child(i).isInQuest = true
 			
 			# Add a cena corrigida para o jogo
 			scene.add_child(item)
