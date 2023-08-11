@@ -1046,15 +1046,7 @@ spot_range = 9.2759
 
 [node name="Hologram" parent="." groups=["Navmesh"] instance=ExtResource( 3 )]
 transform = Transform( 0.613411, 0, 0, 0, 0.613411, 0, 0, 0, 0.613411, 0, 1.5686, -8.5577 )
-missionName = "Ajude Galileu"
-missionDesc = "Recupere as partes perdidas da lanterna de Galileu"
-steps = {
-"Ache a Base da Luneta": false,
-"Ache a Lente da Luneta": false
-}
-sceneToBattle = "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
-sceneNameOnly = "Enemy_Debug_Room"
-npcName = "Alan"
+npcName = "Jorge"
 
 [node name="WhiteTransition" parent="." instance=ExtResource( 7 )]
 backTo = "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
