@@ -14,7 +14,5 @@ func _on_Configure_pressed():
 	$NameGame.hide()
 	
 
-
-
 func _on_Sobre_pressed():
 	pass # Replace with function body.
