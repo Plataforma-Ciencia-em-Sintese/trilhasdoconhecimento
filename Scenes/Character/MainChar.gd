@@ -36,6 +36,9 @@ onready var swordWeapon : Node = $Base/Skeleton/BoneAttachmentR/Sword
 onready var wandWeapon : Node = $Base/Skeleton/BoneAttachmentR/Wand
 onready var bowWeapon : Node = $Base/Skeleton/BoneAttachmentR/Bow
 
+# Checa o pointer do player
+onready var pointer : Node = get_tree().get_nodes_in_group("Pointer")[0]
+
 # Identifica aonde estao o corpo e a armadura .tres de cada jogador nos arquivos
 var suits = {
 	"Ariel": ["res://3D/Character Oficial/Ariel/Ariel Normal.tres","res://3D/Character Oficial/Ariel/Ariel Armadura.tres"],

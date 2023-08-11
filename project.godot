@@ -175,12 +175,10 @@ GlobalQuest="*res://Scenes/Quest Manager/Script/Global_Quest.gd"
 GlobalXp="*res://Management/Global Scripts/Global_XP.gd"
 GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 GlobalAdmItens="*res://Scenes/Inventory/Scripts/Global_ADM_Itens.gd"
-SaveFile="*res://Management/save_file.gd"
-Fmod="*res://addons/fmod/Fmod.tscn"
 GlobalAdmLifeEnergy="*res://Management/Global Scripts/Global_ADM_Life_Energy.gd"
-EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
-QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
-StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
+GlobalPuzzleController="*res://Management/Global Scripts/Global_Puzzle_Controller.gd"
+Fmod="*res://addons/fmod/Fmod.tscn"
+SaveFile="*res://Management/save_file.gd"
 
 [debug]
 

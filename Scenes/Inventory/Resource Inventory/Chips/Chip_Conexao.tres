@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource( 2 )
-unlocked = true
+unlocked = false
 icon = ExtResource( 1 )
 name = "Chip de Conexão"
 description = "Aumenta em +4 a vida e a energia quando equipado."

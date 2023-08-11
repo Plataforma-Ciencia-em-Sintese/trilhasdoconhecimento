@@ -5,7 +5,7 @@ func _ready():
 	GlobalQuest.connect("QuestInfos",self,"update_quest_main")
 	## Esconde ou mostra o inventario de acordo com a fase Cyberspaço
 	yield(get_tree().create_timer(0.5),"timeout")
-	if GlobalQuest.localScene.stageName == "New_Debug_Room_2":
+	if GlobalQuest.localScene.stageName == "":
 		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.hide()
 	else:
 		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.show()
@@ -78,6 +78,7 @@ func _on_Panel_exit_pressed():
 	owner.get_node("States/Move").show()
 	owner.get_node("States/Talking").hide()
 
+# Atualiza o texto da quest vinda do script global
 func update_quest_main(title,desc):
 	$PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Icon_Main_Quest/Main_Quest_Title.text = title
 	$PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Main_Quest_Description.text = desc

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://3D/Level Design/PolygonScifiSpace_Material_01_A_001.material" type="Material" id=8]
 [ext_resource path="res://Management/Sound System/Script/Music_Scene_Player.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Sci Fi Room/Elevator.tscn" type="PackedScene" id=10]
-[ext_resource path="res://puzzle_handler/puzzle_handler.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Item/Main Scene/Item_Quest.tscn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationMesh" id=898]
@@ -1082,16 +1081,11 @@ transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0
 [node name="AnchorCam2" type="Position3D" parent="Player"]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
 
-[node name="PuzzleHandler" parent="." instance=ExtResource( 11 )]
-unique_name_in_owner = true
-
 [node name="Item_Quest" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91839, 2.27342, -6.62824 )
 item = "Consum"
 giveConsumable = true
 consumType = "Orbe_Escudo"
 quant = 4
-
-[connection signal="puzzle_finished" from="PuzzleHandler" to="." method="_on_PuzzleHandler_puzzle_finished"]
 
 [editable path="Reception/Elevator2"]

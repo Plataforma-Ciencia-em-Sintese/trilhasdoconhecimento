@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/electric_line_yellow.tres" type="Material" id=1]
-[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/electric_line.gd" type="Script" id=2]
-[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/sphere_blue.tres" type="Texture" id=3]
-[ext_resource path="res://puzzle_handler/puzzles/connection/electric_line/sphere_yellow.tres" type="Texture" id=4]
+[ext_resource path="res://addons/puzzle_handler/puzzles/connection/electric_line/electric_line_yellow.tres" type="Material" id=1]
+[ext_resource path="res://addons/puzzle_handler/puzzles/connection/electric_line/electric_line.gd" type="Script" id=2]
+[ext_resource path="res://addons/puzzle_handler/puzzles/connection/electric_line/sphere_blue.tres" type="Texture" id=3]
+[ext_resource path="res://addons/puzzle_handler/puzzles/connection/electric_line/sphere_yellow.tres" type="Texture" id=4]
+
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.435754 )

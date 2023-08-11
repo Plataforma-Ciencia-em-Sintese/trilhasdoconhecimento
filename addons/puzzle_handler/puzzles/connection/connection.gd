@@ -6,11 +6,11 @@ signal puzzle_response(response)
 
 const AMOUNT_CELLS: int = 5
 
-const _DATA_PATH: String = "res://puzzle_handler/puzzles/connection/data.json"
+const _DATA_PATH: String = "res://addons/puzzle_handler/puzzles/connection/data.json"
 
-const _PowerOutput: PackedScene = preload("res://puzzle_handler/puzzles/connection/power_output/power_output.tscn")
-const _PowerInput: PackedScene = preload("res://puzzle_handler/puzzles/connection/power_input/power_input.tscn")
-const _ElectricLine: PackedScene = preload("res://puzzle_handler/puzzles/connection/electric_line/electric_line.tscn")
+const _PowerOutput: PackedScene = preload("res://addons/puzzle_handler/puzzles/connection/power_output/power_output.tscn")
+const _PowerInput: PackedScene = preload("res://addons/puzzle_handler/puzzles/connection/power_input/power_input.tscn")
+const _ElectricLine: PackedScene = preload("res://addons/puzzle_handler/puzzles/connection/electric_line/electric_line.tscn")
 
 
 var _cells_data: Array = []
@@ -125,8 +125,10 @@ func _puzzle_finished() -> void:
 
 	for electric_line in _energy.get_children():
 		_energy.remove_child(electric_line)
-
-	_continue.show()
+	
+	emit_signal("puzzle_response", true)
+	queue_free()
+#	_continue.show()
 
 
 func _on_PowerOutput_connection_changed() -> void:
@@ -145,5 +147,5 @@ func _on_PowerOutput_connection_changed() -> void:
 							_puzzle_finished()
 
 
-func _on_Continue_pressed() -> void:
-	emit_signal("puzzle_response", true)
+#func _on_Continue_pressed() -> void:
+#	emit_signal("puzzle_response", true)

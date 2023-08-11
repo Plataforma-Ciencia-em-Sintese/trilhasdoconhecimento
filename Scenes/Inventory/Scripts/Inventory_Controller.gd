@@ -130,6 +130,7 @@ func get_files_in_directory(path):
 	return files
 
 func preview_item(obj):
+	# Reseta os valores dos calculos anteriores
 	tempLife = 0
 	tempEnergy = 0
 	tempSpeed = 0
@@ -584,14 +585,15 @@ func show_or_hide_informations(info,status):
 			officialBarLife.hide()
 			lifeBarGame.max_value = tempLife
 			
-			#----
+			#Normaliza o valor max da barra caso clique em outro item seguido
 			if GlobalValues.lifeActual >= GlobalValues.life:
 				previewBarLife.max_value = GlobalValues.lifeActual
 				officialBarLife.max_value = GlobalValues.lifeActual
 			else:
 				previewBarLife.max_value = GlobalValues.life
 				officialBarLife.max_value = GlobalValues.life
-			#-----
+			#Depois compara se o valor vindo de temp e maior ou menor que o max da barra
+			# Seta o valor max de acordo com a comparacao do valor base do atributo
 			if tempLife > officialBarLife.max_value:
 				previewBarLife.max_value = tempLife
 				officialBarLife.max_value = tempLife
@@ -629,11 +631,14 @@ func show_or_hide_informations(info,status):
 			if GlobalValues.lifeActual <= 0:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.life)
 				officialBarLife.value = GlobalValues.life
+				# Se o valor atual e menor que o base, o valor max da barra e o do inicial valor base
 				previewBarLife.max_value = GlobalValues.life
 				officialBarLife.max_value = GlobalValues.life
 			else:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.lifeActual)
 				officialBarLife.value = GlobalValues.lifeActual
+				# Compara as 2 situaçoes para saber se o valor vindo e menor ou maior de temp
+				# COm isso seta a max value de acordo com o valor global ja modificado
 				if GlobalValues.lifeActual >= GlobalValues.life:
 					previewBarLife.max_value = GlobalValues.lifeActual
 					officialBarLife.max_value = GlobalValues.lifeActual

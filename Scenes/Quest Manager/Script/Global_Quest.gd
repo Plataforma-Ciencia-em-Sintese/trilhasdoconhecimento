@@ -58,6 +58,7 @@ func dialogic_signal(arg):
 			spawn_item_quest(localScene)
 		# Emite o sinal para o tablet de infos
 		emit_signal("QuestInfos",questResource.title,questResource.description)
+	# Inicia a quest sem itens para pegar
 	elif arg == "start_quest_normal":
 		questResource = get_files_in_directory(questDir)[0]
 		# Emite o sinal para o tablet de infos
@@ -77,8 +78,15 @@ func dialogic_signal(arg):
 		reward.xpQuest = questResource.xpQuest
 		# Add o painel na cena
 		localScene.add_child(reward)
+	# Quando deve seguir para a proxima quest
 	elif arg == "next_quest":
 		change_quest(arg)
+	# Inicia o puzzle connection
+	elif arg == "connection":
+		GlobalPuzzleController.call_puzzle(arg)
+	# Termina um puzzle
+	elif arg == "end_puzzle":
+		GlobalPuzzleController.pause_player(false)
 		
 # funcao chamada dos nodes da cena local
 func spawn_item_quest(scene):

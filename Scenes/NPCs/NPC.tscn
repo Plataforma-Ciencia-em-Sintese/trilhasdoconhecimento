@@ -5713,13 +5713,6 @@ material/0 = SubResource( 900 )
 
 [node name="Quest_Holder" type="Spatial" parent="NPC"]
 script = ExtResource( 8 )
-steps = {
-"Ache a luneta": false,
-"Leve de volta a Galileu": false
-}
-rewards = {
-"Speed Booster": "res://icon.png"
-}
 
 [connection signal="timeout" from="NPC/States/Normal/Timer" to="NPC/States/Normal" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="NPC/Area" to="NPC" method="_on_Area_body_entered"]

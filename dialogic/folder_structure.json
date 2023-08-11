@@ -9,26 +9,49 @@
 				"character-1666579378.json",
 				"character-1666667805.json",
 				"character-1669120399.json",
-				"character-1691544298.json"
+				"character-1691544298.json",
+				"character-1691778185.json"
 			],
 			"folders": {
 
 			},
 			"metadata": {
 				"color": null,
-				"folded": false
+				"folded": true
 			}
 		},
 		"Definitions": {
 			"files": [
 				"1666657964-787",
-				"1669121331-648",
-				"1691541665-648",
-				"1691550926-648",
-				"1691551620-787"
+				"1669121331-648"
 			],
 			"folders": {
+				"Puzzle_Vars": {
+					"files": [
+						"1691780667-648"
+					],
+					"folders": {
 
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Quest_Vars": {
+					"files": [
+						"1691541665-648",
+						"1691550926-648",
+						"1691551620-787"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				}
 			},
 			"metadata": {
 				"color": null,
@@ -66,7 +89,19 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
+					}
+				},
+				"Puzzles": {
+					"files": [
+						"timeline-1691778166.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
 					}
 				},
 				"Quests": {
@@ -102,7 +137,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				}
 			},
