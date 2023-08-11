@@ -1,30 +1,30 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/UI/Icons/Imagens teste/Teste_Imagem_de_inicio.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Menu/Titulo do Game.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=3]
-[ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Sprites/UI/Icons/Buttons/Config_Icon.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Menu/NewGame_Game.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Menu/Options_Menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/UI/Icons/Buttons/Login_Icon.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/Icons/Buttons/Jogar_Icon.png" type="Texture" id=8]
-[ext_resource path="res://3D/Cyberspace/Textures/Grid 02.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Menu/Icon_Sobre.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Menu/Config_Icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Menu/BG_menu.png" type="Texture" id=9]
 [ext_resource path="res://3D/Cyberspace/Script/Floor Wave.gd" type="Script" id=10]
+[ext_resource path="res://puzzle_handler/assets/font/Roboto/Roboto-Light.ttf" type="DynamicFontData" id=11]
 
-[sub_resource type="PlaneMesh" id=1]
+[sub_resource type="PlaneMesh" id=4]
 
-[sub_resource type="SpatialMaterial" id=2]
-flags_albedo_tex_force_srgb = true
-vertex_color_is_srgb = true
-albedo_texture = ExtResource( 9 )
-metallic = 0.92
-metallic_specular = 0.95
-uv1_scale = Vector3( 2, 2, 2 )
+[sub_resource type="StreamTexture" id=7]
+flags = 23
+load_path = "res://.import/BG_menu.png-dfa2c88ee4bc9a9803592dc0153b177c.s3tc.stex"
 
-[sub_resource type="DynamicFont" id=3]
-size = 40
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
 use_filter = true
-font_data = ExtResource( 4 )
+extra_spacing_char = -1
+font_data = ExtResource( 11 )
 
 [node name="Menu" type="Control" groups=["Menu"]]
 anchor_right = 1.0
@@ -33,6 +33,7 @@ mouse_filter = 1
 script = ExtResource( 3 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 1280, 720 )
@@ -40,97 +41,134 @@ mouse_filter = 1
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 1920, 1080 )
+size = Vector2( 1280, 720 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport"]
-transform = Transform( 2.74869, 0, 0, 0, -6.20154e-08, -1.41875, 0, 1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 1 )
-skeleton = NodePath("")
-material/0 = SubResource( 2 )
-script = ExtResource( 10 )
-direction = Vector3( 0.15, 0.15, 0.15 )
-
-[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/MeshInstance"]
-transform = Transform( 0.417783, 0, 0, 0, -3.08099e-08, 1, 0, -0.704848, -4.37114e-08, 0, 1.89459, -8.28151e-08 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MeshInstance2" type="MeshInstance" parent="ViewportContainer/Viewport"]
+transform = Transform( 2.73963, 0, 0, 0, -4.24017e-08, -1.33685, 0, 1, -6.02405e-08, 0, 0, 0 )
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -223.0
-margin_top = -222.0
-margin_right = 77.0
-margin_bottom = 78.0
-rect_scale = Vector2( 1.5, 1.5 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+script = ExtResource( 10 )
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/MeshInstance2"]
+transform = Transform( 0.365013, 0, 0, 0, -3.17176e-08, 1, 0, -0.725615, -4.37114e-08, 0, 1.89459, -8.28153e-08 )
+visible = false
+
+[node name="BG_Menu" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+
+[node name="NameGame" type="TextureRect" parent="."]
+anchor_left = 0.201
+anchor_top = 0.094
+anchor_right = 0.801
+anchor_bottom = 0.386
+margin_left = -0.279999
+margin_top = 0.32
+margin_right = -0.280029
+margin_bottom = 0.0799866
 texture = ExtResource( 2 )
 expand = true
 
-[node name="NameGame" type="Label" parent="."]
-anchor_left = 0.265
-anchor_top = 0.053
-anchor_right = 0.735
-anchor_bottom = 0.268
-margin_left = -0.200012
-margin_top = -0.160004
-margin_right = 0.199951
-margin_bottom = 0.0399933
-custom_fonts/font = SubResource( 3 )
-text = "Trilhas do conhecimento"
-align = 1
-valign = 1
-
 [node name="Buttons" type="HBoxContainer" parent="."]
+anchor_left = 0.358
+anchor_top = 0.796
+anchor_right = 0.643
+anchor_bottom = 0.921
+margin_left = -0.240021
+margin_top = -0.120056
+margin_right = 242.96
+margin_bottom = 59.8799
+rect_min_size = Vector2( 440, 150 )
+rect_scale = Vector2( 0.6, 0.6 )
+custom_constants/separation = 65
+alignment = 1
+
+[node name="Play" type="Button" parent="Buttons"]
+margin_left = 59.0
+margin_right = 179.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 120, 120 )
+custom_fonts/font = ExtResource( 1 )
+icon = ExtResource( 5 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="Buttons/Play"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -133.0
-margin_top = -183.0
-margin_right = 315.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 440, 220 )
-rect_scale = Vector2( 0.6, 0.6 )
-custom_constants/separation = 21
-alignment = 1
-
-[node name="Play" type="Button" parent="Buttons"]
-margin_left = 9.0
-margin_right = 136.0
-margin_bottom = 220.0
-custom_fonts/font = ExtResource( 1 )
-icon = ExtResource( 8 )
-flat = true
-icon_align = 1
+margin_left = -36.5
+margin_top = -25.0
+margin_right = 36.5
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Jogar"
+align = 1
+valign = 1
 
 [node name="Configure" type="Button" parent="Buttons"]
-margin_left = 157.0
-margin_right = 291.0
-margin_bottom = 220.0
-rect_min_size = Vector2( 0.051, 0 )
+margin_left = 244.0
+margin_right = 364.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 120, 120 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-icon = ExtResource( 5 )
+icon = ExtResource( 8 )
 flat = true
 icon_align = 1
+expand_icon = true
 
-[node name="Quit" type="Button" parent="Buttons"]
-margin_left = 312.0
-margin_right = 439.0
-margin_bottom = 220.0
+[node name="Name" type="Label" parent="Buttons/Configure"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -37.5
+margin_top = -25.0
+margin_right = 37.5
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Configurar"
+align = 1
+valign = 1
+
+[node name="Sobre" type="Button" parent="Buttons"]
+margin_left = 429.0
+margin_right = 549.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 120, 120 )
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
 icon = ExtResource( 7 )
 flat = true
 icon_align = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="Buttons/Sobre"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -25.0
+margin_right = 39.0
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Info Trilhas"
+align = 1
+valign = 1
 
 [node name="Control_Options" parent="." instance=ExtResource( 6 )]
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Configure" to="." method="_on_Configure_pressed"]
-[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Buttons/Sobre" to="." method="_on_Sobre_pressed"]

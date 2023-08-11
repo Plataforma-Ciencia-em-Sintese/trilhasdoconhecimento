@@ -1,9 +1,9 @@
 extends CanvasLayer
 	
 func _ready():
-	# Conecta ao signal global de quest para sempre ter a descriçao da quest atual
+	## Conecta ao signal global de quest para sempre ter a descriçao da quest atual
 	GlobalQuest.connect("QuestInfos",self,"update_quest_main")
-	# Esconde ou mostra o inventario de acordo com a fase Cyberspaço
+	## Esconde ou mostra o inventario de acordo com a fase Cyberspaço
 	yield(get_tree().create_timer(0.5),"timeout")
 	if GlobalQuest.localScene.stageName == "New_Debug_Room_2":
 		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.hide()

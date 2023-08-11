@@ -89,7 +89,7 @@ expand = true
 
 [node name="PanelTablet" type="Panel" parent="."]
 visible = false
-self_modulate = Color( 0.952941, 0.952941, 0.952941, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -140,120 +140,118 @@ valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
-anchor_top = 0.521
-anchor_right = 0.917
-anchor_bottom = 0.727
+anchor_top = 0.524
+anchor_right = 0.913
+anchor_bottom = 0.677
 margin_left = -0.490784
-margin_top = 0.0654907
-margin_right = -0.0958252
-margin_bottom = -0.350098
-rect_min_size = Vector2( 794, 202 )
-custom_constants/separation = 135
+margin_top = 0.100464
+margin_right = -0.445679
+margin_bottom = -0.114532
+rect_min_size = Vector2( 525, 100 )
+custom_constants/separation = 132
 alignment = 1
 
 [node name="BT_Invent" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 134.0
-margin_right = 219.0
-margin_bottom = 202.0
+margin_left = 3.0
+margin_right = 88.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 17 )
 flat = true
 expand_icon = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Invent"]
-anchor_left = 0.082
-anchor_top = 0.824
-anchor_right = 1.024
-anchor_bottom = 0.985
-margin_left = 0.0299997
-margin_top = -0.0640106
-margin_right = -5.04
-margin_bottom = -1.96001
+anchor_left = 0.029
+anchor_top = 0.91
+anchor_right = 0.971
+anchor_bottom = 1.13
+margin_left = 0.0349998
+margin_right = -0.0350037
 custom_fonts/font = SubResource( 2 )
 text = "Inventário"
 
 [node name="BT_Config" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 354.0
-margin_right = 439.0
-margin_bottom = 202.0
+margin_left = 220.0
+margin_right = 305.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Config"]
-anchor_left = -0.165
-anchor_top = 0.824
-anchor_right = 1.165
-anchor_bottom = 0.985
-margin_left = 0.0250006
-margin_top = -0.0640106
-margin_right = -0.0250092
-margin_bottom = 0.0399933
+anchor_left = -0.135
+anchor_top = 0.917
+anchor_right = 1.195
+anchor_bottom = 1.137
+margin_left = 0.0158329
+margin_top = -0.0204697
+margin_right = -0.0341873
+margin_bottom = -0.0204773
 custom_fonts/font = SubResource( 2 )
 text = "Configuração"
 align = 1
 
 [node name="BT_Contatos" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer"]
-margin_left = 574.0
-margin_right = 659.0
-margin_bottom = 202.0
+margin_left = 437.0
+margin_right = 522.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 6 )
 flat = true
 expand_icon = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Contatos"]
-anchor_left = 0.059
-anchor_top = 0.824
-anchor_right = 0.953
-anchor_bottom = 1.017
-margin_left = -0.0149999
-margin_top = -0.0640106
-margin_right = -0.00500488
-margin_bottom = -0.0659943
+anchor_left = 0.082
+anchor_top = 0.903
+anchor_right = 0.976
+anchor_bottom = 1.123
+margin_left = 0.0299997
+margin_top = 0.0359955
+margin_right = 0.0399857
+margin_bottom = 0.0359955
 custom_fonts/font = SubResource( 2 )
 text = "Contatos"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
-anchor_top = 0.682
-anchor_right = 0.917
-anchor_bottom = 0.887
+anchor_top = 0.717
+anchor_right = 0.913
+anchor_bottom = 0.869
 margin_left = -0.490784
-margin_top = -0.370117
-margin_right = -0.208618
-margin_bottom = 0.19696
-rect_min_size = Vector2( 794, 202 )
-custom_constants/separation = 135
+margin_top = -0.295105
+margin_right = -0.445679
+margin_bottom = 0.144897
+rect_min_size = Vector2( 525, 100 )
+custom_constants/separation = 132
 alignment = 1
 
 [node name="BT_Bestiario" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 134.0
-margin_right = 219.0
-margin_bottom = 202.0
+margin_left = 3.0
+margin_right = 88.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 16 )
 flat = true
 expand_icon = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Bestiario"]
-anchor_left = 0.094
-anchor_top = 0.886
-anchor_right = 0.976
-anchor_bottom = 1.079
-margin_left = 0.00999975
-margin_top = -0.00400543
-margin_right = 0.0399933
-margin_bottom = -0.0059967
+anchor_left = 0.106
+anchor_top = 0.926
+anchor_right = 0.988
+anchor_bottom = 1.146
+margin_left = -0.0100002
+margin_top = -0.00401306
+margin_right = 0.019989
+margin_bottom = -0.00401306
 custom_fonts/font = SubResource( 2 )
 text = "Bestiário"
 align = 1
 
 [node name="BT_Trilhas" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 354.0
-margin_right = 439.0
-margin_bottom = 202.0
+margin_left = 220.0
+margin_right = 305.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 9 )
 flat = true
@@ -261,35 +259,35 @@ expand_icon = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Trilhas"]
 anchor_left = 0.059
-anchor_top = 0.877
-anchor_right = 0.941
-anchor_bottom = 1.079
-margin_left = -0.0150003
-margin_top = 1.022
-margin_right = 0.0149994
-margin_bottom = -0.0059967
+anchor_top = 0.927
+anchor_right = 0.965
+anchor_bottom = 1.147
+margin_left = 1.985
+margin_top = 0.0219955
+margin_right = -0.0250015
+margin_bottom = 0.0219955
 custom_fonts/font = SubResource( 2 )
 text = "Trilhas"
 align = 1
 
 [node name="BT_SairdoCS" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
-margin_left = 574.0
-margin_right = 659.0
-margin_bottom = 202.0
+margin_left = 437.0
+margin_right = 522.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 85, 85 )
 icon = ExtResource( 33 )
 flat = true
 expand_icon = true
 
 [node name="Label" type="Label" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_SairdoCS"]
-anchor_left = 0.059
-anchor_top = 0.877
-anchor_right = 0.941
-anchor_bottom = 1.079
-margin_left = -0.0150003
-margin_top = 1.022
-margin_right = 0.0149994
-margin_bottom = -0.0059967
+anchor_left = 0.012
+anchor_top = 0.967
+anchor_right = 0.894
+anchor_bottom = 1.187
+margin_left = -0.02
+margin_top = 0.0219955
+margin_right = 0.00999451
+margin_bottom = 0.0219955
 custom_fonts/font = SubResource( 2 )
 text = "LabPass"
 align = 1
@@ -340,32 +338,31 @@ expand = true
 
 [node name="Main_Quest_Title" type="Label" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Icon_Main_Quest"]
 self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = 1.128
-anchor_top = 0.205
-anchor_right = 8.138
+anchor_left = 1.24
+anchor_top = 0.207
+anchor_right = 7.802
 anchor_bottom = 0.906
-margin_left = 0.340076
-margin_top = 0.0778837
-margin_right = 0.0137634
+margin_left = 0.00505066
+margin_top = 0.000594139
+margin_right = 4.01886
 margin_bottom = -0.0118904
 custom_fonts/font = SubResource( 3 )
 text = "Inicie a próxima quest"
-align = 1
 valign = 1
+autowrap = true
 
 [node name="Main_Quest_Description" type="Label" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest"]
 anchor_left = 0.037
 anchor_top = 0.474
 anchor_right = 0.98
-anchor_bottom = 1.136
+anchor_bottom = 1.66
 margin_left = 0.130519
 margin_top = -0.406887
 margin_right = 0.105652
-margin_bottom = 0.0374908
+margin_bottom = -0.0578918
 custom_fonts/font = SubResource( 4 )
 text = "O quadro de informações irá atualizar assim que uma nova quest se iniciar."
 align = 1
-valign = 1
 autowrap = true
 
 [node name="Panel_MS" type="Panel" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Widget"]
