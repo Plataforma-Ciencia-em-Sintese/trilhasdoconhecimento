@@ -465,6 +465,12 @@ func _on_BT_Close_pressed():
 	$BG_Inventory.hide()
 	tabletInfo.show()
 	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
+	
+func _on_Panel_exit_pressed():
+	resourceFromButton = null
+	$BG_Inventory.hide()
+	tabletInfo.show()
+	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
 
 func get_weapons_calculation(type,operation):
 	# Realiza os calculos de fracao de acordo com os valores dados pela Resource da arma

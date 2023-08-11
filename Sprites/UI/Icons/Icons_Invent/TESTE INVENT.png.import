@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tela 4.png-665eccd86cefff1da12660726e5a93d9.stex"
+path="res://.import/TESTE INVENT.png-c043a4713b4e3d08c318ffaae93b55fd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Menu/tela 4.png"
-dest_files=[ "res://.import/tela 4.png-665eccd86cefff1da12660726e5a93d9.stex" ]
+source_file="res://Sprites/UI/Icons/Icons_Invent/TESTE INVENT.png"
+dest_files=[ "res://.import/TESTE INVENT.png-c043a4713b4e3d08c318ffaae93b55fd.stex" ]
 
 [params]
 
