@@ -56,7 +56,7 @@ extra_spacing_char = -1
 font_data = ExtResource( 30 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 14
+size = 13
 use_filter = true
 font_data = ExtResource( 30 )
 
@@ -162,7 +162,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 110 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General" ]
+node_connections = [ "TimeScale", 0, "All_Attacks", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "States General", 0, "Idle State", "States General", 1, "TimeScale", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=111]
 
@@ -7834,7 +7834,6 @@ __meta__ = {
 sfxResource = ExtResource( 27 )
 
 [node name="BG_Inventory" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -8581,11 +8580,11 @@ expand = true
 
 [node name="Item_Name" type="Label" parent="BG_Inventory/Description_Item/Icon_Item"]
 anchor_top = 0.984
-anchor_right = 1.172
-anchor_bottom = 1.258
+anchor_right = 1.362
+anchor_bottom = 1.29
 margin_top = -0.00800323
-margin_right = 0.0239944
-margin_bottom = 0.0039978
+margin_right = -10.996
+margin_bottom = -1.98
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "Nome Item"
@@ -8618,14 +8617,14 @@ texture = ExtResource( 15 )
 expand = true
 
 [node name="BT_Equip" type="Button" parent="BG_Inventory/Description_Item"]
-anchor_left = 0.674
-anchor_top = 0.419
-anchor_right = 0.864
-anchor_bottom = 0.679
-margin_left = 0.021698
-margin_top = -0.0432243
-margin_right = -0.107513
-margin_bottom = -0.0328293
+anchor_left = 0.591
+anchor_top = 0.36
+anchor_right = 0.958
+anchor_bottom = 0.74
+margin_left = 0.19812
+margin_top = 0.014389
+margin_right = 0.148529
+margin_bottom = 0.0295792
 custom_colors/font_color = Color( 0.0627451, 0.121569, 0.207843, 1 )
 custom_fonts/font = SubResource( 11 )
 text = "EQUIPAR"
@@ -8662,12 +8661,12 @@ valign = 1
 [node name="Inventario" type="Label" parent="BG_Inventory"]
 anchor_left = 0.118
 anchor_top = 0.067
-anchor_right = 0.211
-anchor_bottom = 0.119
+anchor_right = 0.247
+anchor_bottom = 0.132
 margin_left = -0.0400085
 margin_top = -0.240002
-margin_right = -0.0800171
-margin_bottom = 0.32
+margin_right = -46.16
+margin_bottom = -9.04
 custom_fonts/font = SubResource( 14 )
 text = "Inventário"
 
@@ -8701,7 +8700,7 @@ stretch = true
 size = Vector2( 300, 400 )
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 0
+render_target_update_mode = 3
 
 [node name="Char_Inventory" type="KinematicBody" parent="BG_Inventory/Preview_Player_Viewport/Viewport"]
 visible = false
@@ -8794,7 +8793,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8899,7 +8898,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -9077,7 +9076,7 @@ mesh = SubResource( 98 )
 skin = SubResource( 99 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( -1.87159e-05, -0.0120383, -0.999928, -0.390806, -0.920407, 0.0110886, -0.920471, 0.390778, -0.00468527, -0.29312, 0.593974, 0.0824013 )
+transform = Transform( 1.43051e-06, -0.0119876, -0.999928, -0.00291161, -0.999925, 0.0119874, -0.999994, 0.00291185, -3.43174e-05, -0.293115, 0.593742, 0.041202 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentR"]
@@ -9140,7 +9139,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( -1.97291e-05, 0.0120385, 0.999928, 0.390805, -0.920407, 0.0110891, 0.920471, 0.390777, -0.00468455, 0.29312, 0.593974, 0.0824009 )
+transform = Transform( 1.14739e-06, 0.0119874, 0.999928, 0.00291304, -0.999925, 0.0119873, 0.999994, 0.00291329, -3.41833e-05, 0.293115, 0.593742, 0.041202 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentL"]
@@ -9174,3 +9173,4 @@ expand_icon = true
 [connection signal="gui_input" from="BG_Inventory/Background_Invent" to="." method="_on_Background_Invent_gui_input"]
 [connection signal="pressed" from="BG_Inventory/BT_Close" to="." method="_on_BT_Close_pressed"]
 [connection signal="pressed" from="BG_Inventory/Description_Item/BT_Equip" to="." method="_on_BT_Equip_pressed"]
+[connection signal="pressed" from="BG_Inventory/BT_Voltar" to="." method="_on_BT_Voltar_pressed"]

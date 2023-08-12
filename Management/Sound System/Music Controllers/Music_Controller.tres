@@ -7,7 +7,6 @@ script = ExtResource( 1 )
 music = {
 "Alan": "alanTuring",
 "Ambience1": "ambience1",
-"Cyberspace": "csAmbience",
 "Galileu": "galileuGalilei",
 "InfoPanel": "marieCurie",
 "InicializandoProjetor": "iniProjetor",
