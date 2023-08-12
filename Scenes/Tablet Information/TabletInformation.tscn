@@ -567,6 +567,33 @@ margin_bottom = 0.0499878
 texture = ExtResource( 29 )
 expand = true
 
+[node name="TP_XP" type="TextureProgress" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
+anchor_left = 0.062
+anchor_top = 0.806
+anchor_right = 0.563
+anchor_bottom = 0.846
+margin_left = 0.101994
+margin_top = -0.0499878
+margin_right = 0.0229797
+margin_bottom = -0.0499878
+value = 70.0
+texture_under = ExtResource( 30 )
+texture_progress = ExtResource( 32 )
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/TP_XP"]
+self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
+anchor_left = 1.076
+anchor_top = -0.715
+anchor_right = 1.185
+anchor_bottom = 1.764
+margin_left = -0.0401306
+margin_top = 0.000862122
+margin_right = -0.0670471
+margin_bottom = 0.000270844
+custom_fonts/font = SubResource( 7 )
+text = "80 XP"
+
 [node name="BG_XP" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_left = 0.057
 anchor_top = 0.771
@@ -578,33 +605,6 @@ margin_right = 0.179962
 margin_bottom = 0.0500031
 texture = ExtResource( 31 )
 expand = true
-
-[node name="Label" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/BG_XP"]
-self_modulate = Color( 0.819608, 0.901961, 0.0117647, 1 )
-anchor_left = 1.04
-anchor_top = 0.056
-anchor_right = 1.149
-anchor_bottom = 1.056
-margin_left = -0.120026
-margin_top = -0.00800002
-margin_right = -0.147003
-margin_bottom = -0.00799942
-custom_fonts/font = SubResource( 7 )
-text = "80 XP"
-
-[node name="TextureProgress" type="TextureProgress" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
-anchor_left = 0.062
-anchor_top = 0.806
-anchor_right = 0.563
-anchor_bottom = 0.846
-margin_left = 0.101997
-margin_top = -0.0500031
-margin_right = 0.0229797
-margin_bottom = -0.0500031
-value = 80.0
-texture_under = ExtResource( 30 )
-texture_progress = ExtResource( 32 )
-nine_patch_stretch = true
 
 [node name="Scenes" type="Node" parent="."]
 
