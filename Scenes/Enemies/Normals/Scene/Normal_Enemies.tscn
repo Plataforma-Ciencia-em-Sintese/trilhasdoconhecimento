@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Scenes/Enemies/Normals/Scripts/Patrol.gd" type="Script" id=1]
 [ext_resource path="res://3D/Enemy Oficial/Atlas.material" type="Material" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Enemies/Normals/Scripts/Healing.gd" type="Script" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Enemies/Normals/Scripts/Move.gd" type="Script" id=9]
+[ext_resource path="res://Management/Sound System/SFX Controllers/Enemy_Normal_SFX.tres" type="Resource" id=10]
 
 [sub_resource type="StyleBoxFlat" id=39]
 bg_color = Color( 0.521569, 1, 0, 1 )
@@ -1697,6 +1698,7 @@ albedo_texture = SubResource( 41 )
 [node name="Path_Enemy" type="PathFollow" groups=["RootEnemy"]]
 rotation_mode = 4
 script = ExtResource( 4 )
+sfxResource = ExtResource( 10 )
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 500, 500 )

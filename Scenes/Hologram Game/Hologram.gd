@@ -1,25 +1,13 @@
 extends Spatial
 
-#Quest stats
-export (String) var missionName
-export (String,MULTILINE) var missionDesc
-export (Dictionary) var steps
-export (Dictionary) var rewards
-var questScene #Cena global
-
+export (String) var npcName
 #Holograma stats
 export var speedProjector = 1.0
 export (NodePath) var cam
-export var sceneToBattle = ""
-export var sceneNameOnly = ""
 var startInteract = false
 
-# Identifica os dialogos feitos no Dialogic
-export(String, "TimelineDropdown") var timeline: String
 # Adiciona um canvas direto do Dialogic
 export(bool) var add_canvas = true
-
-export (String) var npcName
 
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
@@ -31,6 +19,9 @@ var pointer
 var mat
 var acceptQuest = false
 var elevators
+
+# Diretorio de onde ficam os controladores de quest
+var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
 
 func _ready():
 	cam = get_node(cam)
@@ -94,10 +85,11 @@ func talk_to_player():
 	start_dialogue()
 
 func start_dialogue():
-	# Adiciona o dialogo na cena
-	var d = Dialogic.start(timeline, '', "res://addons/dialogic/Nodes/DialogNode.tscn", add_canvas)
-	get_parent().call_deferred('add_child', d)
-	d.connect("dialogic_signal",self,'dialogic_signal')
+	if GlobalQuest.actualQuest != "":
+		var quests_controllers = get_files_in_directory(questDir)
+		check_NPC_quest(quests_controllers)
+	else:
+		GlobalQuest.start_dialogue(npcName)
 	
 	# Ativa o state Talking do personagem pra ele ficar parado
 	player.get_node("States/Talking").visible = true
@@ -105,42 +97,36 @@ func start_dialogue():
 	pointer.global_transform.origin = player.global_transform.origin
 	$Arrow.hide()
 	
-func dialogic_signal(arg):
+func end_dialogue():
 	# Quando o signal for emitido ao final do dialogo
-	if arg == "cabou" and !acceptQuest:
-		if npcName != "":
-			GlobalMusicPlayer.play_sound("set_global",0)
-			GlobalMusicPlayer.play_sound("stop_event",npcName)
-		
-		GlobalMusicPlayer.play_sound("stop_event","InicializandoProjetor")
-		player.show()
-		cam.current = false
-		mainCam.current = true
-		player.show()
-		player.get_node("Inventory").show()
-		player.get_node("TabletInformation").show()
-		player.get_node("MiniMap_UI").show()
-		player.get_node("Battle_UI").show()
-		player.get_node("Status").show()
-		owner.get_node("WhiteTransition").show()
-		$Arrow.hide()
-		mat.set_shader_param("enable", false)
-		# Desabilita os controladores do dialogo
-		canTalk = false
-		clickedOnMe = false
-		# Habilita o state Move do player novamente
-		player.get_node("States/Talking").visible = false
-		player.get_node("States/Move").visible = true
-		$AnimationPlayer.play("End")
-		
-		for i in elevators.size():
-			get_tree().get_nodes_in_group("Elevator")[i].owner.goToElevator = false
-		
-		yield(get_tree().create_timer(0.1),"timeout")
-		pointer.isStopped = false
-		yield(get_tree().create_timer(2),"timeout")
-		startInteract = false
-		Fmod.stop_event(Fmod.get_node("FmodAtributos").iniProjetor,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)  
+	if npcName != "":
+		GlobalMusicPlayer.play_sound("set_global",0)
+		GlobalMusicPlayer.play_sound("stop_event",npcName)
+	
+	GlobalMusicPlayer.play_sound("stop_event","InicializandoProjetor")
+	player.show()
+	cam.current = false
+	mainCam.current = true
+	player.show()
+	player.get_node("Inventory").show()
+	player.get_node("TabletInformation").show()
+	player.get_node("MiniMap_UI").show()
+	player.get_node("Battle_UI").show()
+	player.get_node("Status").show()
+	owner.get_node("WhiteTransition").show()
+	$Arrow.hide()
+	mat.set_shader_param("enable", false)
+	# Desabilita os controladores do dialogo
+	canTalk = false
+	clickedOnMe = false
+	# Habilita o state Move do player novamente
+	player.get_node("States/Talking").visible = false
+	player.get_node("States/Move").visible = true
+	$AnimationPlayer.play("End")
+	yield(get_tree().create_timer(0.1),"timeout")
+	pointer.isStopped = false
+	yield(get_tree().create_timer(2),"timeout")
+	startInteract = false
 		
 func _on_AreaHologram_mouse_entered():
 	# Se o mouse tocar no NPC e ele ja nao estiver em colisão, habilita o dialogo
@@ -158,15 +144,13 @@ func _on_AreaHologram_mouse_exited():
 		
 func _on_AreaHologram_body_entered(body):
 	if body.is_in_group("Player"):
-#		for i in elevators.size():
-#			get_tree().get_nodes_in_group("Elevator")[i].owner.goToElevator = true
-			
 		# Ativa a bool de toque
 		touchingNPC = true
 		player = body
 		# Se o jogador colidir pela primeira vez no NPC o dialogo dispara sozinho
 		if clickedOnMe:
 			talk_to_player()
+			GlobalQuest.whoIsTalking = self
 			
 func _on_AreaHologram_body_exited(body):
 	if body.is_in_group("Player"):
@@ -174,9 +158,35 @@ func _on_AreaHologram_body_exited(body):
 		touchingNPC = false
 		pointer.isStopped = false
 
-func _on_AnimationPlayerUI_animation_finished(_anim_name):
-	get_tree().change_scene("res://Scenes/Hologram Game/Teleport.tscn")
+func get_files_in_directory(path):
+	# funcao que acessa a pasta especificada e coleta todos os .tres ja carregados
+	var files = []
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+	
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif file.get_basename() == GlobalQuest.actualQuest:
+			files.append(load(path + "/" + GlobalQuest.actualQuest + ".tres"))
+	
+	dir.list_dir_end()
+	return files
 
-func show_rewards():
-	$Reward_Screen.show()
-	$Reward_Screen.set_reward()
+func check_NPC_quest(questRes):
+	# Procura na resource de fala o dialogo do npc se caso ele fizer parte
+	# O nome do npc deve ser o mesmo da resource senao ele nao chama
+	var founded : bool
+	
+	for i in questRes[0].actors.keys().size():
+		if questRes[0].actors.keys()[i] == npcName:
+			GlobalQuest.start_dialogue(questRes[0].actors[npcName])
+			founded = true
+			break
+		else:
+			founded = false
+			
+	if !founded:
+		GlobalQuest.start_dialogue(npcName)

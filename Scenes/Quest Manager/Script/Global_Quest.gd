@@ -125,6 +125,39 @@ func spawn_item_quest(scene):
 			
 			# Add a cena corrigida para o jogo
 			scene.add_child(item)
+	elif actualQuest == "Quest_03" and startedAQuest:
+		if Dialogic.get_variable("Quest_03_Status") == "active":
+			# Carrega a cena dos itens pre setados alem da interface de contagem
+			var item = questResource.itemToGetScene.instance()
+			# Se ele nao tiver uma interface, cria uma nova
+			if !hasCountUI:
+				var uiCount = load(itemCountUI).instance()
+				# Para cada item, conecta o signal de quando o player toca nele pro painel de contagem
+				for i in item.get_child_count():
+					item.get_child(i).connect("change_value",uiCount,"change_ui")
+					item.get_child(i).isInQuest = true
+				# Seta as variaveis pro script dos itens UI
+				uiCount.questVariable = "Quest_03_Values"
+				uiCount.alertPanel = panelAlert
+				uiCount.msg = questResource.winTxtToItem
+				
+				# O item add na cena, mas o painel fica no global pois evita das informacoes
+				# serem resetadas quando mudar de cena
+				# Ele leva tambem a contagem total de itens ja pegos e preseta a contagem certa
+				# quando o jogador muda e volta pra cena dos itens por exemplo
+				get_tree().root.call_deferred("add_child",uiCount)
+				hasCountUI = true
+			else:
+				# Se ja existe a UI, coleta dela os valores antigos pra setar a quantidade certa dos itens
+				for i in get_tree().root.get_node("Item_Count").count:
+					item.get_child(i).queue_free()
+					
+				for i in item.get_child_count():
+					item.get_child(i).connect("change_value",get_tree().root.get_node("Item_Count"),"change_ui")
+					item.get_child(i).isInQuest = true
+			
+			# Add a cena corrigida para o jogo
+			scene.add_child(item)
 
 func get_files_in_directory(path):
 	# funcao que acessa a pasta especificada e coleta todos os .tres ja carregados

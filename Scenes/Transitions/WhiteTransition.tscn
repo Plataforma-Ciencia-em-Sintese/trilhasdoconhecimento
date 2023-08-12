@@ -49,10 +49,12 @@ tracks/0/keys = {
 }
 
 [node name="WhiteTransition" type="CanvasLayer" groups=["WhiteTransition"]]
+pause_mode = 2
 layer = 100
 script = ExtResource( 2 )
 
 [node name="Back" type="Button" parent="."]
+visible = false
 anchor_left = 0.872
 anchor_top = 0.145
 anchor_right = 0.971

@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 sfx = {
-"Passos": "event:/SFX/Personagem/Passos"
+"Passos": "event:/SFX/Personagem/Passos",
+"PersonagemDanoGeral": "event:/SFX/Personagem/PersonagemDanoGeral",
+"PersonagemMorreGeral": "event:/SFX/Personagem/PersonagemMorreGeral"
 }

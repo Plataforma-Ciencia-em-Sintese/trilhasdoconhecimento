@@ -149,7 +149,7 @@ func preview_item(obj):
 	# Compara o tipo da resource
 	if resourceFromButton.type == "Weapon":
 		itemQuantBG.hide()
-		play_sfx("play_one",sfxResource.sfx["SelecionarItemArma"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["SelecionarItemArma"])
 		if !obj.isEquiped:
 			# Realiza o calculo da arma e informa se e primaria ou secundaria
 			if rootMainWeapon.get_child_count() <= 0:
@@ -192,7 +192,7 @@ func preview_item(obj):
 			show_or_hide_informations("Speed","Hide")
 	elif resourceFromButton.type == "Chip":
 		itemQuantBG.hide()
-		play_sfx("play_one",sfxResource.sfx["SelecionarItemChipMelhoria"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["SelecionarItemChipMelhoria"])
 		# Se o chip estiver equipado soma, senao subtrai o valor
 		if !obj.isEquiped:
 			get_chips_calculation(1)
@@ -224,7 +224,7 @@ func preview_item(obj):
 	elif resourceFromButton.type == "Consum":
 		itemQuantBG.show()
 		itemQuantBG.get_node("Item_Quant").text = "X" + str(resourceFromButton.quant)
-		play_sfx("play_one",sfxResource.sfx["SelecionarItemConsumivel"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["SelecionarItemConsumivel"])
 		show_or_hide_informations("ATKMain","Hide")
 		show_or_hide_informations("ATKSec","Hide")
 		show_or_hide_informations("Life","Hide")
@@ -246,7 +246,7 @@ func _on_BT_Equip_pressed():
 		set_itens(resourceFromButton)
 	else:
 		delete_itens()
-		play_sfx("play_one",sfxResource.sfx["BotaoLimpar"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["BotaoLimpar"])
 	
 	# Preseta os valores pro script global
 	# Todos veem prontos independente da operacao remover ou add novo item
@@ -299,7 +299,7 @@ func set_itens(res):
 		# Altera a arma da mao do jogador
 		player.change_weapons(res.name)
 		# Toca o sfx correspondente
-		play_sfx("play_one",sfxResource.sfx["EquiparItemArma"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["EquiparItemArma"])
 		#---------------------------
 		# Se nao tem arma main
 		if rootMainWeapon.get_child_count() <= 0:
@@ -358,7 +358,7 @@ func set_itens(res):
 		itemBTN.btnLinked = objectButton
 		rootChipsEquiped.add_child(itemBTN)
 		# Toca o sfx correspondente
-		play_sfx("play_one",sfxResource.sfx["EquiparItemChipMelhoria"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["EquiparItemChipMelhoria"])
 	elif res.type == "Consum":
 		# Add botao ingame
 		# O proprio botao le e preseta as informacoes como icone
@@ -371,7 +371,7 @@ func set_itens(res):
 		rootConsumsEquiped.add_child(itemBTN)
 		rootConsumsInGame.add_child(inGameBTN)
 		# Toca o sfx correspondente
-		play_sfx("play_one",sfxResource.sfx["EquiparItemConsumivel"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["EquiparItemConsumivel"])
 	
 	resourceFromButton = null
 
@@ -919,10 +919,6 @@ func _on_Background_Invent_gui_input(event):
 			show_or_hide_informations("Speed","Hide")
 			hide_show_item_desc(false)
 			resourceFromButton = null
-
-func play_sfx(event,name):
-	if name:
-		GlobalMusicPlayer.play_sound(event,name)
 
 func insert_itens_invent(type):
 	# Acessa a pasta contendo os arquivos de valores .tres

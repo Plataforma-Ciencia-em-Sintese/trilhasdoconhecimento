@@ -6,6 +6,9 @@ var enemyResource
 var clicked = false
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
+# Resource contendo os efeitos sonoros do inventario
+export (Resource) var sfxResource
+
 func _ready():
 	get_enemy(enemyType)
 	enemyResource = load("res://Scenes/Enemies/Normals/Resource Enemy/" + enemyType + ".tres")

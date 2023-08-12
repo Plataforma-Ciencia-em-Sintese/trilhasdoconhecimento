@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Quest Manager/Script/Quest_Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Weapons/Arco.tres" type="Resource" id=2]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Chips/Chip_Recarga.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Item/Quest to Scene/Item_Quest_03.tscn" type="PackedScene" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Super desafio X"
+description = "AQUI E BEM LEGAL!!!"
+actors = {
+"Jorge": "Quest_03_Jorge",
+"Leo": "Quest_03_Leo"
+}
+rewards = [ ExtResource( 2 ), ExtResource( 3 ) ]
+xpQuest = 20.0
+itemConfigs = "PRESETE AS CONFIGS DO ITEM APENAS SE NESSA QUEST DEVE SER PEGO ITENS. QUEM CONTROLA QUANDO O O ITEM SERÁ CRIADO É O SCRIPT GLOBAL_QUEST COM O SCRIPT LOCAL DA CENA."
+itemToGetScene = ExtResource( 4 )
+winTxtToItem = "AEEEE VOCE PEGOU A LENTE! ENTREGUE DE VOLTA!"
+sceneToCreateItem = "New_Debug_Room_2"

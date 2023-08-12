@@ -12,7 +12,7 @@ export var secGun : String = ""
 export (Array,NodePath) var nodesToHide
 
 # Resource de som do jogador
-export (Resource) var soundResource
+export (Resource) var sfxResource
 
 # Identifica qual arma esta atualmente sendo usada
 var selectedGun : String = ""
@@ -59,9 +59,6 @@ func _ready():
 		bodySkeleton.mesh = load(suits[mainChar][1])
 		battleUI.show()
 		change_weapons(selectedGun)
-
-	if GlobalValues.whiteScreen:
-		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
 	
 	# Identifica a camera cinematica da fase caso seja necessario e inicia o modo cutscene
 	if getCineCam:

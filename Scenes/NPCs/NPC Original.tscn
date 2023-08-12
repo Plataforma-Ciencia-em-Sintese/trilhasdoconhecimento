@@ -5586,13 +5586,6 @@ material/0 = SubResource( 900 )
 
 [node name="Quest_Holder" type="Spatial" parent="NPC"]
 script = ExtResource( 4 )
-steps = {
-"Ache a luneta": false,
-"Leve de volta a Galileu": false
-}
-rewards = {
-"Speed Booster": "res://icon.png"
-}
 
 [node name="Base" type="Spatial" parent="NPC"]
 transform = Transform( 1.5285, 0, 0, 0, 1.5285, 0, 0, 0, 1.5285, 0, 0, 0 )

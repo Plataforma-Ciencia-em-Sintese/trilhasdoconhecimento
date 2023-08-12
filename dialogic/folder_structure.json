@@ -10,14 +10,15 @@
 				"character-1666667805.json",
 				"character-1669120399.json",
 				"character-1691544298.json",
-				"character-1691778185.json"
+				"character-1691778185.json",
+				"character-1691785826.json"
 			],
 			"folders": {
 
 			},
 			"metadata": {
 				"color": null,
-				"folded": true
+				"folded": false
 			}
 		},
 		"Definitions": {
@@ -42,14 +43,16 @@
 					"files": [
 						"1691541665-648",
 						"1691550926-648",
-						"1691551620-787"
+						"1691551620-787",
+						"1691786016-787",
+						"1691794863-366"
 					],
 					"folders": {
 
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				}
 			},
@@ -82,14 +85,15 @@
 					"files": [
 						"timeline-1691537823.json",
 						"timeline-1691537830.json",
-						"timeline-1691544282.json"
+						"timeline-1691544282.json",
+						"timeline-1691786712.json"
 					],
 					"folders": {
 
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				},
 				"Puzzles": {
@@ -133,11 +137,24 @@
 								"color": null,
 								"folded": false
 							}
+						},
+						"03": {
+							"files": [
+								"timeline-1691785774.json",
+								"timeline-1691787087.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
 						}
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				}
 			},

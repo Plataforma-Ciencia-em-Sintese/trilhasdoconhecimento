@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Management/Sound System/Script/Sound_System.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sfx = {
+"InimigoGeralDano": "event:/SFX/Inimigo/InimigoGeralDano",
+"InimigoGeralMorre": "event:/SFX/Inimigo/InimigoGeralMorre"
+}

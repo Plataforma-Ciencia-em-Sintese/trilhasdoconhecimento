@@ -72,7 +72,6 @@ func start_dialogue():
 
 	# Ativa o state Talking do personagem pra ele ficar parado
 	player.get_node("States/Talking").visible = true
-	print("sdfvcdzxfcsdvvcsd sfd ")
 	# Gira o NPC pra posiçao do player
 	skeletonBaseNpc.look_at(global_transform.origin + player.global_transform.origin.direction_to(global_transform.origin),Vector3.UP)
 	# Offset de rotação no eixo x para NPC ficar em pé
