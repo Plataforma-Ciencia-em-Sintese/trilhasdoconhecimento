@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource( 1 )
-unlocked = true
-hasShowed = true
+unlocked = false
+hasShowed = false
 name = "3 Flechas"
 icon = ExtResource( 2 )
 sceneSkill = ""

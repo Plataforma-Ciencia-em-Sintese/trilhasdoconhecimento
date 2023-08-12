@@ -92,7 +92,7 @@ func _on_NavTimer_timeout():
 
 func step_sound():
 	# Verifica se ha resource de som para tocar o som de acordo com a chave do dicionario
-	if owner.soundResource != null:
-		if owner.soundResource.sfx["Passos"]:
-			Fmod.play_one_shot(owner.soundResource.sfx["Passos"] ,self)
+	if owner.sfxResource != null:
+		if owner.sfxResource.sfx["Passos"]:
+			Fmod.play_one_shot(owner.sfxResource.sfx["Passos"] ,self)
 	

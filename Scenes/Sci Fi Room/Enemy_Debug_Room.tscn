@@ -1075,7 +1075,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7629, 0 )
 curve = SubResource( 1000 )
 
 [node name="Path_Enemy" parent="Enemies/Way1" instance=ExtResource( 3 )]
-transform = Transform( -0.00505871, 0, 0.999984, 0, 1, 0, -0.999987, 0, -0.00505869, -9.77716, 0, -9.37589 )
+transform = Transform( -0.00505871, 0, 0.999983, 0, 1, 0, -0.999987, 0, -0.00505869, -9.77716, 0, -9.37589 )
 enemyType = "Destruidor"
 
 [node name="Way2" type="Path" parent="Enemies"]
@@ -1084,7 +1084,7 @@ visible = false
 curve = SubResource( 1001 )
 
 [node name="Path_Enemy2" parent="Enemies/Way2" instance=ExtResource( 3 )]
-transform = Transform( 0.696143, 0, -0.717901, 0, 1, 0, 0.717903, 0, 0.69614, 2.83911, 0, -12.4155 )
+transform = Transform( 0.696143, 0, -0.7179, 0, 1, 0, 0.717903, 0, 0.69614, 2.83911, 0, -12.4155 )
 enemyType = "Reparador"
 
 [node name="Way3" type="Path" parent="Enemies"]
@@ -1092,8 +1092,6 @@ transform = Transform( 0.793013, 0, -0.609204, 0, 1, 0, 0.609204, 0, 0.793013, -
 curve = SubResource( 1001 )
 
 [node name="WhiteTransition" parent="." instance=ExtResource( 7 )]
-backTo = "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn"
-skinType = "Normal"
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148256, 1.56348, -13.4223 )

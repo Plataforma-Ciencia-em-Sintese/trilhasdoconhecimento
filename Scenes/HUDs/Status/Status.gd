@@ -14,13 +14,17 @@ func _ready():
 # Preseta a vida do jogador vindo de danos em geral
 func set_life(value):
 	$Life_Bar.value += value
+	if value < $Life_Bar.value:
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["PersonagemDanoGeral"])
+	
 	if $Life_Bar.value <= 0:
 		player.get_node("States/Move").hide()
 		player.get_node("States/Talking").show()
 		player.get_node("States/Battling").end_fight()
 		player.get_node("States/Battling").hide()
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["PersonagemMorreGeral"])
 		player.hide()
-
+		
 # Preseta a energia do jogador vindo de consumiveis
 func set_energy(value):
 	$Energy_Bar.value += value

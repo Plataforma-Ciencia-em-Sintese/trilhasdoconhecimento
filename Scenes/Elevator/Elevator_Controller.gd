@@ -18,14 +18,14 @@ func _ready():
 func _on_Elevator_Controller_body_entered(body):
 	if body.is_in_group("Player"):
 		$AnimationPlayer.play("Open")
-		play_sfx("play_one",sfxResource.sfx["PortaAutomaticaAbrindo"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["PortaAutomaticaAbrindo"])
 		# Trava o pointer dentro do elevador pro player ir ate la
 		var pointer = get_tree().get_nodes_in_group("Pointer")[0]
 		pointer.global_transform.origin = $Model.global_transform.origin
 		pointer.isStopped = true
 		yield(get_tree().create_timer(1),"timeout")
 		$AnimationPlayer.play("Close")
-		play_sfx("play_one",sfxResource.sfx["PortaAutomaticaFechando"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["PortaAutomaticaFechando"])
 		WhiteTransition.start_transition("fadein")
 		yield(get_tree().create_timer(2),"timeout")
 		match sceneToGo:
@@ -36,6 +36,3 @@ func _on_Elevator_Controller_body_entered(body):
 			"Segundo Andar":
 				get_tree().change_scene_to(load(scenes[2]))
 
-func play_sfx(event,name):
-	if name:
-		GlobalMusicPlayer.play_sound(event,name)

@@ -5,6 +5,8 @@ export (Array,String) var musicName
 var stageName : String
 
 func _ready():
+	GlobalMusicPlayer.play_sound("stop_event","Cyberspace")
+	GlobalMusicPlayer.play_sound("stop_event","PrimeiroNivel")
 	# Seta a cena local pro script de quest saber onde o jogador esta
 	GlobalQuest.localScene = self
 	# Confere se a cena participa de alguma quest

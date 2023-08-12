@@ -96,6 +96,7 @@ uv1_scale = Vector3( 20, 25, 20 )
 
 [node name="Cyberspace" type="Spatial"]
 script = ExtResource( 9 )
+musicName = [ "Cyberspace" ]
 
 [node name="Pointer" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41741, 0, 0 )
