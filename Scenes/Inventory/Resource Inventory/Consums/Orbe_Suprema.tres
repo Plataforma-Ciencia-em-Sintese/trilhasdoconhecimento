@@ -1,18 +1,18 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/UI/Icons/Consumiveis/Connect icon.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Inventory/Resource Inventory/Consums/Consum_Attributes.gd" type="Script" id=2]
 
 [resource]
 script = ExtResource( 2 )
 unlocked = true
 icon = ExtResource( 1 )
-name = "Orbe de Energia"
-description = "Consumivel que pode dar +10 de energia."
-quant = 5
+name = "Super Orbe"
+description = "Esse cara cura tudo!!"
+quant = 30
 atkBoost = 0.0
-energyBoost = 10.0
-lifeBoost = 0.0
+energyBoost = 12.0
+lifeBoost = 5.0
 speedBoost = 0.0
 haveTimer = false
 timeToDestroy = 0.0

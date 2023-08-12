@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Weapons/Weapons_Attributes.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Super_Escudo.tres" type="Resource" id=2]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Invent/consum_icon.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+unlocked = true
+icon = ExtResource( 3 )
+name = "Escudo"
+description = "Escudo dos deuses"
+lifeOperation = "-"
+numLife = 1
+denLife = 3
+energyOperation = "+"
+numEnergy = 2
+denEnergy = 3
+speedOperation = "-"
+numSpeed = 1
+denSpeed = 2
+atkOperation = "+"
+numATK = 1
+denATK = 2
+skillsInOrder = [ ExtResource( 2 ) ]
