@@ -65,7 +65,6 @@ size = 10
 font_data = ExtResource( 28 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 19
 use_filter = true
 font_data = ExtResource( 29 )
 
@@ -7834,6 +7833,7 @@ __meta__ = {
 sfxResource = ExtResource( 27 )
 
 [node name="BG_Inventory" type="Panel" parent="."]
+visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -8700,7 +8700,7 @@ stretch = true
 size = Vector2( 300, 400 )
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="Char_Inventory" type="KinematicBody" parent="BG_Inventory/Preview_Player_Viewport/Viewport"]
 visible = false
@@ -9076,7 +9076,7 @@ mesh = SubResource( 98 )
 skin = SubResource( 99 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( 1.43051e-06, -0.0119876, -0.999928, -0.00291161, -0.999925, 0.0119874, -0.999994, 0.00291185, -3.43174e-05, -0.293115, 0.593742, 0.041202 )
+transform = Transform( -6.02007e-06, -0.0120045, -0.999928, -0.411389, -0.911395, 0.0109444, -0.911458, 0.411359, -0.00493112, -0.293117, 0.59374, 0.0847304 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentR"]
@@ -9139,7 +9139,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( 1.14739e-06, 0.0119874, 0.999928, 0.00291304, -0.999925, 0.0119873, 0.999994, 0.00291329, -3.41833e-05, 0.293115, 0.593742, 0.041202 )
+transform = Transform( -7.09295e-06, 0.0120035, 0.999928, 0.411388, -0.911395, 0.0109439, 0.911459, 0.411358, -0.00492962, 0.293116, 0.59374, 0.0847299 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentL"]
