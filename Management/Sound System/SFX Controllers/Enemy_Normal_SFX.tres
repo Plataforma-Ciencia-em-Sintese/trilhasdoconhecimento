@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 sfx = {
 "InimigoGeralDano": "event:/SFX/Inimigo/InimigoGeralDano",
-"InimigoGeralMorre": "event:/SFX/Inimigo/inimigoGeralMorre"
+"InimigoGeralMorre": "event:/SFX/Inimigo/InimigoGeralMorre"
 }

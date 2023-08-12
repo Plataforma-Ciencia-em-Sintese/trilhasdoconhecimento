@@ -24,6 +24,10 @@ func set_life(value):
 		player.get_node("States/Battling").hide()
 		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["PersonagemMorreGeral"])
 		player.hide()
+		WhiteTransition.start_transition("fadein")
+		yield(get_tree().create_timer(1),"timeout")
+		get_tree().reload_current_scene()
+		
 		
 # Preseta a energia do jogador vindo de consumiveis
 func set_energy(value):

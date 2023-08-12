@@ -1,10 +1,11 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scenes/Pointer/Pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Character/Character_Official2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemies/Normals/Scene/Normal_Enemies.tscn" type="PackedScene" id=3]
 [ext_resource path="res://3D/Level Design/Scifi Texture Ceiling 2.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Sci Fi Room/CameraController.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Elevator/Elevator_Controller.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Transitions/WhiteTransition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3D/Level Design/PolygonScifiSpace_Material_01_A_001.material" type="Material" id=8]
 [ext_resource path="res://Management/Sound System/Script/Music_Scene_Player.gd" type="Script" id=9]
@@ -372,6 +373,7 @@ _data = {
 
 [node name="Enemy_Debug_Room" type="Spatial"]
 script = ExtResource( 9 )
+musicName = [ "Cyberspace" ]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.17772, 0.984081, 0, -0.984081, -0.17772, 0, 14.3384, 0 )
@@ -983,6 +985,7 @@ skeleton = NodePath("../Elevator")
 material/0 = SubResource( 999 )
 
 [node name="Elevator" parent="Reception" instance=ExtResource( 10 )]
+visible = false
 pointer = NodePath("../../Pointer")
 player = NodePath("../../Player")
 sceneToGo = "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn"
@@ -990,6 +993,7 @@ side = "1"
 
 [node name="Elevator2" parent="Reception" instance=ExtResource( 10 )]
 transform = Transform( 1.41571, 0, 0, 0, 2.09937, 0, 0, 0, 1.73913, -5.19038, -1.77984, -14.5827 )
+visible = false
 pointer = NodePath("../../Pointer")
 player = NodePath("../../Player")
 side = "2"
@@ -1084,7 +1088,7 @@ visible = false
 curve = SubResource( 1001 )
 
 [node name="Path_Enemy2" parent="Enemies/Way2" instance=ExtResource( 3 )]
-transform = Transform( 0.696143, 0, -0.7179, 0, 1, 0, 0.717903, 0, 0.69614, 2.83911, 0, -12.4155 )
+transform = Transform( 0.696143, 0, -0.7179, 0, 1, 0, 0.717903, 0, 0.696139, 2.83911, 0, -12.4155 )
 enemyType = "Reparador"
 
 [node name="Way3" type="Path" parent="Enemies"]
@@ -1112,5 +1116,11 @@ transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0
 
 [node name="AnchorCam2" type="Position3D" parent="Player"]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -21.203, 31.925, -21.376 )
+
+[node name="Elevator_Controller" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0439453, 1.80577, -17.448 )
+sceneToGo = "Cyberspace"
+scenes = [ "res://3D/Cyberspace/Scene/Cyberespace1.tscn", "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn", "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn" ]
+activatedFade = true
 
 [editable path="Reception/Elevator2"]
