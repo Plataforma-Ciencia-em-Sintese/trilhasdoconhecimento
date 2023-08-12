@@ -180,6 +180,10 @@ GlobalPuzzleController="*res://Management/Global Scripts/Global_Puzzle_Controlle
 Fmod="*res://addons/fmod/Fmod.tscn"
 SaveFile="*res://Management/save_file.gd"
 WhiteTransition="*res://Scenes/Transitions/WhiteTransition.tscn"
+EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
+StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
+GlobalOptions="*res://Management/Global Scripts/Global_Options.gd"
 
 [debug]
 
