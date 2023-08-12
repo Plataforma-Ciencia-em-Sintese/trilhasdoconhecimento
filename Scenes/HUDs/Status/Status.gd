@@ -37,22 +37,31 @@ func set_energy(value):
 # Signal vem do script global chamado por qlqr objeto
 func set_xp(value):
 	var remain = GlobalValues.xpActual + value
-	if remain > $XP_Bar.max_value:
-		var result = remain - $XP_Bar.max_value
+	if remain > $Hud_XP/XP_Bar.max_value:
+		var result = remain - $Hud_XP/XP_Bar.max_value
 		GlobalValues.xpActual = result
 		GlobalValues.levelPlayer += 1
 		GlobalXp.unlock_skill()
-		$XP_Bar.value = result
-		$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
-	elif remain == $XP_Bar.max_value:
+		$Hud_XP/XP_Bar.value = result
+		$Hud_XP/XP_Bar/TXT_Level.text = "XP " + str(GlobalValues.levelPlayer)
+	elif remain == $Hud_XP/XP_Bar.max_value:
 		GlobalValues.xpActual = 0
 		GlobalValues.levelPlayer += 1
 		GlobalXp.unlock_skill()
-		$XP_Bar.value = 0
-		$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
-	elif remain < $XP_Bar.max_value:
+		$Hud_XP/XP_Bar.value = 0
+		$Hud_XP/XP_Bar/TXT_Level.text = "XP " + str(GlobalValues.levelPlayer)
+	elif remain < $Hud_XP/XP_Bar.max_value:
 		GlobalValues.xpActual += value
-		$XP_Bar.value = GlobalValues.xpActual
+		$Hud_XP/XP_Bar.value = GlobalValues.xpActual
 	
 	print("lvl - " + str(GlobalValues.levelPlayer))
 	print("xp - " + str(GlobalValues.xpActual))
+
+
+func _on_BT_ShowXP_pressed():
+	$Cartao_Hud.hide()
+	$Hud_XP.show()
+
+func _on_BT_HideXP_pressed():
+	$Hud_XP.hide()
+	$Cartao_Hud.show()
