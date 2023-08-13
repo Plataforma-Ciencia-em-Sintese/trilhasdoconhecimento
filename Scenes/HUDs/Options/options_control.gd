@@ -8,9 +8,7 @@ onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	#Fmod.set_bus_volume(GlobalOptions.bus_path_Master, 10)
-	#$Panel_Options/Fundo/Sound/HSlider_Sound.value = 10
-	
+		
 	#Parte de Save 
 	$Panel_Options/Fundo/Sound/HSlider_Sound.value = save_file.saveVolume
 
