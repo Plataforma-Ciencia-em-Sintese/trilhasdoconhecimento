@@ -15,7 +15,6 @@ var busMusic: AudioBusLayout
 var bus_path_SFX: String = "bus:/SFX"
 var busSFX: AudioBusLayout
 
-
 func _ready():
 	if File.new().file_exists(saveFilePath):
 		Fmod.set_bus_volume(GlobalOptions.bus_path_Master, save_file.saveVolume)
