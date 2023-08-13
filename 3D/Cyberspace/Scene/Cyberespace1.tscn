@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://3D/Cyberspace/Materials/NeonAzulBranco.material" type="Material" id=1]
 [ext_resource path="res://3D/Cyberspace/Materials/Atlas_Cenario.material" type="Material" id=2]
@@ -93,12 +93,19 @@ surfaces/1 = {
 albedo_texture = ExtResource( 5 )
 uv1_scale = Vector3( 20, 25, 20 )
 
+[sub_resource type="ProceduralSky" id=7]
+
+[sub_resource type="Environment" id=8]
+background_mode = 3
+background_sky = SubResource( 7 )
+background_color = Color( 0.117647, 0.129412, 0.129412, 1 )
+
 [node name="Cyberspace" type="Spatial"]
 script = ExtResource( 9 )
 musicName = [ "PrimeiroNivel" ]
 
 [node name="Pointer" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41741, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118825, 0, 0.953552 )
 camera = NodePath("../Player/Camera")
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
@@ -155,5 +162,8 @@ script = ExtResource( 3 )
 direction = Vector3( -0.1, 0, 0 )
 
 [node name="Puzzle_Wall" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.3716, 0, 109.706 )
 puzzles = "connection"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 8 )

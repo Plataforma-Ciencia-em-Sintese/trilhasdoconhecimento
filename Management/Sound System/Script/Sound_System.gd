@@ -1,4 +1,4 @@
 extends Resource
-class_name SFXController
+class_name Sound_System
 
 export (Dictionary) var sfx

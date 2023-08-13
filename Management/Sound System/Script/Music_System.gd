@@ -1,4 +1,4 @@
 extends Resource
-class_name musicController
+class_name Music_System
 
 export (Dictionary) var music
