@@ -9,7 +9,7 @@ func _ready():
 	GlobalXp.connect("xp",self,"set_xp")
 	GlobalAdmLifeEnergy.connect("setLife",self,"set_life")
 	GlobalAdmLifeEnergy.connect("setEnergy",self,"set_energy")
-	$XP_Bar/XP_Txt.text = "LVL | " + str(GlobalValues.levelPlayer)
+	$Hud_XP/XP_Bar/TXT_Level.text = "LVL | " + str(GlobalValues.levelPlayer)
 
 # Preseta a vida do jogador vindo de danos em geral
 func set_life(value):

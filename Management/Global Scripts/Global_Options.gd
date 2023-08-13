@@ -14,8 +14,3 @@ var busSFX: AudioBusLayout
 
 func _ready():
 	Fmod.set_bus_volume(GlobalOptions.bus_path_Master, 10)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

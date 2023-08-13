@@ -5,10 +5,20 @@ func _ready():
 	GlobalQuest.connect("QuestInfos",self,"update_quest_main")
 	## Esconde ou mostra o inventario de acordo com a fase Cyberspaço
 	yield(get_tree().create_timer(0.5),"timeout")
-	if GlobalQuest.localScene.stageName == "":
+	if GlobalQuest.localScene.stageName == "New_Debug_Room_2":
 		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.hide()
+		owner.get_node("Status/Cartao_Hud").show()
+		owner.get_node("Status/background_Enegy").hide()
+		owner.get_node("Status/Energy_Bar").hide()
+		owner.get_node("Status/background_Life").hide()
+		owner.get_node("Status/Life_Bar").hide()
 	else:
-		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.show()
+		$PanelTablet/background_Tablet/HBoxContainer/BT_Invent.hide()
+		owner.get_node("Status/Cartao_Hud").show()
+		owner.get_node("Status/background_Enegy").show()
+		owner.get_node("Status/Energy_Bar").show()
+		owner.get_node("Status/background_Life").show()
+		owner.get_node("Status/Life_Bar").show()
 
 func _on_BT_tablet_pressed():
 #	Fmod.play_one_shot("event:/SFX/Menu/AbrirMenuMissões", self)
