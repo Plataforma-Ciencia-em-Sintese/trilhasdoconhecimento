@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://3D/Character Oficial/Ariel/Atlas.material" type="Material" id=1]
 [ext_resource path="res://Scenes/Inventory/Scene/Inventory.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://addons/proton_trail-master/demo/sword_trail.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Battle_UI/Battle_UI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Battle_UI/Battle_UI.gd" type="Script" id=12]
+[ext_resource path="res://3D/Character Oficial/Atlas.material" type="Material" id=13]
 [ext_resource path="res://3D/Character Oficial/Armas/Atlas.material" type="Material" id=16]
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Sci Fi Room/Mini_map.gd" type="Script" id=19]
@@ -103,7 +104,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 9 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "output", 0, "move", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "TimeScale", 0, "All_Attacks", "Seek", 0, "States General" ]
+node_connections = [ "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "States General", 0, "Idle State", "States General", 1, "TimeScale", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "TimeScale", 0, "All_Attacks", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
@@ -8286,9 +8287,10 @@ bones/64/bound_children = [  ]
 layers = 3
 mesh = SubResource( 44 )
 skin = SubResource( 45 )
+material/0 = ExtResource( 13 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -4.17233e-06, -0.0119987, -0.999928, -0.416566, -0.909041, 0.01091, -0.909104, 0.416536, -0.0049925, -0.293116, 0.593741, 0.0853213 )
+transform = Transform( 0.00123581, -0.0141395, -0.9999, -0.215862, -0.976331, 0.0135395, -0.976421, 0.215823, -0.00425676, -0.293459, 0.593654, 0.0632941 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentR"]
@@ -8359,7 +8361,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="Base/Skeleton"]
-transform = Transform( -5.126e-06, 0.0119974, 0.999928, 0.416565, -0.909041, 0.0109092, 0.909104, 0.416535, -0.00499105, 0.293116, 0.593741, 0.0853208 )
+transform = Transform( 0.00123575, 0.0141397, 0.9999, 0.215862, -0.976331, 0.0135398, 0.976421, 0.215824, -0.00425674, 0.293459, 0.593654, 0.0632941 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="Base/Skeleton/BoneAttachmentL"]
