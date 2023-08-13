@@ -115,7 +115,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Quest Manager/Script/Quest_Controller.gd"
 }, {
 "base": "Resource",
-"class": "Sound_System",
+"class": "SFXController",
 "language": "GDScript",
 "path": "res://Management/Sound System/Script/Sound_System.gd"
 }, {
@@ -156,7 +156,7 @@ _global_script_class_icons={
 "HistoryRow": "",
 "NormalEnemyValues": "",
 "QuestController": "",
-"Sound_System": "",
+"SFXController": "",
 "Weapon_Skill": "",
 "WeaponsValues": "",
 "musicController": ""
@@ -184,10 +184,6 @@ GlobalAdmLifeEnergy="*res://Management/Global Scripts/Global_ADM_Life_Energy.gd"
 GlobalPuzzleController="*res://Management/Global Scripts/Global_Puzzle_Controller.gd"
 GlobalOptions="*res://Management/Global Scripts/Global_Options.gd"
 WhiteTransition="*res://Scenes/Transitions/WhiteTransition.tscn"
-EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
-QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
-StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
-GlobalOptions="*res://Management/Global Scripts/Global_Options.gd"
 
 [debug]
 
