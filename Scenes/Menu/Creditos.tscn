@@ -1,0 +1,311 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/UI/Creditos/BG_Creditos.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=3]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Icon_voltar.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Creditos/Scroll_BG.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Menu/Creditos.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.109804, 0.247059, 0.470588, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0.0352941, 0.00392157, 0.00392157, 0.760784 )
+shadow_size = 1
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 14, 805 )
+
+[sub_resource type="Theme" id=6]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource( 4 )
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
+VScrollBar/styles/grabber_pressed = SubResource( 4 )
+VScrollBar/styles/scroll = SubResource( 7 )
+VScrollBar/styles/scroll_focus = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 19
+use_filter = true
+extra_spacing_char = -1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 23
+use_filter = true
+extra_spacing_char = -1
+font_data = ExtResource( 4 )
+
+[node name="Creditos" type="CanvasLayer"]
+script = ExtResource( 7 )
+
+[node name="Panel_creditos" type="Panel" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel_exit" type="Button" parent="Panel_creditos"]
+self_modulate = Color( 0.470588, 0.470588, 0.470588, 0.819608 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BG_Credito" type="TextureRect" parent="Panel_creditos"]
+anchor_left = 0.114
+anchor_top = 0.072
+anchor_right = 0.909
+anchor_bottom = 0.953
+margin_left = 0.0799866
+margin_top = 0.159996
+margin_right = -0.52002
+margin_bottom = -0.160034
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ScrollContainer_Names" type="ScrollContainer" parent="Panel_creditos"]
+anchor_left = 0.145
+anchor_top = 0.162
+anchor_right = 0.879
+anchor_bottom = 0.912
+margin_left = -0.600006
+margin_top = 0.360001
+margin_right = -0.120117
+margin_bottom = 0.359985
+rect_min_size = Vector2( 940, 540 )
+theme = SubResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_creditos/ScrollContainer_Names"]
+margin_right = 940.0
+margin_bottom = 902.0
+rect_min_size = Vector2( 940, 540 )
+
+[node name="Label_Developer" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_right = 940.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.992157, 0.996078, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Development"
+align = 1
+
+[node name="Names_Developer2" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 34.0
+margin_right = 940.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Ana Julia de Oliveira Barbosa
+Lucas M. Leite
+Rafael Sescato de Oliveira"
+align = 1
+
+[node name="Label_Game Design" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 113.0
+margin_right = 940.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.992157, 0.996078, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+Game Design"
+align = 1
+
+[node name="Names_Game Design" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 174.0
+margin_right = 940.0
+margin_bottom = 223.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Juliana Venâncio Salomão Alves da Costa
+Davi Fonseca de Galisteo"
+align = 1
+
+[node name="Label_UIUX" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 227.0
+margin_right = 940.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 1, 1, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+UI/UX"
+align = 1
+
+[node name="Names_UIUX" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 288.0
+margin_right = 940.0
+margin_bottom = 318.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Yoga Rodrigues Alves Viana Neves"
+align = 1
+
+[node name="Label_DA" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 322.0
+margin_right = 940.0
+margin_bottom = 379.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 1, 1, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+Direção de arte"
+align = 1
+
+[node name="Names_DA" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 383.0
+margin_right = 940.0
+margin_bottom = 413.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Davi Fonseca de Galisteo"
+align = 1
+
+[node name="Label_3D" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 417.0
+margin_right = 940.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 1, 1, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+3D"
+align = 1
+
+[node name="Names_3D" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 478.0
+margin_right = 940.0
+margin_bottom = 527.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Cláudio Leandro Ramos de Lira Santos
+Jasmim Silva Amorim"
+align = 1
+
+[node name="Label_Conteúdo" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 531.0
+margin_right = 940.0
+margin_bottom = 588.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 1, 1, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+Conteúdo"
+align = 1
+
+[node name="Names_Conteúdo" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 592.0
+margin_right = 940.0
+margin_bottom = 667.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Lucas Mendes
+Melina Juraski Pereira da Silva
+"
+align = 1
+
+[node name="Label_Sound" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 671.0
+margin_right = 940.0
+margin_bottom = 728.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 1, 1, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+Sound"
+align = 1
+
+[node name="Names_Sound" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 732.0
+margin_right = 940.0
+margin_bottom = 762.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "George Lucas Gonçalves de Freitas"
+align = 1
+
+[node name="Label_Coordenação" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 766.0
+margin_right = 940.0
+margin_bottom = 823.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 1, 1, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+Coordenação"
+align = 1
+
+[node name="Names_Coordenação" type="Label" parent="Panel_creditos/ScrollContainer_Names/VBoxContainer"]
+margin_top = 827.0
+margin_right = 940.0
+margin_bottom = 902.0
+rect_min_size = Vector2( 940, 30 )
+custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Ronnie Fagundes de Brito
+
+"
+align = 1
+
+[node name="Label_Creditos" type="Label" parent="Panel_creditos"]
+anchor_left = 0.166
+anchor_top = 0.118
+anchor_right = 0.241
+anchor_bottom = 0.162
+margin_left = 0.519989
+margin_top = 0.0399933
+margin_right = 0.519989
+margin_bottom = 0.360001
+custom_fonts/font = SubResource( 3 )
+text = "Créditos"
+valign = 1
+
+[node name="BT_back" type="Button" parent="Panel_creditos"]
+visible = false
+anchor_left = 0.134
+anchor_top = 0.124
+anchor_right = 0.161
+anchor_bottom = 0.157
+margin_left = 0.479996
+margin_top = -0.280006
+margin_right = -0.0800171
+margin_bottom = -0.0400009
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+
+[node name="BT_Close" type="Button" parent="Panel_creditos"]
+anchor_left = 0.88
+anchor_top = 0.028
+anchor_right = 0.913
+anchor_bottom = 0.083
+margin_left = 0.599976
+margin_top = -0.16
+margin_right = 0.359985
+margin_bottom = 0.239998
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Panel_creditos/Panel_exit" to="." method="_on_Panel_exit_pressed"]
+[connection signal="pressed" from="Panel_creditos/BT_Close" to="." method="_on_BT_Close_pressed"]

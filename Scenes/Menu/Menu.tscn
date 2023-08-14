@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/UI/Menu/Titulo do Game.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/UI/Menu/Icon_Sobre.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/Menu/Config_Icon.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Menu/BG_menu.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Menu/Creditos.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=6]
 size = 18
@@ -129,9 +130,11 @@ margin_top = -25.0
 margin_right = 39.0
 custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "Info Trilhas"
+text = "Créditos"
 align = 1
 valign = 1
+
+[node name="Creditos" parent="." instance=ExtResource( 10 )]
 
 [node name="Control_Options" parent="." instance=ExtResource( 6 )]
 

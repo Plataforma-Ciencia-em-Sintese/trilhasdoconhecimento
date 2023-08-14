@@ -10,9 +10,13 @@ func _on_Configure_pressed():
 	$Control_Options/Panel_Options.show()
 	$Buttons/Play.hide()
 	$Buttons/Configure.hide()
-	$Buttons/Quit.hide()
+	$Buttons/Sobre.hide()
 	$NameGame.hide()
 	
 
 func _on_Sobre_pressed():
-	pass # Replace with function body.
+	$Creditos/Panel_creditos.show()
+	$Buttons/Play.hide()
+	$Buttons/Configure.hide()
+	$Buttons/Sobre.hide()
+	$NameGame.hide()

@@ -155,7 +155,7 @@ script = SubResource( 3 )
 
 [node name="pt_BR" type="CheckBox" parent="Panel_Options/Fundo/HBC_Traducao" groups=["language_btn"]]
 margin_right = 125.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 4 )
 custom_icons/radio_checked = ExtResource( 9 )
 custom_icons/radio_unchecked = ExtResource( 12 )
@@ -169,7 +169,7 @@ expand_icon = true
 [node name="en_US" type="CheckBox" parent="Panel_Options/Fundo/HBC_Traducao" groups=["language_btn"]]
 margin_left = 129.0
 margin_right = 274.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 4 )
 custom_icons/radio_checked = ExtResource( 9 )
 custom_icons/radio_unchecked = ExtResource( 12 )
@@ -194,7 +194,7 @@ script = ExtResource( 10 )
 
 [node name="Window" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_right = 189.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 7 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -203,7 +203,7 @@ text = "  Window"
 [node name="Full" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 193.0
 margin_right = 318.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 8 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -212,7 +212,7 @@ text = "  Full"
 [node name="800x600" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 322.0
 margin_right = 505.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 9 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -221,7 +221,7 @@ text = "800x600"
 [node name="1280x720" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 509.0
 margin_right = 709.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 9 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
@@ -230,7 +230,7 @@ text = "1280x720"
 [node name="1920x1080" type="CheckBox" parent="Panel_Options/Fundo/HBC_Resolution"]
 margin_left = 713.0
 margin_right = 930.0
-margin_bottom = 79.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 9 )
 custom_icons/checked = ExtResource( 9 )
 custom_icons/unchecked = ExtResource( 12 )
