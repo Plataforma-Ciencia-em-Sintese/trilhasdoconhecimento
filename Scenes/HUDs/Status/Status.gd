@@ -14,9 +14,7 @@ func _ready():
 
 # Preseta a vida do jogador vindo de danos em geral
 func set_life(value):
-	print("vl rec " + str(value))
 	$Life_Bar.value += value
-	print("vl bar " + str($Life_Bar.value))
 	if value < $Life_Bar.value:
 		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["PersonagemDanoGeral"])
 	

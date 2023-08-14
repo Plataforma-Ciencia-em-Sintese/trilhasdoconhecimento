@@ -9,7 +9,7 @@ var actualPuzzle : String
 func call_puzzle(name):
 	var newPuzzle = load(nodeHandler).instance()
 	var newCL = CanvasLayer.new()
-	newCL.layer = 99
+	newCL.layer = 2
 	add_child(newCL)
 	newCL.add_child(newPuzzle)
 	newPuzzle.init_puzzle(rootAllPuzzles + name + "/" + name + ".tscn")

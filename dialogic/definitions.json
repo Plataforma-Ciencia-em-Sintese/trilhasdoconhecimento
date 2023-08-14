@@ -16,12 +16,6 @@
 			"value": "disabled"
 		},
 		{
-			"id": "1691550926-648",
-			"name": "Quest_02_Status",
-			"type": 0,
-			"value": ""
-		},
-		{
 			"id": "1691780667-648",
 			"name": "connection",
 			"type": 0,
@@ -46,6 +40,12 @@
 			"value": "3"
 		},
 		{
+			"id": "1691550926-648",
+			"name": "Quest_02_Status",
+			"type": 0,
+			"value": ""
+		},
+		{
 			"id": "1691987794-787",
 			"name": "Quest_01_Values",
 			"type": 0,
@@ -55,7 +55,7 @@
 			"id": "1691541665-648",
 			"name": "Quest_01_Status",
 			"type": 0,
-			"value": "unlocked"
+			"value": ""
 		}
 	]
 }
