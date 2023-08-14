@@ -151,13 +151,12 @@ texture_progress = ExtResource( 13 )
 nine_patch_stretch = true
 
 [node name="TXT_Level" type="Label" parent="Hud_XP/XP_Bar"]
-modulate = Color( 0.0196078, 0.0745098, 0.152941, 1 )
 margin_left = 13.0
 margin_top = -2.0
 margin_right = 57.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 1 )
-text = "XP 80"
+text = "LVL | 1"
 align = 1
 valign = 1
 

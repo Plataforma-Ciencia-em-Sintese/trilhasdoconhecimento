@@ -9,6 +9,7 @@ func _ready():
 	GlobalXp.connect("xp",self,"set_xp")
 	GlobalAdmLifeEnergy.connect("setLife",self,"set_life")
 	GlobalAdmLifeEnergy.connect("setEnergy",self,"set_energy")
+	$Hud_XP/XP_Bar.value = GlobalValues.xpActual
 	$Hud_XP/XP_Bar/TXT_Level.text = "LVL | " + str(GlobalValues.levelPlayer)
 
 # Preseta a vida do jogador vindo de danos em geral
@@ -43,13 +44,13 @@ func set_xp(value):
 		GlobalValues.levelPlayer += 1
 		GlobalXp.unlock_skill()
 		$Hud_XP/XP_Bar.value = result
-		$Hud_XP/XP_Bar/TXT_Level.text = "XP " + str(GlobalValues.levelPlayer)
+		$Hud_XP/XP_Bar/TXT_Level.text = "LVL |" + str(GlobalValues.levelPlayer)
 	elif remain == $Hud_XP/XP_Bar.max_value:
 		GlobalValues.xpActual = 0
 		GlobalValues.levelPlayer += 1
 		GlobalXp.unlock_skill()
 		$Hud_XP/XP_Bar.value = 0
-		$Hud_XP/XP_Bar/TXT_Level.text = "XP " + str(GlobalValues.levelPlayer)
+		$Hud_XP/XP_Bar/TXT_Level.text = "LVL |" + str(GlobalValues.levelPlayer)
 	elif remain < $Hud_XP/XP_Bar.max_value:
 		GlobalValues.xpActual += value
 		$Hud_XP/XP_Bar.value = GlobalValues.xpActual
