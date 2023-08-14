@@ -169,6 +169,7 @@ func set_collisor_status(path,status):
 func _on_Area_Laser_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
 		progressiveDamageToPlayer = true
+		print("laser hit")
 		
 func _on_Area_Laser_area_exited(area):
 	if area.is_in_group("DamagePlayer"):

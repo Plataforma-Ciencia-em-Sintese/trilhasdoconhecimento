@@ -72,13 +72,14 @@ func _ready():
 		battleUI.show()
 		change_weapons(selectedGun)
 		
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_select"):
-#		get_tree().reload_current_scene()
-		get_tree().change_scene("res://3D/Cyberspace/Scene/Cyberespace1.tscn")
-	elif Input.is_action_just_pressed("ui_accept"):
-#		get_tree().reload_current_scene()
-		get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+#func _physics_process(delta):
+#	if Input.is_action_pressed("ui_select"):
+##		get_tree().reload_current_scene()
+##		get_tree().change_scene("res://3D/Cyberspace/Scene/Cyberespace1.tscn")
+#		GlobalAdmLifeEnergy.life_changer(-10 * delta)
+#	elif Input.is_action_just_pressed("ui_accept"):
+##		get_tree().reload_current_scene()
+#		get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
 
 func change_weapons(weapon):
 	# Checa qual arma e a atual e troca de acordo com o parametro
