@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692028946.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sabia que o peso da terra é 5,972 × 10^24 kg?\nBem, se convertemos esse número com todos os zeros possíveis, ele não caberia nessa conversa."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692028935.json",
+		"name": "Juliano"
+	}
+}

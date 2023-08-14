@@ -6,13 +6,14 @@ export (String, "idle", "walk","moving around") var states
 var start : bool = true
 var changeAnimMvgAround : int = 0
 
+func _ready():
+	state_npc(states)
+
 func _physics_process(delta):
 	if is_visible_in_tree():
-		owner.offset += speed * delta
 		if start:
-			state_npc(states)
-			start = false
-			
+			owner.offset += speed * delta
+
 func state_npc(value):
 	randomize()
 	
@@ -34,6 +35,8 @@ func _on_Timer_timeout():
 	if changeAnimMvgAround == 0:
 		get_node(animationTree).get("parameters/moving/playback").travel("Walk")
 		speed = 1
+		start = true
 	elif changeAnimMvgAround == 1:
 		get_node(animationTree).get("parameters/moving/playback").travel("Idle")
 		speed = 0
+		start = false

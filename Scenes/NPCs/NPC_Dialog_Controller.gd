@@ -35,6 +35,7 @@ onready var mainCam : Node = get_tree().get_nodes_in_group("Camera")[0]
 onready var pointer : Node = get_tree().get_nodes_in_group("Pointer")[0]
 onready var mat : Material = $NPC/Base/Cientistas/Skeleton/NPC_Body.get_surface_material(0).next_pass
 
+
 func _ready():
 	# Preseta todo o design desse NPC
 	mat.set_shader_param("enable", false)

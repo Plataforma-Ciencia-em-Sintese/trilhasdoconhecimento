@@ -1,11 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://addons/dialogic/Documentation/Nodes/DocsTreeHelper.gd" type="Script" id=1]
-
-[node name="DocsTreeHelper" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1092d64d3bedcbd0e11bd274e253a886cce65118e51560818dceb88ba2286361
+size 301

@@ -1,12 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://addons/dialogic/Nodes/ChoiceButton.gd" type="Script" id=1]
-
-[node name="ChoiceButton" type="Button"]
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Testing button "
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:730dcd0f49a475356906a45bc3539b91bb7ea8ec4dc043b3ac9067ce7da4e459
+size 317

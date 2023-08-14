@@ -1,12 +1,3 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://addons/fmod/Fmod.gd" type="Script" id=1]
-[ext_resource path="res://addons/fmod/FMODManager.gd" type="Script" id=2]
-
-[node name="Fmod" type="Node"]
-pause_mode = 2
-script = ExtResource( 1 )
-
-[node name="FmodAtributos" type="Node" parent="."]
-pause_mode = 2
-script = ExtResource( 2 )
+version https://git-lfs.github.com/spec/v1
+oid sha256:6edc788c0d25a2f04f69af8d596119b98e87aec96cc3845e648242473678ec38
+size 353

@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692028969.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmm..Quem veio primeiro? O ovo ou a galinha?\nParece uma pergunta boba, mas podemos descobrir algo inimaginável se tivermos respostas concretas.\nPor isso a ciência existe."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692029189.json",
+		"name": "Gabrielle"
+	}
+}

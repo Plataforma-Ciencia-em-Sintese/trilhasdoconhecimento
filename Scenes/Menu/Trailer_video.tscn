@@ -1,17 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/Menu/Trailer_video.gd" type="Script" id=1]
-
-[node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 1 )
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[node name="VideoPlayer" type="VideoPlayer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-autoplay = true
-
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+version https://git-lfs.github.com/spec/v1
+oid sha256:af31f9399b4885ca1e63af56ccf16045fcd098c285ed1d95c4e213fc9fc371e7
+size 509

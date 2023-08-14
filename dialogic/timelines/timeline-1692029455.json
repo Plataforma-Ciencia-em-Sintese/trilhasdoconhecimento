@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692029025.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "O Jorge é o cientista chefe aqui do instituto.\nEle começou desde pequeno a estudar sobre tudo e se tornou um grande cientista.\nNão é a toa que ele está hoje no topo...Espero algum dia ser como ele."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692029455.json",
+		"name": "Gustavo"
+	}
+}

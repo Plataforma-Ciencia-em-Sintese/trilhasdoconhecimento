@@ -4,7 +4,7 @@
 			"character": "character-1691785826.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Agora estoou em uma chamada, nao me apresse!"
+			"text": "Gostaria de algum dia poder visitar a lua.\nSabia que ela é feita de queijo?\nhahaha estou brincando...Por mais que pareça, nosso satélite natural não deve ter um sabor tão bom quanto um queijo."
 		},
 		{
 			"emit_signal": "cabou",

@@ -1,26 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/Item/UI/Item_Count_UI.gd" type="Script" id=1]
-
-[node name="Item_Count" type="CanvasLayer"]
-script = ExtResource( 1 )
-
-[node name="BG" type="ColorRect" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -180.0
-margin_top = 112.0
-margin_bottom = 184.0
-color = Color( 0, 0, 0, 0.423529 )
-
-[node name="Title" type="Label" parent="BG"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -88.0
-margin_right = 29.0
-margin_bottom = 47.0
-rect_scale = Vector2( 1.5, 1.5 )
-text = "Itens Pegos
-0 / 0"
-align = 1
-valign = 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:7453854066fa8865dc9e83af7cd715f9e487c82e8c5ee2404d599e140110ce4b
+size 590

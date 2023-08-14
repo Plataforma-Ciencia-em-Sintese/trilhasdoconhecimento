@@ -1,16 +1,3 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ConditionTypePicker.gd" type="Script" id=1]
-[ext_resource path="res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn" type="PackedScene" id=2]
-
-[node name="ConditionTypePicker" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton" parent="." instance=ExtResource( 2 )]
-margin_right = 98.0
-margin_bottom = 24.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:81e2a1c2b5ee3460161d694e88a8960dafc004c6432075f5d84a115d490b02b3
+size 570

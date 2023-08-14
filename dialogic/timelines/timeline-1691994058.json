@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1691994096.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Onde será que estão meus óculos?\nDeixei cair aqui na recepção, mas não encontro nessa escuridão..."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691994058.json",
+		"name": "Hugo"
+	}
+}

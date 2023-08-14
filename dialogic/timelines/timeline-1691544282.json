@@ -4,13 +4,7 @@
 			"character": "character-1691544298.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "E ai bro?"
-		},
-		{
-			"character": "character-1691544298.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Vamos estudar um pouco hoje?"
+			"text": "Olhe quanta coisa a humanidade já descobriu depois de anos de pesquisas.\nEu acho fascinante podermos estudar o passado para entender melhor o presente, não acha?"
 		},
 		{
 			"emit_signal": "cabou",
