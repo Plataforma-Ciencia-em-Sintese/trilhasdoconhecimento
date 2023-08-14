@@ -23,7 +23,7 @@ func _ready():
 			musicName.remove(i)
 			GlobalMusicPlayer.mainMusic = "Cyberspace"
 		elif musicName[i] == "PrimeiroNivel" and GlobalMusicPlayer.mainMusic != "PrimeiroNivel":
-#			GlobalMusicPlayer.play_sound("stop_event","Cyberspace")
+			GlobalMusicPlayer.play_sound("stop_event","Cyberspace")
 			GlobalMusicPlayer.play_sound("start_event","PrimeiroNivel")
 			GlobalMusicPlayer.mainMusic = "PrimeiroNivel"
 			musicName.remove(i)

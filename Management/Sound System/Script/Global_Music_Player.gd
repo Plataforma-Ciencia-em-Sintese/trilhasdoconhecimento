@@ -11,5 +11,5 @@ func play_sound(event,value):
 		Fmod.play_one_shot(value,self)
 	elif event == "set_global":
 		Fmod.set_global_parameter_by_name("Holo", value)
-#	elif event == "stop_event":
-#		Fmod.stop_event(Fmod.get_node("FmodAtributos").get(musicResource.music[value]),Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	elif event == "stop_event":
+		Fmod.stop_event(Fmod.get_node("FmodAtributos").get(musicResource.music[value]),Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
