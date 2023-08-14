@@ -141,7 +141,7 @@ script = ExtResource( 9 )
 musicName = [ "Cyberspace" ]
 
 [node name="Pointer" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118825, 0, 0.953552 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.118825, 0, 0.953552 )
 camera = NodePath("../Player/Camera")
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
