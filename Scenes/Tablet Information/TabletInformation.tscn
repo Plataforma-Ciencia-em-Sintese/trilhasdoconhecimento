@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Scenes/Tablet Information/Panel_InfoPlayer_ TB.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Tablet Information/Trails_Tablet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Sprites/UI/Icons/Buttons/Tablet.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/tablet test.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/em Breve.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Bestiario.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Invent.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Widget Icons/Background.png" type="Texture" id=18]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Info_tablet/xpTablet_full.png" type="Texture" id=32]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_LabPass.png" type="Texture" id=33]
 [ext_resource path="res://Scenes/HUDs/Options/Options.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Group 243.png" type="Texture" id=35]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -79,13 +80,6 @@ font_data = ExtResource( 28 )
 [node name="TabletInformation" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 1 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 15 )
-expand = true
 
 [node name="PanelTablet" type="Panel" parent="."]
 visible = false
@@ -213,6 +207,30 @@ margin_bottom = 0.0359955
 custom_fonts/font = SubResource( 2 )
 text = "Contatos"
 
+[node name="embreve" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Contatos"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 37.0
+margin_bottom = 37.0
+texture = ExtResource( 35 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer/BT_Contatos/embreve"]
+anchor_left = 0.047
+anchor_top = 0.115
+anchor_right = 0.953
+anchor_bottom = 0.885
+margin_left = 0.0219998
+margin_top = -0.0100002
+margin_right = -0.0220032
+margin_bottom = 0.00999451
+texture = ExtResource( 15 )
+stretch_mode = 4
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelTablet/background_Tablet"]
 anchor_left = 0.47
 anchor_top = 0.717
@@ -248,6 +266,30 @@ custom_fonts/font = SubResource( 2 )
 text = "Bestiário"
 align = 1
 
+[node name="embreve" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Bestiario"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 37.0
+margin_bottom = 37.0
+texture = ExtResource( 35 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Bestiario/embreve"]
+anchor_left = 0.047
+anchor_top = 0.115
+anchor_right = 0.953
+anchor_bottom = 0.885
+margin_left = 0.0219998
+margin_top = -0.0100002
+margin_right = -0.0220032
+margin_bottom = 0.00999451
+texture = ExtResource( 15 )
+stretch_mode = 4
+
 [node name="BT_Trilhas" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
 margin_left = 220.0
 margin_right = 305.0
@@ -270,6 +312,30 @@ custom_fonts/font = SubResource( 2 )
 text = "Trilhas"
 align = 1
 
+[node name="embreve" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Trilhas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 37.0
+margin_bottom = 37.0
+texture = ExtResource( 35 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_Trilhas/embreve"]
+anchor_left = 0.047
+anchor_top = 0.115
+anchor_right = 0.953
+anchor_bottom = 0.885
+margin_left = 0.0219998
+margin_top = -0.0100002
+margin_right = -0.0220032
+margin_bottom = 0.00999451
+texture = ExtResource( 15 )
+stretch_mode = 4
+
 [node name="BT_SairdoCS" type="Button" parent="PanelTablet/background_Tablet/HBoxContainer2"]
 margin_left = 437.0
 margin_right = 522.0
@@ -291,6 +357,30 @@ margin_bottom = 0.0219955
 custom_fonts/font = SubResource( 2 )
 text = "LabPass"
 align = 1
+
+[node name="embreve" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_SairdoCS"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 37.0
+margin_bottom = 37.0
+texture = ExtResource( 35 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="PanelTablet/background_Tablet/HBoxContainer2/BT_SairdoCS/embreve"]
+anchor_left = 0.047
+anchor_top = 0.115
+anchor_right = 0.953
+anchor_bottom = 0.885
+margin_left = 0.0219998
+margin_top = -0.0100002
+margin_right = -0.0220032
+margin_bottom = 0.00999451
+texture = ExtResource( 15 )
+stretch_mode = 4
 
 [node name="Panel_Widget" type="Panel" parent="PanelTablet/background_Tablet"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -425,20 +515,22 @@ self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.442
 anchor_top = 0.218
 anchor_right = 0.931
-anchor_bottom = 0.485
+anchor_bottom = 0.495
 margin_left = 0.283142
 margin_top = -0.206757
 margin_right = 0.0172119
-margin_bottom = 6.43909
+margin_bottom = -0.110931
 script = ExtResource( 12 )
 
 [node name="Background" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
+anchor_left = 0.002
 anchor_top = 0.011
 anchor_right = 0.995
-anchor_bottom = 1.022
-margin_top = 0.0410001
-margin_right = 0.344971
-margin_bottom = 0.0819702
+anchor_bottom = 0.986
+margin_left = -0.158398
+margin_top = 0.0031606
+margin_right = 0.697021
+margin_bottom = 0.0105743
 texture = ExtResource( 25 )
 expand = true
 
@@ -447,10 +539,10 @@ anchor_left = 0.364
 anchor_top = 0.383
 anchor_right = 0.454
 anchor_bottom = 0.674
-margin_left = 0.243988
-margin_top = -0.0250015
-margin_right = 0.133942
-margin_bottom = 0.0499878
+margin_left = 0.118484
+margin_top = -8.10954
+margin_right = 0.00845337
+margin_bottom = -8.03455
 max_value = 30.0
 value = 30.0
 texture_progress = ExtResource( 22 )
@@ -474,10 +566,10 @@ anchor_left = 0.522
 anchor_top = 0.383
 anchor_right = 0.608
 anchor_bottom = 0.669
-margin_left = -0.238007
-margin_top = -0.0250015
-margin_right = -0.0320129
-margin_bottom = -0.0750046
+margin_left = -0.363495
+margin_top = -8.10954
+margin_right = -0.157501
+margin_bottom = -8.15954
 max_value = 30.0
 value = 30.0
 texture_progress = ExtResource( 22 )
@@ -496,15 +588,15 @@ text = "100%"
 
 [node name="Name_Player" type="Label" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_left = 0.187
-anchor_top = 0.537
-anchor_right = 0.323
-anchor_bottom = 0.651
-margin_left = -0.273003
-margin_top = 0.0250015
-margin_right = -0.0170135
-margin_bottom = 0.0749969
+anchor_top = 0.521
+anchor_right = 0.337
+anchor_bottom = 0.647
+margin_left = -0.27301
+margin_top = -0.0705032
+margin_right = -0.152863
+margin_bottom = 0.0566177
 custom_fonts/font = ExtResource( 27 )
-text = "name player"
+text = "Name player"
 valign = 1
 
 [node name="BG_IconPlayer" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
@@ -520,26 +612,28 @@ texture = ExtResource( 24 )
 expand = true
 
 [node name="IconPlayer" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer/BG_IconPlayer"]
-anchor_left = 0.306
-anchor_top = 0.113
-anchor_right = 0.694
-anchor_bottom = 0.887
-margin_left = -0.0320015
-margin_top = -0.0230007
-margin_right = 0.0319977
-margin_bottom = 0.0229988
+self_modulate = Color( 1, 1, 1, 0.878431 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -30.0
+margin_right = 15.0
+margin_bottom = 30.0
 texture = ExtResource( 21 )
 expand = true
+stretch_mode = 1
 
 [node name="Icon_Life" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_left = 0.37
 anchor_top = 0.394
 anchor_right = 0.449
 anchor_bottom = 0.663
-margin_left = -0.229996
-margin_top = 0.0499954
-margin_right = 0.0289917
-margin_bottom = -0.0250092
+margin_left = -0.355499
+margin_top = -8.03454
+margin_right = -0.0965271
+margin_bottom = -8.10954
 texture = ExtResource( 26 )
 expand = true
 
@@ -548,10 +642,10 @@ anchor_left = 0.525
 anchor_top = 0.389
 anchor_right = 0.604
 anchor_bottom = 0.663
-margin_left = 0.0249939
-margin_top = -0.0750046
-margin_right = 0.283997
-margin_bottom = -0.0250092
+margin_left = -0.100494
+margin_top = -8.15954
+margin_right = 0.158508
+margin_bottom = -8.10954
 texture = ExtResource( 23 )
 expand = true
 
@@ -632,8 +726,4 @@ expand_icon = true
 [connection signal="pressed" from="PanelTablet/background_Tablet/BT_ExitTablet" to="." method="_on_BT_ExitTablet_pressed"]
 [connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer/BT_Invent" to="." method="_on_BT_Invent_pressed"]
 [connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer/BT_Config" to="." method="_on_BT_Config_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer/BT_Contatos" to="." method="_on_BT_Contatos_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer2/BT_Bestiario" to="." method="_on_BT_Bestiario_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer2/BT_Trilhas" to="." method="_on_BT_Trilhas_pressed"]
-[connection signal="pressed" from="PanelTablet/background_Tablet/HBoxContainer2/BT_SairdoCS" to="." method="_on_BT_SairdoCS_pressed"]
 [connection signal="pressed" from="BT_tablet" to="." method="_on_BT_tablet_pressed"]
