@@ -161,7 +161,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 110 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "TimeScale", 0, "All_Attacks", "Seek", 0, "States General", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "output", 0, "move" ]
+node_connections = [ "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=111]
 
@@ -9076,7 +9076,7 @@ mesh = SubResource( 98 )
 skin = SubResource( 99 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( 6.10948e-07, -0.0119914, -0.999928, -0.00372633, -0.999922, 0.0119912, -0.999991, 0.00372653, -4.33922e-05, -0.293115, 0.59374, 0.0412875 )
+transform = Transform( -4.94719e-06, -0.0120031, -0.999928, -0.406261, -0.913692, 0.0109702, -0.913755, 0.406231, -0.00486977, -0.293116, 0.59374, 0.0841455 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentR"]
@@ -9139,7 +9139,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( 2.98023e-07, 0.0119913, 0.999928, 0.00372795, -0.999922, 0.0119912, 0.999991, 0.00372813, -4.32134e-05, 0.293115, 0.593741, 0.0412876 )
+transform = Transform( -6.19888e-06, 0.0120026, 0.999928, 0.406259, -0.913693, 0.0109702, 0.913756, 0.40623, -0.00486848, 0.293116, 0.59374, 0.084145 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentL"]
