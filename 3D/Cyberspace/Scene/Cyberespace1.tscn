@@ -150,6 +150,7 @@ activeCloths = "Armadura"
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 26.2423, 38.2278, 26.757 )
 cull_mask = 1048573
 projection = 1
+current = true
 size = 10.0
 near = 0.01
 script = ExtResource( 4 )
