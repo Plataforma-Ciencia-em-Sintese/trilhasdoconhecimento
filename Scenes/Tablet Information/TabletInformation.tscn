@@ -348,6 +348,7 @@ margin_right = 4.01886
 margin_bottom = -0.0118904
 custom_fonts/font = SubResource( 3 )
 text = "Inicie a próxima quest"
+align = 1
 valign = 1
 autowrap = true
 
@@ -363,6 +364,7 @@ margin_bottom = -0.0578918
 custom_fonts/font = SubResource( 4 )
 text = "O quadro de informações irá atualizar assim que uma nova quest se iniciar."
 align = 1
+valign = 1
 autowrap = true
 
 [node name="Panel_MS" type="Panel" parent="PanelTablet/background_Tablet/Panel_Widget/BG_Widget"]

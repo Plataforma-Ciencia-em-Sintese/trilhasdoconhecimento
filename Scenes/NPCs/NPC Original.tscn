@@ -5931,18 +5931,21 @@ visible = false
 mesh = SubResource( 15 )
 skin = SubResource( 2 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
 
 [node name="Amarelo" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Cabeca"]
 visible = false
 mesh = SubResource( 18 )
 skin = SubResource( 2 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
 
 [node name="Moreno" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Cabeca"]
 visible = false
 mesh = SubResource( 907 )
 skin = SubResource( 2 )
 skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
 
 [node name="Manga" type="Spatial" parent="NPC/Base/Cientistas/Skeleton"]
 
@@ -5953,18 +5956,21 @@ visible = false
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Loiro" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Manga/Longa"]
 visible = false
 mesh = SubResource( 916 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Amarelo" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Manga/Longa"]
 visible = false
 mesh = SubResource( 16 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Curta" type="Spatial" parent="NPC/Base/Cientistas/Skeleton/Manga"]
 
@@ -5973,18 +5979,21 @@ visible = false
 mesh = SubResource( 3 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Loiro" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Manga/Curta"]
 visible = false
 mesh = SubResource( 14 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Amarelo" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Manga/Curta"]
 visible = false
 mesh = SubResource( 17 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Cabelo" type="Spatial" parent="NPC/Base/Cientistas/Skeleton"]
 
@@ -5995,18 +6004,21 @@ visible = false
 mesh = SubResource( 909 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Loiro" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Cabelo/Feminino"]
 visible = false
 mesh = SubResource( 911 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Amarelo" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Cabelo/Feminino"]
 visible = false
 mesh = SubResource( 915 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Masculino" type="Spatial" parent="NPC/Base/Cientistas/Skeleton/Cabelo"]
 
@@ -6015,18 +6027,21 @@ visible = false
 mesh = SubResource( 908 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Loiro" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Cabelo/Masculino"]
 visible = false
 mesh = SubResource( 910 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="Amarelo" type="MeshInstance" parent="NPC/Base/Cientistas/Skeleton/Cabelo/Masculino"]
 visible = false
 mesh = SubResource( 914 )
 skin = SubResource( 2 )
 skeleton = NodePath("../../..")
+material/0 = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NPC/Base"]
 anims/Idle01_NPC = SubResource( 19 )

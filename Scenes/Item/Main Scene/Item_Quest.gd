@@ -1,7 +1,9 @@
 extends Area
 
 # ID do item
-export (String, "Luneta","Lente","Consum") var item
+export (String, "Luneta","Lente","Telescopio","Consum") var item
+# Velocidade de rotação
+export (float) var speedRot = 1
 # Valor da variavel
 export var questVarValue = 1
 # Signal para o contador
@@ -15,6 +17,9 @@ var isInQuest : bool = false
 
 func _ready():
 	set_item(item)
+	
+func _physics_process(delta):
+	rotate_y(speedRot * delta)
 
 func _on_Item_Quest_body_entered(body):
 	if body.is_in_group("Player"):

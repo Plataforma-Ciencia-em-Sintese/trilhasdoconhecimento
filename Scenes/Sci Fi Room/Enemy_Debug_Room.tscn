@@ -1088,7 +1088,7 @@ visible = false
 curve = SubResource( 1001 )
 
 [node name="Path_Enemy2" parent="Enemies/Way2" instance=ExtResource( 3 )]
-transform = Transform( 0.696143, 0, -0.7179, 0, 1, 0, 0.717903, 0, 0.696139, 2.83911, 0, -12.4155 )
+transform = Transform( 0.696143, 0, -0.717899, 0, 1, 0, 0.717903, 0, 0.696139, 2.83911, 0, -12.4155 )
 enemyType = "Reparador"
 
 [node name="Way3" type="Path" parent="Enemies"]

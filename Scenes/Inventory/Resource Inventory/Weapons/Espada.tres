@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
-unlocked = false
+unlocked = true
 icon = ExtResource( 3 )
 name = "Espada"
 description = "Espada muito forte!"

@@ -3,6 +3,9 @@ extends CanvasLayer
 func _ready():
 	## Conecta ao signal global de quest para sempre ter a descriçao da quest atual
 	GlobalQuest.connect("QuestInfos",self,"update_quest_main")
+	# Toda vez que iniciar essa cena, puxa as infos da quest
+	$PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Icon_Main_Quest/Main_Quest_Title.text = GlobalQuest.titleQuest
+	$PanelTablet/background_Tablet/Panel_Widget/BG_Widget/Panel_Main_Quest/Main_Quest_Description.text = GlobalQuest.descQuest
 	## Esconde ou mostra o inventario de acordo com a fase Cyberspaço
 	yield(get_tree().create_timer(0.5),"timeout")
 	if GlobalQuest.localScene.stageName == "Cyberspace":

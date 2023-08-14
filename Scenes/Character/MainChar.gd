@@ -49,9 +49,21 @@ var suits = {
 }
 
 func _ready():
+	# Identifica a camera cinematica da fase caso seja necessario e inicia o modo cutscene
+	if getCineCam:
+		var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
+		cineCamera.connect("camera_activated",self,"cinematic_mode")
+	
+	yield(get_tree().create_timer(0.5),"timeout")
 	# Seta quem e o jogador de acordo com os valores das variaveis
 	mainChar = GlobalValues.nameChar
-	activeCloths = GlobalValues.skinChar
+	if GlobalQuest.localScene.name == "Cyberspace":
+		GlobalValues.skinChar = "Armadura"
+		activeCloths = GlobalValues.skinChar
+	else:
+		GlobalValues.skinChar = "Normal"
+		activeCloths = GlobalValues.skinChar
+		
 	if activeCloths == "Normal":
 		bodySkeleton.mesh = load(suits[mainChar][0])
 		battleUI.hide()
@@ -59,16 +71,11 @@ func _ready():
 		bodySkeleton.mesh = load(suits[mainChar][1])
 		battleUI.show()
 		change_weapons(selectedGun)
-	
-	# Identifica a camera cinematica da fase caso seja necessario e inicia o modo cutscene
-	if getCineCam:
-		var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
-		cineCamera.connect("camera_activated",self,"cinematic_mode")
-
+		
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 #		get_tree().reload_current_scene()
-		get_tree().change_scene("res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn")
+		get_tree().change_scene("res://3D/Cyberspace/Scene/Cyberespace1.tscn")
 	elif Input.is_action_just_pressed("ui_accept"):
 #		get_tree().reload_current_scene()
 		get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")

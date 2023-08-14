@@ -23,6 +23,9 @@ var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
 var questResource : Resource
 # Avisa ao tablet de infos que a quest iniciou com as informacoes basicas
 signal QuestInfos(title,desc)
+# Armazena as infos da quest para toda vez que trocar de cena o tablet acessar aqui
+var titleQuest : String = "Inicie a próxima quest"
+var descQuest : String = "O quadro de informações irá atualizar assim que uma nova quest se iniciar."
 
 # SOMENTE PARA TESTES COM AS QUESTS -------------
 func _physics_process(delta):
@@ -58,11 +61,15 @@ func dialogic_signal(arg):
 			spawn_item_quest(localScene)
 		# Emite o sinal para o tablet de infos
 		emit_signal("QuestInfos",questResource.title,questResource.description)
+		titleQuest = questResource.title
+		descQuest = questResource.description
 	# Inicia a quest sem itens para pegar
 	elif arg == "start_quest_normal":
 		questResource = get_files_in_directory(questDir)[0]
 		# Emite o sinal para o tablet de infos
 		emit_signal("QuestInfos",questResource.title,questResource.description)
+		titleQuest = questResource.title
+		descQuest = questResource.description
 	# Quando o jogador ganha recompensas ----
 	elif arg == "give_reward":
 		# Carrega o painel de vitoria e a resource da quest atual
@@ -92,8 +99,8 @@ func dialogic_signal(arg):
 func spawn_item_quest(scene):
 	# Checa cada quest pra saber o que fazer caso a cena mude e tenha coisas a fazer ainda
 	# Checa se a missao esta ativa
-	if actualQuest == "Quest_02" and startedAQuest:
-		if Dialogic.get_variable("Quest_02_Status") == "active":
+	if actualQuest == "Quest_01" and startedAQuest:
+		if Dialogic.get_variable("Quest_01_Status") == "started":
 			# Carrega a cena dos itens pre setados alem da interface de contagem
 			var item = questResource.itemToGetScene.instance()
 			# Se ele nao tiver uma interface, cria uma nova
@@ -104,7 +111,7 @@ func spawn_item_quest(scene):
 					item.get_child(i).connect("change_value",uiCount,"change_ui")
 					item.get_child(i).isInQuest = true
 				# Seta as variaveis pro script dos itens UI
-				uiCount.questVariable = "Quest_02_Values"
+				uiCount.questVariable = "Quest_01_Values"
 				uiCount.alertPanel = panelAlert
 				uiCount.msg = questResource.winTxtToItem
 				
@@ -191,4 +198,6 @@ func change_quest(quest):
 			actualQuest = "Quest_" + str(newValue)
 		
 		emit_signal("QuestInfos","Inicie a próxima quest","O quadro de informações irá atualizar assim que uma nova quest se iniciar.")
+		titleQuest = questResource.title
+		descQuest = questResource.description
 		print(actualQuest)

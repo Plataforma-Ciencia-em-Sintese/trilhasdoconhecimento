@@ -5,10 +5,6 @@ export (String) var npcName
 export var speedProjector = 1.0
 export (NodePath) var cam
 var startInteract = false
-
-# Adiciona um canvas direto do Dialogic
-export(bool) var add_canvas = true
-
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
 var clickedOnMe: bool = false
@@ -67,7 +63,6 @@ func talk_to_player():
 	player.get_node("Status").hide()
 	player.get_node("States/Move").hide()
 	player.get_node("States/Talking").show()
-	owner.get_node("WhiteTransition").hide()
 	pointer.hide()
 	
 	if npcName != "":
@@ -113,7 +108,6 @@ func end_dialogue():
 	player.get_node("MiniMap_UI").show()
 	player.get_node("Battle_UI").show()
 	player.get_node("Status").show()
-	owner.get_node("WhiteTransition").show()
 	$Arrow.hide()
 	mat.set_shader_param("enable", false)
 	# Desabilita os controladores do dialogo

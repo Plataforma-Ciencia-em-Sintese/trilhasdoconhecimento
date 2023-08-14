@@ -7,7 +7,6 @@
 pause_mode = 2
 layer = 99
 script = ExtResource( 1 )
-musicName = "InfoPanel"
 
 [node name="BluntBackground" parent="." instance=ExtResource( 2 )]
 

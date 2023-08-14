@@ -9,7 +9,6 @@ pause_mode = 2
 layer = 128
 script = ExtResource( 3 )
 baseUI = ExtResource( 2 )
-musicName = "MissionCompleted"
 
 [node name="BluntBackground" parent="." instance=ExtResource( 1 )]
 

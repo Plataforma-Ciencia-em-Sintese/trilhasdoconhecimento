@@ -20,6 +20,11 @@ func _ready():
 	$States/Move.speed = enemyResource.speed
 	$States/Battling.distanceToStop = enemyResource.distanceToStop
 	
+	if enemyResource.showPatrolArea:
+		$Enemy/Looking_Zone/Zone.show()
+	else:
+		$Enemy/Looking_Zone/Zone.hide()
+		
 	$Enemy/Looking_Zone/CollisionShape.shape.radius = enemyResource.lookingArea
 	$Enemy/Looking_Zone/Zone.scale = Vector3(enemyResource.lookingArea,0,enemyResource.lookingArea)
 	

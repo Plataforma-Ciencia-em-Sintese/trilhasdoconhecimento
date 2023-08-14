@@ -2232,6 +2232,7 @@ shape = SubResource( 20 )
 
 [node name="Zone" type="MeshInstance" parent="Enemy/Looking_Zone"]
 transform = Transform( 2.08543, 0, 0, 0, 0, 0, 0, 0, 2.08543, 0, -1.142, 0 )
+visible = false
 mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
@@ -2294,6 +2295,7 @@ transform = Transform( 0.832473, 0, 0, 0, 0.876025, 0, 0, 0, 0.574392, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="LastPos"]
 transform = Transform( 0.191357, 0, 0, 0, 0.191357, 0, 0, 0, 0.191357, 0, 0, 0 )
+visible = false
 mesh = SubResource( 57 )
 
 [connection signal="area_entered" from="Enemy/Damage_Area" to="States/Battling" method="_on_Damage_Area_area_entered"]

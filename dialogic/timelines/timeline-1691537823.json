@@ -4,7 +4,7 @@
 			"character": "character-1666579378.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Olá amigo!\nSou o Jorge, um cientista daqui. É um prazer conhecê-lo."
+			"text": "Você me parece bem animado hoje...\nParece comigo quando era um jovem explorador sabia?"
 		},
 		{
 			"emit_signal": "cabou",

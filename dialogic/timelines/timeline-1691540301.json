@@ -10,7 +10,29 @@
 			"character": "character-1666667805.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "O que? O Jorge quer a minha pesquisa?\nPuxa acabei me esquecendo disso devido a minha empolgação.\nCom certeza ele nao vai gostar, mas avise a ele que vou terminar ainda.\nE se ele perguntar onde estou, diga que fui ver as horas no relógio de Londres e vou demorar."
+			"text": "Benvenuto jovem visitante!"
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Como posso ajudá-lo?"
+		},
+		{
+			"choice": "Quem é você?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fui um cientista que viveu entre os séculos XVI e XVII. Contribui muito para o entendimento da força que hoje conhecemos como gravidade e para a ampliação dos conhecimentos da astronomia.\nEu acreditava que a Terra girava em torno do Sol e não o contrário, como pensavam muitos de meus contemporâneos.\nEsse foi um dos motivos pelos quais eu, Galileu Galilei, fui perseguido."
 		},
 		{
 			"definition": "1691541665-648",
@@ -18,7 +40,117 @@
 			"operation": "=",
 			"random_upper_limit": 100,
 			"set_random": false,
-			"set_value": "completed"
+			"set_value": "meet_galileu"
+		},
+		{
+			"choice": "Quais foram suas maiores contribuições?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fui eu quem inventou um dos primeiros telescópios!\nCom o auxílio dele observei e descrevi 4 luas de um planeta distante...\nAs luas galileanas de Júpiter!"
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "meet_galileu"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "unlocked"
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Benvenuto jovem visitante!"
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Como posso ajudá-lo?"
+		},
+		{
+			"choice": "Quem é você?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fui um cientista que viveu entre os séculos XVI e XVII. Contribui muito para o entendimento da força que hoje conhecemos como gravidade e para a ampliação dos conhecimentos da astronomia.\nEu acreditava que a Terra girava em torno do Sol e não o contrário, como pensavam muitos de meus contemporâneos.\nEsse foi um dos motivos pelos quais eu, Galileu Galilei, fui perseguido."
+		},
+		{
+			"choice": "Quais foram suas maiores contribuições?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fui eu quem inventou um dos primeiros telescópios!\nCom o auxílio dele observei e descrevi 4 luas de um planeta distante...\nAs luas galileanas de Júpiter!"
+		},
+		{
+			"choice": "M3T0D0L0G1@S C13N71F1C@S",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Primeiramente não. Não há um método científico único.\nSão etapas, um passo a passo que se inicia no ato de observar algo e terminam em “descobertas”.\nNão, não, não…Não são receitas de bolo. As etapas não precisam ser seguidas de forma absoluta.\nCientistas recorrem à criatividade, à imaginação, à intuição e ao mundo das ideias para criar metodologias novas e lidar com dados e conclusões!\nEu tenho meu TELESCÓPIO, essencial para a etapa de observação. Ele é um artefato digital que contém informações vitais sobre minha pesquisa.\nBUSCANDO NO BANCO DE DADOS............................\nRESULTADO: ITEM NÃO ENCONTRADO.\nEncontrei um erro inesperado. Não consigo executar o experimento de observação. Me ajude, por favor!\nVá ao segundo andar e viaje até o ciber espaço. É lá onde nós guardamos nossos dados de pesquisas.\nAlgo deve ter comprometido o sistema de busca de itens. Por favor recuperer meu telescópio e venha falar comigo assim que o fizer tudo bem?\nObrigado e boa sorte jovem aventureiro!"
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "started"
+		},
+		{
+			"emit_signal": "start_quest_with_item",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_013"
 		},
 		{
 			"emit_signal": "cabou",
@@ -41,7 +173,45 @@
 			"character": "character-1666667805.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Hmm...Espero que o Jorge não fique zangado com isso sabe?\nUps! Estou pensando alto, desculpe."
+			"text": "Benvenuto jovem visitante!"
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Como posso ajudá-lo?"
+		},
+		{
+			"choice": "Quem é você?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fui um cientista que viveu entre os séculos XVI e XVII. Contribui muito para o entendimento da força que hoje conhecemos como gravidade e para a ampliação dos conhecimentos da astronomia.\nEu acreditava que a Terra girava em torno do Sol e não o contrário, como pensavam muitos de meus contemporâneos.\nEsse foi um dos motivos pelos quais eu, Galileu Galilei, fui perseguido."
+		},
+		{
+			"choice": "Quais foram suas maiores contribuições?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Fui eu quem inventou um dos primeiros telescópios!\nCom o auxílio dele observei e descrevi 4 luas de um planeta distante...\nAs luas galileanas de Júpiter!"
+		},
+		{
+			"event_id": "dialogic_013"
 		},
 		{
 			"emit_signal": "cabou",
@@ -58,13 +228,27 @@
 			"condition": "",
 			"definition": "1691541665-648",
 			"event_id": "dialogic_012",
-			"value": "completed"
+			"value": "started"
+		},
+		{
+			"condition": "<=",
+			"definition": "1691987794-787",
+			"event_id": "dialogic_012",
+			"value": "0"
 		},
 		{
 			"character": "character-1666667805.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Por favor, fala com ele por mim pode ser?"
+			"text": "PUXA VIDA, QUE FEITO HISTÓRICO VOCÊ FEZ JOVEM!\nRecuperou meu TELESCÓPIO. Agora poderemos observar o céu além das estrelas e descobrir novos lugares com essa mais nova aquisição.\nMas infelizmente devo lhe dizer que essa nova etapa ficará disponível somente na versão completa do jogo TRILHAS DO CONHECIMENTO.\nSentirei saudades, mas até lá não direi adeus e sim apenas um \"tchau\" como vocês dizem nesses tempos modernos não é mesmo?\nFique a vontade para continuar explorando o Instituto, e nos vemos no próximo desafio!"
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": ""
 		},
 		{
 			"emit_signal": "cabou",
@@ -76,11 +260,37 @@
 		},
 		{
 			"event_id": "dialogic_013"
+		},
+		{
+			"condition": ">=",
+			"definition": "1691987794-787",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1666667805.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por favor, encontre meu TELESCÓPIO.\nSeus dados estão dentro do Ciber espaço. Para chegar lá acesse o portal que está no SEGUNDO ANDAR.\nEstarei esperando aqui."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.5",
 		"file": "timeline-1691540301.json",
-		"name": "Quest_01_Maria"
+		"name": "Quest_01_Galileu"
 	}
 }
