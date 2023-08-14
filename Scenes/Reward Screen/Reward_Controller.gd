@@ -24,7 +24,7 @@ func _ready():
 	for i in resourcesToShow.size():
 		var ui = baseUI.instance()
 		ui.get_node("Icon_Item").texture = resourcesToShow[i].icon
-		ui.get_node("BG_Title_Item/Title_Type").text = resourcesToShow[i].name + " \n\n" + resourcesToShow[i].description
+		ui.get_node("BG_Title_Item/Title_Type").text = resourcesToShow[i].name + "\n" + resourcesToShow[i].description
 		$Container_Rewards.add_child(ui)
 		resourcesToShow[i].unlocked = true
 

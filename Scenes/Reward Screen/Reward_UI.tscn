@@ -1,24 +1,37 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://addons/blunt_background/blunt_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Reward Screen/Base_Reward_Icon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Reward Screen/Reward_Controller.gd" type="Script" id=3]
-[ext_resource path="res://addons/puzzle_handler/assets/font/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/UI/Icons/reward_Icon/BT_saveBack.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Icons/reward_Icon/recompensa Teste.png" type="Texture" id=5]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Sprites/UI/Icons/reward_Icon/BG_Reco.png" type="Texture" id=8]
 [ext_resource path="res://Fonts/VarsityTeam-Bold.otf" type="DynamicFontData" id=10]
 
 [sub_resource type="DynamicFont" id=2]
-size = 10
+size = 13
+outline_size = 1
+outline_color = Color( 0.215686, 0.239216, 0.00784314, 0.223529 )
+use_mipmaps = true
 use_filter = true
 extra_spacing_char = -1
-font_data = ExtResource( 4 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 2
 outline_color = Color( 0.0156863, 0.0705882, 0.156863, 1 )
+use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0.00784314, 0.00392157, 0.00392157, 0.239216 )
+use_filter = true
+extra_spacing_char = -1
+font_data = ExtResource( 6 )
 
 [node name="Reward_UI" type="CanvasLayer"]
 pause_mode = 2
@@ -42,22 +55,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="BG_Reward" type="TextureRect" parent="BG"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 190.0
-margin_top = 140.0
-margin_right = -181.0
-margin_bottom = -37.0
+anchor_left = 0.145
+anchor_top = 0.107
+anchor_right = 0.887
+anchor_bottom = 0.94
+margin_left = 0.399994
+margin_top = -0.0400085
+margin_right = 0.640015
+margin_bottom = 0.199951
 texture = ExtResource( 8 )
 expand = true
 
 [node name="Title" type="Label" parent="BG"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -195.0
-margin_top = 301.0
-margin_right = -98.0
-margin_bottom = 317.0
+anchor_left = 0.348
+anchor_top = 0.332
+anchor_right = 0.499
+anchor_bottom = 0.382
+margin_left = -0.440033
+margin_top = -0.0400085
+margin_right = -96.72
+margin_bottom = -18.04
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.819608, 0.901961, 0.0117647, 1 )
 custom_fonts/font = SubResource( 2 )
@@ -66,12 +83,14 @@ valign = 1
 autowrap = true
 
 [node name="XP_Txt" type="Label" parent="BG"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -221.0
-margin_top = 250.0
-margin_right = -160.0
-margin_bottom = 273.0
+anchor_left = 0.312
+anchor_top = 0.262
+anchor_right = 0.407
+anchor_bottom = 0.326
+margin_left = -0.360016
+margin_top = 0.359985
+margin_right = -60.96
+margin_bottom = -22.72
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 1 )
 text = "XP 10"
@@ -80,21 +99,29 @@ valign = 1
 autowrap = true
 
 [node name="Button" type="Button" parent="BG"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -42.0
-margin_bottom = 31.0
-text = "X"
+anchor_left = 0.393
+anchor_top = 0.824
+anchor_right = 0.609
+anchor_bottom = 0.882
+margin_left = -0.0400085
+margin_top = -0.280029
+margin_right = 0.47998
+margin_bottom = -0.0400391
+custom_fonts/font = SubResource( 3 )
+text = "Click para salvar e continuar"
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
 
 [node name="Container_Rewards" type="VBoxContainer" parent="."]
 anchor_left = 0.372
-anchor_top = 0.464
+anchor_top = 0.401
 anchor_right = 0.632
-anchor_bottom = 0.622
+anchor_bottom = 0.56
 margin_left = -0.160004
-margin_top = -0.0800171
+margin_top = 0.279968
 margin_right = 0.039978
-margin_bottom = 0.159973
+margin_bottom = -0.200012
 rect_min_size = Vector2( 333, 114 )
 
 [connection signal="pressed" from="BG/Button" to="." method="_on_Button_pressed"]
