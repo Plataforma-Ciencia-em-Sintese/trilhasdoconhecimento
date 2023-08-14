@@ -93,6 +93,8 @@ func end_dialogue():
 		player.show()
 		
 	arrow.hide()
+	normalState.show()
+	normalState.lockMovingArround = false
 	mat.set_shader_param("enable", false)
 	# Desabilita os controladores do dialogo
 	canTalk = false
@@ -126,6 +128,7 @@ func _on_Area_body_entered(body):
 			
 			GlobalQuest.whoIsTalking = self
 			talkingState.idle()
+			normalState.hide()
 			normalState.get_node("Timer").stop()
 			start_dialogue()
 

@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692036973.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Isso aqui é bem interessante não acha?\nDados vindo do Ciber espaço estão acusando algum tipo de \"falha\" no sistema.\nSerá que são os vírus destruidores de informações?"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692037517.json",
+		"name": "Davi"
+	}
+}

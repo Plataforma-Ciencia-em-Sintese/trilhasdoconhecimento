@@ -1,0 +1,21 @@
+{
+	"color": "#ff570115",
+	"description": "",
+	"display_name": "Cientista Davi",
+	"display_name_bool": true,
+	"id": "character-1692036973.json",
+	"mirror_portraits": false,
+	"name": "Davi",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": "theme-1689971672.cfg"
+}
