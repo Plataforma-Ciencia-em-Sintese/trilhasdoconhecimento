@@ -32,7 +32,7 @@ func _ready():
 	inventory.delete_itens_to_rewards()
 	inventory.start_inventory()
 	
-	$BG/XP_Txt.text = "XP GANHO: " + str(xpQuest)
+	$BG/XP_Txt.text = "XP +" + str(xpQuest)
 	
 func _on_Button_pressed():
 	get_tree().paused = false
