@@ -23,9 +23,6 @@ var elevators
 # Diretorio de onde ficam os controladores de quest
 var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
 
-# Resource contendo os efeitos sonoros do inventario
-export (Resource) var sfxResource
-
 func _ready():
 	cam = get_node(cam)
 	mainCam = get_tree().get_nodes_in_group("Camera")[0]
@@ -106,7 +103,6 @@ func end_dialogue():
 		GlobalMusicPlayer.play_sound("set_global",0)
 		GlobalMusicPlayer.play_sound("stop_event",npcName)
 	
-	GlobalMusicPlayer.play_sound("play_one","event:/SFX/Ingame/EncerrandoProjetor")
 	GlobalMusicPlayer.play_sound("stop_event","InicializandoProjetor")
 	player.show()
 	cam.current = false

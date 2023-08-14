@@ -477,6 +477,13 @@ func _on_Panel_exit_pressed():
 	$BG_Inventory.hide()
 	tabletInfo.show()
 	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
+	
+func _on_BT_Voltar_pressed():
+	resourceFromButton = null
+	$BG_Inventory.hide()
+	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
+	owner.get_node("TabletInformation/PanelTablet").show()
+	
 
 func get_weapons_calculation(type,operation):
 	# Realiza os calculos de fracao de acordo com os valores dados pela Resource da arma
@@ -1029,3 +1036,6 @@ func start_inventory():
 	insert_itens_invent("Weapon")
 	insert_itens_invent("Chip")
 	insert_itens_invent("Consum")
+
+
+

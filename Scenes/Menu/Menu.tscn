@@ -1,60 +1,26 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/UI/Menu/Titulo do Game.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=3]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Sprites/UI/Menu/NewGame_Game.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Menu/Options_Menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/UI/Menu/Icon_Sobre.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/Menu/Config_Icon.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Menu/BG_menu.png" type="Texture" id=9]
-[ext_resource path="res://3D/Cyberspace/Script/Floor Wave.gd" type="Script" id=10]
-[ext_resource path="res://puzzle_handler/assets/font/Roboto/Roboto-Light.ttf" type="DynamicFontData" id=11]
-
-[sub_resource type="PlaneMesh" id=4]
-
-[sub_resource type="StreamTexture" id=7]
-flags = 23
-load_path = "res://.import/BG_menu.png-dfa2c88ee4bc9a9803592dc0153b177c.s3tc.stex"
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = SubResource( 7 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 18
 use_filter = true
 extra_spacing_char = -1
-font_data = ExtResource( 11 )
+font_data = ExtResource( 4 )
 
 [node name="Menu" type="Control" groups=["Menu"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 3 )
-
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 1280, 720 )
-mouse_filter = 1
-stretch = true
-
-[node name="Viewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 1280, 720 )
-handle_input_locally = false
-render_target_update_mode = 0
-
-[node name="MeshInstance2" type="MeshInstance" parent="ViewportContainer/Viewport"]
-transform = Transform( 2.73963, 0, 0, 0, -4.24017e-08, -1.33685, 0, 1, -6.02405e-08, 0, 0, 0 )
-visible = false
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
-script = ExtResource( 10 )
-
-[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/MeshInstance2"]
-transform = Transform( 0.365013, 0, 0, 0, -3.17176e-08, 1, 0, -0.725615, -4.37114e-08, 0, 1.89459, -8.28153e-08 )
-visible = false
 
 [node name="BG_Menu" type="TextureRect" parent="."]
 anchor_right = 1.0

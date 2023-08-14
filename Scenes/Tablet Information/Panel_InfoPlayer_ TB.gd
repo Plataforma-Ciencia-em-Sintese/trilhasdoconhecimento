@@ -7,4 +7,9 @@ func _ready():
 	
 	$TP_Energy.value = GlobalValues.energy
 	$TP_Energy/Label.text = str(GlobalValues.energy) 
+	
+	$TP_XP.value = GlobalValues.xpActual
+	$TP_XP/Label.text = str(GlobalValues.xpActual) 
+	
+	$Name_Player.text = GlobalValues.nameChar
 

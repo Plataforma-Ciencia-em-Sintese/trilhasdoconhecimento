@@ -67,11 +67,11 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
-		get_tree().reload_current_scene()
-#		get_tree().change_scene("res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn")
-#	elif Input.is_action_just_pressed("ui_accept"):
-##		get_tree().reload_current_scene()
-#		get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+#		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn")
+	elif Input.is_action_just_pressed("ui_accept"):
+#		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
 
 func change_weapons(weapon):
 	# Checa qual arma e a atual e troca de acordo com o parametro
