@@ -7834,7 +7834,6 @@ __meta__ = {
 sfxResource = ExtResource( 27 )
 
 [node name="BG_Inventory" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 1, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -8701,7 +8700,7 @@ stretch = true
 size = Vector2( 300, 400 )
 transparent_bg = true
 handle_input_locally = false
-render_target_update_mode = 0
+render_target_update_mode = 3
 
 [node name="Char_Inventory" type="KinematicBody" parent="BG_Inventory/Preview_Player_Viewport/Viewport"]
 visible = false
@@ -9077,7 +9076,7 @@ mesh = SubResource( 98 )
 skin = SubResource( 99 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( 0.000657469, -0.0135768, -0.999908, -0.250546, -0.968018, 0.0129792, -0.968103, 0.250514, -0.00403604, -0.293387, 0.594008, 0.0670121 )
+transform = Transform( -0.000514418, -0.0122502, -0.999925, -0.286168, -0.958106, 0.0118853, -0.958178, 0.286152, -0.0030109, -0.293216, 0.594473, 0.070905 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentR"]
@@ -9140,7 +9139,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( 0.00065738, 0.0135771, 0.999908, 0.250546, -0.968018, 0.0129795, 0.968103, 0.250515, -0.00403613, 0.293386, 0.594008, 0.0670121 )
+transform = Transform( -0.000514448, 0.0122506, 0.999925, 0.286168, -0.958106, 0.0118856, 0.958178, 0.286153, -0.00301096, 0.293216, 0.594473, 0.070905 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentL"]

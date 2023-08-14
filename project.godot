@@ -115,7 +115,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Quest Manager/Script/Quest_Controller.gd"
 }, {
 "base": "Resource",
-"class": "SFXController",
+"class": "Sound_System",
 "language": "GDScript",
 "path": "res://Management/Sound System/Script/Sound_System.gd"
 }, {
@@ -156,7 +156,7 @@ _global_script_class_icons={
 "HistoryRow": "",
 "NormalEnemyValues": "",
 "QuestController": "",
-"SFXController": "",
+"Sound_System": "",
 "Weapon_Skill": "",
 "WeaponsValues": "",
 "musicController": ""
@@ -170,20 +170,20 @@ config/icon="res://icon.png"
 
 [autoload]
 
-QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
-StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
 GlobalValues="*res://Management/Global Scripts/Global_Values.gd"
-EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
-SaveFile="*res://Management/save_file.gd"
-Fmod="*res://addons/fmod/Fmod.tscn"
-GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 GlobalQuest="*res://Scenes/Quest Manager/Script/Global_Quest.gd"
 GlobalXp="*res://Management/Global Scripts/Global_XP.gd"
+GlobalMusicPlayer="*res://Management/Sound System/Script/Global_Music_Player.gd"
 GlobalAdmItens="*res://Scenes/Inventory/Scripts/Global_ADM_Itens.gd"
 GlobalAdmLifeEnergy="*res://Management/Global Scripts/Global_ADM_Life_Energy.gd"
 GlobalPuzzleController="*res://Management/Global Scripts/Global_Puzzle_Controller.gd"
-GlobalOptions="*res://Management/Global Scripts/Global_Options.gd"
+Fmod="*res://addons/fmod/Fmod.tscn"
+SaveFile="*res://Management/save_file.gd"
 WhiteTransition="*res://Scenes/Transitions/WhiteTransition.tscn"
+EffekseerSystem="*res://addons/effekseer/src/EffekseerSystem.gdns"
+QuestManager="*res://Scenes/Quest Manager/Quest_Manager.tscn"
+StartLevelPos="*res://Scenes/Sci Fi Room/StartLevelPos.gd"
+GlobalOptions="*res://Management/Global Scripts/Global_Options.gd"
 
 [debug]
 
