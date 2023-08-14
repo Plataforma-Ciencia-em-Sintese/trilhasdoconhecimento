@@ -43,7 +43,7 @@ use_filter = true
 font_data = ExtResource( 22 )
 
 [sub_resource type="DynamicFont" id=112]
-size = 12
+size = 20
 use_filter = true
 extra_spacing_char = -1
 extra_spacing_space = 1
@@ -161,7 +161,7 @@ nodes/Wand/node = SubResource( 78 )
 nodes/Wand/position = Vector2( -1060, 220 )
 nodes/move/node = SubResource( 110 )
 nodes/move/position = Vector2( 120, 100 )
-node_connections = [ "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "Seek", 0, "States General", "output", 0, "move" ]
+node_connections = [ "TimeScale", 0, "All_Attacks", "States General", 0, "Idle State", "States General", 1, "TimeScale", "Seek", 0, "States General", "move", 0, "Walk", "move", 1, "Seek", "move", 2, "Run", "All_Attacks", 0, "Hammer", "All_Attacks", 1, "Sword", "All_Attacks", 2, "Wand", "All_Attacks", 3, "Gauntlet", "All_Attacks", 4, "Bow", "output", 0, "move" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=111]
 
@@ -7970,13 +7970,13 @@ expand = true
 
 [node name="ATKMain_Txt" type="Label" parent="BG_Inventory/Info_BG/Status_Container/ATK_Main"]
 anchor_left = 0.728
-anchor_top = 0.621
-anchor_right = 0.922
-anchor_bottom = 1.283
-margin_left = 0.0799866
-margin_top = -0.00900078
-margin_right = -12.58
-margin_bottom = -3.207
+anchor_top = 0.458
+anchor_right = 0.962
+anchor_bottom = 1.534
+margin_left = 0.0799255
+margin_top = 0.0121279
+margin_right = -15.1801
+margin_bottom = -5.19187
 rect_scale = Vector2( 1.2, 1.2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 112 )
@@ -8044,13 +8044,13 @@ expand = true
 
 [node name="ATKSec_Txt" type="Label" parent="BG_Inventory/Info_BG/Status_Container/ATK_Sec"]
 anchor_left = 0.728
-anchor_top = 0.467
-anchor_right = 0.925
-anchor_bottom = 1.107
-margin_left = 0.0799866
-margin_top = -0.0100002
-margin_right = -12.75
-margin_bottom = -3.21
+anchor_top = 0.31
+anchor_right = 0.962
+anchor_bottom = 1.387
+margin_left = 0.0799255
+margin_top = -0.00587177
+margin_right = -15.1801
+margin_bottom = -6.31587
 rect_scale = Vector2( 1.2, 1.2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 112 )
@@ -8118,13 +8118,13 @@ expand = true
 
 [node name="Speed_Txt" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Speed_Run"]
 anchor_left = 0.726
-anchor_top = 0.267
-anchor_right = 0.938
-anchor_bottom = 0.907
+anchor_top = 0.11
+anchor_right = 0.963
+anchor_bottom = 1.187
 margin_left = -0.140015
-margin_top = -0.0100002
-margin_right = -13.82
-margin_bottom = -3.21
+margin_top = -0.00587177
+margin_right = -15.57
+margin_bottom = -6.31587
 rect_scale = Vector2( 1.2, 1.2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 112 )
@@ -8193,13 +8193,12 @@ expand = true
 
 [node name="Life_Txt" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Life"]
 anchor_left = 0.726
-anchor_top = 0.126
 anchor_right = 0.873
-anchor_bottom = 0.773
+anchor_bottom = 1.0
 margin_left = -0.140015
-margin_top = 0.22
+margin_top = -1.0
 margin_right = -9.47
-margin_bottom = -3.19
+margin_bottom = -5.0
 rect_scale = Vector2( 1.2, 1.2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 112 )
@@ -8266,13 +8265,13 @@ expand = true
 
 [node name="Energy_Txt" type="Label" parent="BG_Inventory/Info_BG/Status_Container/Energy"]
 anchor_left = 0.726
-anchor_top = -0.067
-anchor_right = 0.873
-anchor_bottom = 0.573
+anchor_top = -0.224
+anchor_right = 0.886
+anchor_bottom = 0.816
 margin_left = -0.140015
-margin_top = 0.00999999
-margin_right = -9.47
-margin_bottom = -3.19
+margin_top = 0.0141287
+margin_right = -10.54
+margin_bottom = -5.18587
 rect_scale = Vector2( 1.2, 1.2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 112 )
@@ -8793,7 +8792,7 @@ bones/9/name = "Mao.L"
 bones/9/parent = 8
 bones/9/rest = Transform( 0.99259, -0.12151, 7.4975e-09, 0.12151, 0.99259, 2.22392e-08, -1.01442e-08, -2.11633e-08, 1, -2.49716e-09, 0.134443, -1.29311e-07 )
 bones/9/enabled = true
-bones/9/bound_children = [  ]
+bones/9/bound_children = [ NodePath("BoneAttachmentL") ]
 bones/10/name = "Minimo01.L"
 bones/10/parent = 9
 bones/10/rest = Transform( 0.966266, -0.241564, -0.089312, 0.248308, 0.965842, 0.0741126, 0.0683584, -0.0937893, 0.993243, -0.0398713, 0.087944, 0.00329447 )
@@ -8898,7 +8897,7 @@ bones/30/name = "Mao.R"
 bones/30/parent = 29
 bones/30/rest = Transform( 0.99259, 0.12151, -7.4975e-09, -0.12151, 0.99259, 2.22392e-08, 1.01442e-08, -2.11633e-08, 1, 2.49716e-09, 0.134443, -1.29311e-07 )
 bones/30/enabled = true
-bones/30/bound_children = [  ]
+bones/30/bound_children = [ NodePath("BoneAttachmentR") ]
 bones/31/name = "Minimo01.R"
 bones/31/parent = 30
 bones/31/rest = Transform( 0.966266, 0.241564, 0.089312, -0.248308, 0.965842, 0.0741126, -0.0683584, -0.0937893, 0.993243, 0.0398713, 0.087944, 0.00329447 )
@@ -9076,7 +9075,7 @@ mesh = SubResource( 98 )
 skin = SubResource( 99 )
 
 [node name="BoneAttachmentR" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( -4.94719e-06, -0.0120031, -0.999928, -0.406261, -0.913692, 0.0109702, -0.913755, 0.406231, -0.00486977, -0.293116, 0.59374, 0.0841455 )
+transform = Transform( 0.00119996, -0.0140939, -0.9999, -0.198945, -0.979917, 0.0135736, -0.980008, 0.19891, -0.00397791, -0.29345, 0.593519, 0.0615199 )
 bone_name = "Mao.R"
 
 [node name="Sword" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentR"]
@@ -9139,7 +9138,7 @@ disabled = true
 transform = Transform( 0.184566, -0.712548, -0.676913, 0.980694, 0.0882402, 0.17451, -0.0646154, -0.696053, 0.715077, -0.171809, 0.197176, -0.216193 )
 
 [node name="BoneAttachmentL" type="BoneAttachment" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton"]
-transform = Transform( -6.19888e-06, 0.0120026, 0.999928, 0.406259, -0.913693, 0.0109702, 0.913756, 0.40623, -0.00486848, 0.293116, 0.59374, 0.084145 )
+transform = Transform( 0.00119987, 0.0140941, 0.9999, 0.198946, -0.979917, 0.0135738, 0.980008, 0.19891, -0.00397795, 0.29345, 0.593519, 0.0615199 )
 bone_name = "Mao.L"
 
 [node name="Shield" type="MeshInstance" parent="BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory/Base/Skeleton/BoneAttachmentL"]

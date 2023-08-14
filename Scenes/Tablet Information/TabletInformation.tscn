@@ -632,25 +632,25 @@ stretch_mode = 1
 
 [node name="Icon_Life" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_left = 0.37
-anchor_top = 0.394
+anchor_top = 0.35
 anchor_right = 0.449
-anchor_bottom = 0.663
+anchor_bottom = 0.618
 margin_left = -0.355499
-margin_top = -8.03454
-margin_right = -0.0965271
-margin_bottom = -8.10954
+margin_top = -0.0471916
+margin_right = -0.0965576
+margin_bottom = 0.0593414
 texture = ExtResource( 26 )
 expand = true
 
 [node name="Icon_Energia" type="TextureRect" parent="PanelTablet/background_Tablet/Panel_InfoPlayer"]
 anchor_left = 0.525
-anchor_top = 0.389
+anchor_top = 0.344
 anchor_right = 0.604
-anchor_bottom = 0.663
+anchor_bottom = 0.618
 margin_left = -0.100494
-margin_top = -8.15954
-margin_right = 0.158508
-margin_bottom = -8.10954
+margin_top = 0.00934219
+margin_right = 0.158447
+margin_bottom = 0.0593414
 texture = ExtResource( 23 )
 expand = true
 
