@@ -1,7 +1,7 @@
 [gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
 [sub_resource type="ViewportTexture" id=86]
-viewport_path = NodePath("Monitors/Viewport")
+viewport_path = NodePath("Room/Monitors/Viewport")
 
 [resource]
 resource_local_to_scene = true

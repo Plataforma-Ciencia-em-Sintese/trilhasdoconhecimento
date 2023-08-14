@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Elevator/Elevator_Controller.gd" type="Script" id=3]
 [ext_resource path="res://Management/Sound System/SFX Controllers/Elevator_SFXs.tres" type="Resource" id=4]
@@ -18,6 +18,8 @@ surfaces/0 = {
 }
 
 [sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+albedo_color = Color( 0.721569, 0.721569, 0.721569, 0.14902 )
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "Elevador_Cylinder009"
@@ -32,8 +34,6 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 36
 }
-
-[sub_resource type="SpatialMaterial" id=11]
 
 [sub_resource type="ArrayMesh" id=3]
 resource_name = "Elevador_Cylinder003"
@@ -50,6 +50,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="SpatialMaterial" id=12]
+params_cull_mode = 2
 albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="ConcavePolygonShape" id=8]
@@ -144,7 +145,7 @@ tracks/1/keys = {
 [node name="Elevator_Controller" type="Area"]
 input_ray_pickable = false
 script = ExtResource( 3 )
-scenes = [ "res://3D/Cyberspace/Scene/Cyberespace1.tscn", "res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn", "res://Scenes/Sci Fi Room/Enemy_Debug_Room.tscn" ]
+scenes = [ "res://3D/Cyberspace/Scene/Cyberespace1.tscn", "res://3D/Instituto/Scenes/PrimeiroAndar.tscn", "res://3D/Instituto/Scenes/SegundoAndar.tscn" ]
 sfxResource = ExtResource( 4 )
 
 [node name="R_Door" type="MeshInstance" parent="."]
@@ -157,7 +158,7 @@ material/0 = SubResource( 10 )
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("")
-material/0 = SubResource( 11 )
+material/0 = SubResource( 10 )
 
 [node name="Model" type="MeshInstance" parent="."]
 mesh = SubResource( 3 )
