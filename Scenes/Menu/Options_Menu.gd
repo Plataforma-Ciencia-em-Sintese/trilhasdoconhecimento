@@ -30,6 +30,7 @@ func _on_BT_ExitConfig_pressed():
 	$Panel_Options.hide()
 	menu.get_node("Buttons/Play").show()
 	menu.get_node("Buttons/Configure").show()
+	menu.get_node("Buttons/Sobre").show()
 	menu.get_node("NameGame").show()
 
 
@@ -40,4 +41,5 @@ func _on_Panel_exit_pressed():
 	$Panel_Options.hide()
 	menu.get_node("Buttons/Play").show()
 	menu.get_node("Buttons/Configure").show()
+	menu.get_node("Buttons/Sobre").show()
 	menu.get_node("NameGame").show()

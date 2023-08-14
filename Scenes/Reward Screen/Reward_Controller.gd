@@ -24,7 +24,7 @@ func _ready():
 	for i in resourcesToShow.size():
 		var ui = baseUI.instance()
 		ui.get_node("Icon_Item").texture = resourcesToShow[i].icon
-		ui.get_node("BG_Title_Item/Title_Type").text = resourcesToShow[i].name + " \n\n" + resourcesToShow[i].description
+		ui.get_node("BG_Title_Item/Title_Type").text = resourcesToShow[i].name + "\n" + resourcesToShow[i].description
 		$Container_Rewards.add_child(ui)
 		resourcesToShow[i].unlocked = true
 
@@ -32,7 +32,7 @@ func _ready():
 	inventory.delete_itens_to_rewards()
 	inventory.start_inventory()
 	
-	$BG/XP_Txt.text = "XP GANHO: " + str(xpQuest)
+	$BG/XP_Txt.text = "XP +" + str(xpQuest)
 	
 func _on_Button_pressed():
 	get_tree().paused = false
