@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Tablet Information/TabletInformation.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Config/Fechar.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Backgrond_Tablet.png" type="Texture" id=3]
-[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-Medium.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Sprites/UI/Icons/Tablet_Sprite/Buttons_Tablet/IconBT_Contatos.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/fonte Poppins/fonte Poppins/Poppins-SemiBold.ttf" type="DynamicFontData" id=7]
@@ -48,17 +48,22 @@ use_filter = true
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 19
+size = 23
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.0509804 )
 use_filter = true
 extra_spacing_char = -1
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 20
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.0745098 )
+use_mipmaps = true
 use_filter = true
-extra_spacing_bottom = -7
+extra_spacing_bottom = -10
 extra_spacing_char = -1
-font_data = ExtResource( 5 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 12
@@ -82,7 +87,6 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="PanelTablet" type="Panel" parent="."]
-visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
