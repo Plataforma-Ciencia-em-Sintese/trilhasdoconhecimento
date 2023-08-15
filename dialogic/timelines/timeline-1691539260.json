@@ -32,7 +32,7 @@
 			"character": "character-1666579378.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Não temos tempo a perder, tenho alguém para te apresentar.\nEle o espera no museu. É uma de nossas maiores atrações: GALILEU GALILEI!\nAcha que estou mentindo? Porque você não entra lá e o conhece pessoalmente?"
+			"text": "Não temos tempo a perder, tenho alguém para te apresentar.\nEle o espera no museu. É uma de nossas maiores atrações: GALILEU GALILEI!\nBasta seguir a trilha azul tudo bem?"
 		},
 		{
 			"emit_signal": "start_quest_normal",
@@ -114,7 +114,7 @@
 			"character": "character-1666579378.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Se apresse e vá falar com Galileu tudo bem?"
+			"text": "Se apresse e vá falar com Galileu.\nBasta seguir a trilha azul tudo bem?"
 		},
 		{
 			"emit_signal": "cabou",

@@ -4,7 +4,7 @@
 			"character": "character-1692037058.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Eu estava pensando: se alguém pudesse entrar no Ciber espaço e resolver problemas que não conseguimos no mundo real?\nNos ajudaria e muito, pois não sabemos os perigos do mundo virtual.\nVocê seria um bom candidato...Me parece bem animado correndo por aqui."
+			"text": "Eu estava pensando: se alguém pudesse entrar no Ciberespaço e resolver problemas que não conseguimos no mundo real?\nNos ajudaria e muito, pois não sabemos os perigos do mundo virtual.\nVocê seria um bom candidato...Me parece bem animado correndo por aqui."
 		},
 		{
 			"emit_signal": "cabou",

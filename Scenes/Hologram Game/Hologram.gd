@@ -4,6 +4,8 @@ export (String) var npcName
 #Holograma stats
 export var speedProjector = 1.0
 export (NodePath) var cam
+export (bool) var showExclamation
+var haveExclamation : bool = false
 var startInteract = false
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
@@ -30,6 +32,12 @@ func _ready():
 	$"Base/Projector/Light Volume 2".hide()
 	$"Base/Projector/Light Volume 3".hide()
 	elevators = get_tree().get_nodes_in_group("Elevator")
+	
+	if showExclamation:
+		$Exclamation.show()
+		haveExclamation = true
+	else:
+		$Exclamation.hide()
 
 func _physics_process(delta):
 	if startInteract:
@@ -51,6 +59,7 @@ func _physics_process(delta):
 
 func talk_to_player():
 #	Fmod.start_event(Fmod.get_node("FmodAtributos").iniProjetor)
+	$Exclamation.hide()
 	startInteract = true
 	cam.current = true
 	mainCam.current = false
@@ -100,9 +109,12 @@ func end_dialogue():
 	
 	GlobalMusicPlayer.play_sound("stop_event","InicializandoProjetor")
 	player.show()
+	
+	if haveExclamation:
+		$Exclamation.show()
+	
 	cam.current = false
 	mainCam.current = true
-	player.show()
 	player.get_node("Inventory").show()
 	player.get_node("TabletInformation").show()
 	player.get_node("MiniMap_UI").show()

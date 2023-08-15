@@ -4,7 +4,7 @@
 			"character": "character-1692036973.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Isso aqui é bem interessante não acha?\nDados vindo do Ciber espaço estão acusando algum tipo de \"falha\" no sistema.\nSerá que são os vírus destruidores de informações?"
+			"text": "Isso aqui é bem interessante não acha?\nDados vindo do Ciberespaço estão acusando algum tipo de \"falha\" no sistema.\nSerá que são os vírus destruidores de informações?"
 		},
 		{
 			"emit_signal": "cabou",

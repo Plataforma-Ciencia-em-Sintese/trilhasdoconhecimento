@@ -4,7 +4,7 @@
 			"character": "character-1692036992.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Os dados que coletamos possuem informações valiosas a respeito do Ciber espaço.\nCom ele conseguimos saber e até deduzire em algo que não precisamos nos arriscar tanto.\nA exploração em outros planetas como Marte faz a mesma coisa com Robôs."
+			"text": "Os dados que coletamos possuem informações valiosas a respeito do Ciberespaço.\nCom ele conseguimos saber e até deduzire em algo que não precisamos nos arriscar tanto.\nA exploração em outros planetas como Marte faz a mesma coisa com Robôs."
 		},
 		{
 			"emit_signal": "cabou",

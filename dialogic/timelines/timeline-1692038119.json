@@ -4,7 +4,7 @@
 			"character": "character-1692037080.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Olá!\nVocê está vendo essa máquina aqui do lado?\nEla é o nosso SIMULADOR. Com ela podemos entrar no Ciber espaço de verdade.\nEla capta suas ondas cerebrais, converte em sinais elétricos e o nosso sistema de tratamento de dados simula suas ações, como se você estivesse no mundo real.\nAlém disso, quem entra lá consegue equipar uma armadura super maneira pra caso seja necessário combater algum vírus.\nMas está complicado testá-la, pois NENHUM de nós temos habilidades de luta. Afinal somos apenas cientistas.\nVocê quer testá-la? Fique a vontade, mas tome cuidado ok?"
+			"text": "Olá!\nVocê está vendo essa máquina aqui do lado?\nEla é o nosso SIMULADOR. Com ela podemos entrar no Ciberespaço de verdade.\nEla capta suas ondas cerebrais, converte em sinais elétricos e o nosso sistema de tratamento de dados simula suas ações, como se você estivesse no mundo real.\nAlém disso, quem entra lá consegue equipar uma armadura super maneira pra caso seja necessário combater algum vírus.\nMas está complicado testá-la, pois NENHUM de nós temos habilidades de luta. Afinal somos apenas cientistas.\nVocê quer testá-la? Fique a vontade, mas tome cuidado ok?"
 		},
 		{
 			"emit_signal": "cabou",

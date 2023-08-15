@@ -7,10 +7,10 @@
 
 [resource]
 script = ExtResource( 1 )
-unlocked = false
+unlocked = true
 icon = ExtResource( 3 )
 name = "Arco"
-description = "Arco longo feito para atirar a longa distancia e explodir todo o universo observável."
+description = "Arco longo feito para atirar a longa distância."
 lifeOperation = "-"
 numLife = 1
 denLife = 3

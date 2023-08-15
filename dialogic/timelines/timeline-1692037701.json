@@ -4,7 +4,7 @@
 			"character": "character-1692037013.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "\"AHDX SDEF OPSDF XADEEAD.\"\nRecebemos isso vindo direto do Ciber espaço, mas não fazemos idéia do que pode ser.\nSerá algum tipo de mensagem oculta?"
+			"text": "\"AHDX SDEF OPSDF XADEEAD.\"\nRecebemos isso vindo direto do Ciberespaço, mas não fazemos idéia do que pode ser.\nSerá algum tipo de mensagem oculta?"
 		},
 		{
 			"emit_signal": "cabou",

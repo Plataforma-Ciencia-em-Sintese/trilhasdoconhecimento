@@ -17,6 +17,9 @@ var questDir : String = "res://Scenes/Quest Manager/Resource Quest/Controllers/"
 # Se o npc tiver musica propria
 export (bool) var haveMusicTheme
 
+export (bool) var showExclamation
+var haveExclamation : bool = false
+
 # Checa quando ele pode falar ou nao
 var canTalk: bool = false
 
@@ -44,6 +47,12 @@ func _ready():
 	$NPC/Base/Cientistas/Skeleton/Cabeca.get_node(corpo).show()
 	$NPC/Base/Cientistas/Skeleton/Cabelo.get_node(cabelo).get_node(corpo).show()
 	$NPC/Base/Cientistas/Skeleton/Manga.get_node(mangas).get_node(corpo).show()
+	
+	if showExclamation:
+		$NPC/Exclamation.show()
+		haveExclamation = true
+	else:
+		$NPC/Exclamation.hide()
 	
 func _physics_process(_delta):
 	# Quando clicar compara se pode conversar
@@ -84,6 +93,7 @@ func start_dialogue():
 	pointer.hide()
 	pointer.global_transform.origin = player.global_transform.origin
 	arrow.hide()
+	$NPC/Exclamation.hide()
 	
 func end_dialogue():
 	# Se o zoom estiver ativo, mostra o jogador novamente
@@ -94,6 +104,10 @@ func end_dialogue():
 		
 	arrow.hide()
 	normalState.show()
+	
+	if haveExclamation:
+		$NPC/Exclamation.show()
+	
 	normalState.lockMovingArround = false
 	mat.set_shader_param("enable", false)
 	# Desabilita os controladores do dialogo
