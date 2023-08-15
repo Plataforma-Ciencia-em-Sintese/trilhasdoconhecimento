@@ -1,9 +1,7 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Inventory/Resource Inventory/Weapons/Weapons_Attributes.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Tres_Flechas.tres" type="Resource" id=2]
 [ext_resource path="res://Sprites/UI/Icons/Icons_Invent/armas_icons/espada_arma.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Inventory/Resource Inventory/Skills Weapons/Corte_Luz.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -23,4 +21,4 @@ denSpeed = 0
 atkOperation = "+"
 numATK = 1
 denATK = 3
-skillsInOrder = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ) ]
+skillsInOrder = [  ]
