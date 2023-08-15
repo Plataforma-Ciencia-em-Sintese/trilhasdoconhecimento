@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692037080.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Olá!\nVocê está vendo essa máquina aqui do lado?\nEla é o nosso SIMULADOR. Com ela podemos entrar no Ciberespaço de verdade.\nEla capta suas ondas cerebrais, converte em sinais elétricos e o nosso sistema de tratamento de dados simula suas ações, como se você estivesse no mundo real.\nAlém disso, quem entra lá consegue equipar uma armadura super maneira pra caso seja necessário combater algum vírus.\nMas está complicado testá-la, pois NENHUM de nós temos habilidades de luta. Afinal somos apenas cientistas.\nVocê quer testá-la? Fique a vontade, mas tome cuidado ok?"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692038119.json",
+		"name": "Jota"
+	}
+}

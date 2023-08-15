@@ -26,7 +26,7 @@ func _physics_process(_delta):
 		start_battle()
 	
 	if progressiveDamageToPlayer:
-		owner.player.get_node("Status").set_life(-owner.enemyResource.atkValue * _delta)
+		GlobalAdmLifeEnergy.life_changer(-owner.enemyResource.atkValue * _delta)
 
 func start_battle():
 	if !backToPatrol:
@@ -112,6 +112,7 @@ func check_life():
 				myRepairObj = getRepair[i]
 				break
 	if owner.get_node("Viewport/BarLife").value <= 0:
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["InimigoGeralMorre"])
 		owner.player.get_node("States/Battling").actualEnemy = null
 		owner.player.get_node("States/Battling").end_fight()
 #		var spawnExplosion = explosion.instance()
@@ -140,6 +141,7 @@ func _on_Damage_Area_area_entered(area):
 			owner.get_node("States/Patrol").hide()
 		owner.get_node("Enemy/Looking_Zone/Zone").get_surface_material(0).albedo_color = Color(1, 0, 0, 0.05)
 		check_life()
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["InimigoGeralDano"])
 	elif area.is_in_group("Projectile"):
 		if owner.player.selectedGun == owner.player.mainGun:
 			owner.get_node("Viewport/BarLife").value -= GlobalValues.atkMainActual
@@ -160,13 +162,14 @@ func _on_Damage_Area_area_entered(area):
 		check_life()
 		owner.back_to_patrol()
 		area.queue_free()
-		
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["InimigoGeralDano"])
 func set_collisor_status(path,status):
 	owner.get_node(path).set_deferred("disabled",status)
 
 func _on_Area_Laser_area_entered(area):
 	if area.is_in_group("DamagePlayer"):
 		progressiveDamageToPlayer = true
+		print("laser hit")
 		
 func _on_Area_Laser_area_exited(area):
 	if area.is_in_group("DamagePlayer"):
@@ -175,7 +178,7 @@ func _on_Area_Laser_area_exited(area):
 		
 func _on_Attack_Area_entered(area):
 	if area.is_in_group("DamagePlayer"):
-		owner.player.get_node("Status").set_life(-owner.enemyResource.atkValue)
+		GlobalAdmLifeEnergy.life_changer(-owner.enemyResource.atkValue)
 
 func _on_CoolDown_timeout():
 	coolDown = !coolDown

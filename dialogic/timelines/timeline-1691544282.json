@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Olhe quanta coisa a humanidade já descobriu depois de anos de pesquisas.\nEu acho fascinante podermos estudar o passado para entender melhor o presente, não acha?"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691544282.json",
+		"name": "Daniel"
+	}
+}

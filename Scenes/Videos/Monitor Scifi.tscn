@@ -1,36 +1,3 @@
-[gd_scene load_steps=6 format=2]
-
-[ext_resource path="res://Effects/Scifi Video/Monitor-Scifi-video.webm" type="VideoStream" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Videos/Monitor Scifi.gd" type="Script" id=3]
-
-[sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("Viewport")
-
-[sub_resource type="SpatialMaterial" id=2]
-resource_local_to_scene = true
-flags_transparent = true
-params_cull_mode = 2
-albedo_texture = SubResource( 3 )
-
-[node name="Video_Monitor" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 0.913163, 0, 0, 0, 1, 0, 0, 0 )
-script = ExtResource( 3 )
-
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 400, 200 )
-transparent_bg = true
-handle_input_locally = false
-
-[node name="VideoPlayer" type="VideoPlayer" parent="Viewport"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-stream = ExtResource( 1 )
-autoplay = true
-
-[node name="Video_Sprite" type="Sprite3D" parent="."]
-transform = Transform( 3.27788, 0, 0, 0, 2.30831, 0, 0, 0, 2.30831, 0, 0, 0 )
-material_override = SubResource( 2 )
-texture = ExtResource( 2 )
-
-[connection signal="finished" from="Viewport/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd38cb282af0ef622c38ecd5b256d23090af761e341438acbde904b426aae193
+size 1211

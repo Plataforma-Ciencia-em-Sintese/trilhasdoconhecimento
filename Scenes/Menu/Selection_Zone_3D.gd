@@ -5,13 +5,14 @@ var target = ["Floor/Ariel","Floor/Bento","Floor/Clara","Floor/Caio","Floor/Yara
 var id = 0
 var canChange = true
 var atributos
+var sceneGame : String = "res://3D/Instituto/Scenes/PrimeiroAndar.tscn"
 
 func _ready():
 	pass
 
 func _physics_process(delta):
 #	$Cam_Pivot.look_at(get_node(target[id]).global_transform.origin,Vector3.UP)
-	$Cam_Pivot.rotation.y = (lerp_angle($Cam_Pivot.rotation.y, get_node(target[id]).rotation.y + offsetLook,0.2))
+	$ControlButtons/ViewportContainer/Viewport/Cam_Pivot.rotation.y = (lerp_angle($ControlButtons/ViewportContainer/Viewport/Cam_Pivot.rotation.y, get_node(target[id]).rotation.y + offsetLook,0.2))
 	
 	if id == 0:
 		offsetLook = 1.85
@@ -76,36 +77,41 @@ func _on_ButtonPlay_pressed():
 		get_node("Floor").get_node("Bento").get_node("Padrao").hide()
 		GlobalValues.nameChar = "Bento"
 		GlobalValues.skinChar = "Normal"
-		yield(get_tree().create_timer(1),"timeout")
-		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+		WhiteTransition.start_transition("fadein")
+		yield(get_tree().create_timer(2),"timeout")
+		var _play: bool = get_tree().change_scene(sceneGame)
 	if id == 1:
 		get_node("Floor").get_node("Clara").get_node("Virtual").show()
 		get_node("Floor").get_node("Clara").get_node("Padrao").hide()
 		GlobalValues.nameChar = "Clara"
 		GlobalValues.skinChar = "Normal"
+		WhiteTransition.start_transition("fadein")
 		yield(get_tree().create_timer(2),"timeout")
-		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+		var _play: bool = get_tree().change_scene(sceneGame)
 	if id == 2:
 		get_node("Floor").get_node("Caio").get_node("Virtual").show()
 		get_node("Floor").get_node("Caio").get_node("Padrao").hide()
 		GlobalValues.nameChar = "Caio"
 		GlobalValues.skinChar = "Normal"
+		WhiteTransition.start_transition("fadein")
 		yield(get_tree().create_timer(2),"timeout")
-		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+		var _play: bool = get_tree().change_scene(sceneGame)
 	if id == 3:
 		get_node("Floor").get_node("Yara").get_node("Virtual").show()
 		get_node("Floor").get_node("Yara").get_node("Padrao").hide()
 		GlobalValues.nameChar = "Yara"
 		GlobalValues.skinChar = "Normal"
+		WhiteTransition.start_transition("fadein")
 		yield(get_tree().create_timer(2),"timeout")
-		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+		var _play: bool = get_tree().change_scene(sceneGame)
 	if id == 4:
 		get_node("Floor").get_node("Ariel").get_node("Virtual").show()
 		get_node("Floor").get_node("Ariel").get_node("Padrao").hide()
 		GlobalValues.nameChar = "Ariel"
 		GlobalValues.skinChar = "Normal"
+		WhiteTransition.start_transition("fadein")
 		yield(get_tree().create_timer(2),"timeout")
-		var _play: bool = get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
+		var _play: bool = get_tree().change_scene(sceneGame)
 
 func _on_ButtonLeft_pressed():
 	Fmod.play_one_shot("event:/SFX/Menu/Botões_EscolhadePersoangem", self)

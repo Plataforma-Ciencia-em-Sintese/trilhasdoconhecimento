@@ -4,15 +4,15 @@ export (NodePath) var animationTree
 export (float) var speed = 1
 export (String, "idle", "walk","moving around") var states
 var start : bool = true
+var lockMovingArround : bool = false
 var changeAnimMvgAround : int = 0
 
 func _physics_process(delta):
 	if is_visible_in_tree():
-		owner.offset += speed * delta
 		if start:
+			owner.offset += speed * delta
 			state_npc(states)
-			start = false
-			
+
 func state_npc(value):
 	randomize()
 	
@@ -20,11 +20,14 @@ func state_npc(value):
 		get_node(animationTree).get("parameters/moving/playback").travel("Idle")
 	elif value == "walk":
 		get_node(animationTree).get("parameters/moving/playback").travel("Walk")
-	elif value == "moving around":
-		get_node(animationTree).get("parameters/moving/playback").travel("Walk")
 		speed = 1
-		$Timer.wait_time = rand_range(1,2)
-		$Timer.start()
+	elif value == "moving around":
+		if !lockMovingArround:
+			get_node(animationTree).get("parameters/moving/playback").travel("Idle")
+			$Timer.wait_time = rand_range(1,2)
+			$Timer.start()
+			speed = 0
+			lockMovingArround = true
 		
 func _on_Timer_timeout():
 	randomize()
@@ -34,6 +37,8 @@ func _on_Timer_timeout():
 	if changeAnimMvgAround == 0:
 		get_node(animationTree).get("parameters/moving/playback").travel("Walk")
 		speed = 1
+		start = true
 	elif changeAnimMvgAround == 1:
 		get_node(animationTree).get("parameters/moving/playback").travel("Idle")
 		speed = 0
+		start = false

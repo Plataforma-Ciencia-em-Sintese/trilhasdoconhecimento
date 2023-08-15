@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692037013.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "\"AHDX SDEF OPSDF XADEEAD.\"\nRecebemos isso vindo direto do Ciberespaço, mas não fazemos idéia do que pode ser.\nSerá algum tipo de mensagem oculta?"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692037701.json",
+		"name": "Yoga"
+	}
+}

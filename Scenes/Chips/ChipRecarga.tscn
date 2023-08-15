@@ -1,7 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/Chips/Chip.gd" type="Script" id=1]
-
-[node name="Recarga" type="Spatial"]
-script = ExtResource( 1 )
-energyBoost = 6
+version https://git-lfs.github.com/spec/v1
+oid sha256:f504a01961df078fa83930dbb63a0f03768acf75cd7646fc21c64888a1852fb7
+size 182

@@ -6,6 +6,9 @@ var enemyResource
 var clicked = false
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 
+# Resource contendo os efeitos sonoros do inventario
+export (Resource) var sfxResource
+
 func _ready():
 	get_enemy(enemyType)
 	enemyResource = load("res://Scenes/Enemies/Normals/Resource Enemy/" + enemyType + ".tres")
@@ -17,6 +20,11 @@ func _ready():
 	$States/Move.speed = enemyResource.speed
 	$States/Battling.distanceToStop = enemyResource.distanceToStop
 	
+	if enemyResource.showPatrolArea:
+		$Enemy/Looking_Zone/Zone.show()
+	else:
+		$Enemy/Looking_Zone/Zone.hide()
+		
 	$Enemy/Looking_Zone/CollisionShape.shape.radius = enemyResource.lookingArea
 	$Enemy/Looking_Zone/Zone.scale = Vector3(enemyResource.lookingArea,0,enemyResource.lookingArea)
 	

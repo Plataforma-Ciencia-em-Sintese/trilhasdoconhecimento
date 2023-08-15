@@ -1,6 +1,7 @@
 extends Resource
 class_name ConsumValues
 
+export (bool) var unlocked
 var type = "Consum"
 export (Texture) var icon
 export (String) var name = ""

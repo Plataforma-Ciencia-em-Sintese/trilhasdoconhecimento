@@ -3,5 +3,7 @@
 [ext_resource path="res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 12
+size = 22
+outline_size = 5
+outline_color = Color( 0.0196078, 0.0392157, 0.168627, 1 )
 font_data = ExtResource( 1 )

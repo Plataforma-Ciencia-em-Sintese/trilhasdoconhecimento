@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Quest Manager/Script/Quest_Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Chips/Chip_Conexao.tres" type="Resource" id=2]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Weapons/Varinha.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/Item/Quest to Scene/Item_Quest_01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Consums/Orbe_Escudo.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+title = "ENCONTRE O TELESCÓPIO NO CIBERESPAÇO!"
+description = "Um dos maiores cientistas da história precisa recuperar seu telescópio de volta para poder explorar e descobrir novos mundos. Pode ajudá-lo com isso?"
+actors = {
+"Galileu": "Quest_01_Galileu",
+"Jorge": "Quest_01_Jorge"
+}
+rewards = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ) ]
+xpQuest = 15.0
+itemConfigs = "PRESETE AS CONFIGS DO ITEM APENAS SE NESSA QUEST DEVE SER PEGO ITENS. QUEM CONTROLA QUANDO O O ITEM SERÁ CRIADO É O SCRIPT GLOBAL_QUEST COM O SCRIPT LOCAL DA CENA."
+itemToGetScene = ExtResource( 4 )
+winTxtToItem = "Você recuperou o telescópio! Agora entregue a Galileu!"
+sceneToCreateItem = "Cyberspace"

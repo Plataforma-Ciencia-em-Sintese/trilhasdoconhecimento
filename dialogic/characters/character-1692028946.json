@@ -1,0 +1,21 @@
+{
+	"color": "#ff2f0000",
+	"description": "",
+	"display_name": "Pesquisador Juliano",
+	"display_name_bool": true,
+	"id": "character-1692028946.json",
+	"mirror_portraits": false,
+	"name": "Juliano",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": "theme-1689971672.cfg"
+}

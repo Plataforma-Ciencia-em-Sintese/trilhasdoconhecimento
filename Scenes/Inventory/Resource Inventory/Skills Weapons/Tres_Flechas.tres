@@ -5,9 +5,12 @@
 
 [resource]
 script = ExtResource( 1 )
+unlocked = false
+hasShowed = false
+name = "3 Flechas"
 icon = ExtResource( 2 )
 sceneSkill = ""
-levelToUnlock = 0.0
+levelToUnlock = 3.0
 numBoost = 0
 denBoost = 0
 energyCost = 0.0

@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692036992.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Os dados que coletamos possuem informações valiosas a respeito do Ciberespaço.\nCom ele conseguimos saber e até deduzire em algo que não precisamos nos arriscar tanto.\nA exploração em outros planetas como Marte faz a mesma coisa com Robôs."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692037604.json",
+		"name": "Rafael"
+	}
+}

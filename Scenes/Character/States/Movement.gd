@@ -7,41 +7,25 @@ var speedWalkChoosed
 var speedRunChoosed
 
 # Declara quem e o node de navegacao
-var navAgent: NavigationAgent
+onready var navAgent: NavigationAgent = owner.get_node("NavigationAgent")
 
 # Declara quem e o node do player
-var player: KinematicBody
+onready var player: KinematicBody = owner
 
 # Declara quem e o node de animacao
-var animator: AnimationTree
+onready var animator: AnimationTree = owner.get_node("AnimationTree")
 
 # Declara quem e o node do corpo do player
-var base: Spatial
+onready var base: Spatial = owner.get_node("Base")
 
 # Declara quem e o alvo a ser seguido (no caso o marcador de posicao)
-var target: Object
+onready var target: Node = get_tree().get_nodes_in_group("Pointer")[0]
 
 # Serve para saber se o player anda com 1 click e 2 correr
 var animationType : int = 0
 var clickCount : int = 2
 
 func _ready():
-	# Identifica quem é o alvo a ser seguido
-	# Caso encontre o primeiro elemento encontrado sera o alvo
-	target = get_tree().get_nodes_in_group("Pointer")[0]
-	
-	# Identifica quem é o node de navegacao dentro da cena
-	navAgent = owner.get_node("NavigationAgent")
-	
-	# Identifica o AnimationTree do player
-	animator = owner.get_node("AnimationTree")
-	
-	# Identifica o node base do player que contem os bones
-	base = owner.get_node("Base")
-	
-	# Identifica o KinematicBody do player
-	player = owner
-	
 	# Conecta o signal que calcula a velocidade para desviar de obstaculos moveis
 	navAgent.connect("velocity_computed",self, "_on_velocity_computed")
 	
@@ -108,7 +92,7 @@ func _on_NavTimer_timeout():
 
 func step_sound():
 	# Verifica se ha resource de som para tocar o som de acordo com a chave do dicionario
-	if owner.soundResource != null:
-		if owner.soundResource.sfx["Passos"]:
-			Fmod.play_one_shot(owner.soundResource.sfx["Passos"] ,self)
+	if owner.sfxResource != null:
+		if owner.sfxResource.sfx["Passos"]:
+			Fmod.play_one_shot(owner.sfxResource.sfx["Passos"] ,self)
 	

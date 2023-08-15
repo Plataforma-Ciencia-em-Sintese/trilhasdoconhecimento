@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "NPC Generico",
+	"display_name": "Pesquisador Hugo",
+	"display_name_bool": true,
+	"id": "character-1691994096.json",
+	"mirror_portraits": false,
+	"name": "Hugo",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": "theme-1689971672.cfg"
+}

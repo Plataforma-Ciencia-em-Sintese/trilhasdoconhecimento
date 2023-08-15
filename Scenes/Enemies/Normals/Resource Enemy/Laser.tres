@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource( 1 )
-atkValue = 1.0
+atkValue = 2.0
 haveCooldown = false
 cooldown = 3.0
 speed = 2.0
-life = 30.0
+life = 20.0
 timeToPursuitPlayer = 3.0
 distanceToStop = 4.0
-showPatrolArea = true
+showPatrolArea = false
 lookingArea = 6.0
-showHitbox = true
+showHitbox = false
 hitboxSize = 6.0

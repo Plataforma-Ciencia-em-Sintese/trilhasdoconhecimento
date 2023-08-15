@@ -14,6 +14,48 @@
 			"name": "Ajude Galileu",
 			"type": 0,
 			"value": "disabled"
+		},
+		{
+			"id": "1691780667-648",
+			"name": "connection",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1691794863-366",
+			"name": "Quest_03_Status",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1691786016-787",
+			"name": "Quest_03_Values",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1691551620-787",
+			"name": "Quest_02_Values",
+			"type": 0,
+			"value": "3"
+		},
+		{
+			"id": "1691550926-648",
+			"name": "Quest_02_Status",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1691987794-787",
+			"name": "Quest_01_Values",
+			"type": 0,
+			"value": "1"
+		},
+		{
+			"id": "1691541665-648",
+			"name": "Quest_01_Status",
+			"type": 0,
+			"value": ""
 		}
 	]
 }

@@ -1,56 +1,68 @@
 extends CanvasLayer
 
-onready var invent = get_tree().get_nodes_in_group("Inventory")[0]
-onready var player = get_tree().get_nodes_in_group("Player")[0]
-onready var atkButtons
-var progressiveDamage = false
+onready var invent : Node = get_tree().get_nodes_in_group("Inventory")[0]
+onready var player : Node = get_tree().get_nodes_in_group("Player")[0]
+var progressiveDamage : bool = false
 
 func _ready():
+	# Conecta ao signal do script global do xp
+	GlobalXp.connect("xp",self,"set_xp")
+	GlobalAdmLifeEnergy.connect("setLife",self,"set_life")
+	GlobalAdmLifeEnergy.connect("setEnergy",self,"set_energy")
 	$Hud_XP/XP_Bar.value = GlobalValues.xpActual
-	$Hud_XP/XP_Bar/TXT_Level.text = "Level " + str(GlobalValues.levelPlayer)
-	atkButtons = get_tree().get_nodes_in_group("ATKButton")
+	$Hud_XP/XP_Bar/TXT_Level.text = "LVL | " + str(GlobalValues.levelPlayer)
 
-func grow_lvl():
-	atkButtons = get_tree().get_nodes_in_group("ATKButton")
-	GlobalValues.levelPlayer += 1
-	$Hud_XP/XP_Bar/TXT_Level.text = "Level " + str(GlobalValues.levelPlayer)
-	$Hud_XP/XP_Bar.value = 0
-	for i in atkButtons.size():
-		atkButtons[i].check_lvl()
-
-func _on_XP_Bar_value_changed(value):
-	GlobalValues.xpActual = value
-	if value >= 100:
-		grow_lvl()
-
-func _physics_process(_delta):
-	if Input.is_action_pressed("ui_select"):
-		$Hud_XP/XP_Bar.value += 1
-	
-	if progressiveDamage:
-		set_life(-2 * _delta)
-
+# Preseta a vida do jogador vindo de danos em geral
 func set_life(value):
-	GlobalValues.lifeActual += value
-	player.change_only_bar_value("Life")
+	$Life_Bar.value += value
+	if value < $Life_Bar.value:
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["PersonagemDanoGeral"])
 	
 	if $Life_Bar.value <= 0:
 		player.get_node("States/Move").hide()
 		player.get_node("States/Talking").show()
 		player.get_node("States/Battling").end_fight()
 		player.get_node("States/Battling").hide()
+		GlobalMusicPlayer.play_sound("play_one",owner.sfxResource.sfx["PersonagemMorreGeral"])
 		player.hide()
-
+		WhiteTransition.start_transition("fadein")
+		yield(get_tree().create_timer(1),"timeout")
+		get_tree().reload_current_scene()
+		
+		
+# Preseta a energia do jogador vindo de consumiveis
 func set_energy(value):
-	GlobalValues.energyActual += value
-	player.change_only_bar_value("Energy")
+	$Energy_Bar.value += value
 
-
-func _on_BT_HideXP_pressed():
-	$Cartao_Hud.show()
-	$Hud_XP.hide()
+# Seta o xp geral 
+# Signal vem do script global chamado por qlqr objeto
+func set_xp(value):
+	var remain = GlobalValues.xpActual + value
+	if remain > $Hud_XP/XP_Bar.max_value:
+		var result = remain - $Hud_XP/XP_Bar.max_value
+		GlobalValues.xpActual = result
+		GlobalValues.levelPlayer += 1
+		GlobalXp.unlock_skill()
+		$Hud_XP/XP_Bar.value = result
+		$Hud_XP/XP_Bar/TXT_Level.text = "LVL |" + str(GlobalValues.levelPlayer)
+	elif remain == $Hud_XP/XP_Bar.max_value:
+		GlobalValues.xpActual = 0
+		GlobalValues.levelPlayer += 1
+		GlobalXp.unlock_skill()
+		$Hud_XP/XP_Bar.value = 0
+		$Hud_XP/XP_Bar/TXT_Level.text = "LVL |" + str(GlobalValues.levelPlayer)
+	elif remain < $Hud_XP/XP_Bar.max_value:
+		GlobalValues.xpActual += value
+		$Hud_XP/XP_Bar.value = GlobalValues.xpActual
+	
+	print("lvl - " + str(GlobalValues.levelPlayer))
+	print("xp - " + str(GlobalValues.xpActual))
 
 
 func _on_BT_ShowXP_pressed():
-	$Hud_XP.show()
 	$Cartao_Hud.hide()
+	$Hud_XP.show()
+
+func _on_BT_HideXP_pressed():
+	$Hud_XP.hide()
+	$Cartao_Hud.show()

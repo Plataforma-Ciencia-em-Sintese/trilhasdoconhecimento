@@ -1,0 +1,61 @@
+{
+	"events": [
+		{
+			"character": "character-1692036942.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hmm...\nHey! Olá, tudo bem?"
+		},
+		{
+			"character": "character-1692036942.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "você conhece uma ferramenta chamada GODOT?"
+		},
+		{
+			"choice": "Sim!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1692036942.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Que legal! O godot é uma ferramenta maravilhosa.\nDepois vamos conversar mais sobre ela ok?"
+		},
+		{
+			"choice": "Nunca ouvi falar",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1692036942.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "O Godot é um motor de jogo de código aberto publicado no âmbito da licença MIT desenvolvido por sua própria comunidade. \nFoi usado internamente em várias empresas da América Latina antes de ter se tornado código aberto e lançado para o público. \nTem a capacidade de exportar os projetos para diversas plataformas, e criar jogos e apps com ela.\nBem legal né?"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692036936.json",
+		"name": "Lucas"
+	}
+}

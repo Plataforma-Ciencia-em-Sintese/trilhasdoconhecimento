@@ -1,0 +1,149 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1691550926-648",
+			"event_id": "dialogic_012",
+			"value": ""
+		},
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Opa, preciso de ajuda:"
+		},
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Perdi 3 itens do meu laboratorio, voce poderia ir buscá-los pra mim?"
+		},
+		{
+			"choice": "Claro!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Valeu ferinha! Encontre em algum lugar esses itens e volte pra me devolver."
+		},
+		{
+			"definition": "1691550926-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "active"
+		},
+		{
+			"emit_signal": "start_quest_with_item",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"choice": "Nem pensar!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tudo bem, vou pedir ajuda pra outra pessoa."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1691550926-648",
+			"event_id": "dialogic_012",
+			"value": "active"
+		},
+		{
+			"condition": "<=",
+			"definition": "1691551620-787",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "AHAHA!\nAchou todos bro! Maneiro demais...\nTome, isso é seu por me ajudar valeu?"
+		},
+		{
+			"emit_signal": "give_reward",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": ">",
+			"definition": "1691551620-787",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1691544298.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Procura mais, você já já acha eles."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691559162.json",
+		"name": "Quest_02_Daniel"
+	}
+}

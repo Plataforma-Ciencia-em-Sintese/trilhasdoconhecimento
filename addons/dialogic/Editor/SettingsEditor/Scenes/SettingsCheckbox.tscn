@@ -1,12 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.gd" type="Script" id=1]
-
-[node name="SettingsCheckbox" type="HBoxContainer"]
-size_flags_horizontal = 3
-script = ExtResource( 1 )
-
-[node name="CheckBox" type="CheckBox" parent="."]
-margin_right = 24.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf2dc1931382bc527247b6f9bfbd7f2d035228fe1d2569f45d1a9216a623702e
+size 381

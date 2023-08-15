@@ -1,13 +1,3 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.gd" type="Script" id=1]
-
-[node name="Label" type="Label"]
-margin_top = 4.0
-margin_right = 78.0
-margin_bottom = 18.0
-text = "with portrait"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ab2675965e0a09c06dc8f95ca38f1a01e0c89753d64b628b99d563a8077ecff
+size 332

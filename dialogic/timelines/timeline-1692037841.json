@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692037030.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "E ai tudo ok?\nEstou trabalhando sem parar, são muitos dados para coletar.\nSem o tratamento ideal de informações, podemos nos enganar e viver sob um mundo de mentiras.\nIrei lutar com todas as minhas forças para que isso não aconteça, por isso com licença, não posso parar."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692037841.json",
+		"name": "Ronnie"
+	}
+}

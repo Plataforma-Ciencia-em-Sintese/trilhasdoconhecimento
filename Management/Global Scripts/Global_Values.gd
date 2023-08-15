@@ -27,3 +27,7 @@ var atkSecActual : float = 0.0
 var speedActual : float = 0.0
 var lifeActual : float = 0.0
 var energyActual : float = 0.0
+
+
+
+

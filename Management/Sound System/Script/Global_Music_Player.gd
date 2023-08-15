@@ -1,6 +1,8 @@
 extends Node
 
 var musicResource : Resource = preload("res://Management/Sound System/Music Controllers/Music_Controller.tres")
+# Identifica quem a musica tema atual tocada
+var mainMusic : String
 
 func play_sound(event,value):
 	if event == "start_event":

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Quest Manager/Script/Quest_Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Item/Quest to Scene/Item_Quest_02.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Inventory/Resource Inventory/Weapons/Espada.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+title = "Pegar itens"
+description = "Colete os itens da fase"
+actors = {
+"Daniel": "Quest_02_Daniel"
+}
+rewards = [ ExtResource( 3 ) ]
+xpQuest = 15.0
+itemConfigs = "PRESETE AS CONFIGS DO ITEM APENAS SE NESSA QUEST DEVE SER PEGO ITENS. QUEM CONTROLA QUANDO O O ITEM SERÁ CRIADO É O SCRIPT GLOBAL_QUEST COM O SCRIPT LOCAL DA CENA."
+itemToGetScene = ExtResource( 2 )
+winTxtToItem = "Parabens, jogo completo!"
+sceneToCreateItem = "New_Debug_Room_2"

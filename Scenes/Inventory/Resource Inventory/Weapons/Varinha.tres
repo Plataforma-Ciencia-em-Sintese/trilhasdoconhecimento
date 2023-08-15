@@ -7,9 +7,10 @@
 
 [resource]
 script = ExtResource( 1 )
+unlocked = false
 icon = ExtResource( 3 )
 name = "Varinha"
-description = "Varinha super forte destruidora de tudo!!"
+description = "Varinha super forte."
 lifeOperation = "-"
 numLife = 1
 denLife = 3

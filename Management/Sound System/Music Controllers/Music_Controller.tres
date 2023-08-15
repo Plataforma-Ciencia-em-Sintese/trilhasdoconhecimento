@@ -7,10 +7,14 @@ script = ExtResource( 1 )
 music = {
 "Alan": "alanTuring",
 "Ambience1": "ambience1",
+"Cyberspace": "csAmbience",
 "Galileu": "galileuGalilei",
+"InfoPanel": "marieCurie",
 "InicializandoProjetor": "iniProjetor",
 "Isaac": "isaacNewton",
+"Jorge": "isaacNewton",
 "Marie": "marieCurie",
+"MissionCompleted": "isaacNewton",
 "Oswaldo": "oswaldoCruz",
 "PrimeiroNivel": "mainMusic",
 "Robert": "robertBoyle"

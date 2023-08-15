@@ -27,6 +27,10 @@ onready var rootSecWeaponInGame: Node = owner.get_node("Battle_UI/Sec_Container/
 onready var rootMainSkillsInGame: Node = owner.get_node("Battle_UI/Main_Container/Skills_Main")
 onready var rootSecSkillsInGame: Node = owner.get_node("Battle_UI/Sec_Container/Skills_Sec")
 
+# Barras de vida e energia do jogo
+onready var energyBarGame : Node = owner.get_node("Status/Energy_Bar")
+onready var lifeBarGame : Node = owner.get_node("Status/Life_Bar")
+
 #Coleta o node tablet no jogo
 onready var tabletInfo : Node = owner.get_node("TabletInformation/PanelTablet")
 
@@ -52,6 +56,9 @@ onready var officialBarEnergy : Node = $BG_Inventory/Info_BG/Status_Container/En
 onready var officialBarATKMain : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Main/BG_Bar/Bar
 onready var officialBarATKSec : Node = $BG_Inventory/Info_BG/Status_Container/ATK_Sec/BG_Bar/Bar
 onready var officialBarSpeed : Node = $BG_Inventory/Info_BG/Status_Container/Speed_Run/BG_Bar/Bar
+
+# Identifica o root do texto contador de consumiveis
+onready var itemQuantBG : Node = $BG_Inventory/Description_Item/BG_Quant
 
 # identifica os scripts de valores dos itens
 # todas devem ficar na pasta do caminho especificado alem do mesmo nome das armas
@@ -86,54 +93,24 @@ var tempATKSec : float = 0
 var tempSpeed : float = 0
 
 func _ready():
-	# Deleta os itens quando iniciar uma nova cena
-	delete_itens()
+	# Passa a info de quem e o inventario quando essa cena for carregada
+	GlobalAdmItens.inventoryNode = self
 	# Esconde a descriçao do item
 	hide_show_item_desc(false)
-	# Acessa a pasta contendo os arquivos de valores .tres
-	# Com o loop para cada arquivo, sera criado um botao com as informacoes do item
-	var allWeapons = get_files_in_directory(weaponsResourcePath)
-	for i in allWeapons.size():
-		# Cria uma nova instancia
-		var weaponBTN = btnInventory.instance()
-		# Acessa a resource da variavel
-		var weaponResource = allWeapons[i]
-		# Passa a resource para o botao trabalhar com os valores quando clicado
-		weaponBTN.buttonResource = weaponResource
-		weaponBTN.connect("change_item",self,"preview_item")
-		# Carrega o icone no botao
-		weaponBTN.icon = weaponResource.icon
-		# Add no root node do item
-		rootWeaponsInventory.add_child(weaponBTN)
-	
-	var allChips = get_files_in_directory(chipsResourcePath)
-	for i in allChips.size():
-		# Cria uma nova instancia
-		var chipBTN = btnInventory.instance()
-		# Acessa a resource da variavel
-		var chipResource = allChips[i]
-		# Passa a resource para o botao trabalhar com os valores quando clicado
-		chipBTN.buttonResource = chipResource
-		chipBTN.connect("change_item",self,"preview_item")
-		# Carrega o icone no botao
-		chipBTN.icon = chipResource.icon
-		# Add no root node do item
-		rootChipsInventory.add_child(chipBTN)
-	
-	var allConsums = get_files_in_directory(consumsResourcePath)
-	for i in allConsums.size():
-		if allConsums[i].quant > 0:
-			# Cria uma nova instancia
-			var consumBTN = btnInventory.instance()
-			# Acessa a resource da variavel
-			var consumResource = allConsums[i]
-			# Passa a resource para o botao trabalhar com os valores quando clicado
-			consumBTN.buttonResource = consumResource
-			consumBTN.connect("change_item",self,"preview_item")
-			# Carrega o icone no botao
-			consumBTN.icon = consumResource.icon
-			# Add no root node do item
-			rootConsumsInventory.add_child(consumBTN)
+	# Esconde o contador de itens
+	itemQuantBG.hide()
+	# Limpa o inventario e add os itens ja desbloqueados
+	# Yield e para dar tempo do node player ser criado e depois a arma ser criada
+	yield(get_tree().create_timer(0.1),"timeout")
+	# Cria os itens do inventario
+	delete_itens()
+	start_inventory()
+	# Seta as informacoes presentes na UI do inventario
+	show_or_hide_informations("Life","Hide")
+	show_or_hide_informations("Energy","Hide")
+	show_or_hide_informations("Speed","Hide")
+	show_or_hide_informations("ATKMain","Hide")
+	show_or_hide_informations("ATKSec","Hide")
 
 func get_files_in_directory(path):
 	# funcao que acessa a pasta especificada e coleta todos os .tres ja carregados
@@ -153,6 +130,12 @@ func get_files_in_directory(path):
 	return files
 
 func preview_item(obj):
+	# Reseta os valores dos calculos anteriores
+	tempLife = 0
+	tempEnergy = 0
+	tempSpeed = 0
+	tempATKMain = 0
+	tempATKSec = 0
 	# Quando algum botao for pressionado,o sistema armazena antes os valores pra depois aplicar
 	objectButton = obj
 	resourceFromButton = obj.buttonResource
@@ -165,7 +148,8 @@ func preview_item(obj):
 	
 	# Compara o tipo da resource
 	if resourceFromButton.type == "Weapon":
-		play_sfx("play_one",sfxResource.sfx["SelecionarItemArma"])
+		itemQuantBG.hide()
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["SelecionarItemArma"])
 		if !obj.isEquiped:
 			# Realiza o calculo da arma e informa se e primaria ou secundaria
 			if rootMainWeapon.get_child_count() <= 0:
@@ -207,7 +191,8 @@ func preview_item(obj):
 		else:
 			show_or_hide_informations("Speed","Hide")
 	elif resourceFromButton.type == "Chip":
-		play_sfx("play_one",sfxResource.sfx["SelecionarItemChipMelhoria"])
+		itemQuantBG.hide()
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["SelecionarItemChipMelhoria"])
 		# Se o chip estiver equipado soma, senao subtrai o valor
 		if !obj.isEquiped:
 			get_chips_calculation(1)
@@ -237,7 +222,9 @@ func preview_item(obj):
 		else:
 			show_or_hide_informations("Speed","Hide")
 	elif resourceFromButton.type == "Consum":
-		play_sfx("play_one",sfxResource.sfx["SelecionarItemConsumivel"])
+		itemQuantBG.show()
+		itemQuantBG.get_node("Item_Quant").text = "X" + str(resourceFromButton.quant)
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["SelecionarItemConsumivel"])
 		show_or_hide_informations("ATKMain","Hide")
 		show_or_hide_informations("ATKSec","Hide")
 		show_or_hide_informations("Life","Hide")
@@ -256,10 +243,10 @@ func _on_BT_Equip_pressed():
 	# Esconde a descriçao dos itens
 	hide_show_item_desc(false)
 	if deleteOrAddButton == "Equipar":
-		set_itens()
+		set_itens(resourceFromButton)
 	else:
 		delete_itens()
-		play_sfx("play_one",sfxResource.sfx["BotaoLimpar"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["BotaoLimpar"])
 	
 	# Preseta os valores pro script global
 	# Todos veem prontos independente da operacao remover ou add novo item
@@ -284,33 +271,40 @@ func _on_BT_Equip_pressed():
 	show_or_hide_informations("Speed","Hide")
 	show_or_hide_informations("ATKMain","Hide")
 	show_or_hide_informations("ATKSec","Hide")
+	
+	resourceFromButton = null
+	itemQuantBG.hide()
 
-func set_itens():
+func set_itens(res):
 	# Add botao inventario
 	# Passa as informacoes padrao do item como icone e resource
 	# Conecta o mesmo signal de quando foi criado para o inventario receber resposta
 	var itemBTN = btnInventory.instance()
-	itemBTN.buttonResource = resourceFromButton
-	itemBTN.icon = resourceFromButton.icon
+	itemBTN.buttonResource = res
+	itemBTN.icon = res.icon
 	itemBTN.isEquiped = true
 	itemBTN.connect("change_item",self,"preview_item")
 	# Esconde o botao do inventario
 	objectButton.hide()
 	# Classifica os itens e executa a acao de acordo com o tipo
-	if resourceFromButton.type == "Weapon":
+	if res.type == "Weapon":
+		# Ativa o botao de fechar novamente
+		$BG_Inventory/BT_Close.show()
 		# Add botao ingame
 		# O proprio botao le e preseta as informacoes como icone
 		var inGameBTN = btnInGame.instance()
-		inGameBTN.buttonResource = resourceFromButton
+		inGameBTN.buttonResource = res
 		# O novo botao recebe sua referencia no inventario
 		itemBTN.btnLinked = objectButton
 		# Altera a arma da mao do jogador
-		player.change_weapons(resourceFromButton.name)
+		player.change_weapons(res.name)
 		# Toca o sfx correspondente
-		play_sfx("play_one",sfxResource.sfx["EquiparItemArma"])
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["EquiparItemArma"])
 		#---------------------------
 		# Se nao tem arma main
 		if rootMainWeapon.get_child_count() <= 0:
+			# Main gun setada
+			player.mainGun = res.name
 			# Ordem da arma
 			itemBTN.weaponOrder = "Main"
 			# Arma equipada invent
@@ -318,19 +312,25 @@ func set_itens():
 			# Arma equipada in game
 			rootMainWeaponInGame.add_child(inGameBTN)
 			# Cria uma nova imagem dinamicamente para representar as skills das armas
-			for i in resourceFromButton.skillsInOrder.size():
+			for i in res.skillsInOrder.size():
 				# Add imagem pro inventario
 				var img = TextureRect.new()
-				img.texture = resourceFromButton.skillsInOrder[i].icon
+				img.texture = res.skillsInOrder[i].icon
 				img.expand = true
+				img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 				img.size_flags_horizontal += TextureRect.SIZE_EXPAND
 				img.size_flags_vertical += TextureRect.SIZE_EXPAND
 				rootSkillMain.add_child(img)
 				# Add botao na cena In game
 				var btn = btnInGame.instance()
-				btn.buttonResource = resourceFromButton.skillsInOrder[i]
+				btn.buttonResource = res.skillsInOrder[i]
 				rootMainSkillsInGame.add_child(btn)
+				btn.btnRefSkill = img
+				if GlobalValues.levelPlayer < res.skillsInOrder[i].levelToUnlock:
+					img.hide()
 		else:
+			# Sec gun setada
+			player.secGun = res.name
 			# Ordem da arma
 			itemBTN.weaponOrder = "Sec"
 			# Arma equipada invent
@@ -338,28 +338,32 @@ func set_itens():
 			# Arma equipada in game
 			rootSecWeaponInGame.add_child(inGameBTN)
 			# Cria uma nova imagem dinamicamente para representar as skills das armas
-			for i in resourceFromButton.skillsInOrder.size():
+			for i in res.skillsInOrder.size():
 				# Add imagem pro inventario
 				var img = TextureRect.new()
-				img.texture = resourceFromButton.skillsInOrder[i].icon
+				img.texture = res.skillsInOrder[i].icon
 				img.expand = true
+				img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 				img.size_flags_horizontal += TextureRect.SIZE_EXPAND
 				img.size_flags_vertical += TextureRect.SIZE_EXPAND
 				rootSkillSec.add_child(img)
 				# Add botao na cena In game
 				var btn = btnInGame.instance()
-				btn.buttonResource = resourceFromButton.skillsInOrder[i]
+				btn.buttonResource = res.skillsInOrder[i]
 				rootSecSkillsInGame.add_child(btn)
-	elif resourceFromButton.type == "Chip":
+				btn.btnRefSkill = img
+				if GlobalValues.levelPlayer < res.skillsInOrder[i].levelToUnlock:
+					img.hide()
+	elif res.type == "Chip":
 		itemBTN.btnLinked = objectButton
 		rootChipsEquiped.add_child(itemBTN)
 		# Toca o sfx correspondente
-		play_sfx("play_one",sfxResource.sfx["EquiparItemChipMelhoria"])
-	elif resourceFromButton.type == "Consum":
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["EquiparItemChipMelhoria"])
+	elif res.type == "Consum":
 		# Add botao ingame
 		# O proprio botao le e preseta as informacoes como icone
 		var inGameBTN = btnInGame.instance()
-		inGameBTN.buttonResource = resourceFromButton
+		inGameBTN.buttonResource = res
 		# O novo botao recebe sua referencia no inventario
 		itemBTN.btnLinked = objectButton
 		itemBTN.btnConsumLinked = inGameBTN
@@ -367,8 +371,10 @@ func set_itens():
 		rootConsumsEquiped.add_child(itemBTN)
 		rootConsumsInGame.add_child(inGameBTN)
 		# Toca o sfx correspondente
-		play_sfx("play_one",sfxResource.sfx["EquiparItemConsumivel"])
-		
+		GlobalMusicPlayer.play_sound("play_one",sfxResource.sfx["EquiparItemConsumivel"])
+	
+	resourceFromButton = null
+
 func delete_itens():
 	# Se a funcao e chamada de algum botao
 	if resourceFromButton != null:
@@ -384,6 +390,8 @@ func delete_itens():
 				for i in rootSkillMain.get_child_count():
 					rootSkillMain.get_child(i).queue_free()
 					rootMainSkillsInGame.get_child(i).queue_free()
+					
+					player.mainGun = ""
 			else:
 				rootSecWeapon.get_child(0).queue_free()
 				rootSecWeaponInGame.get_child(0).queue_free()
@@ -391,18 +399,27 @@ func delete_itens():
 				for i in rootSkillSec.get_child_count():
 					rootSkillSec.get_child(i).queue_free()
 					rootSecSkillsInGame.get_child(i).queue_free()
+				
+				player.secGun = ""
 		elif resourceFromButton.type == "Chip":
 			objectButton.queue_free()
 		elif resourceFromButton.type == "Consum":
 			objectButton.btnConsumLinked.queue_free()
 			objectButton.queue_free()
+		
+		if player.mainGun == "" and player.secGun == "":
+			$BG_Inventory/BT_Close.hide()
 	else:
 		# Se a funcao e chamada sozinha, destroi todos os childs dos roots
+		# Usada no inicio do jogo apenas
 		for i in rootMainWeapon.get_child_count():
 			rootMainWeapon.get_child(0).queue_free()
 		
 		for i in rootMainWeaponInGame.get_child_count():
 			rootMainWeaponInGame.get_child(0).queue_free()
+		
+		for i in rootWeaponsInventory.get_child_count():
+			rootWeaponsInventory.get_child(i).queue_free()
 		
 		for i in rootSecWeapon.get_child_count():
 			rootSecWeapon.get_child(0).queue_free()
@@ -433,10 +450,40 @@ func delete_itens():
 			
 		for i in rootConsumsInGame.get_child_count():
 			rootConsumsInGame.get_child(i).queue_free()
+		
+		for i in rootConsumsInventory.get_child_count():
+			rootConsumsInventory.get_child(i).queue_free()
+
+func delete_itens_to_rewards():
+	# Essa funçao e chamada apenas quando recebe um item
+	# Deleta apenas os itens de mostruario e mantem os que o player ja equipou
+	for i in rootWeaponsInventory.get_child_count():
+		rootWeaponsInventory.get_child(i).queue_free()
+	
+	for i in rootChipsInventory.get_child_count():
+		rootChipsInventory.get_child(i).queue_free()
+	
+	for i in rootConsumsInventory.get_child_count():
+		rootConsumsInventory.get_child(i).queue_free()
 
 func _on_BT_Close_pressed():
+	resourceFromButton = null
 	$BG_Inventory.hide()
 	tabletInfo.show()
+	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
+	
+func _on_Panel_exit_pressed():
+	resourceFromButton = null
+	$BG_Inventory.hide()
+	tabletInfo.show()
+	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
+	
+func _on_BT_Voltar_pressed():
+	resourceFromButton = null
+	$BG_Inventory.hide()
+	$BG_Inventory/Preview_Player_Viewport/Viewport/Char_Inventory.hide()
+	owner.get_node("TabletInformation/PanelTablet").show()
+	
 
 func get_weapons_calculation(type,operation):
 	# Realiza os calculos de fracao de acordo com os valores dados pela Resource da arma
@@ -542,158 +589,317 @@ func show_or_hide_informations(info,status):
 	if info == "Life":
 		if status == "Show":
 			previewBarLife.show()
-			previewBarLife.value = tempLife
-			officialBarLife.value = tempLife
+			officialBarLife.hide()
+			lifeBarGame.max_value = tempLife
+			
+			#Normaliza o valor max da barra caso clique em outro item seguido
+			if GlobalValues.lifeActual >= GlobalValues.life:
+				previewBarLife.max_value = GlobalValues.lifeActual
+				officialBarLife.max_value = GlobalValues.lifeActual
+			else:
+				previewBarLife.max_value = GlobalValues.life
+				officialBarLife.max_value = GlobalValues.life
+			#Depois compara se o valor vindo de temp e maior ou menor que o max da barra
+			# Seta o valor max de acordo com a comparacao do valor base do atributo
+			if tempLife > officialBarLife.max_value:
+				previewBarLife.max_value = tempLife
+				officialBarLife.max_value = tempLife
+				previewBarLife.value = tempLife
+				officialBarLife.value = tempLife
+			else:
+				previewBarLife.value = tempLife
+				officialBarLife.value = tempLife
+			
 			previewTxtLife.text = "Vida | " + str(tempLife)
 			
 			if GlobalValues.lifeActual <= 0:
 				if tempLife < GlobalValues.life:
 					previewTxtLife.modulate = Color.red
-					previewBarLife.get("custom_styles/fg").bg_color = Color.red
+					previewBarLife.modulate = Color.red
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtLife.modulate = Color.green
-					previewBarLife.get("custom_styles/fg").bg_color = Color.green
+					previewBarLife.modulate = Color.green
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempLife < GlobalValues.lifeActual:
 					previewTxtLife.modulate = Color.red
-					previewBarLife.get("custom_styles/fg").bg_color = Color.red
+					previewBarLife.modulate = Color.red
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtLife.modulate = Color.green
-					previewBarLife.get("custom_styles/fg").bg_color = Color.green
+					previewBarLife.modulate = Color.green
+#					previewBarLife.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarLife.hide()
+			officialBarLife.show()
 			previewTxtLife.modulate = Color.white
 			
 			if GlobalValues.lifeActual <= 0:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.life)
 				officialBarLife.value = GlobalValues.life
+				# Se o valor atual e menor que o base, o valor max da barra e o do inicial valor base
+				previewBarLife.max_value = GlobalValues.life
+				officialBarLife.max_value = GlobalValues.life
 			else:
 				previewTxtLife.text = "Vida | " + str(GlobalValues.lifeActual)
 				officialBarLife.value = GlobalValues.lifeActual
+				# Compara as 2 situaçoes para saber se o valor vindo e menor ou maior de temp
+				# COm isso seta a max value de acordo com o valor global ja modificado
+				if GlobalValues.lifeActual >= GlobalValues.life:
+					previewBarLife.max_value = GlobalValues.lifeActual
+					officialBarLife.max_value = GlobalValues.lifeActual
+				else:
+					previewBarLife.max_value = GlobalValues.life
+					officialBarLife.max_value = GlobalValues.life
 	elif info == "Energy":
 		if status == "Show":
 			previewBarEnergy.show()
-			previewBarEnergy.value = tempEnergy
-			officialBarEnergy.value = tempEnergy
+			officialBarEnergy.hide()
+			energyBarGame.max_value = tempEnergy
+			
+			#---
+			if GlobalValues.energyActual >= GlobalValues.energy:
+				previewBarEnergy.max_value = GlobalValues.energyActual
+				officialBarEnergy.max_value = GlobalValues.energyActual
+			else:
+				previewBarEnergy.max_value = GlobalValues.energy
+				officialBarEnergy.max_value = GlobalValues.energy
+			#----
+			if tempEnergy > officialBarEnergy.max_value:
+				previewBarEnergy.max_value = tempEnergy
+				officialBarEnergy.max_value = tempEnergy
+				previewBarEnergy.value = tempEnergy
+				officialBarEnergy.value = tempEnergy
+			else:
+				previewBarEnergy.value = tempEnergy
+				officialBarEnergy.value = tempEnergy
+			
 			previewTxtEnergy.text = "Energia | " + str(tempEnergy)
 			
 			if GlobalValues.energyActual <= 0:
 				if tempEnergy < GlobalValues.energy:
 					previewTxtEnergy.modulate = Color.red
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
+					previewBarEnergy.modulate = Color.red
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtEnergy.modulate = Color.green
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
+					previewBarEnergy.modulate = Color.green
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempEnergy < GlobalValues.energyActual:
 					previewTxtEnergy.modulate = Color.red
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
+					previewBarEnergy.modulate = Color.red
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtEnergy.modulate = Color.green
-					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
+					previewBarEnergy.modulate = Color.green
+#					previewBarEnergy.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarEnergy.hide()
+			officialBarEnergy.show()
 			previewTxtEnergy.modulate = Color.white
 			
 			if GlobalValues.energyActual <= 0:
 				previewTxtEnergy.text = "Energia | " + str(GlobalValues.energy)
 				officialBarEnergy.value = GlobalValues.energy
+				previewBarEnergy.max_value = GlobalValues.energy
+				officialBarEnergy.max_value = GlobalValues.energy
 			else:
 				previewTxtEnergy.text = "Energia | " + str(GlobalValues.energyActual)
 				officialBarEnergy.value = GlobalValues.energyActual
+				if GlobalValues.energyActual >= GlobalValues.energy:
+					previewBarEnergy.max_value = GlobalValues.energyActual
+					officialBarEnergy.max_value = GlobalValues.energyActual
+				else:
+					previewBarEnergy.max_value = GlobalValues.energy
+					officialBarEnergy.max_value = GlobalValues.energy
 	elif info == "Speed":
 		if status == "Show":
 			previewBarSpeed.show()
-			previewBarSpeed.value = tempSpeed
+			officialBarSpeed.hide()
 			officialBarSpeed.value = tempSpeed
+			
+			#----
+			if GlobalValues.speedActual >= GlobalValues.speed:
+				previewBarSpeed.max_value = GlobalValues.speedActual
+				officialBarSpeed.max_value = GlobalValues.speedActual
+			else:
+				previewBarSpeed.max_value = GlobalValues.speed
+				officialBarSpeed.max_value = GlobalValues.speed
+			#----
+			if tempSpeed > officialBarSpeed.max_value:
+				previewBarSpeed.max_value = tempSpeed
+				officialBarSpeed.max_value = tempSpeed
+				previewBarSpeed.value = tempSpeed
+				officialBarSpeed.value = tempSpeed
+			else:
+				previewBarSpeed.value = tempSpeed
+				officialBarSpeed.value = tempSpeed
+				
 			previewTxtSpeed.text = "Veloc. | " + str(tempSpeed)
 			
 			if GlobalValues.speedActual <= 0:
 				if tempSpeed < GlobalValues.speed:
 					previewTxtSpeed.modulate = Color.red
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
+					previewBarSpeed.modulate = Color.red
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtSpeed.modulate = Color.green
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
+					previewBarSpeed.modulate = Color.green
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempSpeed < GlobalValues.speedActual:
 					previewTxtSpeed.modulate = Color.red
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
+					previewBarSpeed.modulate = Color.red
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtSpeed.modulate = Color.green
-					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
+					previewBarSpeed.modulate = Color.green
+#					previewBarSpeed.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarSpeed.hide()
+			officialBarSpeed.show()
 			previewTxtSpeed.modulate = Color.white
 			
 			if GlobalValues.speedActual <= 0:
 				previewTxtSpeed.text = "Veloc. | " + str(GlobalValues.speed)
 				officialBarSpeed.value = GlobalValues.speed
+				previewBarSpeed.max_value = GlobalValues.speed
+				officialBarSpeed.max_value = GlobalValues.speed
 			else:
 				previewTxtSpeed.text = "Veloc. | " + str(GlobalValues.speedActual)
 				officialBarSpeed.value = GlobalValues.speedActual
+				if GlobalValues.speedActual >= GlobalValues.speed:
+					previewBarSpeed.max_value = GlobalValues.speedActual
+					officialBarSpeed.max_value = GlobalValues.speedActual
+				else:
+					previewBarSpeed.max_value = GlobalValues.speed
+					officialBarSpeed.max_value = GlobalValues.speed
 	elif info == "ATKMain":
 		if status == "Show":
 			previewBarATKMain.show()
-			previewBarATKMain.value = tempATKMain
+			officialBarATKMain.hide()
 			officialBarATKMain.value = tempATKMain
+			
+			#---
+			if GlobalValues.atkMainActual >= GlobalValues.atkMain:
+				previewBarATKMain.max_value = GlobalValues.atkMainActual
+				officialBarATKMain.max_value = GlobalValues.atkMainActual
+			else:
+				previewBarATKMain.max_value = GlobalValues.atkMain
+				officialBarATKMain.max_value = GlobalValues.atkMain
+			#---
+			if tempATKMain > officialBarATKMain.max_value:
+				previewBarATKMain.max_value = tempATKMain
+				officialBarATKMain.max_value = tempATKMain
+				previewBarATKMain.value = tempATKMain
+				officialBarATKMain.value = tempATKMain
+			else:
+				previewBarATKMain.value = tempATKMain
+				officialBarATKMain.value = tempATKMain
+			
 			previewTxtATKMain.text = "ATK Main | " + str(tempATKMain)
 			
 			if GlobalValues.atkMainActual <= 0:
 				if tempATKMain < GlobalValues.atkMain:
 					previewTxtATKMain.modulate = Color.red
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKMain.modulate = Color.red
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKMain.modulate = Color.green
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKMain.modulate = Color.green
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempATKMain < GlobalValues.atkMainActual:
 					previewTxtATKMain.modulate = Color.red
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKMain.modulate = Color.red
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKMain.modulate = Color.green
-					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKMain.modulate = Color.green
+#					previewBarATKMain.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarATKMain.hide()
+			officialBarATKMain.show()
 			previewTxtATKMain.modulate = Color.white
 			
 			if GlobalValues.atkMainActual <= 0:
 				previewTxtATKMain.text = "ATK Main | " + str(GlobalValues.atkMain)
 				officialBarATKMain.value = GlobalValues.atkMain
+				previewBarATKMain.max_value = GlobalValues.atkMain
+				officialBarATKMain.max_value = GlobalValues.atkMain
 			else:
 				previewTxtATKMain.text = "ATK Main | " + str(GlobalValues.atkMainActual)
 				officialBarATKMain.value = GlobalValues.atkMainActual
+				if GlobalValues.atkMainActual >= GlobalValues.atkMain:
+					previewBarATKMain.max_value = GlobalValues.atkMainActual
+					officialBarATKMain.max_value = GlobalValues.atkMainActual
+				else:
+					previewBarATKMain.max_value = GlobalValues.atkMain
+					officialBarATKMain.max_value = GlobalValues.atkMain
 	elif info == "ATKSec":
 		if status == "Show":
 			previewBarATKSec.show()
-			previewBarATKSec.value = tempATKSec
+			officialBarATKSec.hide()
 			officialBarATKSec.value = tempATKSec
+			
+			#---
+			if GlobalValues.atkSecActual >= GlobalValues.atkSec:
+				previewBarATKSec.max_value = GlobalValues.atkSecActual
+				officialBarATKSec.max_value = GlobalValues.atkSecActual
+			else:
+				previewBarATKSec.max_value = GlobalValues.atkSec
+				officialBarATKSec.max_value = GlobalValues.atkSec
+			#----
+			if tempATKSec > officialBarATKSec.max_value:
+				previewBarATKSec.max_value = tempATKSec
+				officialBarATKSec.max_value = tempATKSec
+				previewBarATKSec.value = tempATKSec
+				officialBarATKSec.value = tempATKSec
+			else:
+				previewBarATKSec.value = tempATKSec
+				officialBarATKSec.value = tempATKSec
+			
 			previewTxtATKSec.text = "ATK Sec | " + str(tempATKSec)
 			
 			if GlobalValues.atkSecActual <= 0:
-				if tempATKSec < GlobalValues.atkMain:
+				if tempATKSec < GlobalValues.atkSec:
 					previewTxtATKSec.modulate = Color.red
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKSec.modulate = Color.red
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKSec.modulate = Color.green
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKSec.modulate = Color.green
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
 			else:
 				if tempATKSec < GlobalValues.atkSecActual:
 					previewTxtATKSec.modulate = Color.red
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
+					previewBarATKSec.modulate = Color.red
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.red
 				else:
 					previewTxtATKSec.modulate = Color.green
-					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
+					previewBarATKSec.modulate = Color.green
+#					previewBarATKSec.get("custom_styles/fg").bg_color = Color.green
 		else:
 			previewBarATKSec.hide()
+			officialBarATKSec.show()
 			previewTxtATKSec.modulate = Color.white
 			
 			if GlobalValues.atkSecActual <= 0:
 				previewTxtATKSec.text = "ATK Sec | " + str(GlobalValues.atkSec)
 				officialBarATKSec.value = GlobalValues.atkSec
+				previewBarATKSec.max_value = GlobalValues.atkSec
+				officialBarATKSec.max_value = GlobalValues.atkSec
 			else:
 				previewTxtATKSec.text = "ATK Sec | " + str(GlobalValues.atkSecActual)
 				officialBarATKSec.value = GlobalValues.atkSecActual
+				if GlobalValues.atkSecActual >= GlobalValues.atkSec:
+					previewBarATKSec.max_value = GlobalValues.atkSecActual
+					officialBarATKSec.max_value = GlobalValues.atkSecActual
+				else:
+					previewBarATKSec.max_value = GlobalValues.atkSec
+					officialBarATKSec.max_value = GlobalValues.atkSec
 
 func hide_show_item_desc(status):
 	if status:
@@ -719,7 +925,117 @@ func _on_Background_Invent_gui_input(event):
 			show_or_hide_informations("Energy","Hide")
 			show_or_hide_informations("Speed","Hide")
 			hide_show_item_desc(false)
+			resourceFromButton = null
 
-func play_sfx(event,name):
-	if name:
-		GlobalMusicPlayer.play_sound(event,name)
+func insert_itens_invent(type):
+	# Acessa a pasta contendo os arquivos de valores .tres
+	# Com o loop para cada arquivo, sera criado um botao com as informacoes do item
+	if type == "Weapon":
+		var allWeapons = get_files_in_directory(weaponsResourcePath)
+		print(allWeapons)
+		for i in allWeapons.size():
+			if allWeapons[i].unlocked:
+				# Cria uma nova instancia
+				var weaponBTN = btnInventory.instance()
+				# Acessa a resource da variavel
+				var weaponResource = allWeapons[i]
+				# Passa a resource para o botao trabalhar com os valores quando clicado
+				weaponBTN.buttonResource = weaponResource
+				weaponBTN.connect("change_item",self,"preview_item")
+				# Carrega o icone no botao
+				weaponBTN.icon = weaponResource.icon
+				# Add no root node do item
+				rootWeaponsInventory.add_child(weaponBTN)
+				
+				# Aqui e onde as armas sao equipadas pra ui principal
+				# Lembrando que a arma deve estar desbloqueada na resource
+				if allWeapons[i].name == player.mainGun:
+					# Seta a resource e o objeto pra chamar as funcoes
+					# get_weapons_calculation e set_itens
+					objectButton = weaponBTN
+					resourceFromButton =  allWeapons[i]
+					get_weapons_calculation("Main",1)
+					
+					# Se o jogador nao tem arma equipada quando for receber uma recompensa, cria novos itens pra ele
+					if player.mainGun == "":
+						set_itens(allWeapons[i])
+					# Mas se ele ja tem uma arma main equipada, apenas relinka a nova referencia criada ao botao da arma ja equipada
+					else:
+						if allWeapons[i].name == rootMainWeapon.get_child(0).buttonResource.name:
+							rootMainWeapon.get_child(0).btnLinked = weaponBTN
+							weaponBTN.hide()
+							
+					# Preseta as variaveis de status de acordo com o resultado da funcao get_weapons_calculation
+					GlobalValues.lifeActual = tempLife
+					GlobalValues.energyActual = tempEnergy
+					GlobalValues.speedActual = tempSpeed
+					GlobalValues.atkMainActual = tempATKMain
+					GlobalValues.atkSecActual = tempATKSec
+				elif allWeapons[i].name == player.secGun:
+					objectButton = weaponBTN
+					resourceFromButton =  allWeapons[i]
+					get_weapons_calculation("Sec",1)
+					
+					if player.secGun == "":
+						set_itens(allWeapons[i])
+					else:
+						if allWeapons[i].name == rootSecWeapon.get_child(0).buttonResource.name:
+							rootSecWeapon.get_child(0).btnLinked = weaponBTN
+							weaponBTN.hide()
+							
+					GlobalValues.lifeActual = tempLife
+					GlobalValues.energyActual = tempEnergy
+					GlobalValues.speedActual = tempSpeed
+					GlobalValues.atkMainActual = tempATKMain
+					GlobalValues.atkSecActual = tempATKSec
+	elif type == "Chip":
+		var allChips = get_files_in_directory(chipsResourcePath)
+		for i in allChips.size():
+			if allChips[i].unlocked:
+				# Cria uma nova instancia
+				var chipBTN = btnInventory.instance()
+				# Acessa a resource da variavel
+				var chipResource = allChips[i]
+				# Passa a resource para o botao trabalhar com os valores quando clicado
+				chipBTN.buttonResource = chipResource
+				chipBTN.connect("change_item",self,"preview_item")
+				# Carrega o icone no botao
+				chipBTN.icon = chipResource.icon
+				# Add no root node do item
+				rootChipsInventory.add_child(chipBTN)
+				
+				# Se existe algum chip equipado, busca em cada um deles qual e a referencia desse novo botao criado e relinka no botao existente
+				for j in rootChipsEquiped.get_child_count():
+					if rootChipsEquiped.get_child(j).buttonResource.name == allChips[i].name:
+						rootChipsEquiped.get_child(j).btnLinked = chipBTN
+						chipBTN.hide()
+	elif type == "Consum":
+		var allConsums = get_files_in_directory(consumsResourcePath)
+		for i in allConsums.size():
+			if allConsums[i].unlocked:
+				if allConsums[i].quant > 0:
+					# Cria uma nova instancia
+					var consumBTN = btnInventory.instance()
+					# Acessa a resource da variavel
+					var consumResource = allConsums[i]
+					# Passa a resource para o botao trabalhar com os valores quando clicado
+					consumBTN.buttonResource = consumResource
+					consumBTN.connect("change_item",self,"preview_item")
+					# Carrega o icone no botao
+					consumBTN.icon = consumResource.icon
+					# Add no root node do item
+					rootConsumsInventory.add_child(consumBTN)
+					
+					# Se existe algum consumivel equipado, busca em cada um deles qual e a referencia desse novo botao criado e relinka no botao existente
+					for j in rootConsumsEquiped.get_child_count():
+						if rootConsumsEquiped.get_child(j).buttonResource.name == allConsums[i].name:
+							rootConsumsEquiped.get_child(j).btnLinked = consumBTN
+							consumBTN.hide()
+
+func start_inventory():
+	insert_itens_invent("Weapon")
+	insert_itens_invent("Chip")
+	insert_itens_invent("Consum")
+
+
+

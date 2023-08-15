@@ -1,0 +1,222 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": ""
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Olá! Meu nome é Jorge, muito prazer!\nVocê deve ser o estudante voluntário. Seja bem-vindo ao Instituto Brasil!\nVocê chegou em boa hora. Ouvi dizer que você é ótimo fazendo limpeza de vírus!\nNossas I.As foram corrompidas e estamos infestados."
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Você está pronto para nos ajudar a enfrentar essas mentiras e recuperar conhecimento científico perdido no Ciberespaço?"
+		},
+		{
+			"choice": "Claro que sim!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Não temos tempo a perder, tenho alguém para te apresentar.\nEle o espera no museu. É uma de nossas maiores atrações: GALILEU GALILEI!\nBasta seguir a trilha azul tudo bem?"
+		},
+		{
+			"emit_signal": "start_quest_normal",
+			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "unlocked"
+		},
+		{
+			"choice": "Mas quem fez isso?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Não tem nenhum responsável, as I.As foram corrompidas pelo excesso de informações falsas on-line, isso afetou nossa segurança e daí vieram os vírus. \nQuando estiver pronto fale comigo novamente ok?"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "meet_galileu"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Incrível, não é?\nInfelizmente essas IA 's também estão correndo o risco de se corromperem… Mas é por isso que VOCÊ está aqui.\nExplore o museu. Fale com as IAs das personalidades. Você deve ter notado que algumas perguntas estão bloqueadas. Essas são as informações que você precisa recuperar.\nPor motivos de segurança, nós só estamos deixando o pessoal autorizado fazer essas perguntas. Vou te dar acesso para que você possa começar o trabalho pelo Galileu.\nEu vou estar aqui com os outros cientistas do IBICT! Venha falar conosco qualquer hora dessas!"
+		},
+		{
+			"definition": "1691541665-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "unlocked"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "unlocked"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Se apresse e vá falar com Galileu.\nBasta seguir a trilha azul tudo bem?"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "started"
+		},
+		{
+			"condition": "<=",
+			"definition": "1691987794-787",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Você conseguiu resolver o problema do Galileu? Recuperou o telescópio?\nPuxa que incrível! Você realmente é muito bom nisso sabia?\nCom certeza o Galileu vai ficar feliz em saber disso, então se apresse e fale com ele!"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": ">=",
+			"definition": "1691987794-787",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Você falou com o GALILEU? \nOH NÃO! Eu entendi tudo.\nEu tenho quase certeza que os vírus espalhados pelo Ciber espaço tem algo a ver com a dificuldade em acessar os dados da I.A.\nPor favor se apresse! Vá ao segundo andar e viaje até o Ciber espaço para investigar e depois volte para falar com o Galileu."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1691541665-648",
+			"event_id": "dialogic_012",
+			"value": "teste"
+		},
+		{
+			"character": "character-1666579378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Então a Maria está ainda fazendo a pesquisa?\nMas não entendo a demora.\nO jeito é esperar né? Mas obrigado pela ajuda.\nPelo seu bom trabalho irei te dar um item."
+		},
+		{
+			"emit_signal": "give_reward",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "next_quest",
+			"event_id": "dialogic_040"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691539260.json",
+		"name": "Quest_01_Jorge"
+	}
+}

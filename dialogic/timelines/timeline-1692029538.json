@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692029049.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "PUXA, PUXA QUE PUXA!\nONDE FUI DEIXAR MEU CADERNO DE ANOTAÇÕES?\nSEM ELE ESTOU PERDIDO! SEM CONHECIMENTO ESTAMOS TODOS PERDIDOS!"
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692029538.json",
+		"name": "Kauan"
+	}
+}

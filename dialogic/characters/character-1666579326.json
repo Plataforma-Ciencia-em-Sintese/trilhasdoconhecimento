@@ -1,7 +1,7 @@
 {
 	"color": "#ff00c3ff",
 	"description": "Player principal da cena.",
-	"display_name": "Junior",
+	"display_name": "Jogador(a)",
 	"display_name_bool": true,
 	"id": "character-1666579326.json",
 	"mirror_portraits": false,

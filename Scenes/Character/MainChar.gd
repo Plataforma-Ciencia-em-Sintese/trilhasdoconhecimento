@@ -5,17 +5,17 @@ export (String, "Ariel","Bento","Caio","Clara","Yara") var mainChar
 export (String, "Normal","Armadura") var activeCloths
 
 # Armazena as armas atuais
-export var mainGun : String = "Varinha"
-export var secGun : String = "Espada"
+export var mainGun : String = ""
+export var secGun : String = ""
 
 # Armazena os nodes da cena Player para esconder quando for necessario
 export (Array,NodePath) var nodesToHide
 
 # Resource de som do jogador
-export (Resource) var soundResource
+export (Resource) var sfxResource
 
 # Identifica qual arma esta atualmente sendo usada
-var selectedGun : String = "Espada"
+var selectedGun : String = ""
 
 # Coleta o inventario
 onready var invent : Node = $Inventory
@@ -36,6 +36,9 @@ onready var swordWeapon : Node = $Base/Skeleton/BoneAttachmentR/Sword
 onready var wandWeapon : Node = $Base/Skeleton/BoneAttachmentR/Wand
 onready var bowWeapon : Node = $Base/Skeleton/BoneAttachmentR/Bow
 
+# Checa o pointer do player
+onready var pointer : Node = get_tree().get_nodes_in_group("Pointer")[0]
+
 # Identifica aonde estao o corpo e a armadura .tres de cada jogador nos arquivos
 var suits = {
 	"Ariel": ["res://3D/Character Oficial/Ariel/Ariel Normal.tres","res://3D/Character Oficial/Ariel/Ariel Armadura.tres"],
@@ -46,9 +49,21 @@ var suits = {
 }
 
 func _ready():
+	# Identifica a camera cinematica da fase caso seja necessario e inicia o modo cutscene
+	if getCineCam:
+		var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
+		cineCamera.connect("camera_activated",self,"cinematic_mode")
+	
+	yield(get_tree().create_timer(0.5),"timeout")
 	# Seta quem e o jogador de acordo com os valores das variaveis
 	mainChar = GlobalValues.nameChar
-	activeCloths = GlobalValues.skinChar
+	if GlobalQuest.localScene.name == "Cyberspace":
+		GlobalValues.skinChar = "Armadura"
+		activeCloths = GlobalValues.skinChar
+	else:
+		GlobalValues.skinChar = "Normal"
+		activeCloths = GlobalValues.skinChar
+		
 	if activeCloths == "Normal":
 		bodySkeleton.mesh = load(suits[mainChar][0])
 		battleUI.hide()
@@ -56,21 +71,15 @@ func _ready():
 		bodySkeleton.mesh = load(suits[mainChar][1])
 		battleUI.show()
 		change_weapons(selectedGun)
-
-	if GlobalValues.whiteScreen:
-		get_tree().get_nodes_in_group("WhiteTransition")[0].get_node("AnimationPlayer").play("FadeOut")
-	
-	if QuestManager.isInQuest:
-		QuestManager.player = self
-	
-	# Identifica a camera cinematica da fase caso seja necessario e inicia o modo cutscene
-	if getCineCam:
-		var cineCamera = get_tree().get_nodes_in_group("CineCamera")[0]
-		cineCamera.connect("camera_activated",self,"cinematic_mode")
-
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_select"):
-		get_tree().change_scene("res://Scenes/Sci Fi Room/Debug_Boss_Room.tscn")
+		
+#func _physics_process(delta):
+#	if Input.is_action_pressed("ui_select"):
+##		get_tree().reload_current_scene()
+##		get_tree().change_scene("res://3D/Cyberspace/Scene/Cyberespace1.tscn")
+#		GlobalAdmLifeEnergy.life_changer(-10 * delta)
+#	elif Input.is_action_just_pressed("ui_accept"):
+##		get_tree().reload_current_scene()
+#		get_tree().change_scene("res://Scenes/Sci Fi Room/New_Debug_Room_2.tscn")
 
 func change_weapons(weapon):
 	# Checa qual arma e a atual e troca de acordo com o parametro
@@ -108,7 +117,7 @@ func change_weapons(weapon):
 	else:
 		hammerWeapon.hide()
 		shieldWeapon.hide()
-		swordWeapon.show()
+		swordWeapon.hide()
 		wandWeapon.hide()
 		bowWeapon.hide()
 

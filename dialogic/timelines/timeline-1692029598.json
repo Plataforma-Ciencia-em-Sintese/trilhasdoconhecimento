@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692029069.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "O nosso HUB de encontro está passando por reforma.\nFalta ainda abrir as lojas por aqui, mas fiquei sabendo que o MUSEU está pronto e aberto a visitação.\nVou trazer meu filho um dia pra cá pra ele visitar tudo, ele vai gostar com certeza."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692029598.json",
+		"name": "Souza"
+	}
+}

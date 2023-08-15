@@ -1,7 +1,10 @@
 extends Resource
 class_name Weapon_Skill
 
+export (bool) var unlocked
+export (bool) var hasShowed
 var type = "Skill"
+export(String) var name = ""
 export (Texture) var icon
 export (String) var sceneSkill = ""
 export (float) var levelToUnlock = 0

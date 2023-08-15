@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1692037058.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Eu estava pensando: se alguém pudesse entrar no Ciberespaço e resolver problemas que não conseguimos no mundo real?\nNos ajudaria e muito, pois não sabemos os perigos do mundo virtual.\nVocê seria um bom candidato...Me parece bem animado correndo por aqui."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1692037992.json",
+		"name": "Naju"
+	}
+}

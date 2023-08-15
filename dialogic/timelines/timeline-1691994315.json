@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "character-1691994149.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bem vindo ao primeiro andar.\nAqui temos algumas salas de pesquisa, mas apenas o MUSEU está aberto.\nAo pegar o elevador, você será levado ao segundo andar. Lá é onde realizamos nossas pesquisas voltadas ao Ciber espaço.\nEsperamos que aproveite a visita."
+		},
+		{
+			"emit_signal": "cabou",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1691994315.json",
+		"name": "Recepcionista"
+	}
+}
