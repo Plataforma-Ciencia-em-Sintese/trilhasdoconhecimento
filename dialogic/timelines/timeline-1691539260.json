@@ -44,7 +44,7 @@
 			"operation": "=",
 			"random_upper_limit": 100,
 			"set_random": false,
-			"set_value": "active"
+			"set_value": "unlocked"
 		},
 		{
 			"choice": "Mas quem fez isso?",

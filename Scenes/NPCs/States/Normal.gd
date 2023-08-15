@@ -26,6 +26,7 @@ func state_npc(value):
 			get_node(animationTree).get("parameters/moving/playback").travel("Idle")
 			$Timer.wait_time = rand_range(1,2)
 			$Timer.start()
+			speed = 0
 			lockMovingArround = true
 		
 func _on_Timer_timeout():
